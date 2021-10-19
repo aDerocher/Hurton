@@ -4,15 +4,48 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        firstName ='Demo', 
+        lastName = 'Hurton',
+        email='demo@hurton.com',
+        password='password')
+    jake = User(
+        firstName ='Jake', 
+        lastName = 'Hurton',
+        email='jake@hurton.com',
+        password='password')
+    vince = User(
+        firstName ='Vincent', 
+        lastName = 'Schuster',
+        email='vinny@schust.com',
+        password='password')
+    dan = User(
+        firstName ='Dan', 
+        lastName = 'Scott',
+        email='danny@scottsimmons.com',
+        password='password')
+    rick = User(
+        firstName ='Rick', 
+        lastName = 'Brolin',
+        email='rick@brollin.com',
+        password='password')
+    vasko = User(
+        firstName ='Vasko', 
+        lastName = 'St.Petersburg',
+        email='vasko@vasko.com',
+        password='password')
+    dragon = User(
+        firstName ='Dragon', 
+        lastName = 'Long',
+        email='dragon@long.com',
+        password='password')
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+
+    db.session.add(jake)
+    db.session.add(vince)
+    db.session.add(dan)
+    db.session.add(rick)
+    db.session.add(vasko)
+    db.session.add(dragon)
 
     db.session.commit()
 

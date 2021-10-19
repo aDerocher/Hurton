@@ -47,7 +47,7 @@ class Item(db.Model):
             'response' : self.response,
             'stiffness' : self.stiffness,
 
-            'warmth': self.wamth,
+            'warmth': self.warmth,
             'waterproofing': self.waterproofing,
            
             'lacing': self.lacing,

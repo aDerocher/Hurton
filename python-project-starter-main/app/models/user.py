@@ -12,7 +12,6 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     firstName = db.Column(db.String(50), nullable=False) 
     lastName = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(255), nullable=False) 
     dob = db.Column(db.DateTime()) 
     address = db.Column(db.String(255)) 
     creditcard = db.Column(db.String(27)) 
