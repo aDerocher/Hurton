@@ -19,37 +19,37 @@ export const getAllItems = () => async (dispatch) => {
     const response = await fetch(`/api/items`, {
         method: 'GET',
         headers: {
-        'Content-Type': 'application/json'
-      }
+            'Content-Type': 'application/json'
+        }
     });
     if (response.ok) {
-      const data = await response.json();
-      if (data.errors) {
-        return `Error fetching items ===================================================`;
-      }
-      const items = data.items
+        const data = await response.json();
+        if (data.errors) {
+            return `Error fetching all items`;
+        }
+        const items = data.items
         dispatch(allItems(items));
         return response;
     }
 }
 
 
-// export const getOneItem = (item_id) => async (dispatch) => {
-//     const response = await fetch(`/api/items/${item_id}`, {
-//         method: 'GET',
-//         headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     });
-//     if (response.ok) {
-//       const data = await response.json();
-//       if (data.errors) {
-//         return `Error fetching item ${item_id}`;
-//       }
-      
-//       dispatch(oneItem(data));
-//     }
-//   }
+export const getOneItem = (item_id) => async (dispatch) => {
+    const response = await fetch(`/api/items/${item_id}`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      const data = await response.json();
+      if (data.errors) {
+        return `Error fetching item ${item_id}`;
+      }
+      const item = data.item
+      dispatch(oneItem(item));
+    }
+  }
 
 
 // =========== Reduce ========================
@@ -61,7 +61,7 @@ export default function reducer(state = initialState, action) {
       case GET_ITEM:
         return [ ...newState, action.payload ]
       case ALL_ITEMS:
-        return action.payload
+        return [ action.payload ]
       default:
         return state;
     }

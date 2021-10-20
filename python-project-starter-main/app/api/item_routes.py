@@ -11,7 +11,7 @@ def all_items():
     return {'items': [item.to_dict() for item in items]}
 
 
-# @item_routes.route('/<item_id:id>',methods=['GET'])
-# def one_item(id):
-#     item = Item.query.get(item_id)
-#     return item.to_dict()
+@item_routes.route('/<int:item_id>',methods=['GET'])
+def one_item(item_id):
+    item = Item.query.get(item_id)
+    return { 'item': [item.to_dict()] }

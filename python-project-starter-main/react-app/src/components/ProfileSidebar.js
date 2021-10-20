@@ -14,14 +14,17 @@ function ProfileSidebar() {
 //   }
 
     return (
-        <div class='sidebar'>
+        <div className='sidebar'>
             <p>This is the sidebar</p>
             <ul>
                 <li>
-                    <NavLink to={`/users/${userId}/wishlist`}><button>wishlist</button></NavLink>
+                    <NavLink to={`/users/${userId}/edit-profile`}><button>Info & Preferences</button></NavLink>
                 </li>
                 <li>
-                    <NavLink to={`/users/${userId}/edit-profile`}><button>edit profile</button></NavLink>
+                    <NavLink to={`/users/${userId}/order-history`}><button>Order History</button></NavLink>
+                </li>
+                <li>
+                    <NavLink to={`/users/${userId}/wishlist`}><button>wishlist</button></NavLink>
                 </li>
             </ul>
         </div>

@@ -4,8 +4,7 @@ import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"
 
 function ProfileEdit() {
-    const params = useParams();
-    const userId = params.userId
+    const {userId} = useParams();
     const sessionUser = (state => state.sessionUser.user)
 
 
@@ -14,6 +13,7 @@ function ProfileEdit() {
             <ProfileSidebar />
             <div>
                 <form action='' method=''>
+                    <h2>Edit Profile</h2>
                     <p>First Name</p> {sessionUser.firstName}
                     <input></input>
                     <p>Last Name</p> {sessionUser.lastName}

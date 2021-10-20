@@ -53,6 +53,11 @@ const NavBar = () => {
                 <LogoutButton />
             </li>
         }
+        <li>
+            <NavLink to={`/users/${sessionUser?.id}/cart`} exact={true} activeClassName='active'>
+                <button><i className="fas fa-shopping-cart"></i></button>
+            </NavLink>
+        </li>
       </ul>
     </nav>
   );

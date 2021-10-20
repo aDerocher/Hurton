@@ -8,7 +8,9 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import ProfilePage from './components/ProfilePage';
 import ProfileEdit from './components/ProfileEdit';
+import ProfileOrderHist from './components/ProfileOrderHist';
 import Wishlist from './components/Wishlist';
+import Cart from './components/Cart';
 // import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
 import { authenticate } from './store/session';
@@ -57,11 +59,18 @@ function App() {
             <ProfilePage />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
-            <Wishlist />
+        <ProtectedRoute path='/users/:userId/cart' exact={true} >
+            <Cart />
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
             <ProfileEdit />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/order-history' exact={true} >
+            <ProfileOrderHist />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
+            <Wishlist />
         </ProtectedRoute>
 
         <ProtectedRoute path='/' exact={true} >
