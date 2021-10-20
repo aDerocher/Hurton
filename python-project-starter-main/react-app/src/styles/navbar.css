@@ -1,0 +1,7 @@
+nav > ul {
+    display: flex;
+    flex: row;
+}
+ul > li {
+    margin: 12px;
+}
