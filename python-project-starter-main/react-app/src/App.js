@@ -6,7 +6,10 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import ProfilePage from './components/ProfilePage';
+import ProfileEdit from './components/ProfileEdit';
+import Wishlist from './components/Wishlist';
+// import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
 import { authenticate } from './store/session';
 import "./index.css";
@@ -31,27 +34,40 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
-          <LoginForm />
+            <LoginForm />
         </Route>
+
         <Route path='/shop' exact={true}>
-          <Shop />
+            <Shop />
         </Route>
+
         <Route path='/shop/:item_type' exact={true}>
-          <Shop />
+            <Shop />
         </Route>
+
         <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+            <SignUpForm />
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+            <UsersList/>
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+            <ProfilePage />
         </ProtectedRoute>
+
+        <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
+            <Wishlist />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
+            <ProfileEdit />
+        </ProtectedRoute>
+
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <br />
-          <p>Splash component to be created</p>
+            <h1>My Home Page</h1>
+            <br />
+            <p>Splash component to be created</p>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
