@@ -14,4 +14,4 @@ def all_items():
 @item_routes.route('/<int:item_id>',methods=['GET'])
 def one_item(item_id):
     item = Item.query.get(item_id)
-    return { 'item': [item.to_dict()] }
+    return { 'item': item.to_dict() }

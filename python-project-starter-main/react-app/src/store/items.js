@@ -59,9 +59,9 @@ export default function reducer(state = initialState, action) {
     let newState = [ ...state ]
     switch (action.type) {
       case GET_ITEM:
-        return [ ...newState, action.payload ]
+        return [ action.payload ]
       case ALL_ITEMS:
-        return [ ...action.payload ]
+        return [ ...action.payload]
       default:
         return state;
     }
