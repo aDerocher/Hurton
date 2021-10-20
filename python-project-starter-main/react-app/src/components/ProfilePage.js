@@ -23,7 +23,7 @@ function ProfilePage() {
   }
 
     return (
-        <div class="profile-page-container">
+        <div className="profile-page-container">
             <ProfileSidebar />
             <div>
                 <ul>

@@ -1,6 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .items import seed_items, undo_items
+from .carts import seed_carts, undo_carts
 from .item_types import seed_itemtypes, undo_itemtypes
 
 # Creates a seed group to hold our commands
@@ -14,6 +15,7 @@ def seed():
     seed_users()
     seed_itemtypes()
     seed_items()
+    seed_carts()
     # Add other seed functions here
 
 
@@ -23,4 +25,5 @@ def undo():
     undo_users()
     undo_itemtypes()
     undo_items()
+    undo_carts()
     # Add other undo functions here
