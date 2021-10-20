@@ -42,7 +42,7 @@ const NavBar = () => {
             <button disabled={sessionUser} onClick={loginDemo}>Demo</button>
         </li>
         <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
+          <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
             Users
           </NavLink>
         </li>
