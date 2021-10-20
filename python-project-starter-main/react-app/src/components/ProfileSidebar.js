@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 
 function ProfileSidebar() {

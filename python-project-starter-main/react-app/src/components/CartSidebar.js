@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+// import { useParams, NavLink } from 'react-router-dom';
 
 function CartSidebar() {
 //   const [user, setUser] = useState({});
-  const { userId }  = useParams();
+//   const { userId }  = useParams();
 
   useEffect(() => {
 

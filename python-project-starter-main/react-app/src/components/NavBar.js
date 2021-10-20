@@ -8,7 +8,7 @@ import './../styles/navbar.css'
 const NavBar = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    const items = useSelector(state => state.items)
+    // const items = useSelector(state => state.items)
 
 
     const loginDemo = () => {

@@ -61,7 +61,7 @@ export default function reducer(state = initialState, action) {
       case GET_ITEM:
         return [ ...newState, action.payload ]
       case ALL_ITEMS:
-        return [ action.payload ]
+        return [ ...action.payload ]
       default:
         return state;
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"

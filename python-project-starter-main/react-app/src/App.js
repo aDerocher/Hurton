@@ -13,6 +13,7 @@ import Wishlist from './components/Wishlist';
 import Cart from './components/Cart';
 // import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
+import Snowboard from './components/item-comps/Snowboard';
 import { authenticate } from './store/session';
 import "./index.css";
 
@@ -35,6 +36,7 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+          
         <Route path='/login' exact={true}>
             <LoginForm />
         </Route>
@@ -43,8 +45,8 @@ function App() {
             <Shop />
         </Route>
 
-        <Route path='/shop/:item_type' exact={true}>
-            <Shop />
+        <Route path='/shop/snowboard/:itemId' exact={true}>
+            <Snowboard />
         </Route>
 
         <Route path='/sign-up' exact={true}>
@@ -73,11 +75,6 @@ function App() {
             <Wishlist />
         </ProtectedRoute>
 
-        <ProtectedRoute path='/' exact={true} >
-            <h1>My Home Page</h1>
-            <br />
-            <p>Splash component to be created</p>
-        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

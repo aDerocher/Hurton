@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+// import { useParams } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"
 
