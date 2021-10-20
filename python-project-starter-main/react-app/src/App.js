@@ -50,6 +50,8 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
+          <br />
+          <p>Splash component to be created</p>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -20,19 +20,22 @@ function User() {
     return null;
   }
 
-  return (
-    <ul>
-      <li>
-        <strong>User Id</strong> {userId}
-      </li>
-      <li>
-        <strong>First Name</strong> {user.firstName}
-        <strong>Last Name</strong> {user.lastName}
-      </li>
-      <li>
-        <strong>Email</strong> {user.email}
-      </li>
-    </ul>
-  );
+    return (
+        <div>
+            <ul>
+                <li>
+                    <strong>User Id</strong> {userId}
+                </li>
+                <li>
+                    <strong>First Name</strong> {user.firstName}
+                    <strong>Last Name</strong> {user.lastName}
+                </li>
+                <li>
+                    <strong>Email</strong> {user.email}
+                </li>
+            </ul>
+            <button>wishli</button>
+        </div>
+    );
 }
 export default User;
