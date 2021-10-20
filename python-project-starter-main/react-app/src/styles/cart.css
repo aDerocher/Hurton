@@ -1,0 +1,6 @@
+.cart-page-container{
+    display: flex;
+}
+div{
+    border: 1px solid green;
+}

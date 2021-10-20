@@ -8,11 +8,11 @@ import './../styles/navbar.css'
 const NavBar = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    const items = useSelector(state => state.items)
+    // const items = useSelector(state => state.items)
 
 
     const loginDemo = () => {
-        dispatch(login('demo@demo.com','password'));
+        dispatch(login('demo@hurton.com','password'));
     }
 
   return (
@@ -53,6 +53,11 @@ const NavBar = () => {
                 <LogoutButton />
             </li>
         }
+        <li>
+            <NavLink to={`/users/${sessionUser?.id}/cart`} exact={true} activeClassName='active'>
+                <button><i className="fas fa-shopping-cart"></i></button>
+            </NavLink>
+        </li>
       </ul>
     </nav>
   );

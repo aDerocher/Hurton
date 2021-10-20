@@ -40,6 +40,7 @@ def seed_users():
         password='password')
 
 
+    db.session.add(demo)
     db.session.add(jake)
     db.session.add(vince)
     db.session.add(dan)

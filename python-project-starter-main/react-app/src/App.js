@@ -6,8 +6,14 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
+import ProfilePage from './components/ProfilePage';
+import ProfileEdit from './components/ProfileEdit';
+import ProfileOrderHist from './components/ProfileOrderHist';
+import Wishlist from './components/Wishlist';
+import Cart from './components/Cart';
+// import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
+import Snowboard from './components/item-comps/Snowboard';
 import { authenticate } from './store/session';
 import "./index.css";
 
@@ -30,29 +36,45 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+          
         <Route path='/login' exact={true}>
-          <LoginForm />
+            <LoginForm />
         </Route>
+
         <Route path='/shop' exact={true}>
-          <Shop />
+            <Shop />
         </Route>
-        <Route path='/shop/:item_type' exact={true}>
-          <Shop />
+
+        <Route path='/shop/snowboard/:itemId' exact={true}>
+            <Snowboard />
         </Route>
+
         <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+            <SignUpForm />
         </Route>
+
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+            <UsersList/>
         </ProtectedRoute>
+
         <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
+            <ProfilePage />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-          <br />
-          <p>Splash component to be created</p>
+
+        <ProtectedRoute path='/users/:userId/cart' exact={true} >
+            <Cart />
         </ProtectedRoute>
+
+        <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
+            <ProfileEdit />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/order-history' exact={true} >
+            <ProfileOrderHist />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
+            <Wishlist />
+        </ProtectedRoute>
+
       </Switch>
     </BrowserRouter>
   );
