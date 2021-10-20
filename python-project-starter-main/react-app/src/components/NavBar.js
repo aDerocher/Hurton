@@ -41,14 +41,18 @@ const NavBar = () => {
         <li>
             <button disabled={sessionUser} onClick={loginDemo}>Demo</button>
         </li>
-        <li>
-          <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li hidden={!sessionUser}>
-          <LogoutButton />
-        </li>
+        {sessionUser &&
+            <li>
+                <NavLink to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active'>
+                    My Profile
+                </NavLink>
+            </li>
+        }
+        {sessionUser &&    
+            <li>
+                <LogoutButton />
+            </li>
+        }
       </ul>
     </nav>
   );
