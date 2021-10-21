@@ -12,6 +12,7 @@ const addOneToCart = (cart_item) => ({
   type: ADD_TO_CART,
   payload: cart_item
 })
+
 // const removeOneFromCart = (cart_item) => ({
 //   type: DELETE_FROM_CART,
 //   payload: cart_item
@@ -43,6 +44,10 @@ export const getCartItems = (user_id) => async (dispatch) => {
 
 export const addToCart = (data) => async (dispatch) => {
     const {user_id, item_id, item_name, item_color, item_size, item_price, quantity } = data;
+    if (user_id === null) {
+        dispatch(addOneToCart(data));
+        return 'No user logged in. Non-persistant item added to cart.'
+    }
     let formData = new FormData();
 
     formData.append("user_id", user_id);
@@ -59,10 +64,10 @@ export const addToCart = (data) => async (dispatch) => {
     if (response.ok) {
       const data = await response.json();
       if (data.errors) {
-        return `Error adding item '${item_name}' to cart`;
-      }
-      const item = data.item
-      dispatch(addOneToCart(item));
+          return `Error adding item '${item_name}' to cart`;
+        }
+        const item = data.item
+        dispatch(addOneToCart(item));
     }
   }
 
@@ -73,10 +78,23 @@ const initialState = [];
 export default function reducer(state = initialState, action) {
     let newState = [ ...state ]
     switch (action.type) {
-      case GET_CART:
-        return [ ...action.payload ]
-      case ADD_TO_CART:
-         return [ ...newState, action.payload ]
+        case GET_CART:
+            return [ ...action.payload ]
+
+        case ADD_TO_CART:
+            let addedToExisting = false;
+            newState.map((item) => {
+                if(item.id === action.payload.id &&
+                item.color === action.payload.color && 
+                item.size === action.payload.size){
+                    item.quantity += action.payload.quantity
+                    addedToExisting = true;
+                }
+            })
+            if(addedToExisting) {return [ ...newState] }
+                else { return [ ...newState, action.payload ] }
+
+
         // case DELETE_FROM_CART:
         //      // need to run a filter and remove the item that matches the payload
         //     return [ ...action.payload]

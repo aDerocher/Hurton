@@ -9,6 +9,12 @@ import ShopFilters from './ShopFilters';
 
 
 const Shop = () => {
+    let cartStorage = window.localStorage
+    let cart = cartStorage.getItem('cart')
+    if( cart === null){
+        cartStorage.setItem('cart', {});
+    }
+    
     const history = useHistory()
     const dispatch = useDispatch()
     const items = useSelector(state => state.items)

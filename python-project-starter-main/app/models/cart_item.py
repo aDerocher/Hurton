@@ -6,7 +6,7 @@ class CartItem(db.Model):
     __tablename__ = 'cart_items'
 
     id = db.Column(db.Integer, primary_key=True)
-    cart_id = db.Column(db.Integer, db.ForeignKey("carts.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("carts.id"), nullable=False)
     item_id = db.Column(db.Integer, db.ForeignKey("items.id"), nullable=False)
     item_color = db.Column(db.String(255), nullable=False)
     item_size = db.Column(db.String(255))
