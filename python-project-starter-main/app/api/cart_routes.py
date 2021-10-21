@@ -1,15 +1,13 @@
 from flask import Blueprint, jsonify, request
-from app.models import Cart, CartItem
+from app.models import Cart, CartItem, db
 from app.forms import AddItemToCartForm
 
 cart_routes = Blueprint('carts', __name__)
 
-
-@cart_routes.route('', methods=['GET'])
-def all_cart_items():
-    cart = Cart.query.all()
-    return {'items': [item.to_dict() for item in items]}
-
+# @cart_routes.route('', methods=['GET'])
+# def all_cart_items():
+#     cart = Cart.query.all()
+#     return {'items': [item.to_dict() for item in items]}
 
 @cart_routes.route('/add-item',methods=['POST'])
 def add_to_cart():
@@ -28,4 +26,4 @@ def add_to_cart():
         db.session.add(new_cart_item)
         db.session.commit()
 
-        return { 'cart_item': [new_cart_item.to_dict()] }
+        return { 'cart_item': new_cart_item.to_dict() }

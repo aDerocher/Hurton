@@ -19,19 +19,19 @@ const NavBar = () => {
     <nav>
       <ul>
         <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
+            <NavLink to='/' exact={true} activeClassName='active'>
+                Home
+            </NavLink>
         </li>
         <li>
-          <NavLink to='/shop' exact={true} activeClassName='active'>
-            Shop
-          </NavLink>
+            <NavLink to='/shop' exact={true} activeClassName='active'>
+                Shop
+            </NavLink>
         </li>
         <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-          <button disabled={sessionUser}>Login</button>
-          </NavLink>
+            <NavLink to='/login' exact={true} activeClassName='active'>
+                <button disabled={sessionUser}>Login</button>
+            </NavLink>
         </li>
         <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
@@ -54,7 +54,7 @@ const NavBar = () => {
             </li>
         }
         <li>
-            <NavLink to={`/users/${sessionUser?.id}/cart`} exact={true} activeClassName='active'>
+            <NavLink to={`/cart`} exact={true} activeClassName='active'>
                 <button><i className="fas fa-shopping-cart"></i></button>
             </NavLink>
         </li>

@@ -59,11 +59,11 @@ function ProfileEdit() {
                 <form>
                     <h2>Edit Profile</h2>
                     <p>First Name</p> 
-                    <input type='text'  value={newFirstName} onChange={setNewFirstName} placeholder={sessionUser.firstName}></input>
+                    <input type='text'  value={newFirstName} onChange={e=>setNewFirstName(e.target.value)} placeholder={sessionUser.firstName}></input>
                     <p>Last Name {sessionUser.firstName}</p> 
-                    <input type='text'  value={newLastName} onChange={setNewLastName} placeholder={sessionUser.lastName}></input>
+                    <input type='text'  value={newLastName} onChange={e=>setNewLastName(e.target.value)} placeholder={sessionUser.lastName}></input>
                     <p>Email</p> 
-                    <input type='text'  value={newEmail} onChange={setNewEmail} placeholder={sessionUser.email}></input>
+                    <input type='text'  value={newEmail} onChange={e=>setNewEmail(e.target.value)} placeholder={sessionUser.email}></input>
                     {/* <p>Password</p>
                     <input type='password' value={newPassword} onChange={setNewPassword} ></input>
                     <p>Confirm Password</p>
