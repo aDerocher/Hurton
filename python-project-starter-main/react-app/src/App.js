@@ -13,6 +13,7 @@ import Wishlist from './components/Wishlist';
 import Cart from './components/Cart';
 // import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
+import SplashPage from './components/SplashPage';
 import Snowboard from './components/item-comps/Snowboard';
 import { authenticate } from './store/session';
 import "./index.css";
@@ -37,8 +38,8 @@ function App() {
       <NavBar />
       <Switch>
           
-        <Route path='/login' exact={true}>
-            <LoginForm />
+        <Route path='/' exact={true}>
+            <SplashPage />
         </Route>
 
         <Route path='/shop' exact={true}>
