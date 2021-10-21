@@ -1,18 +1,20 @@
 from flask import Blueprint, jsonify, request
 from app.models import db, WishlistItem
 from app.forms import NewWishlistItemForm
-
+from flask_login import login_required, current_user
 
 wishlist_routes = Blueprint('wishlists', __name__)
 
 
 @wishlist_routes.route('/<int:user_id>', methods=['GET'])
-def users_wishlist(user_id):
+@login_required
+def get_users_wishlist(user_id):
     wishlist_items = WishlistItem.query.filter(WishlistItem.user_id == user_id)
     return {'wishlist_items': [wl_item.to_dict() for wl_item in wishlist_items]}
 
 
 @wishlist_routes.route('/add-item',methods=['POST'])
+@login_required
 def add_to_wishlist():
     form = NewWishlistItemForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
@@ -31,6 +33,7 @@ def add_to_wishlist():
 
 
 @wishlist_routes.route('/<int:wl_item_id>', methods=['DELETE'])
+@login_required
 def remove_wishlist_item(wl_item_id):
     wl_item = WishlistItem.query.get(wl_item_id)
     db.session.delete(wl_item)
