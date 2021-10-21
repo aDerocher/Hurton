@@ -46,6 +46,7 @@ const Snowboard = () => {
         }
         dispatch(addWishlistItem(formData))
     }
+    
     const addItemToCart = (e) => {
         e.preventDefault()
         
