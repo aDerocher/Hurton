@@ -48,8 +48,11 @@ const Snowboard = () => {
     }
     const addItemToCart = (e) => {
         e.preventDefault()
+        
+        let uid = null
+        if(sessionUser) uid = sessionUser.id
         const formData = {
-            user_id: sessionUser.id,
+            user_id: uid,
             item_id: parseInt(itemId),
             item_name: item.name,
             item_color: item.color,
@@ -57,7 +60,28 @@ const Snowboard = () => {
             item_price: item.price,
             quantity: quantity,
         }
-        dispatch(addToCart(formData))
+        if (uid) {
+            dispatch(addToCart(formData))
+            return
+        }
+        addToLocalCart(formData)
+    }
+
+    const addToLocalCart = (data) => {
+        let cart = localStorage.getItem('cart');
+        if(!cart){
+            let cartStorage = window.localStorage;
+            cartStorage.setItem('cart', JSON.stringify({}));
+            cart = localStorage.getItem('cart');
+        }
+        console.log(JSON.parse(cart))
+        cart = JSON.parse(cart)
+        if (cart[`${data.item_id}_${data.item_color}_${data.item_size}`]){
+            cart[`${data.item_id}_${data.item_color}_${data.item_size}`].quantity += data.quantity
+        } else {
+            cart[`${data.item_id}_${data.item_color}_${data.item_size}`] = data
+        }
+        window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
     return (
@@ -70,6 +94,7 @@ const Snowboard = () => {
                 <p>{item?.name}</p>
                 <button onClick={e=>addItemToCart(e)}>Add to Cart</button>
                 <button onClick={e=>addItemToWishlist(e)}>Add to Wishlist</button>
+                {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
             </div>
         </div>
     );
