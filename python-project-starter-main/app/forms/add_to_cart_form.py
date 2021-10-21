@@ -4,7 +4,7 @@ from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
 
 class AddItemToCartForm(FlaskForm):
-    user_id = IntegerField('User_id', validators=[DataRequired()])
+    # user_id = IntegerField('User_id', validators=[DataRequired()])
     item_id = IntegerField('Item_id', validators=[DataRequired()])
     item_name = StringField('Item_name', validators=[DataRequired()])
     item_color = StringField('Item_color', validators=[DataRequired()])

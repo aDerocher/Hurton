@@ -47,17 +47,10 @@ export const getCartItems = (user_id) => async (dispatch) => {
 }
 
 export const addToCart = (data) => async (dispatch) => {
-    const {user_id, item_id, item_name, item_color, item_size, item_price, quantity } = data;
-    if (user_id === null) {
-        // // dispatch(addOneToCart(data));
-        // console.log('No user logged in. Non-persistant item added to cart.')
-        // return 
-        console.log('User-Id invalid. Cart items should add to local storage. addToCart() not executed')
-        return
-    }
+    const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
     let formData = new FormData();
-
-    formData.append("user_id", user_id);
+    
+    // formData.append("user_id", );
     formData.append("item_id", item_id);
     formData.append("item_name", item_name);
     formData.append("item_color", item_color);

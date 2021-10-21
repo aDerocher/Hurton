@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from app.models import Cart, CartItem, db
 from app.forms import AddItemToCartForm
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 cart_routes = Blueprint('carts', __name__)
 
@@ -13,17 +13,18 @@ cart_routes = Blueprint('carts', __name__)
 @cart_routes.route('/add-item',methods=['POST'])
 @login_required
 def add_to_cart():
+    print(current_user.get_id(), '============================================================================+++')
     form = AddItemToCartForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate():
         new_cart_item = CartItem(
-            user_id= form.user_id.data,
-            item_id= form.item_id.data,
-            item_name= form.item_name.data,
-            item_color= form.item_color.data,
-            item_size= form.item_size.data,
-            item_price= form.item_price.data,
-            quantity= form.quantity.data,
+            user_id=current_user.get_id(),
+            item_id=form.item_id.data,
+            item_name=form.item_name.data,
+            item_color=form.item_color.data,
+            item_size=form.item_size.data,
+            item_price=form.item_price.data,
+            quantity=form.quantity.data,
         )
         db.session.add(new_cart_item)
         db.session.commit()

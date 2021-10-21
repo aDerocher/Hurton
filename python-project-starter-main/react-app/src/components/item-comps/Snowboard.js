@@ -53,7 +53,6 @@ const Snowboard = () => {
         let uid = null
         if(sessionUser) uid = sessionUser.id
         const formData = {
-            user_id: uid,
             item_id: parseInt(itemId),
             item_name: item.name,
             item_color: item.color,

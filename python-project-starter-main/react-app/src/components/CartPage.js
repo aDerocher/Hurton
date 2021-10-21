@@ -64,14 +64,15 @@ const CartPage = () => {
             <div>
                 <h1>This is the Cart</h1>
                 <ul>
-                    {cart?.map((item, i) => (
-                        <li key={i} id={item.id}>
-                            <p>{item.item_name}</p>
-                            <p>{item.item_color}</p>
-                            <p>{item.item_size}</p>
+                    {cart?.map((cart_item, i) => (
+                        <li key={i} id={cart_item.id}>
+                            <p>{cart_item.item_name}</p>
+                            <p>{cart_item.item_color}</p>
+                            <p>{cart_item.item_size}</p>
+                            <p>{cart_item.quantity}</p>
                             {/* TODO: add dropdown for adjusting quantity */}
                             {/* checking out should apply any changes made to the quantities. */}
-                            <button onClick={e=>removeFromCart(e, item)}>X</button>
+                            <button onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>X</button>
                         </li>
                     ))}
                 </ul>
