@@ -1,7 +1,7 @@
 // =========== Constants ========================
 const GET_CART = 'session/GET_CART';
 const ADD_TO_CART = 'session/ADD_TO_CART';
-// const DELETE_FROM_CART = 'session/DELETE_FROM_CART';
+const DELETE_ONE_FROM_CART = 'session/DELETE_ONE_FROM_CART';
 // const DELETE_ALL_FROM_CART = 'session/DELETE_ALL_FROM_CART';
 
 const getCartContents = (cart_items) => ({
@@ -13,10 +13,10 @@ const addOneToCart = (cart_item) => ({
   payload: cart_item
 })
 
-// const removeOneFromCart = (cart_item) => ({
-//   type: DELETE_FROM_CART,
-//   payload: cart_item
-// })
+const deleteOneFromCart = (cart_item) => ({
+  type: DELETE_ONE_FROM_CART,
+  payload: cart_item
+})
 // const removeAllFromCart = () => ({
 //   type: DELETE_ALL_FROM_CART,
 // })
@@ -49,8 +49,11 @@ export const getCartItems = (user_id) => async (dispatch) => {
 export const addToCart = (data) => async (dispatch) => {
     const {user_id, item_id, item_name, item_color, item_size, item_price, quantity } = data;
     if (user_id === null) {
-        dispatch(addOneToCart(data));
-        return 'No user logged in. Non-persistant item added to cart.'
+        // // dispatch(addOneToCart(data));
+        // console.log('No user logged in. Non-persistant item added to cart.')
+        // return 
+        console.log('User-Id invalid. Cart items should add to local storage. addToCart() not executed')
+        return
     }
     let formData = new FormData();
 
@@ -73,7 +76,23 @@ export const addToCart = (data) => async (dispatch) => {
         const cart_item = data.cart_item
         dispatch(addOneToCart(cart_item));
     }
-  }
+}
+
+export const deleteCartItem = (cartItem_id) => async (dispatch) => {
+    const response = await fetch(`/api/carts/${cartItem_id}`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+        const data = await response.json();
+
+        if (data.errors) {
+            return `Error deleting CartItem with id #${cartItem_id}`;
+        }
+        const cart_item = data.cart_item
+        console.log('heres cart_item: ', cart_item, '=======================================================================now dispatch')
+        dispatch(deleteOneFromCart(cart_item));
+    }
+}
 
 
 // =========== Reduce ========================
@@ -88,7 +107,6 @@ export default function reducer(state = initialState, action) {
         case ADD_TO_CART:
             let addedToExisting = false;
             newState.map((item) => {
-                console.log()
                 if(item.item_id === action.payload.item_id &&
                 item.item_color === action.payload.item_color && 
                 item.item_size === action.payload.item_size){
@@ -99,10 +117,12 @@ export default function reducer(state = initialState, action) {
             if(addedToExisting) {return [ ...newState] }
                 else { return [ ...newState, action.payload ] }
 
-
-        // case DELETE_FROM_CART:
-        //      // need to run a filter and remove the item that matches the payload
-        //     return [ ...action.payload]
+        case DELETE_ONE_FROM_CART:
+            // need to run a filter and remove the item that matches the payload
+            newState = newState.filter((item) => {
+                return item.id !== action.payload.id
+            })
+            return [ ...newState]
         // case DELETE_ALL_FROM_CART:
         //     return [ ...action.payload]
         default:
