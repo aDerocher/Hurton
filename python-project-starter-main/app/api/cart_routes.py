@@ -5,7 +5,7 @@ from app.forms import AddItemToCartForm
 cart_routes = Blueprint('carts', __name__)
 
 
-@cart_routes.route('/', methods=['GET'])
+@cart_routes.route('', methods=['GET'])
 def all_cart_items():
     cart = Cart.query.all()
     return {'items': [item.to_dict() for item in items]}
