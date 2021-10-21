@@ -21,8 +21,8 @@ def user(id):
 
 @user_routes.route('/<int:user_id>/cart', methods=['GET'])
 def all_cart_items(user_id):
-    cart = Cart.query.filter(Cart.owner_id == user_id)
-    print('------------', cart,  '------------------------------------------------------')
-    cartItems = CartItem.query.filter(CartItem.cart_id == cartAsDict.id)
-    return { 'cart_items': [cart_item.to_dict() for cart_item in cartItems] }
+    # cart = Cart.query.filter(Cart.owner_id == user_id)
+    # print('------------', cart,  '------------------------------------------------------')
+    usersCartItems = CartItem.query.filter(CartItem.user_id == user_id)
+    return { 'cart_items': [cart_item.to_dict() for cart_item in usersCartItems] }
 

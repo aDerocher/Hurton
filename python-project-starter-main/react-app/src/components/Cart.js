@@ -1,19 +1,23 @@
-import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // import { NavLink } from 'react-router-dom';
 // import { useParams } from 'react-router';
-import './../styles/cart.css'
 import CartSidebar from './CartSidebar';
+import './../styles/cart.css'
 
 
 const Cart = () => {
-    // const dispatch = useDispatch()
-    // const items = useSelector(state => state.items)
+    const dispatch = useDispatch()
+    const items = useSelector(state => state.items)
+    const cart = useSelector(state => state.cart)
+    if (cart?.length === 0){
+
+    }
     
-    // useEffect(() => {
-    //     dispatch(getAllItems())
-    //     console.log(items[0])
-    // }, [dispatch])
+    useEffect(() => {
+        dispatch(getAllItems())
+        console.log(items[0])
+    }, [dispatch])
     
 
     return (

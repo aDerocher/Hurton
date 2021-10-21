@@ -45,27 +45,30 @@ function App() {
         <Route path='/shop' exact={true}>
             <Shop />
         </Route>
-
         <Route path='/shop/snowboard/:itemId' exact={true}>
             <Snowboard />
         </Route>
 
+        <Route path='/login' exact={true}>
+            <LoginForm />
+        </Route>
         <Route path='/sign-up' exact={true}>
             <SignUpForm />
         </Route>
 
+        <Route path='/cart' exact={true} >
+            <Cart />
+        </Route>
+        {/* <Route path='/cart/checkout' exact={true} >
+            <Cart />
+        </Route> */}
+
         <ProtectedRoute path='/users' exact={true} >
             <UsersList/>
         </ProtectedRoute>
-
         <ProtectedRoute path='/users/:userId' exact={true} >
             <ProfilePage />
         </ProtectedRoute>
-
-        <ProtectedRoute path='/users/:userId/cart' exact={true} >
-            <Cart />
-        </ProtectedRoute>
-
         <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
             <ProfileEdit />
         </ProtectedRoute>

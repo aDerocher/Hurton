@@ -66,8 +66,8 @@ export const addToCart = (data) => async (dispatch) => {
       if (data.errors) {
           return `Error adding item '${item_name}' to cart`;
         }
-        const item = data.item
-        dispatch(addOneToCart(item));
+        const cart_item = data.cart_item
+        dispatch(addOneToCart(cart_item));
     }
   }
 
@@ -84,9 +84,9 @@ export default function reducer(state = initialState, action) {
         case ADD_TO_CART:
             let addedToExisting = false;
             newState.map((item) => {
-                if(item.id === action.payload.id &&
-                item.color === action.payload.color && 
-                item.size === action.payload.size){
+                if(item.item_id === action.payload.item_id &&
+                item.item_color === action.payload.item_color && 
+                item.item_size === action.payload.item_size){
                     item.quantity += action.payload.quantity
                     addedToExisting = true;
                 }
