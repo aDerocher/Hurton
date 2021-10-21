@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify
-from flask_login import login_required
-from app.models import User, Item
+from app.models import Item
 
 item_routes = Blueprint('items', __name__)
 
@@ -14,4 +13,4 @@ def all_items():
 @item_routes.route('/<int:item_id>',methods=['GET'])
 def one_item(item_id):
     item = Item.query.get(item_id)
-    return { 'item': [item.to_dict()] }
+    return { 'item': item.to_dict() }

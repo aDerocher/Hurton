@@ -1,6 +1,9 @@
 from app.models import db, Item
 
 
+# spliter, deviated septum, tummy ache, frostbite, chipped tooth, fat lip, full cast, crutch, fracture
+
+
 def seed_items():
     snowboard1 = Item(
         size = '155',
