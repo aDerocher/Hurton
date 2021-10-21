@@ -11,7 +11,6 @@ const addOneToWishlist = (wishlist_item) => ({
   type: ADD_TO_WISHLIST,
   payload: wishlist_item
 })
-
 const removeFromWishlist = (wishlist_item) => ({
   type: DELETE_FROM_WISHLIST,
   payload: wishlist_item

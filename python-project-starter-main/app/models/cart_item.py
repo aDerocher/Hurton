@@ -10,6 +10,9 @@ class CartItem(db.Model):
     item_id = db.Column(db.Integer, db.ForeignKey("items.id"), nullable=False)
     item_color = db.Column(db.String(255), nullable=False)
     item_size = db.Column(db.String(255))
+    item_price = db.Column(db.Integer, nullable=False)
+    item_quantity = db.Column(db.Integer, default=1)
+    # item_image = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
@@ -21,4 +24,7 @@ class CartItem(db.Model):
             'item_color' : self.item_color,
             'item_size' : self.item_size,
             'created_at': self.created_at,
+            'item_price' : self.item_price,
+            'quantity' : self.quantity,
+             #'item_image': self.item_image
         }
