@@ -10,7 +10,7 @@ import ProfilePage from './components/ProfilePage';
 import ProfileEdit from './components/ProfileEdit';
 import ProfileOrderHist from './components/ProfileOrderHist';
 import Wishlist from './components/Wishlist';
-import Cart from './components/Cart';
+import CartPage from './components/CartPage';
 // import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
 import SplashPage from './components/SplashPage';
@@ -57,7 +57,7 @@ function App() {
         </Route>
 
         <Route path='/cart' exact={true} >
-            <Cart />
+            <CartPage />
         </Route>
         {/* <Route path='/cart/checkout' exact={true} >
             <Cart />
