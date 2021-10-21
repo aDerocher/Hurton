@@ -14,3 +14,9 @@ def all_items():
 def one_item(item_id):
     item = Item.query.get(item_id)
     return { 'item': item.to_dict() }
+
+    
+@item_routes.route('/<int:item_type>',methods=['GET'])
+def items_by_type(item_id):
+    items = Item.query.filter(Item.item_type == item_type)
+    return { 'items': [item.to_dict() for item in items] }

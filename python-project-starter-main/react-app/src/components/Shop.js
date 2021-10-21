@@ -1,4 +1,4 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 // import { useParams } from 'react-router';
@@ -13,6 +13,8 @@ const Shop = () => {
     const dispatch = useDispatch()
     const items = useSelector(state => state.items)
     const item_types = useSelector(state => state.item_types)
+
+    const [colorFilter, setColorFilter] = useState([])
     
     useEffect(() => {
         dispatch(getAllItems())
@@ -23,6 +25,11 @@ const Shop = () => {
         e.preventDefault()
         history.push(`/shop/${item_types[`${item_type}`].item_type}/${item_id}`)
     }
+    const runFilter = (item) => {
+        if (colorFilter.includes(item.color)){
+            return true;
+        }
+    }
 
     return (
         <div className="profile-page-container">
@@ -31,7 +38,7 @@ const Shop = () => {
                 <h1>This is the shop</h1>
                 <ul>
                     {items?.map((item, i) => (
-                        <li key={i} className="item-tile" >
+                        <li hidden={runFilter(item)} key={i} className="item-tile" >
                             <div onClick={e=>goToItem(e, item.id, item.item_type)}>
                             <p>{item.id} </p>
                             <p>{item.name}</p>
