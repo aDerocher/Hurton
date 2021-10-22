@@ -44,7 +44,8 @@ const Snowboard = () => {
             item_name: item.name,
             item_color: item.color,
             item_size: item.size,
-            item_price: item.price
+            item_price: item.price,
+            item_image: item.image1
         }
         dispatch(addWishlistItem(formData))
     }
@@ -60,6 +61,7 @@ const Snowboard = () => {
             item_color: item.color,
             item_size: item.size,
             item_price: item.price,
+            item_image: item.image1,
             quantity: quantity,
         }
         if (uid) {
@@ -70,7 +72,6 @@ const Snowboard = () => {
                 if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color)
                 return true
             })
-            console.log(existingCartItem, 'existing============')
             if (existingCartItem.length > 0) {
                 // console.log(existingCartItem[0])
                 // console.log(existingCartItem[0].quantity)
@@ -109,8 +110,13 @@ const Snowboard = () => {
                     <input type='number'></input>
                 </form>
                 <p>{item?.name}</p>
+                <p>{item?.price}</p>
+                <p>{item?.color}</p>
                 <button onClick={e=>addItemToCart(e, item)}>Add to Cart</button>
                 <button onClick={e=>addItemToWishlist(e)}>Add to Wishlist</button>
+                <div>
+                    <img src={item?.image1} alt="ii" />
+                </div>
                 {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
             </div>
         </div>

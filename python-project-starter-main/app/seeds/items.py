@@ -12,20 +12,26 @@ def seed_items():
         color = 'white',
         gender = 'm',
         item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb1_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb1_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb1_3.jpg',
 
-        terrain = 5,
-        personality = 2,
+        terrain = 8,
+        personality = 7,
     )
     snowboard2 = Item(
         size = '155',
-        name = 'Torn Hamstring',
+        name = 'Tooth Chip',
         price = '450',
         color = 'red',
         gender = 'm',
         item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_3.jpg',
 
         terrain = 7,
-        personality = 5,
+        personality = 2,
     )
     snowboard3 = Item(
         size = '155',
@@ -34,9 +40,12 @@ def seed_items():
         color = 'black',
         gender = 'm',
         item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb3_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb3_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb3_3.jpg',
 
-        terrain = 10,
-        personality = 8,
+        terrain = 9,
+        personality = 5,
     )
     # ======== womens snowboards ===========
     snowboard4 = Item(
@@ -46,9 +55,12 @@ def seed_items():
         color = 'purple',
         gender = 'w',
         item_type = 1,
-
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb4_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb4_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb4_3.jpg',
+        
         terrain = 4,
-        personality = 2,
+        personality = 4,
     )
     snowboard5 = Item(
         size = '145',
@@ -57,9 +69,12 @@ def seed_items():
         color = 'red',
         gender = 'w',
         item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb5_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb5_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb5_3.jpg',
 
         terrain = 6,
-        personality = 4,
+        personality = 8,
     )
     snowboard6 = Item(
         size = '145',
@@ -68,9 +83,12 @@ def seed_items():
         color = 'grey',
         gender = 'w',
         item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb6_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb6_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb6_3.jpg',
 
-        terrain = 7,
-        personality = 5,
+        terrain = 9,
+        personality = 6,
     )
 
 
@@ -82,6 +100,9 @@ def seed_items():
         color = 'blue',
         gender = 'm',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack1_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack1_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack1_3.jpg',
 
         warmth = 3,
         waterproofing = 4,
@@ -93,6 +114,9 @@ def seed_items():
         color = 'orange',
         gender = 'm',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack2_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack2_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack2_3.jpg',
 
         warmth = 5,
         waterproofing = 8,
@@ -104,9 +128,12 @@ def seed_items():
         color = 'grey',
         gender = 'm',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack3_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack3_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack3_3.jpg',
 
-        warmth = 8,
-        waterproofing = 10,
+        warmth = 3,
+        waterproofing = 2,
     )
 
     # ======== womens jackets ===========
@@ -117,9 +144,12 @@ def seed_items():
         color = 'purple',
         gender = 'w',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack4_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack4_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack4_3.jpg',
 
-        warmth = 6,
-        waterproofing = 6,
+        warmth = 3,
+        waterproofing = 2,
     )
     jacket5 = Item(
         size = 'm',
@@ -128,8 +158,11 @@ def seed_items():
         color = 'black',
         gender = 'w',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack5_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack5_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack5_3.jpg',
 
-        warmth = 5,
+        warmth = 2,
         waterproofing = 9,
     )
     jacket6 = Item(
@@ -139,9 +172,12 @@ def seed_items():
         color = 'blue',
         gender = 'w',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack6_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack6_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack6_3.jpg',
 
-        warmth = 5,
-        waterproofing = 10,
+        warmth = 6,
+        waterproofing = 7,
     )
 
     # ========== Boots and Bindings =============
@@ -152,8 +188,11 @@ def seed_items():
         color = 'purple',
         gender = 'w',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boots1_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boots1_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boots1_3.jpg',
 
-        lacing = 'boa',
+        lacing = 'quick-lace',
     )
     bindings1 = Item(
         size = 'm',
@@ -162,9 +201,12 @@ def seed_items():
         color = 'purple',
         gender = 'w',
         item_type = 2,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bindings1_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bindings1_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bindings1_3.jpg',
 
-        response = 10,
-        stiffness = 10,
+        response = 7,
+        stiffness = 7,
     )
 
 

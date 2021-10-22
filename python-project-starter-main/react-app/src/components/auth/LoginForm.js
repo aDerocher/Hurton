@@ -17,6 +17,7 @@ const LoginForm = () => {
         if (data) {
             setErrors(data);
         }
+        localStorage.removeItem("cart");
         // handleLSCart()
     };
 

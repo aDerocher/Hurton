@@ -70,9 +70,12 @@ const CartPage = () => {
                             <p>{cart_item.item_color}</p>
                             <p>{cart_item.item_size}</p>
                             <p>{cart_item.quantity}</p>
+                            <button onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>X</button>
+                            <div>
+                                <img src={cart_item.item_image} />
+                            </div>
                             {/* TODO: add dropdown for adjusting quantity */}
                             {/* checking out should apply any changes made to the quantities. */}
-                            <button onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>X</button>
                         </li>
                     ))}
                 </ul>

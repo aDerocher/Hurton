@@ -47,6 +47,9 @@ const Shop = () => {
                             <p>{item.color}</p>
                             <p>{item.size}</p>
                             <p>{item.gender}</p>
+                            <div>
+                                <img src={item.image1} />
+                            </div>
                             {/* { item_types &&
                                 <NavLink to={`/shop/${item_types[`${item.item_type}`].item_type}/${item.id}`} exact={true}>go</NavLink>
                             } */}

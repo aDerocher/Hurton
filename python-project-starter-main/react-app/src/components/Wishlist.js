@@ -64,6 +64,9 @@ function Wishlist() {
                             <p>{wl_item.item_name}</p>
                             <button onClick={e=>removeFromWishlist(e, wl_item.id)}>X</button>
                             <button onClick={e=>wishlistToCart(e, wl_item)}>Add to Cart</button>
+                            <div>
+                                <img src={wl_item.item_image} />
+                            </div>
                         </li>
                     ))}
                 </ul>

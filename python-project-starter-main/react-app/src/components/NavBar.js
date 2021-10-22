@@ -13,6 +13,7 @@ const NavBar = () => {
 
     const loginDemo = () => {
         dispatch(login('demo@hurton.com','password'));
+        localStorage.removeItem("cart");
     }
 
   return (
