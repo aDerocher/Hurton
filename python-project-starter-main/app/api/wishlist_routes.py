@@ -25,6 +25,7 @@ def add_to_wishlist():
             item_name= form.item_name.data,
             item_color= form.item_color.data,
             item_size= form.item_size.data,
+            item_price= form.item_price.data,
         )
         db.session.add(new_wishlist_item)
         db.session.commit()

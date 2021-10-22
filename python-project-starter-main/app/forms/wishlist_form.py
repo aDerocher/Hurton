@@ -9,3 +9,4 @@ class NewWishlistItemForm(FlaskForm):
     item_name = StringField('Item_name', validators=[DataRequired()])
     item_color = StringField('Item_color', validators=[DataRequired()])
     item_size = StringField('Item_size')
+    item_price = IntegerField('Item_price', validators=[DataRequired()])

@@ -1,7 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import { getCartItems, addToCart } from '../../store/cart';
+import { getCartItems, addToCart, editCartItem } from '../../store/cart';
 import { getUsersWishlist, addWishlistItem } from '../../store/wishlist';
 // import { useParams } from 'react-router';
 import { getOneItem } from './../../store/items';
@@ -11,6 +11,7 @@ const Snowboard = () => {
     const { itemId } = useParams()
     const dispatch = useDispatch()
     const item = useSelector(state => state.items[0])
+    const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session.user)
     const usersWishlist = useSelector(state => state.wishlist)
 
@@ -43,17 +44,17 @@ const Snowboard = () => {
             item_name: item.name,
             item_color: item.color,
             item_size: item.size,
+            item_price: item.price
         }
         dispatch(addWishlistItem(formData))
     }
     
-    const addItemToCart = (e) => {
+    const addItemToCart = (e, item) => {
         e.preventDefault()
         
         let uid = null
         if(sessionUser) uid = sessionUser.id
         const formData = {
-            user_id: uid,
             item_id: parseInt(itemId),
             item_name: item.name,
             item_color: item.color,
@@ -62,6 +63,21 @@ const Snowboard = () => {
             quantity: quantity,
         }
         if (uid) {
+            const existingCartItem = usersCart.filter((item)=>{
+                // console.log(item.item_id, formData.item_id)
+                // console.log(item.item_size, formData.item_size)
+                // console.log(item.item_color, formData.item_color)
+                if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color)
+                return true
+            })
+            console.log(existingCartItem, 'existing============')
+            if (existingCartItem.length > 0) {
+                // console.log(existingCartItem[0])
+                // console.log(existingCartItem[0].quantity)
+                existingCartItem[0].quantity +=1
+                dispatch(editCartItem(existingCartItem[0].id, existingCartItem[0].quantity))
+                return
+            }
             dispatch(addToCart(formData))
             return
         }
@@ -93,7 +109,7 @@ const Snowboard = () => {
                     <input type='number'></input>
                 </form>
                 <p>{item?.name}</p>
-                <button onClick={e=>addItemToCart(e)}>Add to Cart</button>
+                <button onClick={e=>addItemToCart(e, item)}>Add to Cart</button>
                 <button onClick={e=>addItemToWishlist(e)}>Add to Wishlist</button>
                 {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
             </div>
