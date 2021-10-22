@@ -54,6 +54,7 @@ export const getCartItems = (user_id) => async (dispatch) => {
     }
 }
 
+// add an item to the cart ==============================================
 export const addToCart = (data) => async (dispatch) => {
     // create the form from the data provided
     const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
@@ -78,6 +79,7 @@ export const addToCart = (data) => async (dispatch) => {
         dispatch(addOneToCart(cart_item));
     }
 }
+// edit an item in the cart by increasing quantity ===========================
 export const editCartItem = (cartItem_id, newQuantity) => async (dispatch) => {
     // create the form from the data provided
     // const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
@@ -103,6 +105,7 @@ export const editCartItem = (cartItem_id, newQuantity) => async (dispatch) => {
     }
 }
 
+// delete a cart item ===========================
 export const deleteCartItem = (cartItem_id) => async (dispatch) => {
     const response = await fetch(`/api/carts/${cartItem_id}`, {
         method: 'DELETE',
@@ -157,6 +160,7 @@ export default function reducer(state = initialState, action) {
                 return item.id !== action.payload.id
             })
             return [ ...newState]
+            
         // case DELETE_ALL_FROM_CART:
         //     return [ ...action.payload]
         default:

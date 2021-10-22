@@ -39,7 +39,7 @@ export const getUsersWishlist = (user_id) => async (dispatch) => {
 
 
 export const addWishlistItem = (data) => async (dispatch) => {
-    const {user_id, item_id, item_name, item_color, item_size } = data;
+    const {user_id, item_id, item_name, item_color, item_price, item_size } = data;
     let formData = new FormData();
 
     formData.append("user_id", user_id);
@@ -47,6 +47,7 @@ export const addWishlistItem = (data) => async (dispatch) => {
     formData.append("item_name", item_name);
     formData.append("item_color", item_color);
     formData.append("item_size", item_size);
+    formData.append("item_price", item_price);
     const response = await fetch(`/api/wishlists/add-item`, {
         method: 'POST',
         body: formData

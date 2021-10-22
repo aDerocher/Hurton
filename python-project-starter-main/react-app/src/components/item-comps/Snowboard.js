@@ -44,6 +44,7 @@ const Snowboard = () => {
             item_name: item.name,
             item_color: item.color,
             item_size: item.size,
+            item_price: item.price
         }
         dispatch(addWishlistItem(formData))
     }

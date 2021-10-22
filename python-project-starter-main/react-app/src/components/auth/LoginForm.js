@@ -17,41 +17,32 @@ const LoginForm = () => {
         if (data) {
             setErrors(data);
         }
-        handleLSCart()
+        // handleLSCart()
     };
 
-    const handleLSCart = () => {
+    // const handleLSCart = () => {
+    //     let cart = localStorage.getItem('cart');
+    //     if(!cart){ return }
 
-        let cart = localStorage.getItem('cart');
-        if(!cart){ return }
+    //     console.log(JSON.parse(cart))
+    //     cart = JSON.parse(cart)
 
-        console.log(JSON.parse(cart))
-        cart = JSON.parse(cart)
-
-        // run a for...in loop
-        for (let itemKey in cart){
-            // create each item in the cart as a cart item, assign them to the user that just logged in
-            let itemObj = cart[`${itemKey}`]
-            const formData = {
-                item_id: itemObj.item_id,
-                item_name: itemObj.item_name,
-                item_color: itemObj.item_color,
-                item_size: itemObj.item_size,
-                item_price: itemObj.item_price,
-                quantity: itemObj.quantity,
-            }
-            dispatch(addToCart(formData))
-            localStorage.removeItem("cart");
-        }
-
-            
-        // if (cart[`${data.item_id}_${data.item_color}_${data.item_size}`]){
-        //     cart[`${data.item_id}_${data.item_color}_${data.item_size}`].quantity += data.quantity
-        // } else {
-        //     cart[`${data.item_id}_${data.item_color}_${data.item_size}`] = data
-        // }
-        // window.localStorage.setItem('cart', JSON.stringify(cart))
-    }
+    //     // run a for...in loop
+    //     for (let itemKey in cart){
+    //         // create each item in the cart as a cart item, assign them to the user that just logged in
+    //         let itemObj = cart[`${itemKey}`]
+    //         const formData = {
+    //             item_id: itemObj.item_id,
+    //             item_name: itemObj.item_name,
+    //             item_color: itemObj.item_color,
+    //             item_size: itemObj.item_size,
+    //             item_price: itemObj.item_price,
+    //             quantity: itemObj.quantity,
+    //         }
+    //         dispatch(addToCart(formData))
+    //         localStorage.removeItem("cart");
+    //     }
+    // }
 
     const updateEmail = (e) => { setEmail(e.target.value); };
     const updatePassword = (e) => { setPassword(e.target.value); };
@@ -60,7 +51,6 @@ const LoginForm = () => {
     if (user) { return <Redirect to='/' />; }
     return (
         <div>
-            <button onClick={e=>handleLSCart(e)}>handleCartTester</button>
             <form onSubmit={onLogin}>
                 <div>
                     {errors.map((error, ind) => (
