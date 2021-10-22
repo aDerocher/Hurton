@@ -21,8 +21,13 @@ def user(id):
 
 @user_routes.route('/<int:user_id>/cart', methods=['GET'])
 def all_cart_items(user_id):
-    # cart = Cart.query.filter(Cart.owner_id == user_id)
-    # print('------------', cart,  '------------------------------------------------------')
-    usersCartItems = CartItem.query.filter(CartItem.user_id == user_id)
+    usersCartItems = CartItem.query.filter(CartItem.user_id == user_id, CartItem.is_history == False)
     return { 'cart_items': [cart_item.to_dict() for cart_item in usersCartItems] }
+
+
+@user_routes.route('/<int:user_id>/order-history', methods=['GET'])
+@login_required
+def all_order_history(user_id):
+    usersPastItems = CartItem.query.filter(CartItem.user_id == user_id, CartItem.is_history == True)
+    return { 'past_items': [past_item.to_dict() for past_item in usersPastItems] }
 

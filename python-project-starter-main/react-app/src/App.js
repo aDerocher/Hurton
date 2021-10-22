@@ -11,6 +11,7 @@ import ProfileEdit from './components/ProfileEdit';
 import ProfileOrderHist from './components/ProfileOrderHist';
 import Wishlist from './components/Wishlist';
 import CartPage from './components/CartPage';
+import CheckoutPage from './components/CheckoutPage';
 // import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
 import SplashPage from './components/SplashPage';
@@ -59,9 +60,9 @@ function App() {
         <Route path='/cart' exact={true} >
             <CartPage />
         </Route>
-        {/* <Route path='/cart/checkout' exact={true} >
-            <Cart />
-        </Route> */}
+        <Route path='/cart/checkout' exact={true} >
+            <CheckoutPage />
+        </Route>
 
         <ProtectedRoute path='/users' exact={true} >
             <UsersList/>

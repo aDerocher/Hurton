@@ -1,25 +1,15 @@
 import React, { useEffect } from 'react';
-// import { useParams, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function CartSidebar() {
-//   const [user, setUser] = useState({});
 //   const { userId }  = useParams();
-
-  useEffect(() => {
-
-  }, []);
-
-//   if (!user) {
-//     return null;
-//   }
 
     return (
         <div className='cart-sidebar'>
             <p>Cart Sidebar</p>
             <ul>
                 <li>
-                    {/* <NavLink to={`/users/${userId}/edit-profile`}><button>Info & Preferences</button></NavLink> */}
-                    <p>Option 1</p>
+                    <NavLink to={`/cart/checkout`}><button>Checkout</button></NavLink>
                 </li>
                 <li>
                     {/* <NavLink to={`/users/${userId}/order-history`}><button>Order History</button></NavLink> */}
