@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models import Cart, CartItem, db
-from app.forms import AddItemToCartForm
+from app.forms import AddItemToCartForm, EditCartItemForm
 from flask_login import login_required, current_user
 
 cart_routes = Blueprint('carts', __name__)
@@ -13,7 +13,6 @@ cart_routes = Blueprint('carts', __name__)
 @cart_routes.route('/add-item',methods=['POST'])
 @login_required
 def add_to_cart():
-    print(current_user.get_id(), '============================================================================+++')
     form = AddItemToCartForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if form.validate():
@@ -30,6 +29,21 @@ def add_to_cart():
         db.session.commit()
 
         return { 'cart_item': new_cart_item.to_dict() }
+    return {"errors": True}
+
+
+@cart_routes.route('/<int:cartItem_id>',methods=['PATCH'])
+@login_required
+def edit_cart(cartItem_id):
+    cart_item = CartItem.query.get(cartItem_id)
+    form = EditCartItemForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if current_user and form.validate_on_submit():
+        cart_item.quantity = form.quantity.data
+        db.session.commit()
+        return { 'cart_item': cart_item.to_dict() }
+    return {"errors": True}
+
 
 
 @cart_routes.route('/<int:cartItem_id>',methods=['DELETE'])

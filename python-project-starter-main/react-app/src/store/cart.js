@@ -1,13 +1,16 @@
 // =========== Constants ========================
 const GET_CART = 'session/GET_CART';
 const ADD_TO_CART = 'session/ADD_TO_CART';
+const EDIT_CART = 'session/EDIT_CART';
 const DELETE_ONE_FROM_CART = 'session/DELETE_ONE_FROM_CART';
 // const DELETE_ALL_FROM_CART = 'session/DELETE_ALL_FROM_CART';
+
 
 const getCartContents = (cart_items) => ({
   type: GET_CART,
   payload: cart_items
 });
+
 const addOneToCart = (cart_item) => ({
   type: ADD_TO_CART,
   payload: cart_item
@@ -16,6 +19,11 @@ const addOneToCart = (cart_item) => ({
 const deleteOneFromCart = (cart_item) => ({
   type: DELETE_ONE_FROM_CART,
   payload: cart_item
+})
+
+const editCart = (cart_item) => ({
+    type: EDIT_CART,
+    payload: cart_item
 })
 // const removeAllFromCart = () => ({
 //   type: DELETE_ALL_FROM_CART,
@@ -47,16 +55,16 @@ export const getCartItems = (user_id) => async (dispatch) => {
 }
 
 export const addToCart = (data) => async (dispatch) => {
+    // create the form from the data provided
     const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
     let formData = new FormData();
-    
-    // formData.append("user_id", );
     formData.append("item_id", item_id);
     formData.append("item_name", item_name);
     formData.append("item_color", item_color);
     formData.append("item_size", item_size);
     formData.append("item_price", item_price);
     formData.append("quantity", quantity);
+
     const response = await fetch(`/api/carts/add-item`, {
         method: 'POST',
         body: formData
@@ -68,6 +76,30 @@ export const addToCart = (data) => async (dispatch) => {
         }
         const cart_item = data.cart_item
         dispatch(addOneToCart(cart_item));
+    }
+}
+export const editCartItem = (cartItem_id, newQuantity) => async (dispatch) => {
+    // create the form from the data provided
+    // const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
+    let formData = new FormData();
+    // formData.append("item_id", item_id);
+    // formData.append("item_name", item_name);
+    // formData.append("item_color", item_color);
+    // formData.append("item_size", item_size);
+    // formData.append("item_price", item_price);
+    formData.append("quantity", newQuantity);
+
+    const response = await fetch(`/api/carts/${cartItem_id}`, {
+        method: 'PATCH',
+        body: formData
+    });
+    if (response.ok) {
+         const data = await response.json();
+        if (data.errors) {
+            return `Error editing car item '${cartItem_id}'`;
+        }
+        const cart_item = data.cart_item
+        dispatch(editCart(cart_item));
     }
 }
 
@@ -109,6 +141,15 @@ export default function reducer(state = initialState, action) {
             })
             if(addedToExisting) {return [ ...newState] }
                 else { return [ ...newState, action.payload ] }
+
+        case EDIT_CART:
+            newState.map((item) => {
+                console.log(item.id, action.payload)
+                if (item.id === action.payload.id){
+                    return action.payload
+                }
+            })
+            return [ ...newState]
 
         case DELETE_ONE_FROM_CART:
             // need to run a filter and remove the item that matches the payload
