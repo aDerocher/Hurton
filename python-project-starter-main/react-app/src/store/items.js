@@ -34,6 +34,8 @@ export const getAllItems = () => async (dispatch) => {
 }
 
 
+
+
 export const getOneItem = (item_id) => async (dispatch) => {
     const response = await fetch(`/api/items/${item_id}`, {
         method: 'GET',

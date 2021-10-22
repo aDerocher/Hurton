@@ -1,6 +1,6 @@
 import flask
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField, IntegerField, BooleanField
 from wtforms.validators import DataRequired
 
 class AddItemToCartForm(FlaskForm):
@@ -20,4 +20,5 @@ class EditCartItemForm(FlaskForm):
     # item_color = StringField('Item_color', validators=[DataRequired()])
     # item_size = StringField('Item_size', validators=[DataRequired()])
     # item_price = IntegerField('Item_price', validators=[DataRequired()])
+    is_history = BooleanField('Is_history', default=False)
     quantity = IntegerField('Quantity', default=1)

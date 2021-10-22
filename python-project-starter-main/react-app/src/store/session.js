@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const SET_ORDER_HIST = 'session/SET_ORDER_HIST'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -11,7 +12,15 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
+const setOrderHist = (order_hist) => ({
+  type: SET_ORDER_HIST,
+  payload: order_hist
+})
+
+// ================================================================
+// ================================================================
 const initialState = { user: null };
+// ================================================================
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -97,6 +106,26 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
     return ['An error occurred. Please try again.']
   }
 }
+
+export const getOrderHistory = (user_id) => async (dispatch) => {
+    if (!user_id) {
+        console.log('Warning: order history requires user"')
+        return
+    }
+    const response = await fetch(`/api/users/${user_id}/order-history`, {
+        method: 'GET',
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return `Error fetching order history`;
+        }
+        const past_items = data.past_items
+        dispatch(setOrderHist(past_items));
+        return response;
+    }
+}
+
 // export const editUser = (formData) => async (dispatch) => {
 //     const { firstName, lastName, email } = formData
 //   const response = await fetch('/api/auth/signup', {
@@ -128,9 +157,12 @@ export const signUp = (firstName, lastName, email, password) => async (dispatch)
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+        return { user: action.payload }
     case REMOVE_USER:
-      return { user: null }
+        return { user: null }
+    case SET_ORDER_HIST:
+        state.user.order_history = action.payload
+        return { user: state.user }
     default:
       return state;
   }

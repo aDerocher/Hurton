@@ -188,9 +188,9 @@ def seed_items():
         color = 'purple',
         gender = 'w',
         item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boots1_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boots1_2.jpg',
-        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boots1_3.jpg',
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot1_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot1_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot1_3.jpg',
 
         lacing = 'quick-lace',
     )
@@ -201,9 +201,9 @@ def seed_items():
         color = 'purple',
         gender = 'w',
         item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bindings1_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bindings1_2.jpg',
-        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bindings1_3.jpg',
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/binding1_1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/binding1_2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/binding1_3.jpg',
 
         response = 7,
         stiffness = 7,

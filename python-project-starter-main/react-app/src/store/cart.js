@@ -39,9 +39,6 @@ export const getCartItems = (user_id) => async (dispatch) => {
     }
     const response = await fetch(`/api/users/${user_id}/cart`, {
         method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
     });
     if (response.ok) {
         const data = await response.json();
@@ -49,10 +46,30 @@ export const getCartItems = (user_id) => async (dispatch) => {
             return `Error fetching cart contents`;
         }
         const cart_items = data.cart_items
+        console.log(cart_items, '===========================================')
         dispatch(getCartContents(cart_items));
         return response;
     }
 }
+// =========== Thunk ========================
+// export const getOrderHistory = (user_id) => async (dispatch) => {
+//     if (!user_id) {
+//         console.log('Warning: order history requires user"')
+//         return
+//     }
+//     const response = await fetch(`/api/users/${user_id}/order-history`, {
+//         method: 'GET',
+//     });
+//     if (response.ok) {
+//         const data = await response.json();
+//         if (data.errors) {
+//             return `Error fetching order history`;
+//         }
+//         const past_items = data.past_items
+//         dispatch(getCartContents(past_items));
+//         return response;
+//     }
+// }
 
 // add an item to the cart ==============================================
 export const addToCart = (data) => async (dispatch) => {
