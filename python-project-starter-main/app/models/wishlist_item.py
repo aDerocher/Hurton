@@ -12,6 +12,7 @@ class WishlistItem(db.Model):
     item_color = db.Column(db.String(255), nullable=False)
     item_size = db.Column(db.String(255))
     item_price = db.Column(db.String(255))
+    item_image = db.Column(db.String(2000))
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
 
     # @property
@@ -27,5 +28,6 @@ class WishlistItem(db.Model):
             'item_color' : self.item_color,
             'item_size' : self.item_size,
             'item_price' : self.item_price,
+            'item_image' : self.item_image,
             'created_at': self.created_at,
         }

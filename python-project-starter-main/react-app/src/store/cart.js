@@ -57,13 +57,14 @@ export const getCartItems = (user_id) => async (dispatch) => {
 // add an item to the cart ==============================================
 export const addToCart = (data) => async (dispatch) => {
     // create the form from the data provided
-    const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
+    const { item_id, item_name, item_color, item_size, item_price, quantity, item_image } = data;
     let formData = new FormData();
     formData.append("item_id", item_id);
     formData.append("item_name", item_name);
     formData.append("item_color", item_color);
     formData.append("item_size", item_size);
     formData.append("item_price", item_price);
+    formData.append("item_image", item_image);
     formData.append("quantity", quantity);
 
     const response = await fetch(`/api/carts/add-item`, {

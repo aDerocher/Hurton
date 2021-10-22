@@ -23,6 +23,7 @@ def add_to_cart():
             item_color=form.item_color.data,
             item_size=form.item_size.data,
             item_price=form.item_price.data,
+            item_image=form.item_image.data,
             quantity=form.quantity.data,
         )
         db.session.add(new_cart_item)

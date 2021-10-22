@@ -10,6 +10,7 @@ class AddItemToCartForm(FlaskForm):
     item_color = StringField('Item_color', validators=[DataRequired()])
     item_size = StringField('Item_size', validators=[DataRequired()])
     item_price = IntegerField('Item_price', validators=[DataRequired()])
+    item_image = StringField('Item_image', validators=[DataRequired()])
     quantity = IntegerField('Quantity', default=1)
 
 

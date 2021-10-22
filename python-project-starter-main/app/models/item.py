@@ -11,9 +11,13 @@ class Item(db.Model):
     size = db.Column(db.String(255), nullable=False)
     gender = db.Column(db.String(255), nullable=False)
     color = db.Column(db.String(255), nullable=False)
+    color2 = db.Column(db.String(255))
+    color3 = db.Column(db.String(255))
+    image1 = db.Column(db.String(2000), nullable=False)
+    image2 = db.Column(db.String(2000), nullable=False)
+    image3 = db.Column(db.String(2000), nullable=False)
 
     item_type = db.Column(db.Integer, db.ForeignKey("item_types.id"), nullable=False)
-    
     # boards ===============================
     personality = db.Column(db.Integer)
     terrain = db.Column(db.Integer)
@@ -38,7 +42,12 @@ class Item(db.Model):
             'name': self.name,
             'price': self.price,
             'color': self.color,
+            'color2': self.color,
+            'color3': self.color,
             'gender': self.gender,
+            'image1': self.image1,
+            'image2': self.image2,
+            'image3': self.image3,
             'item_type': self.item_type,
 
             'terrain': self.terrain,

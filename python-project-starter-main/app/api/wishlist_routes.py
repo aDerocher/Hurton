@@ -26,11 +26,13 @@ def add_to_wishlist():
             item_color= form.item_color.data,
             item_size= form.item_size.data,
             item_price= form.item_price.data,
+            item_image= form.item_image.data,
         )
         db.session.add(new_wishlist_item)
         db.session.commit()
 
         return {'wishlist_item': [new_wishlist_item.to_dict()]}
+    return{'errors': 'form not valid or something ============================'}
 
 
 @wishlist_routes.route('/<int:wl_item_id>', methods=['DELETE'])
