@@ -32,6 +32,7 @@ const editCart = (cart_item) => ({
 
 
 // =========== Thunk ========================
+// get all the cart items ==============================================
 export const getCartItems = (user_id) => async (dispatch) => {
     if (!user_id) {
         console.log('Warning: No user id provided to "getCartItems()"')
@@ -46,30 +47,11 @@ export const getCartItems = (user_id) => async (dispatch) => {
             return `Error fetching cart contents`;
         }
         const cart_items = data.cart_items
-        console.log(cart_items, '===========================================')
         dispatch(getCartContents(cart_items));
         return response;
     }
 }
-// =========== Thunk ========================
-// export const getOrderHistory = (user_id) => async (dispatch) => {
-//     if (!user_id) {
-//         console.log('Warning: order history requires user"')
-//         return
-//     }
-//     const response = await fetch(`/api/users/${user_id}/order-history`, {
-//         method: 'GET',
-//     });
-//     if (response.ok) {
-//         const data = await response.json();
-//         if (data.errors) {
-//             return `Error fetching order history`;
-//         }
-//         const past_items = data.past_items
-//         dispatch(getCartContents(past_items));
-//         return response;
-//     }
-// }
+
 
 // add an item to the cart ==============================================
 export const addToCart = (data) => async (dispatch) => {
@@ -97,8 +79,9 @@ export const addToCart = (data) => async (dispatch) => {
         dispatch(addOneToCart(cart_item));
     }
 }
+
 // edit an item in the cart by increasing quantity ===========================
-export const editCartItem = (cartItem_id, newQuantity) => async (dispatch) => {
+export const editCartItem = (cartItem_id, newQuantity, is_history=false) => async (dispatch) => {
     // create the form from the data provided
     // const { item_id, item_name, item_color, item_size, item_price, quantity } = data;
     let formData = new FormData();
@@ -108,6 +91,7 @@ export const editCartItem = (cartItem_id, newQuantity) => async (dispatch) => {
     // formData.append("item_size", item_size);
     // formData.append("item_price", item_price);
     formData.append("quantity", newQuantity);
+    formData.append("is_history", is_history);
 
     const response = await fetch(`/api/carts/${cartItem_id}`, {
         method: 'PATCH',

@@ -41,6 +41,7 @@ def edit_cart(cartItem_id):
     form["csrf_token"].data = request.cookies["csrf_token"]
     if current_user and form.validate_on_submit():
         cart_item.quantity = form.quantity.data
+        cart_item.is_history = form.is_history.data
         db.session.commit()
         return { 'cart_item': cart_item.to_dict() }
     return {"errors": True}

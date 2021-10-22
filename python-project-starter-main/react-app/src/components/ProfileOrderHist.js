@@ -22,7 +22,7 @@ function ProfileOrderHist() {
                 <h2>Order History Page</h2>
                 <ul>
                     {pastItems?.map((item, i) => (
-                        <div>
+                        <div key={i}>
                             <p>{item.item_name}</p>
                             <div>
                                 <img src={item.item_image} />

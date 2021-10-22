@@ -16,6 +16,7 @@ class CartItem(db.Model):
     quantity = db.Column(db.Integer, default=1)
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
     is_history = db.Column(db.Boolean, default=False)
+    # updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 
     def to_dict(self):
         return {
@@ -30,4 +31,5 @@ class CartItem(db.Model):
             'item_image' : self.item_image,
             'quantity' : self.quantity,
             'is_history' : self.is_history,
+            # 'updated_at': self.updated_at,
         }
