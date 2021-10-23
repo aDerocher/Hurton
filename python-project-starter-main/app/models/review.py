@@ -1,5 +1,5 @@
 from .db import db
-
+from datetime import datetime
 
 class Review(db.Model):
     __tablename__ = 'reviews'
@@ -11,15 +11,17 @@ class Review(db.Model):
     title = db.Column(db.String(50))
     content = db.Column(db.String(400), nullable=False) 
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
     def to_dict(self):
         return {
             'id': self.id,
             'item_id': self.id,
-            'user_id' = self.user_id,
-            'rating' = self.rating,
-            'title' = self.title,
-            'content' = self.content, 
-            'created_at' = self.created_at,
+            'user_id': self.user_id,
+            'rating': self.rating,
+            'title': self.title,
+            'content': self.content, 
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
         }

@@ -5,3 +5,4 @@ from .cart import Cart
 from .item_type import ItemType
 from .cart_item import CartItem
 from .wishlist_item import WishlistItem
+from .review import Review

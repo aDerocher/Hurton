@@ -1,9 +1,12 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import { getCartItems, addToCart, editCartItem } from '../../store/cart';
-import { getUsersWishlist, addWishlistItem } from '../../store/wishlist';
-// import { useParams } from 'react-router';
+import { getItemReviews } from './../../store/items';
+import { getCartItems, addToCart, editCartItem } from './../../store/cart';
+import { getUsersWishlist, addWishlistItem } from './../../store/wishlist';
+import { getOrderHistory } from './../../store/session';
+import Reviews from '../Reviews';
+import NewReview from '../NewReview';
 import { getOneItem } from './../../store/items';
 
 
@@ -14,17 +17,24 @@ const Snowboard = () => {
     const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session.user)
     const usersWishlist = useSelector(state => state.wishlist)
-
+    const reviews = useSelector(state => state.reviews)
+    const orderHistory = useSelector(state => state.session.user.order_history)
+    
     const [ quantity, setQuantity ] = useState(1)
-
+    const [ userCanRev, setUserCanRev ] = useState(false)
+    
     useEffect(() => {
+        dispatch(getOrderHistory(sessionUser.id))
         dispatch(getOneItem(itemId))
+        dispatch(getItemReviews(itemId))
         if(sessionUser){
             dispatch(getUsersWishlist(sessionUser?.id))
             dispatch(getCartItems(sessionUser?.id))
         }
     }, [dispatch])
     
+
+    // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e) => {
         e.preventDefault()
         if(!sessionUser){
@@ -35,9 +45,6 @@ const Snowboard = () => {
             return i.item_id === parseInt(itemId)
         })
         if(wl_exists.length > 0){return}
-        // usersWishlist?.forEach((i) => { if (i.item_id === parseInt(itemId)) return })
-
-
         const formData = {
             user_id: sessionUser.id,
             item_id: parseInt(itemId),
@@ -50,9 +57,9 @@ const Snowboard = () => {
         dispatch(addWishlistItem(formData))
     }
     
+    // handle adding an item to the users cart ===============
     const addItemToCart = (e, item) => {
         e.preventDefault()
-        
         let uid = null
         if(sessionUser) uid = sessionUser.id
         const formData = {
@@ -66,15 +73,10 @@ const Snowboard = () => {
         }
         if (uid) {
             const existingCartItem = usersCart.filter((item)=>{
-                // console.log(item.item_id, formData.item_id)
-                // console.log(item.item_size, formData.item_size)
-                // console.log(item.item_color, formData.item_color)
                 if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color)
                 return true
             })
             if (existingCartItem.length > 0) {
-                // console.log(existingCartItem[0])
-                // console.log(existingCartItem[0].quantity)
                 existingCartItem[0].quantity +=1
                 dispatch(editCartItem(existingCartItem[0].id, existingCartItem[0].quantity))
                 return
@@ -85,6 +87,7 @@ const Snowboard = () => {
         addToLocalCart(formData)
     }
 
+    // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {
         let cart = localStorage.getItem('cart');
         if(!cart){
@@ -102,6 +105,26 @@ const Snowboard = () => {
         window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
+    // makes sure the new review form only displays if:
+    // 1. the user is logged in
+    // 2. has not left a review on this product before
+    // 3. item is in the users order history
+    useEffect(() => {
+        if (sessionUser){
+            let x = reviews.filter((r)=> {
+                return r.user_id === sessionUser.id
+            })
+            let y = orderHistory?.filter((o)=> {
+                return o.item_id === item?.id
+            })
+            if (x?.length === 0 && y?.length > 0) {
+                setUserCanRev(true)
+            } else {
+                setUserCanRev(false)
+            }
+        }
+    }, [sessionUser, item, reviews, orderHistory])
+    
     return (
         <div className="item-page-container">
             <div>
@@ -119,6 +142,12 @@ const Snowboard = () => {
                 </div>
                 {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
             </div>
+            {userCanRev &&
+                <NewReview user={sessionUser} itemId={item?.id}/>
+            }
+            {reviews.map((review, i)=>(
+                <Reviews key={i} review={review}/> 
+            ))}
         </div>
     );
 }
