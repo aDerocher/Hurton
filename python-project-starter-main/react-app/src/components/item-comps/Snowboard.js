@@ -110,8 +110,8 @@ const Snowboard = () => {
     // 2. has not left a review on this product before
     // 3. item is in the users order history
     useEffect(() => {
-        if (sessionUser){
-            let x = reviews.filter((r)=> {
+        if (sessionUser?.id){
+            let x = reviews?.filter((r)=> {
                 return r.user_id === sessionUser.id
             })
             let y = orderHistory?.filter((o)=> {
@@ -123,7 +123,7 @@ const Snowboard = () => {
                 setUserCanRev(false)
             }
         }
-    }, [sessionUser, item, reviews, orderHistory])
+    }, [item, sessionUser, reviews, orderHistory])
     
     return (
         <div className="item-page-container">

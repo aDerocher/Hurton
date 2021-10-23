@@ -2,16 +2,20 @@
 
 const ITEM_REVIEWS = 'session/ITEM_REVIEWS';
 const NEW_REVIEW = 'session/NEW_REVIEW'
+const EDIT_REVIEW = 'session/EDIT_REVIEW'
 const REMOVE_REVIEW = 'session/REMOVE_REVIEW'
 
 const setItemsReviews = (reviews) => ({
   type: ITEM_REVIEWS,
   payload: reviews
 })
-
 const addToReviewsList = (new_review) => ({
   type: NEW_REVIEW,
   payload: new_review
+})
+const editedReview = (review) => ({
+  type: EDIT_REVIEW,
+  payload: review
 })
 const removeReview = (dead_review) => ({
   type: REMOVE_REVIEW,
@@ -55,7 +59,7 @@ export const addNewReview = (data) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {
-            return `Error adding creating review`;
+            return `Error creating review`;
         }
         const new_review = data.new_review
         dispatch(addToReviewsList(new_review));
@@ -63,6 +67,30 @@ export const addNewReview = (data) => async (dispatch) => {
 }
 
 
+// edit a review ===========================================
+export const editReview = (data) => async (dispatch) => {
+    const {review_id, item_id, rating, title, content } = data;
+    let formData = new FormData();
+    formData.append("rating", rating);
+    formData.append("title", title);
+    formData.append("content", content);
+
+    const response = await fetch(`/api/items/${item_id}/reviews/${review_id}`, {
+        method: 'PATCH',
+        body: formData
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return `Error editing a review`;
+        }
+        const review = data.review
+        dispatch(editedReview(review));
+    }
+}
+
+
+// delete a review ===========================================
 export const deleteReview = (review_id, item_id) => async (dispatch) => {
     const response = await fetch(`/api/items/${item_id}/reviews/${review_id}`, {
         method: 'DELETE',
@@ -70,7 +98,7 @@ export const deleteReview = (review_id, item_id) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json();
         if (data.errors) {
-            return `Error adding creating review`;
+            return `Error deleting review`;
         }
         const dead_review = data.dead_review
         dispatch(removeReview(dead_review));
@@ -88,11 +116,17 @@ export default function reducer(state = initialState, action) {
             return action.payload
         case NEW_REVIEW:
             return [...newState, action.payload]
-        case REMOVE_REVIEW:
-            let newerState = newState.filter((review) => {
+        case EDIT_REVIEW:
+            let editedState = newState.filter((review) => {
                 return review.id !== action.payload.id
             })
-            return [...newerState ]
+            return [ ...editedState, action.payload ]
+            return [...newState]
+        case REMOVE_REVIEW:
+            let deletedState = newState.filter((review) => {
+                return review.id !== action.payload.id
+            })
+            return [ ...deletedState ]
         default:
             return state;
     }

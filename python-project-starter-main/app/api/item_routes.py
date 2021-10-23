@@ -53,12 +53,19 @@ def new_review(item_id):
     return { 'errors': 'there was an error with new-review route' }
 
 # Edit an existing Review   
-# @item_routes.route('/<int:item_id>/new-review',methods=['PATCH'])
-# @login_required
-# def edit_review(item_id):
-    # reviews = Review.query.filter(Review.item_id == item_id)
-    # print(reviews, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
-    # return { 'reviews': [review.to_dict() for review in reviews] }
+@item_routes.route('/<int:item_id>/reviews/<int:review_id>',methods=['PATCH'])
+@login_required
+def edit_review(item_id, review_id):
+    review = Review.query.get(review_id)
+    print(review, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+    form = EditReviewForm()
+    form["csrf_token"].data = request.cookies["csrf_token"]
+    if current_user and form.validate_on_submit():
+        review.rating= form.rating.data,
+        review.title= form.title.data,
+        review.content= form.content.data,
+        db.session.commit()
+        return { 'review': review.to_dict() }
 
 # Delete an existing Review   
 @item_routes.route('/<int:item_id>/reviews/<int:review_id>',methods=['DELETE'])
