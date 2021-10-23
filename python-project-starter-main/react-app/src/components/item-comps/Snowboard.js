@@ -18,13 +18,13 @@ const Snowboard = () => {
     const sessionUser = useSelector(state => state.session.user)
     const usersWishlist = useSelector(state => state.wishlist)
     const reviews = useSelector(state => state.reviews)
-    const orderHistory = useSelector(state => state.session.user.order_history)
+    const orderHistory = useSelector(state => state.session.user?.order_history)
     
     const [ quantity, setQuantity ] = useState(1)
     const [ userCanRev, setUserCanRev ] = useState(false)
     
     useEffect(() => {
-        dispatch(getOrderHistory(sessionUser.id))
+        dispatch(getOrderHistory(sessionUser?.id))
         dispatch(getOneItem(itemId))
         dispatch(getItemReviews(itemId))
         if(sessionUser){
@@ -110,8 +110,8 @@ const Snowboard = () => {
     // 2. has not left a review on this product before
     // 3. item is in the users order history
     useEffect(() => {
-        if (sessionUser){
-            let x = reviews.filter((r)=> {
+        if (sessionUser?.id){
+            let x = reviews?.filter((r)=> {
                 return r.user_id === sessionUser.id
             })
             let y = orderHistory?.filter((o)=> {
@@ -123,7 +123,7 @@ const Snowboard = () => {
                 setUserCanRev(false)
             }
         }
-    }, [sessionUser, item, reviews, orderHistory])
+    }, [item, sessionUser, reviews, orderHistory])
     
     return (
         <div className="item-page-container">
@@ -146,7 +146,7 @@ const Snowboard = () => {
                 <NewReview user={sessionUser} itemId={item?.id}/>
             }
             {reviews.map((review, i)=>(
-                <Reviews key={i} review={review}/> 
+                <Reviews key={i}  user={sessionUser} review={review}/> 
             ))}
         </div>
     );
