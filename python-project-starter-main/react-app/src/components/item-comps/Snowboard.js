@@ -6,7 +6,7 @@ import { getCartItems, addToCart, editCartItem } from './../../store/cart';
 import { getUsersWishlist, addWishlistItem } from './../../store/wishlist';
 import { getOrderHistory } from './../../store/session';
 import Reviews from '../Reviews';
-import NewReviewForm from '../NewReviewForm';
+import NewReview from '../NewReview';
 import { getOneItem } from './../../store/items';
 
 
@@ -112,12 +112,10 @@ const Snowboard = () => {
     useEffect(() => {
         if (sessionUser){
             let x = reviews.filter((r)=> {
-                console.log('==========================review vs userid',r.user_id, sessionUser.id)
                 return r.user_id === sessionUser.id
             })
             let y = orderHistory?.filter((o)=> {
-                console.log('==========================order history vs item id',o.item_id, item.id)
-                return o.item_id === item.id
+                return o.item_id === item?.id
             })
             if (x?.length === 0 && y?.length > 0) {
                 setUserCanRev(true)
@@ -145,7 +143,7 @@ const Snowboard = () => {
                 {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
             </div>
             {userCanRev &&
-                <NewReviewForm user={sessionUser} />
+                <NewReview user={sessionUser} itemId={item?.id}/>
             }
             {reviews.map((review, i)=>(
                 <Reviews key={i} review={review}/> 

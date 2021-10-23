@@ -11,6 +11,7 @@ class Review(db.Model):
     title = db.Column(db.String(50))
     content = db.Column(db.String(400), nullable=False) 
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
 
 
     def to_dict(self):
@@ -22,4 +23,5 @@ class Review(db.Model):
             'title': self.title,
             'content': self.content, 
             'created_at': self.created_at,
+            'updated_at': self.updated_at,
         }
