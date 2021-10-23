@@ -2,6 +2,7 @@
 
 const ITEM_REVIEWS = 'session/ITEM_REVIEWS';
 const NEW_REVIEW = 'session/NEW_REVIEW'
+const REMOVE_REVIEW = 'session/REMOVE_REVIEW'
 
 const setItemsReviews = (reviews) => ({
   type: ITEM_REVIEWS,
@@ -11,6 +12,10 @@ const setItemsReviews = (reviews) => ({
 const addToReviewsList = (new_review) => ({
   type: NEW_REVIEW,
   payload: new_review
+})
+const removeReview = (dead_review) => ({
+  type: REMOVE_REVIEW,
+  payload: dead_review
 })
 
 // ================== Thunk =====================================
@@ -58,6 +63,21 @@ export const addNewReview = (data) => async (dispatch) => {
 }
 
 
+export const deleteReview = (review_id, item_id) => async (dispatch) => {
+    const response = await fetch(`/api/items/${item_id}/reviews/${review_id}`, {
+        method: 'DELETE',
+    });
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return `Error adding creating review`;
+        }
+        const dead_review = data.dead_review
+        dispatch(removeReview(dead_review));
+    }
+}
+
+
 // =========== Reducer ========================
 const initialState = [];
 
@@ -68,6 +88,11 @@ export default function reducer(state = initialState, action) {
             return action.payload
         case NEW_REVIEW:
             return [...newState, action.payload]
+        case REMOVE_REVIEW:
+            let newerState = newState.filter((review) => {
+                return review.id !== action.payload.id
+            })
+            return [...newerState ]
         default:
             return state;
     }

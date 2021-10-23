@@ -55,7 +55,18 @@ def new_review(item_id):
 # Edit an existing Review   
 # @item_routes.route('/<int:item_id>/new-review',methods=['PATCH'])
 # @login_required
-# def item_reviews(item_id):
+# def edit_review(item_id):
     # reviews = Review.query.filter(Review.item_id == item_id)
     # print(reviews, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
     # return { 'reviews': [review.to_dict() for review in reviews] }
+
+# Delete an existing Review   
+@item_routes.route('/<int:item_id>/reviews/<int:review_id>',methods=['DELETE'])
+@login_required
+def delete_review(review_id, item_id):
+    dead_review = Review.query.get(review_id)
+    print('=====================',current_user.get_id() == dead_review.user_id)
+    # if (current_user.get_id() == dead_review.user_id)
+    db.session.delete(dead_review)
+    db.session.commit()
+    return { 'dead_review': dead_review.to_dict() }
