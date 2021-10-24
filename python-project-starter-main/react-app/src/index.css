@@ -54,7 +54,6 @@ html, body{ font-family: Arial, Helvetica, sans-serif; }
 button{ outline: none; border: none; }
 button:hover{ cursor: pointer; }
 
-
 /* TODO combine root variable colors! */
 :root{
 
@@ -92,16 +91,18 @@ button:hover{ cursor: pointer; }
 /* ===============================================================
 +++++++++++++ TEMPORARY! REMOVE THIS APP LATER ++++++++++++++++
 =============================================================== */
-                                img {
+                                /* img {
                                     max-height: 100px;
                                     max-width: 100px;
-                                }
+                                } */
 /* ===============================================================
 =============================================================== 
 =============================================================== */ 
 
 
 /* Useful site wide classes */
+.flex-col-cont{ display: flex; flex-direction: column}
+.flex-row-cont{ display: flex; flex-direction: row}
 .boldish{ font-weight: 800; }
 
 .hover-hand:hover{ cursor: pointer; }

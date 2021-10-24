@@ -43,19 +43,19 @@ function SplashPage() {
             {/* ========================= Shopping Links ======================== */}
             <div className='shop-sections-container content-width'>
                 <div className='shop-section'>
-                    {/* <img src="/__Iso-testing/Images/jackets.jpg" alt="shop" className='shop-section-img' /> */}
+                    <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-jackets.jpg" alt="shop" className='shop-section-img' />
                     <h3 className="shop-section-label">Shop Jackets</h3>
                 </div>
                 <div className='shop-section'>
-                    {/* <img src="/__Iso-testing/Images/bibs-pants.jpg" alt="shop" className='shop-section-img' /> */}
+                    <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-bibs-pants.jpg" alt="shop" className='shop-section-img' />
                     <h3 className="shop-section-label">Pants & Bibs</h3>
                 </div>
                 <div className='shop-section'>
-                    {/* <img src="/__Iso-testing/Images/fleece.jpg" alt="shop" className='shop-section-img' /> */}
+                    <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-fleece.jpg" alt="shop" className='shop-section-img' />
                     <h3 className="shop-section-label">Shop Fleece</h3>
                 </div>
                 <div className='shop-section'>
-                    {/* <img src="/__Iso-testing/Images/kids.jpg" alt="shop" className='shop-section-img' /> */}
+                    <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-kids.jpg" alt="shop" className='shop-section-img' />
                     <h3 className="shop-section-label">Shop Kids</h3>
                 </div>
             </div>

@@ -83,7 +83,7 @@ const NavBar = () => {
                         <>
                         <p>
                             <NavLink to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active'>
-                                My Profile
+                                {sessionUser?.firstName}
                             </NavLink>
                         </p>
                         <p>
@@ -116,13 +116,15 @@ const NavBar = () => {
                     {/* <img id="text-logo" className='hurton-nav-logo' src="/__Iso-testing/Images/logos/hurton-text-logo.png" alt="HurtonText" /> */}
                 </div>
                 <div className="nav-section nav-links">
-                    <p>Snowboarding</p>
-                    <p>Women</p>
-                    <p>Men</p>
-                    <p>Kids</p>
-                    <p>Accessories & Bags</p>
-                    <p>Sale</p>
-                    <p>MINE77</p>
+                        <NavLink to={`/shop`} exact={true} activeClassName='active'>
+                            <p>Snowboarding</p>
+                        </NavLink>
+                        <p>Women</p>
+                        <p>Men</p>
+                        <p>Kids</p>
+                        <p>Accessories & Bags</p>
+                        <p>Sale</p>
+                        <p>MINE77</p>
                 </div>
                 <div className='nav-section nav-search-cont'>
                     <div className='search-outline'>

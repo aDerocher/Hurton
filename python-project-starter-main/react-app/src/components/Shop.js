@@ -33,30 +33,34 @@ const Shop = () => {
     }
 
     return (
-        <div className="profile-page-container">
-            <ShopFilters />
-            <div>
+        <div>
+            <div className="flex-col-cont content-width">
                 <h1>This is the shop</h1>
-                <ul>
+            </div>
+            <div className='flex-row-cont content-width'>
+                <ShopFilters />
+                <div className='sale-cards-container'>
                     {items?.map((item, i) => (
-                        <li hidden={runFilter(item)} key={i} className="item-tile" >
-                            <div onClick={e=>goToItem(e, item.id, item.item_type)}>
-                            <p>{item.id} </p>
-                            <p>{item.name}</p>
-                            <p>$ {item.price}.00</p>
-                            <p>{item.color}</p>
-                            <p>{item.size}</p>
-                            <p>{item.gender}</p>
-                            <div>
-                                <img src={item.image1} />
+                        <div className="sale-card" hidden={runFilter(item)} key={i}>
+                            <div className="sale-photo-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
+                                <img src={item.image1} className='sale-image' alt={item.name} />
                             </div>
-                            {/* { item_types &&
-                                <NavLink to={`/shop/${item_types[`${item.item_type}`].item_type}/${item.id}`} exact={true}>go</NavLink>
-                            } */}
+                            <div className='item-colors-section'>
+                                <div className="sale-swatch"></div>
+                                <div className="sale-swatch"></div>
+                                <div className="sale-swatch"></div>
                             </div>
-                        </li>
+                            <div className="sale-content-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
+                                <p className='sale-text'>{item.name}</p>
+                                <p className='sale-text'>$ {item.price}.00</p>
+                            </div>
+                            <div className='sale-compare-section'>
+                                <input disabled={true} type='checkbox' name="compare" value="itemId" />
+                                <label for="itemId"><i>Compare</i></label>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </div>
     );
