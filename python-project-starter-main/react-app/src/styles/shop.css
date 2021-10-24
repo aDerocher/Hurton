@@ -1,3 +1,19 @@
+.shop-page-cont{
+    background-color: var(--light-light-grey);
+}
+.shop-page-topper{
+    align-items: center;
+    padding: 10px;
+}
+.shop-page-topper>*{
+    padding: 1rem;
+}
+.filters-side-container{
+    max-width: 25%
+    
+}
+
+/* ========= Main Body =======================================*/
 .sale-cards-container{
     max-width: 100%;
     display: flex;
@@ -36,7 +52,7 @@
     box-shadow: 0 0 0px 1px rgb(66, 66, 66);
 }
 .sale-swatch{
-    background-color: goldenrod;
+    /* background-color: goldenrod; */
     height: 15px;
     width: 15px;
     margin: 10px;

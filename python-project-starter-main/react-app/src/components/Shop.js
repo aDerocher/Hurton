@@ -33,12 +33,21 @@ const Shop = () => {
     }
 
     return (
-        <div>
-            <div className="flex-col-cont content-width">
-                <h1>This is the shop</h1>
+        <div className="shop-page-cont">
+
+            <div className="flex-col-cont content-width shop-page-topper">
+                <p className='grey-label'>Snowboarding / Snowboards / Shop all Snowboards</p>
+                <h1>Snowboards</h1>
+                <p>Since day one, Hurton has been built on boards. Explore the 
+                    industry's most diverse snowboard lineup for park, 
+                    all-mountain, powder, splitboarding, and the backcountry.</p>
             </div>
+
             <div className='flex-row-cont content-width'>
-                <ShopFilters />
+                <div className='filters-side-container'>
+                    <ShopFilters />
+                </div>
+
                 <div className='sale-cards-container'>
                     {items?.map((item, i) => (
                         <div className="sale-card" hidden={runFilter(item)} key={i}>
@@ -46,17 +55,19 @@ const Shop = () => {
                                 <img src={item.image1} className='sale-image' alt={item.name} />
                             </div>
                             <div className='item-colors-section'>
-                                <div className="sale-swatch"></div>
-                                <div className="sale-swatch"></div>
-                                <div className="sale-swatch"></div>
+                                <div className="sale-swatch" style={{backgroundColor: `${item.color}`}}></div>
+                                {item.color2 !== null && 
+                                    <div className="sale-swatch" style={{backgroundColor: `${item.color2}`}}></div>}
+                                {item.color3 !== null && 
+                                    <div className="sale-swatch" style={{backgroundColor: `${item.color3}`}}></div>}
                             </div>
                             <div className="sale-content-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
                                 <p className='sale-text'>{item.name}</p>
                                 <p className='sale-text'>$ {item.price}.00</p>
                             </div>
                             <div className='sale-compare-section'>
-                                <input disabled={true} type='checkbox' name="compare" value="itemId" />
-                                <label for="itemId"><i>Compare</i></label>
+                                <input disabled={true} type='checkbox' name="itemId" value="itemId" />
+                                <label><i>Compare</i></label>
                             </div>
                         </div>
                     ))}

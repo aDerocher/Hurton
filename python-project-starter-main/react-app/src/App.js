@@ -47,6 +47,7 @@ function App() {
 
         <Route path='/shop' exact={true}>
             <Shop />
+            <Footer />
         </Route>
         <Route path='/shop/snowboard/:itemId' exact={true}>
             <Snowboard />
@@ -61,9 +62,11 @@ function App() {
 
         <Route path='/cart' exact={true} >
             <CartPage />
+            <Footer />
         </Route>
         <Route path='/cart/checkout' exact={true} >
             <CheckoutPage />
+            <Footer />
         </Route>
 
         <ProtectedRoute path='/users' exact={true} >

@@ -21,7 +21,7 @@
     height: 500px;
     display: flex;
     flex-direction: column;
-    padding: 2.5%;
+    padding: 2% 7%;
     justify-content: center;
 }
 
@@ -58,6 +58,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 1.5rem auto;
+
 }
 
 .shop-section{

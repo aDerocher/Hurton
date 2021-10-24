@@ -162,8 +162,10 @@ ul{
     justify-content: center;
     
 }
-.fss-3{
+.fss-thr{
+    /* background-color: cadetblue; */
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     text-decoration: underline;
 }

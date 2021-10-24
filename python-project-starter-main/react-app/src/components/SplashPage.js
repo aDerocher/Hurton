@@ -20,7 +20,14 @@ function SplashPage() {
     return (
         <div className="splash-page-container">
             <div className='ak-advert'>
-                <p>Layers for anywhere you go <a className='ak-link' href="#">Shop [ak]<span className='ak-c'>®</span></a></p>
+                <p>Layers for anywhere you go <a className='ak-link' href="#">
+                        <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: 'white'}}>
+                             Shop [hk]
+                        </NavLink>
+                        <span className='ak-c'>
+                            ®
+                        </span>
+                </a></p>
             </div>
 
             {/* <!-- ================================================================= -->
@@ -41,7 +48,7 @@ function SplashPage() {
             {/* ================================================================= */}
 
             {/* ========================= Shopping Links ======================== */}
-            <div className='shop-sections-container content-width'>
+            <div className='content-width shop-sections-container'>
                 <div className='shop-section'>
                     <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-jackets.jpg" alt="shop" className='shop-section-img' />
                     <h3 className="shop-section-label">Shop Jackets</h3>
@@ -65,9 +72,9 @@ function SplashPage() {
             <div className='stepon-section-container content-width'>
                 <div>
                     <p className='stepon-text'>Coming Soon</p>
-                    <h2 className='stepon-title'>Step On<span className='stepon-r'>®</span></h2>
+                    <h2 className='stepon-title'>Custom Graphics<span className='stepon-r'>®</span></h2>
                     <p className='stepon-text'>
-                        Good news, everyone. The new Step On® binding collection is almost here.
+                        Good news, everyone. The new Custom Hurt® graphic designs are almost here.
                         <br />
                         Get right to riding on 10/18 with fresh colors and styles.
                     </p>

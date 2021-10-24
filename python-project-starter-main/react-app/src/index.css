@@ -1,8 +1,46 @@
+/* TODO combine root variable colors! */
+:root{
+
+    /* ======== COLORS ======== */
+    /* Greys -------------------- */
+        --off-white: white;
+
+        /* for some soft grey backgrounds */
+        --light-light-grey: #f5f5f5;
+        --light-grey: #e5e5e5;
+        --lightgrey1: rgb(155, 155, 155);
+
+        /* for large titles and paragraphs */
+        --med-grey: #4e4c4b;
+
+        --dark-grey: #333333;
+        /* for small text and button backgrounds */
+        --charcoal-grey: #1a1a1a;
+    
+    /* Greens -------------------- */
+        /*Free shipping/sale*/
+        --link-green: #4d6e60;
+        /*accents, button backgrdounds*/
+        --button-turq:#3d7c7d;
+        --accent-turq:#0e7387;
+
+
+}
+:root{
+    
+    --chargrey1: rgb(51, 51, 51);
+    --chargrey2: rgb(11, 11, 11);
+
+    --footer-offwhite: rgb(239, 239, 239);
+}
+
+/* ======== Clear off default styling ==============================*/
 h1, h2, h3, h4, h5, h6{
     margin: 0;
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
+    color: var(--charcoal-grey)
 }
 /* b, u, i,strike, strong,em, */
 html, body, div, span, applet, object, iframe,
@@ -48,46 +86,11 @@ table {
 	border-spacing: 0;
 }
 
-
 /* Universal style application */
 html, body{ font-family: Arial, Helvetica, sans-serif; }
 button{ outline: none; border: none; }
 button:hover{ cursor: pointer; }
 
-/* TODO combine root variable colors! */
-:root{
-
-    /* ======== COLORS ======== */
-    /* Greys -------------------- */
-        --off-white: white;
-
-        /* for some soft grey backgrounds */
-        --light-grey: #e5e5e5;
-        --lightgrey1: rgb(155, 155, 155);
-
-        /* for large titles and paragraphs */
-        --med-grey: #4e4c4b;
-
-        --dark-grey: #333333;
-        /* for small text and button backgrounds */
-        --charcoal-grey: #1a1a1a;
-    
-    /* Greens -------------------- */
-        /*Free shipping/sale*/
-        --link-green: #4d6e60;
-        /*accents, button backgrdounds*/
-        --button-turq:#3d7c7d;
-        --accent-turq:#0e7387;
-
-
-}
-:root{
-    
-    --chargrey1: rgb(51, 51, 51);
-    --chargrey2: rgb(11, 11, 11);
-
-    --footer-offwhite: rgb(239, 239, 239);
-}
 /* ===============================================================
 +++++++++++++ TEMPORARY! REMOVE THIS APP LATER ++++++++++++++++
 =============================================================== */
@@ -106,7 +109,7 @@ button:hover{ cursor: pointer; }
 .boldish{ font-weight: 800; }
 
 .hover-hand:hover{ cursor: pointer; }
-
+.remove-underline{text-decoration: none;}
 .content-width{
     width: 95%;
     margin: 0 2.5%;
@@ -117,4 +120,33 @@ button:hover{ cursor: pointer; }
     color: var(--med-grey);
     font-size: 10pt;
     font-weight: 500;
+}
+
+/* Useful site wide classes */
+.btn-simple:hover{ background-color: var(--light-grey);}
+.btn-simple{
+    background-color: white;
+    color: var(--med-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+}
+.delete-btn-simple:hover{ background-color: var(--light-grey);}
+.delete-btn-simple{
+    font-size: 18pt;
+    font-weight: 400;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+}
+.heart-btn-simple:hover{ background-color: var(--light-grey);}
+.heart-btn-simple > *{text-decoration: none;}
+.heart-btn-simple{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 10pt;
+    height: 24px;
+    width: 24px;
+    border-radius: 11px;
 }

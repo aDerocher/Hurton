@@ -25,7 +25,7 @@ const NavBar = () => {
         e.preventDefault();
         // viable possible solution 1 ===============================
         let rect = document.body.getBoundingClientRect()
-        console.log(rect.y)
+        // console.log(rect.y)
         // viable possible solution 2 ===============================
         // if (window.scrollY > 0){
         //     console.log('chickeeeeen')
@@ -51,7 +51,7 @@ const NavBar = () => {
         <div className='meta-nav-container'>
             <div className='meta-nav'>
                 <div className='meta-nav-section'>
-                    <NavLink to='/' exact={true} activeClassName='active'>
+                    <NavLink to='/' exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                         <p className='boldish'>HURTON</p>
                     </NavLink>
 
@@ -66,26 +66,26 @@ const NavBar = () => {
 
                 <div className='meta-nav-section'>
                     {sessionUser &&
-                        <NavLink to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active'>
-                            <button className='heart'>♡</button>
+                        <NavLink to={`/users/${sessionUser?.id}/wishlist`} exact={true} activeClassName='active' style={{ textDecoration: 'none', color: `var(--link-green)`}}>
+                            <button className='btn-simple heart-btn-simple'><i class="far fa-heart"></i></button>
                         </NavLink>
                     }
                     <p>Stores</p>
                     {!sessionUser &&
                         <>
-                        <NavLink to={`/login`} exact={true} activeClassName='active'>
-                            <p className='heart'>♡</p>
+                        <NavLink to={`/login`} exact={true} activeClassName='active' style={{ textDecoration: 'none' }}>
+                            <button className='btn-simple heart-btn-simple'><i class="far fa-heart"></i></button>
                         </NavLink>
-                        <button disabled={sessionUser} onClick={loginDemo}>Demo</button>
+                        <div>
+                            <button disabled={sessionUser} onClick={loginDemo}>Demo</button>
+                        </div>
                         </>
                     }
                     {sessionUser &&
                         <>
-                        <p>
-                            <NavLink to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active'>
-                                {sessionUser?.firstName}
-                            </NavLink>
-                        </p>
+                        <NavLink to={`/users/${sessionUser?.id}`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
+                            <p>{sessionUser?.firstName} </p>
+                        </NavLink>
                         <p>
                             <LogoutButton />
                         </p>
@@ -93,16 +93,16 @@ const NavBar = () => {
                     }
                     {!sessionUser &&
                         <>
-                        <NavLink to='/login' exact={true} activeClassName='active'>
+                        <NavLink to='/login' exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                             <button disabled={sessionUser}>Login</button>
                         </NavLink>
 
-                        <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                        <NavLink to='/sign-up' exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                             <button disabled={sessionUser}>Sign Up</button>
                         </NavLink>
                         </>
                     }
-                    <NavLink to={`/cart`} exact={true} activeClassName='active'>
+                    <NavLink to={`/cart`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                         <button><i className="fas fa-shopping-cart"></i></button>
                     </NavLink>
                 </div>
@@ -112,11 +112,11 @@ const NavBar = () => {
             <div className='nav content-width'>
                 {/*  <div className='nav-section l-correct'>Burton Logo</div> */}
                 <div className='nav-img-section'>
-                    {/* <img id="h-logo" className='hurton-nav-logo' src="/__Iso-testing/Images/logos/hurton-logo.png" alt="Hurton" /> */}
-                    {/* <img id="text-logo" className='hurton-nav-logo' src="/__Iso-testing/Images/logos/hurton-text-logo.png" alt="HurtonText" /> */}
+                    <img id="h-logo" className='hurton-nav-logo' src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/hurton-logo-2.png" alt="Hurton" />
+                    <img id="text-logo" className='hurton-nav-logo' src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/hurton-text-logo.png" alt="HurtonText" />
                 </div>
                 <div className="nav-section nav-links">
-                        <NavLink to={`/shop`} exact={true} activeClassName='active'>
+                        <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                             <p>Snowboarding</p>
                         </NavLink>
                         <p>Women</p>
