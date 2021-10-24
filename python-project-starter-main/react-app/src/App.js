@@ -15,6 +15,7 @@ import CheckoutPage from './components/CheckoutPage';
 // import ProfileSidebar from './components/ProfileSidebar';
 import Shop from './components/Shop';
 import SplashPage from './components/SplashPage';
+import Footer from './components/Footer';
 import Snowboard from './components/item-comps/Snowboard';
 import { authenticate } from './store/session';
 import "./index.css";
@@ -41,10 +42,12 @@ function App() {
           
         <Route path='/' exact={true}>
             <SplashPage />
+            <Footer />
         </Route>
 
         <Route path='/shop' exact={true}>
             <Shop />
+            <Footer />
         </Route>
         <Route path='/shop/snowboard/:itemId' exact={true}>
             <Snowboard />
@@ -59,9 +62,11 @@ function App() {
 
         <Route path='/cart' exact={true} >
             <CartPage />
+            <Footer />
         </Route>
         <Route path='/cart/checkout' exact={true} >
             <CheckoutPage />
+            <Footer />
         </Route>
 
         <ProtectedRoute path='/users' exact={true} >

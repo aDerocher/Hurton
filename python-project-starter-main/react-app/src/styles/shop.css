@@ -1,4 +1,74 @@
-.item-tile{
-    border: 1px solid blue;
-    width: 300px;
+.shop-page-cont{
+    background-color: var(--light-light-grey);
+}
+.shop-page-topper{
+    align-items: center;
+    padding: 10px;
+}
+.shop-page-topper>*{
+    padding: 1rem;
+}
+.filters-side-container{
+    max-width: 25%
+    
+}
+
+/* ========= Main Body =======================================*/
+.sale-cards-container{
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.sale-card{
+    /* background-color: lime; */
+    width: 275px;
+    height: 500px;
+    margin: 0 15px;
+    margin-bottom: 15px;
+}
+
+.sale-photo-section{
+    /* background-color: mediumaquamarine; */
+    height: 65%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sale-image{
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.item-colors-section{
+    display: flex;
+    flex-direction: row;
+}
+
+.sale-swatch:hover{
+    border: 2px solid white;
+    box-shadow: 0 0 0px 1px rgb(66, 66, 66);
+}
+.sale-swatch{
+    /* background-color: goldenrod; */
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    margin-right: 6px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0px 1px rgba(66, 66, 66, 0);
+}
+.sale-text{
+    margin: 15px 12px;
+    font-size: 12pt;
+    color:rgb(66, 66, 66);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sale-compare-section{
+    /* background-color: royalblue;     */
+    margin: 0 12px;
+
 }

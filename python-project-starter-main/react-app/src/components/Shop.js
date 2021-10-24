@@ -33,30 +33,45 @@ const Shop = () => {
     }
 
     return (
-        <div className="profile-page-container">
-            <ShopFilters />
-            <div>
-                <h1>This is the shop</h1>
-                <ul>
+        <div className="shop-page-cont">
+
+            <div className="flex-col-cont content-width shop-page-topper">
+                <p className='grey-label'>Snowboarding / Snowboards / Shop all Snowboards</p>
+                <h1>Snowboards</h1>
+                <p>Since day one, Hurton has been built on boards. Explore the 
+                    industry's most diverse snowboard lineup for park, 
+                    all-mountain, powder, splitboarding, and the backcountry.</p>
+            </div>
+
+            <div className='flex-row-cont content-width'>
+                <div className='filters-side-container'>
+                    <ShopFilters />
+                </div>
+
+                <div className='sale-cards-container'>
                     {items?.map((item, i) => (
-                        <li hidden={runFilter(item)} key={i} className="item-tile" >
-                            <div onClick={e=>goToItem(e, item.id, item.item_type)}>
-                            <p>{item.id} </p>
-                            <p>{item.name}</p>
-                            <p>$ {item.price}.00</p>
-                            <p>{item.color}</p>
-                            <p>{item.size}</p>
-                            <p>{item.gender}</p>
-                            <div>
-                                <img src={item.image1} />
+                        <div className="sale-card" hidden={runFilter(item)} key={i}>
+                            <div className="sale-photo-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
+                                <img src={item.image1} className='sale-image' alt={item.name} />
                             </div>
-                            {/* { item_types &&
-                                <NavLink to={`/shop/${item_types[`${item.item_type}`].item_type}/${item.id}`} exact={true}>go</NavLink>
-                            } */}
+                            <div className='item-colors-section'>
+                                <div className="sale-swatch" style={{backgroundColor: `${item.color}`}}></div>
+                                {item.color2 !== null && 
+                                    <div className="sale-swatch" style={{backgroundColor: `${item.color2}`}}></div>}
+                                {item.color3 !== null && 
+                                    <div className="sale-swatch" style={{backgroundColor: `${item.color3}`}}></div>}
                             </div>
-                        </li>
+                            <div className="sale-content-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
+                                <p className='sale-text'>{item.name}</p>
+                                <p className='sale-text'>$ {item.price}.00</p>
+                            </div>
+                            <div className='sale-compare-section'>
+                                <input disabled={true} type='checkbox' name="itemId" value="itemId" />
+                                <label><i>Compare</i></label>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </div>
     );

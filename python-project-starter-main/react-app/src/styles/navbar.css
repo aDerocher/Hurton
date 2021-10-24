@@ -1,7 +1,155 @@
-nav > ul {
-    display: flex;
-    flex: row;
+.meta-nav-container{
+    /* background-color: rgb(21, 255, 0); */
+    width: 100%;
+    border-bottom: 1px solid lightgray;
 }
-ul > li {
-    margin: 12px;
+.meta-nav-container > * {
+    color: var(--chargrey2)
+}
+.meta-nav{
+    /* background-color: yellow; */
+    width: 95%;
+    margin: auto;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.meta-nav-section{
+    /* background-color: blueviolet; */
+    /* width: fit-content; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.meta-nav-section > *{
+    padding-right:1rem;
+    font-size: 10pt;
+}
+.green-shipping{
+    color:rgb(25, 124, 99);
+    font-size: 10pt;
+    font-weight: 500;
+}
+.heart{
+    padding: 0 .5rem;
+}
+/* ========================================== */
+/* ======== MAIN NAV ======================== */
+#nav-container{
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+}
+.nav {
+    background-color: white;
+    padding: 6px 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    transition: 0.3s ease;
+}
+.nav-section {
+    /* background-color: rgb(4, 0, 255); */
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-img-section > * {margin-left: 24px;}
+.nav-img-section {
+    /* background-color: rgb(4, 0, 255); */
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+#h-logo:hover{
+    opacity: 0.7;
+}
+.hurton-nav-logo{
+    width: 70px;
+    display: flex;
+    justify-self: flex-start;
+}
+.nav-links{
+    width: 39.5%;
+    display: flex;
+    flex-direction: row;
+    font-size: 10pt;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+.nav-links > *{
+    padding: .5rem;
+}
+.nav-search-cont{
+    outline: none;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-basis: auto;
+    
+}
+.search-outline{
+    border: 1px solid lightgrey;
+}
+.nav-search{
+    border: none;
+    outline: none;
+    font-size: 12pt;
+    height: 24px;
+    padding: 12px;
+    width: 175px;
+}
+.nav-search-btn{
+    background-color:transparent;
+    border: none;
+    outline: none;
+    padding: 5px 8px;
+}
+#my-cart-2{
+    margin-left: 12px
+}
+
+
+/* ======== ALTER NAV ON SCROLL ============= */
+.nav-on-scroll{
+    position: fixed;
+    top:0;
+}
+.nav-cont-on-scroll{
+    width: 100%;
+    background-color: rgb(146, 11, 11);
+    position: fixed;
+}
+/* ========================================== */
+
+.space-filler {
+    background-color: bisque;
+    border: 2px solid brown;
+    width: 200px;
+    height: 500px;
+}
+
+
+
+.hide-this{
+    position: fixed;
+    margin-top: -330px;
+}
+.hide{
+    display:none;
+}
+
+.widen-this{
+    width: 120px
 }

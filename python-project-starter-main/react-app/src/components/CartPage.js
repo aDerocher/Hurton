@@ -10,15 +10,11 @@ import './../styles/cart.css'
 
 const CartPage = () => {
     const dispatch = useDispatch()
-    const items = useSelector(state => state.items)
+    // const items = useSelector(state => state.items)
     const sessionUser = useSelector(state => state.session.user)
-
+    
     // make sure the cart in state is current to user(if user)
-    useEffect(() => {
-        dispatch(getCartItems(sessionUser?.id))
-    }, [dispatch])
-
-    // if user: cart is state.cart | otherwise cart is localstorage
+    // user? cart is state.cart : cart is localstorage
     let cart = useSelector(state => state.cart)
     if (cart?.length === 0){
         // look at local storage
@@ -35,13 +31,23 @@ const CartPage = () => {
             cart = newCart
         }
     }
-    // console.log(cart, '<<=== this is the cart that will render')
     
+    // get all the items and cart items into the state ==============
     useEffect(() => {
-        dispatch(getAllItems())
-        // console.log(items[0])
+        dispatch(getCartItems(sessionUser?.id))
+        // dispatch(getAllItems())
     }, [dispatch])
     
+    // calculate the subtotal for the order
+    const [ subtotal, setSubtotal ] = useState(null)
+    useEffect(() => {
+        setSubtotal(0)
+        cart?.forEach((i) => {
+            setSubtotal(subtotal + (i.quantity * i.item_price))
+        })
+    }, [dispatch, cart])
+    
+    //handle the deletion of cart item ==============
     const removeFromCart = (e, item) => {
         e.preventDefault()
         if (sessionUser){
@@ -52,7 +58,8 @@ const CartPage = () => {
         let x = document.getElementById(`${item.id}`)
         x.style.display = 'none';
     }
-
+    
+    //handle the deletion of cart item from local storage ==============
     const removeLSCartItem = (cart_item_key) => {
         // get the cart in local storage (assume it exists)
         let cart = localStorage.getItem('cart');
@@ -60,27 +67,65 @@ const CartPage = () => {
     }
 
     return (
-        <div className="cart-page-container">
-            <div>
-                <h1>This is the Cart</h1>
-                <ul>
-                    {cart?.map((cart_item, i) => (
-                        <li key={i} id={cart_item.id}>
-                            <p>{cart_item.item_name}</p>
-                            <p>{cart_item.item_color}</p>
-                            <p>{cart_item.item_size}</p>
-                            <p>{cart_item.quantity}</p>
-                            <button onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>X</button>
-                            <div>
-                                <img src={cart_item.item_image} />
-                            </div>
-                            {/* TODO: add dropdown for adjusting quantity */}
-                            {/* checking out should apply any changes made to the quantities. */}
-                        </li>
-                    ))}
-                </ul>
+        <div className='content-width flex-col-cont'>
+
+            <div className="cart-topper-container flex-col-cont">
+                <h2 className="shopping-cart-title">Shopping Cart</h2>
+                <div className='cart-topper-right'>
+                    <p>Need Help? Call (800) IM-HURTN in Oregon, USA</p>
+                    <p className="grey-label">Monday - Friday: 9am - 6pm PST</p>
+                </div>
             </div>
-            <CartSidebar />
+
+            <div className="flex-row-cont card-page-cont">
+                <div className='cart-left'>
+
+                    {cart?.map((cart_item, i) => (
+                        <div key={i} className="flex-col-cont cart-item-card">
+                            <div className="cart-delete-item-cont">
+                                <button className="delete-btn-simple" onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <div className="cart-card-content" >
+                                <div className="cart-img-container">
+                                    <img className="cart-img" src={cart_item.item_image} alt="cart item" />
+                                </div>
+                                <div className="cart-content-container">
+                                    <p className="title">{cart_item.item_gender}'s Hurton {cart_item.item_name}</p>
+                                    <p className="color">{cart_item.item_color}</p>
+                                    <p className="size">{cart_item.item_size}</p>
+                                    <p className="price grey-label">$ {cart_item.item_price}</p>
+                                    {/* <p className="amount-saved">$22(10%)</p> */}
+                                </div>
+                                <form action="" className="cart-quantity-sel">
+                                    <select name="cart-quantity" className='cart-quantity' id="">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="5">6</option>
+                                        <option value="5">7</option>
+                                        <option value="5">8</option>
+                                        <option value="5">9</option>
+                                    </select>
+                                </form>
+                                <p className='cart-item-total'><b>$ {cart_item.item_price * cart_item.quantity}</b></p>
+                            </div>
+                        </div>
+                    ))}
+                    <div className='cart-subtotal flex-row-cont'>
+                        <p>Subtotal: </p>
+                        <p>$ {subtotal}.00</p>
+                    </div>
+                </div>
+
+                <div className="cart-right">
+                    <CartSidebar />
+                </div>
+            </div>
         </div>
     );
 }

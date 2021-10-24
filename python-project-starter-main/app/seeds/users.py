@@ -4,28 +4,28 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        firstName ='Demo', 
+        firstName ='Jack', 
         lastName = 'Hurton',
         email='demo@hurton.com',
         password='password')
-    jake = User(
-        firstName ='Jake', 
-        lastName = 'Hurton',
+    aldous = User(
+        firstName ='Aldous', 
+        lastName = 'Huxley',
         email='jake@hurton.com',
         password='password')
     vince = User(
         firstName ='Vincent', 
-        lastName = 'Schuster',
-        email='vinny@schust.com',
+        lastName = 'Schooster',
+        email='vinny@schoost.com',
         password='password')
     dan = User(
         firstName ='Dan', 
-        lastName = 'Scott',
+        lastName = 'Scottsimmons',
         email='danny@scottsimmons.com',
         password='password')
     rick = User(
         firstName ='Rick', 
-        lastName = 'Brolin',
+        lastName = 'Brollin',
         email='rick@brollin.com',
         password='password')
     vasko = User(
@@ -35,13 +35,23 @@ def seed_users():
         password='password')
     dragon = User(
         firstName ='Dragon', 
-        lastName = 'Long',
-        email='dragon@long.com',
+        lastName = 'Lee',
+        email='dragon@Lee.com',
+        password='password')
+    ayn = User(
+        firstName ='Ayn', 
+        lastName = 'Taggart',
+        email='ayn@atlas.com',
+        password='password')
+    margot = User(
+        firstName ='Margot', 
+        lastName = 'Robbie',
+        email='margo@robbie.com',
         password='password')
 
 
     db.session.add(demo)
-    db.session.add(jake)
+    db.session.add(aldous)
     db.session.add(vince)
     db.session.add(dan)
     db.session.add(rick)

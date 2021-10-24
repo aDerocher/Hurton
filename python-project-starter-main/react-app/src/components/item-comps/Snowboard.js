@@ -140,6 +140,12 @@ const Snowboard = () => {
                 <div>
                     <img src={item?.image1} alt="ii" />
                 </div>
+                <div>
+                    <img src={item?.image2} alt="ii" />
+                </div>
+                <div>
+                    <img src={item?.image3} alt="ii" />
+                </div>
                 {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
             </div>
             {userCanRev &&
