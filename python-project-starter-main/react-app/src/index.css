@@ -38,22 +38,24 @@ ol, ul {
 blockquote, q {
 	quotes: none;
 }
-button{
-    outline: none; border: none;
-}
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
+    content: '';
 	content: none;
 }
 table {
-	border-collapse: collapse;
+    border-collapse: collapse;
 	border-spacing: 0;
 }
-html{
-    font-family: Arial, Helvetica, sans-serif;
-}
-/* TODO Add site wide styles */
+
+
+/* Universal style application */
+html, body{ font-family: Arial, Helvetica, sans-serif; }
+button{ outline: none; border: none; }
+button:hover{ cursor: pointer; }
+
+
+/* TODO combine root variable colors! */
 :root{
 
     /* ======== COLORS ======== */
@@ -62,6 +64,7 @@ html{
 
         /* for some soft grey backgrounds */
         --light-grey: #e5e5e5;
+        --lightgrey1: rgb(155, 155, 155);
 
         /* for large titles and paragraphs */
         --med-grey: #4e4c4b;
@@ -79,15 +82,38 @@ html{
 
 
 }
-img {
-    max-height: 100px;
-    max-width: 100px;
+:root{
+    
+    --chargrey1: rgb(51, 51, 51);
+    --chargrey2: rgb(11, 11, 11);
+
+    --footer-offwhite: rgb(239, 239, 239);
 }
+/* ===============================================================
++++++++++++++ TEMPORARY! REMOVE THIS APP LATER ++++++++++++++++
+=============================================================== */
+                                img {
+                                    max-height: 100px;
+                                    max-width: 100px;
+                                }
+/* ===============================================================
+=============================================================== 
+=============================================================== */ 
+
+
+/* Useful site wide classes */
+.boldish{ font-weight: 800; }
+
+.hover-hand:hover{ cursor: pointer; }
+
+.content-width{
+    width: 95%;
+    margin: 0 2.5%;
+}
+
+.req-star{ color: red; }
 .grey-label{
     color: var(--med-grey);
     font-size: 10pt;
     font-weight: 500;
-}
-.req-star{
-    color: red;
 }
