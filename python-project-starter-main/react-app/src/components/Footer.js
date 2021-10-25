@@ -21,8 +21,8 @@ function Footer() {
                 </div>
 
                 <div className='foot-s-sec fss-thr'>
-                    <p>FIND A STORE</p>
-                    <p>TAKE A TEST RIDE</p>
+                    <p className='dead-link'>FIND A STORE</p>
+                    <p className='dead-link'>TAKE A TEST RIDE</p>
                 </div>
             </div>
 
@@ -31,44 +31,44 @@ function Footer() {
                     <h2 className="foot-title">About Us</h2>
                     <ul>
                     <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li>
-                    <li>About Hurton</li>
-                    <li>Careers</li>
-                    <li>Sustainability</li>
-                    <li>Hill Foundation</li>
-                    <li>Accessability</li>
-                    <li>Affiliate</li>
-                    <li>Performer Program</li>
-                    <li>Discount Programs</li>
+                    <li className='dead-link'>About Hurton</li>
+                    <li className='dead-link'>Careers</li>
+                    <li className='dead-link'>Sustainability</li>
+                    <li className='dead-link'>Hill Foundation</li>
+                    <li className='dead-link'>Accessability</li>
+                    <li className='dead-link'>Affiliate</li>
+                    <li className='dead-link'>Performer Program</li>
+                    <li className='dead-link'>Discount Programs</li>
                     </ul>
                 </div>
                 <div className='footer-top-section'>
                     <h2 className="foot-title">Discover</h2>
                     <ul>
-                    <li>Learn To Ride</li>
-                    <li>Riglet Snowboarding</li>
-                    <li>The Stash</li>
-                    <li>The Hurton Blog</li>
-                    <li>#Hurton Team</li>
-                    <li>Events</li>
+                        <li className='dead-link'>Learn To Ride</li>
+                        <li className='dead-link'>Riglet Snowboarding</li>
+                        <li className='dead-link'>The Stash</li>
+                        <li className='dead-link'>The Hurton Blog</li>
+                        <li className='dead-link'>#Hurton Team</li>
+                        <li className='dead-link'>Events</li>
                     </ul>
                 </div>
                 <div className='footer-top-section'>
                     <h2 className="foot-title">Self Service</h2>
                     <ul>
-                    <li>Explore Our Services</li>
-                    <li>Track Your Order</li>
-                    <li>Returns</li>
-                    <li>Shipping Policy</li>
-                    <li>Warranty</li>
-                    <li>Spare Parts</li>
-                    <li>Size Charts</li>
-                    <li>Customer Reviews</li>
+                        <li className='dead-link'>Explore Our Services</li>
+                        <li className='dead-link'>Track Your Order</li>
+                        <li className='dead-link'>Returns</li>
+                        <li className='dead-link'>Shipping Policy</li>
+                        <li className='dead-link'>Warranty</li>
+                        <li className='dead-link'>Spare Parts</li>
+                        <li className='dead-link'>Size Charts</li>
+                        <li className='dead-link'>Customer Reviews</li>
                     </ul>
                 </div>
                 <div className='footer-top-section'>
                     <h2 className="foot-title">Get Help</h2>
                     <ul>
-                        <li>Help and FAQS</li>
+                        <li className='dead-link'>Help and FAQS</li>
                         <li><a href="mailto:info@andrewderocher.com" className="github-link"><i className="far fa-envelope"> </i> Email Me</a></li>
                         <li>555-IM-HURTN</li>
                     </ul>
@@ -90,10 +90,10 @@ function Footer() {
                 </div>
 
                 <div className='footer-bottom-section fbs-2'>
-                    <p className='f-settings'>Terms & Conditions</p>
-                    <p className='f-settings'>Privacy</p>
-                    <p className='f-settings'>User Content Terms</p>
-                    <p className='f-settings'>Site Map</p>
+                    <p className='f-settings dead-link'>Terms & Conditions</p>
+                    <p className='f-settings dead-link'>Privacy</p>
+                    <p className='f-settings dead-link'>User Content Terms</p>
+                    <p className='f-settings dead-link'>Site Map</p>
                 </div>
             </div>
 

@@ -17,6 +17,7 @@ import Shop from './components/Shop';
 import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
 import Snowboard from './components/item-comps/Snowboard';
+import ItemDetails from './components/item-comps/ItemDetails';
 import { authenticate } from './store/session';
 import "./index.css";
 
@@ -50,7 +51,11 @@ function App() {
             <Footer />
         </Route>
         <Route path='/shop/snowboard/:itemId' exact={true}>
-            <Snowboard />
+            {/* <Snowboard /> */}
+            <ItemDetails />
+        </Route>
+        <Route path='/shop/jacket/:itemId' exact={true}>
+            <ItemDetails />
         </Route>
 
         <Route path='/login' exact={true}>

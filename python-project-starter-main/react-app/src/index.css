@@ -115,7 +115,7 @@ button:hover{ cursor: pointer; }
 .flex-col-cont{ display: flex; flex-direction: column}
 .flex-row-cont{ display: flex; flex-direction: row}
 .boldish{ font-weight: 800; }
-
+.dead-link{ text-decoration: line-through; color: var(--lightgrey1)}
 .hover-hand:hover{ cursor: pointer; }
 .remove-underline{text-decoration: none;}
 .content-width{
@@ -143,6 +143,7 @@ button:hover{ cursor: pointer; }
     justify-content: center;
     font-weight: 400;
 }
+
 .delete-btn-simple:hover{ background-color: var(--light-grey);}
 .delete-btn-simple{
     font-size: 18pt;
@@ -168,4 +169,10 @@ button:hover{ cursor: pointer; }
     color: white;
     font-weight: bold;
     transition: 0.3s
+}
+.black-rectangle-btn{
+    background-color: var(--charcoal-grey);
+    color: white;
+    font-weight: bold;
+    padding: 20px 80px;
 }

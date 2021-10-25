@@ -55,9 +55,9 @@ const NavBar = () => {
                         <p className='boldish'>HURTON</p>
                     </NavLink>
 
-                    <p>ANON</p>
-                    <p className='small-text'>Blog</p>
-                    <p className='small-text'>Sustainability</p>
+                    <p className='dead-link'>ANON</p>
+                    <p className='small-text dead-link'>Blog</p>
+                    <p className='small-text dead-link'>Sustainability</p>
                 </div>
 
                 <div className='meta-nav-section'>
@@ -67,17 +67,17 @@ const NavBar = () => {
                 <div className='meta-nav-section'>
                     {sessionUser &&
                         <NavLink to={`/users/${sessionUser?.id}/wishlist`} exact={true} activeClassName='active' style={{ textDecoration: 'none', color: `var(--link-green)`}}>
-                            <button className='btn-simple heart-btn-simple'><i class="far fa-heart"></i></button>
+                            <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i></button>
                         </NavLink>
                     }
-                    <p>Stores</p>
+                    <p className='dead-link'>Stores</p>
                     {!sessionUser &&
                         <>
                         <NavLink to={`/login`} exact={true} activeClassName='active' style={{ textDecoration: 'none' }}>
-                            <button className='btn-simple heart-btn-simple'><i class="far fa-heart"></i></button>
+                            <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i></button>
                         </NavLink>
                         <div>
-                            <button disabled={sessionUser} onClick={loginDemo}>Demo</button>
+                            <button disabled={sessionUser} className='demo-btn' onClick={loginDemo}>Demo</button>
                         </div>
                         </>
                     }
@@ -112,19 +112,21 @@ const NavBar = () => {
             <div className='nav content-width'>
                 {/*  <div className='nav-section l-correct'>Burton Logo</div> */}
                 <div className='nav-img-section'>
+                    <NavLink to='/' exact={true} activeClassName='active'>
                     <img id="h-logo" className='hurton-nav-logo' src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/hurton-logo-2.png" alt="Hurton" />
                     <img id="text-logo" className='hurton-nav-logo' src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/hurton-text-logo.png" alt="HurtonText" />
+                    </NavLink>
                 </div>
                 <div className="nav-section nav-links">
                         <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                             <p>Snowboarding</p>
                         </NavLink>
-                        <p>Women</p>
-                        <p>Men</p>
-                        <p>Kids</p>
-                        <p>Accessories & Bags</p>
-                        <p>Sale</p>
-                        <p>MINE77</p>
+                        <p className='dead-link'>Women</p>
+                        <p className='dead-link'>Men</p>
+                        <p className='dead-link'>Kids</p>
+                        <p className='dead-link'>Accessories & Bags</p>
+                        <p className='dead-link'>Sale</p>
+                        <p className='dead-link'>MINE77</p>
                 </div>
                 <div className='nav-section nav-search-cont'>
                     <div className='search-outline'>

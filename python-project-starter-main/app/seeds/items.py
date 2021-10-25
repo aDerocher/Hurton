@@ -96,7 +96,7 @@ def seed_items():
 
     # ======== womens snowboards ===========
     jacket1 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Frostbite',
         price = 225,
         color = 'green',
@@ -112,7 +112,7 @@ def seed_items():
         waterproofing = 4,
     )
     jacket2 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Blister',
         price = 300,
         color = 'black',
@@ -128,7 +128,7 @@ def seed_items():
         waterproofing = 8,
     )
     jacket3 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Papercut',
         price = 400,
         color = 'grey',
@@ -145,9 +145,9 @@ def seed_items():
 
     # ======== womens jackets ===========
     jacket4 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Rugburn',
-        price = 275,
+        price = 120,
         color = 'darkblue',
         color2 = 'maroon',
         color3 = 'darkmagenta',
@@ -161,7 +161,7 @@ def seed_items():
         waterproofing = 2,
     )
     jacket5 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Bad Itch',
         price = 320,
         color = 'pink',
@@ -177,7 +177,7 @@ def seed_items():
         waterproofing = 9,
     )
     jacket6 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Black Eye',
         price = 360,
         color = 'darkslategrey',
@@ -193,7 +193,7 @@ def seed_items():
 
     # ========== Boots and Bindings =============
     boots1 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Broken Toe',
         price = 275,
         color = 'purple',
@@ -208,7 +208,7 @@ def seed_items():
         lacing = 'quick-lace',
     )
     bindings1 = Item(
-        size = 'Men',
+        size = 'M',
         name = 'Calf Sprain',
         price = 275,
         color = 'grey',

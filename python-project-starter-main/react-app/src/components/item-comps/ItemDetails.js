@@ -7,22 +7,15 @@ import { getUsersWishlist, addWishlistItem } from './../../store/wishlist';
 import { getOrderHistory } from './../../store/session';
 import Reviews from '../Reviews';
 import NewReview from '../NewReview';
+import ItemForm from './ItemForm';
 import { getOneItem } from './../../store/items';
 import './../../styles/item-details.css'
 
 
-const Snowboard = () => {
+const ItemDetails = () => {
     const { itemId } = useParams()
     const dispatch = useDispatch()
-    const item = useSelector(state => state.items[0])
-    const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session.user)
-    const usersWishlist = useSelector(state => state.wishlist)
-    const reviews = useSelector(state => state.reviews)
-    const orderHistory = useSelector(state => state.session.user?.order_history)
-    
-    const [ quantity, setQuantity ] = useState(1)
-    const [ userCanRev, setUserCanRev ] = useState(false)
     
     useEffect(() => {
         // dispatch(getOrderHistory(sessionUser?.id))
@@ -34,6 +27,14 @@ const Snowboard = () => {
         }
     }, [dispatch])
     
+    const item = useSelector(state => state.items[0])
+    const usersCart = useSelector(state => state.cart)
+    const usersWishlist = useSelector(state => state.wishlist)
+    const reviews = useSelector(state => state.reviews)
+    const orderHistory = useSelector(state => state.session.user?.order_history)
+    
+    const [ quantity, setQuantity ] = useState(1)
+    const [ userCanRev, setUserCanRev ] = useState(false)
     
     // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e) => {
@@ -51,14 +52,12 @@ const Snowboard = () => {
             item_id: parseInt(itemId),
             item_name: item.name,
             item_color: item.color,
-            item_gender: item.gender,
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1
         }
         dispatch(addWishlistItem(formData))
     }
-    
     // handle adding an item to the users cart ===============
     const addItemToCart = (e, item) => {
         e.preventDefault()
@@ -68,7 +67,6 @@ const Snowboard = () => {
             item_id: parseInt(itemId),
             item_name: item.name,
             item_color: item.color,
-            item_gender: item.gender,
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1,
@@ -89,7 +87,6 @@ const Snowboard = () => {
         }
         addToLocalCart(formData)
     }
-
     // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {
         let cart = localStorage.getItem('cart');
@@ -128,40 +125,9 @@ const Snowboard = () => {
         }
     }, [item, sessionUser, reviews, orderHistory])
     
-
-
-    const [ displayedImage, setDisplayedImage ] = useState(item?.image1)
     return (
         <div className="item-page-container content-width">
-            <div className='item-details-selection flex-row-cont'>
-                <div className='item-deets-imgs flex-col-cont'>
-                    lots of images vertically
-                </div>
-                <div className='item-deets-img'>
-                    <img src={item?.image1} alt='sb' />
-                </div>
-                <div className='item-deets-form'>
-                    <p className=''>{}</p>
-                    <p className=''>{item?.name}</p>
-                    <p className=''>{item?.price}</p>
-                    <p className=''>{item?.color}</p>
-                    <form>
-                    </form>
-                    <div>
-                        <div className='flex-row-cont'>
-                            <button className='grey-green-btn'
-                            onClick={e=>addItemToCart(e, item)}>
-                                ADD TO CART
-                            </button>
-                            <button onClick={e=>addItemToWishlist(e)}>
-                                &lt;3
-                            </button>
-                        </div>
-                        <button>Find My Size</button>
-                    </div>
-                </div>
-                
-            </div>
+            <ItemForm item={item}/>
 
             <div className='item-info-section flex-row-cont'>
                 <div className='info-graphs flex-col-cont'>
@@ -171,10 +137,10 @@ const Snowboard = () => {
                 <div className='info-body'>lots of words here</div>
             </div>
 
+
             <div className='item-details-reviews'>
                 {userCanRev &&
-                    <NewReview user={sessionUser} itemId={item?.id}/>
-                }
+                    <NewReview user={sessionUser} itemId={item?.id}/>}
                 {reviews.map((review, i)=>(
                     <Reviews key={i}  user={sessionUser} review={review}/> 
                 ))}
@@ -183,4 +149,4 @@ const Snowboard = () => {
     );
 }
 
-export default Snowboard;
+export default ItemDetails;

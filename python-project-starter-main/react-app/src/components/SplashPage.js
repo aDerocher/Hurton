@@ -19,14 +19,12 @@ function SplashPage() {
     return (
         <div className="splash-page-container">
             <div className='ak-advert'>
-                <p>Layers for anywhere you go <a className='ak-link' href="#">
+                <p>Layers for anywhere you go <span className='ak-link'>
                         <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: 'white'}}>
-                             Shop [hk]
+                            Shop [hk]
                         </NavLink>
-                        <span className='ak-c'>
-                            ®
-                        </span>
-                </a></p>
+                        <span className='ak-c'>®</span>
+                </span></p>
             </div>
 
             {/* <!-- ================================================================= -->
