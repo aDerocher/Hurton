@@ -169,6 +169,14 @@ button:hover{ cursor: pointer; }
     font-weight: bold;
     transition: 0.3s
 }
+.grey-green-btn:disabled,
+.grey-green-btn[disabled]{
+    background-color: var(--light-grey);
+    color: var(--lightgrey1);
+    border: 1px solid var(--lightgrey1);
+    font-weight: 700;
+    cursor:default;
+}
 .black-rectangle-btn{
     background-color: var(--charcoal-grey);
     color: white;

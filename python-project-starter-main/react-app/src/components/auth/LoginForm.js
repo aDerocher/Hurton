@@ -90,7 +90,7 @@ const LoginForm = () => {
                 <fieldset>
                     <legend>Email</legend>
                     <input
-                        className='auth-field'
+                    className='auth-field'
                     name='email'
                     type='text'
                     value={email}
@@ -122,7 +122,7 @@ const LoginForm = () => {
                         </div>
                     ))}
                 </div>
-                <button type='submit' className='login-btn grey-green-btn'>SIGN IN</button>
+                <button type='submit' className='auth-btn grey-green-btn'>SIGN IN</button>
                 <p>Don't have an account? <a className='auth-link' href="/sign-up">Create one now.</a></p>
             </form>
         </div>
