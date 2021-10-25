@@ -10,73 +10,73 @@ const ShopFilters = () => {
 
     
     return (
-        <div class='filters-container'>
+        <div className='filters-container'>
 
-            <div class="filter-section">
-                <div class="filter-topper">
-                    <p class='topper-title'>Color</p>
-                    <p class='filter-exp'>+</p>
+            <div className="filter-section">
+                <div className="filter-topper">
+                    <p className='topper-title'>Color</p>
+                    <p className='filter-exp'>+</p>
                 </div>
-                <div class='filter-body color'>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
-                    <div class="swatch"></div>
+                <div className='filter-body color'>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
+                    <div className="swatch"></div>
                 </div>
             </div>
 
-            <div class="gender filter-section">
-                <div class="filter-topper">
-                    <p class='topper-title'>Gender</p>
-                    <p class='filter-exp'>+</p>
+            <div className="gender filter-section">
+                <div className="filter-topper">
+                    <p className='topper-title'>Gender</p>
+                    <p className='filter-exp'>+</p>
                 </div>
 
-                <div class="filter-input">
-                    <label for="men">Men</label>
-                    <div class="faux-check"></div>
-                    <input hidden type="checkbox" name="gender" value='men' />
+                <div className="filter-input">
+                    <label>Men</label>
+                    <div className="faux-check"></div>
+                    <input hidden type="checkbox" name="men" value='men' />
                 </div>
-                <div class="filter-input">
-                    <label for="women">Women</label>
-                    <div class="faux-check"></div>
-                    <input hidden type="checkbox" name="gender" value='women' />
+                <div className="filter-input">
+                    <label>Women</label>
+                    <div className="faux-check"></div>
+                    <input hidden type="checkbox" name="women" value='women' />
                 </div>
             </div>
 
-            <div class="bend filter-section">
-                <div class="filter-topper">
-                    <p class='topper-title'>Bend</p>
-                    <p class='filter-exp'>+</p>
+            <div className="bend filter-section">
+                <div className="filter-topper">
+                    <p className='topper-title'>Bend</p>
+                    <p className='filter-exp'>+</p>
                 </div>
 
-                <div class="filter-input">
-                    <label for="camber">Camber</label>
-                    <div class="faux-check"></div>
+                <div className="filter-input">
+                    <label >Camber</label>
+                    <div className="faux-check"></div>
                     <input hidden type="checkbox" name="camber" value='camber' />
                 </div>
-                <div class="filter-input">
-                    <label for="directionalcamber">Directional Camber</label>
-                    <div class="faux-check"></div>
-                    <input hidden type="checkbox" name="camber" value='directionalcamber' />
+                <div className="filter-input">
+                    <label>Directional Camber</label>
+                    <div className="faux-check"></div>
+                    <input hidden type="checkbox" name="directionalcamber" value='directionalcamber' />
                 </div>
-                <div class="filter-input">
-                    <label for="purepop">PurePop Camber</label>
-                    <div class="faux-check"></div>
-                    <input hidden type="checkbox" name="camber" value='purepop' />
+                <div className="filter-input">
+                    <label>PurePop Camber</label>
+                    <div className="faux-check"></div>
+                    <input hidden type="checkbox" name="purepop" value='purepop' />
                 </div>
-                <div class="filter-input">
-                    <label for="flyingv">Flying V</label>
-                    <div class="faux-check"></div>
-                    <input hidden type="checkbox" name="camber" value='flyingv' />
+                <div className="filter-input">
+                    <label>Flying V</label>
+                    <div className="faux-check"></div>
+                    <input hidden type="checkbox" name="flyingv" value='flyingv' />
                 </div>
-                <div class="filter-input">
-                    <label for="flattop">Flat Top</label>
-                    <div class="faux-check"></div>
-                    <input hidden type="checkbox" name="camber" value='flattop' />
+                <div className="filter-input">
+                    <label>Flat Top</label>
+                    <div className="faux-check"></div>
+                    <input hidden type="checkbox" name="flattop" value='flattop' />
                 </div>
             </div>
         </div>
