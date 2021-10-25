@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login, getOrderHistory } from '../../store/session';
-import { addToCart } from '../../store/cart';
+import { login } from '../../store/session';
+// import { addToCart } from '../../store/cart';
+import './../../styles/auth.css'
+
 
 const LoginForm = () => {
     const [errors, setErrors] = useState([]);
+    const [errorsE, setErrorsE] = useState([]);
+    const [errorsP, setErrorsP] = useState([]);
+    const [hideErrors, setHideErrors] = useState(true);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const user = useSelector(state => state.session.user);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        const newErrorsE = []
+        const newErrorsP = []
+        if(!email.includes('@') || !email.includes('.')) newErrorsE.push('Invalid email address')
+        if(password.length < 8) {
+            if(password.length === 0) {
+                newErrorsP.push('Password must be at least 8 characters')
+            } else {
+                newErrorsP.push('Password must be at least 8 characters')
+            }
+        } 
+        
+        setErrorsE(newErrorsE)
+        setErrorsP(newErrorsP)
+    }, [email, password])
+
     const onLogin = async (e) => {
+        setHideErrors(false)
         e.preventDefault();
         const data = await dispatch(login(email, password));
         if (data) {
@@ -21,7 +44,6 @@ const LoginForm = () => {
         localStorage.removeItem("cart");
         // handleLSCart()
     };
-
     // const handleLSCart = () => {
     //     let cart = localStorage.getItem('cart');
     //     if(!cart){ return }
@@ -52,34 +74,56 @@ const LoginForm = () => {
 
     if (user) { return <Redirect to='/' />; }
     return (
-        <div>
+        <div className='login-form-container'>
             <form onSubmit={onLogin}>
-                <div>
+                <div className='auth-topper flex-row-cont'>
+                    <h5 className='profile-title'>Sign In</h5>
+                    <i className="fas fa-lock"></i>
+                </div>
+                <div hidden={true}>
                     {errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
+                        <div key={ind}>
+                            <p className='error'>• {error}</p>
+                        </div>
                     ))}
                 </div>
-                <div>
-                    <label htmlFor='email'>Email</label>
+                <fieldset>
+                    <legend>Email</legend>
                     <input
+                    className='auth-field'
                     name='email'
                     type='text'
-                    placeholder='Email'
                     value={email}
                     onChange={updateEmail}
                     />
+                </fieldset>
+                <div hidden={hideErrors}>
+                    {errorsE.map((error, ind) => (
+                        <div key={ind}>
+                            <p className='error'>• {error}</p>
+                        </div>
+                    ))}
                 </div>
-                <div>
-                    <label htmlFor='password'>Password</label>
+                {/* <label htmlFor='password'>Password</label> */}
+                <fieldset>
+                    <legend>Password</legend>
                     <input
-                    name='password'
-                    type='password'
-                    placeholder='Password'
-                    value={password}
-                    onChange={updatePassword}
+                        className='auth-field'
+                        name='password'
+                        type='password'
+                        value={password}
+                        onChange={updatePassword}
                     />
-                    <button type='submit'>Login</button>
+                </fieldset>
+                <div hidden={hideErrors}>
+                    {errorsP.map((error, ind) => (
+                        <div key={ind}>
+                            <p className='error'>• {error}</p>
+                        </div>
+                    ))}
                 </div>
+                <button type='submit' className='auth-btn grey-green-btn'>SIGN IN</button>
+                <p>Don't have an account? <a className='auth-link' href="/sign-up">Create one now.</a></p>
             </form>
         </div>
     );

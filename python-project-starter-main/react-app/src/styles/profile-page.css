@@ -1,6 +1,4 @@
 /*========== Containers =========================*/
-div{ outline: 1px solid orange; }
-
 .profile-page-container{
     background-color: var(--light-light-grey);
 }

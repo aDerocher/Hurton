@@ -1,6 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+// import { NavLink, useParams } from 'react-router-dom';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem } from './../../store/wishlist';
 import './../../styles/item-form.css'
@@ -102,7 +102,7 @@ const ItemForm = (item) => {
 
 
     return (
-        <div className="item-form-container content-width">
+        <div className="item-form-container">
             <div className='item-details-selection flex-row-cont'>
                 <div className='item-deets-imgs flex-col-cont'>
                     <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />

@@ -49,8 +49,7 @@ html, body, div, span, applet, object, iframe,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, img, ins, kbd, q, s, samp,
 small,  sub, sup, tt, var, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
+dl, dt, dd, ol, ul, li, form, label,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
@@ -169,6 +168,14 @@ button:hover{ cursor: pointer; }
     color: white;
     font-weight: bold;
     transition: 0.3s
+}
+.grey-green-btn:disabled,
+.grey-green-btn[disabled]{
+    background-color: var(--light-grey);
+    color: var(--lightgrey1);
+    border: 1px solid var(--lightgrey1);
+    font-weight: 700;
+    cursor:default;
 }
 .black-rectangle-btn{
     background-color: var(--charcoal-grey);

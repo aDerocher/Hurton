@@ -1,19 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import { addToCart } from '../../store/cart';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
-  const [lastName, setLastName] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
-  const user = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
+    const [errors, setErrors] = useState([]);
 
+    const [lastName, setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [email, setEmail] = useState('');
+    //   const [dob, setDOB] = useState('');
+    const [password, setPassword] = useState('');
+    const [repeatPassword, setRepeatPassword] = useState('');
+    const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const newErrors = []
+        if(!email.includes('@') || !email.includes('.')) newErrors.push('Invalid email address')
+        if(password.length < 8) {
+            if(password.length === 0) {
+                newErrors.push('Password must be at least 8 characters')
+            } else {
+                newErrors.push('Password must be at least 8 characters')
+            }
+        } 
+        if(password !== repeatPassword) newErrors.push('Passwords must match')
+        setErrors(newErrors)
+    }, [firstName, lastName, email, password, repeatPassword])
     const onSignUp = async (e) => {
         e.preventDefault();
         if (password === repeatPassword) {
@@ -28,23 +43,18 @@ const SignUpForm = () => {
     const updateFirstName = (e) => {
         setFirstName(e.target.value);
     };
-
     const updateLastName = (e) => {
         setLastName(e.target.value);
     };
-
     const updateEmail = (e) => {
         setEmail(e.target.value);
     };
-
     const updatePassword = (e) => {
         setPassword(e.target.value);
     };
-
     const updateRepeatPassword = (e) => {
         setRepeatPassword(e.target.value);
     };
-
     if (user) {
         return <Redirect to='/' />;
     }
@@ -74,59 +84,83 @@ const SignUpForm = () => {
     }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>First Name</label>
-        <input
-          type='text'
-          name='firstName'
-          onChange={updateFirstName}
-          value={firstName}
-        ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type='text'
-          name='lastName'
-          onChange={updateLastName}
-          value={lastName}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type='text'
-          name='email'
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type='password'
-          name='password'
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type='password'
-          name='repeat_password'
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type='submit'>Sign Up</button>
+    <form onSubmit={onSignUp} className='signup-form'>
+        <div className='auth-topper flex-row-cont'>
+            <h5 className='profile-title'>Create Your Account</h5>
+            <i className="fas fa-lock"></i>
+        </div>
+        <div>
+            {errors.map((error, ind) => (
+                <div key={ind}>
+                    <p className='error'>• {error} </p>
+                </div>
+            ))}
+        </div>
+        <fieldset>
+            <input
+            className='auth-field'
+            placeholder='First Name'
+            type='text'
+            name='firstName'
+            onChange={updateFirstName}
+            value={firstName}
+            ></input>
+        </fieldset>
+        <fieldset>
+            <input
+            className='auth-field'
+            placeholder='Last Name'
+            type='text'
+            name='lastName'
+            onChange={updateLastName}
+            value={lastName}
+            ></input>
+        </fieldset>
+        <fieldset>
+            <input
+            className='auth-field'
+            placeholder='Email'
+            type='text'
+            name='email'
+            onChange={updateEmail}
+            value={email}
+            ></input>
+        </fieldset>
+        {/* <fieldset>
+            <input
+            className='auth-field'
+            placeholder='DOB'
+            type='date'
+            name='dob'
+            onChange={setDOB}
+            value={dob}
+            ></input>
+        </fieldset> */}
+        <fieldset>
+            <input
+            placeholder='Password'
+            className='auth-field'
+            type='password'
+            name='password'
+            onChange={updatePassword}
+            value={password}
+            ></input>
+        </fieldset>
+        <fieldset>
+            <input
+            placeholder='Confirm Password'
+            className='auth-field'
+            type='password'
+            name='repeat_password'
+            onChange={updateRepeatPassword}
+            value={repeatPassword}
+            required={true}
+            ></input>
+        </fieldset>
+        <button className='grey-green-btn auth-btn' disabled={errors.length > 0} type='submit' >
+            SIGN UP
+        </button>
+        <p>Already have an account? <a className='auth-link' href="/login">Sign in.</a></p>
     </form>
   );
 };
