@@ -143,6 +143,7 @@ button:hover{ cursor: pointer; }
     justify-content: center;
     font-weight: 400;
 }
+
 .delete-btn-simple:hover{ background-color: var(--light-grey);}
 .delete-btn-simple{
     font-size: 18pt;

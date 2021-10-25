@@ -77,7 +77,7 @@ const NavBar = () => {
                             <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i></button>
                         </NavLink>
                         <div>
-                            <button disabled={sessionUser} onClick={loginDemo}>Demo</button>
+                            <button disabled={sessionUser} className='demo-btn' onClick={loginDemo}>Demo</button>
                         </div>
                         </>
                     }

@@ -123,6 +123,29 @@
 #my-cart-2{
     margin-left: 12px
 }
+/* ====== buttons ================ */
+.demo-btn{
+    background-color: var(--button-turq);
+    color: white;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+.auth-button{
+    background-color: white;
+    color:  var(--link-green);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 10px;
+}
+.auth-button-black{
+    background-color: var(--med-grey); 
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 10px;
+
+}
+
 
 
 /* ======== ALTER NAV ON SCROLL ============= */
