@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
-import ProfileSidebar from './ProfileSidebar';
+import React from 'react';
+// import { useParams, NavLink } from 'react-router-dom';
+// import ProfileSidebar from './ProfileSidebar';
 import "./../styles/footer.css"
 
 function Footer() {

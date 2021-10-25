@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // import { useParams } from 'react-router';
 import { getCartItems, editCartItem } from '../store/cart'
-import {getAllItems} from '../store/items'
-import CartSidebar from './CartSidebar';
+// import {getAllItems} from '../store/items'
+// import CartSidebar from './CartSidebar';
 import './../styles/cart.css'
 
 

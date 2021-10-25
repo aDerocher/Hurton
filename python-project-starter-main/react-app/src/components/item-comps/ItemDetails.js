@@ -1,10 +1,10 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getItemReviews } from './../../store/items';
 import { getCartItems, addToCart, editCartItem } from './../../store/cart';
 import { getUsersWishlist, addWishlistItem } from './../../store/wishlist';
-import { getOrderHistory } from './../../store/session';
+// import { getOrderHistory } from './../../store/session';
 import Reviews from '../Reviews';
 import NewReview from '../NewReview';
 import ItemForm from './ItemForm';
