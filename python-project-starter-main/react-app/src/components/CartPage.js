@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { NavLink } from 'react-router-dom';
 // import { useParams } from 'react-router';
-import {getCartItems, deleteCartItem} from '../store/cart'
+import {getCartItems, editCartItem, deleteCartItem} from '../store/cart'
 // import {getAllItems} from '../store/items'
 import CartSidebar from './CartSidebar';
 import './../styles/cart.css'
@@ -33,7 +33,7 @@ const CartPage = () => {
     }
     
     // get all the items and cart items into the state ==============
-    const [ subtotal, setSubtotal ] = useState(null)
+    const [ subtotal, setSubtotal ] = useState(0)
     useEffect(() => {
         dispatch(getCartItems(sessionUser?.id))
         // dispatch(getAllItems())
@@ -41,13 +41,14 @@ const CartPage = () => {
 
     // calculate the subtotal for the order
     useEffect(() => {
-        setSubtotal(0)
+        let x = 0
         cart?.forEach((i) => {
-            setSubtotal(subtotal + (i.quantity * i.item_price))
+            x += i.quantity * i.item_price
         })
+        setSubtotal(x)
     }, [cart])
     
-    //handle the deletion of cart item ==============
+    //handle the deletion of cart item =================================
     const removeFromCart = (e, item) => {
         e.preventDefault()
         if (sessionUser){
@@ -64,6 +65,12 @@ const CartPage = () => {
         // get the cart in local storage (assume it exists)
         let cart = localStorage.getItem('cart');
         delete cart[`${cart_item_key}`]
+    }
+
+    // handle the quantity change of a cart item =======================
+    const handleQuantChange = (e, cartItem_id, newQuant) => {
+        e.preventDefault()
+        dispatch(editCartItem(cartItem_id, newQuant))
     }
 
     return (
@@ -100,16 +107,17 @@ const CartPage = () => {
                                     {/* <p className="amount-saved">$22(10%)</p> */}
                                 </div>
                                 <form action="" className="cart-quantity-sel">
-                                    <select name="cart-quantity" className='cart-quantity' id="">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="5">6</option>
-                                        <option value="5">7</option>
-                                        <option value="5">8</option>
-                                        <option value="5">9</option>
+                                    <select name="cart-quantity" onChange={e=>handleQuantChange(e, cart_item.id, e.target.value)} className='cart-quantity' id="">
+                                        <option className='def-option' selected disabled defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
+                                        <option value='1'>1</option> 
+                                        <option value='2'>2</option>
+                                        <option value='3'>3</option>
+                                        <option value='4'>4</option>
+                                        <option value='5'>5</option>
+                                        <option value='6'>6</option>
+                                        <option value='7'>7</option>
+                                        <option value='8'>8</option>
+                                        <option value='9'>9</option>
                                     </select>
                                 </form>
                                 <p className='cart-item-total'><b>$ {cart_item.item_price * cart_item.quantity}</b></p>
@@ -123,7 +131,7 @@ const CartPage = () => {
                 </div>
 
                 <div className="cart-right">
-                    <CartSidebar />
+                    <CartSidebar subtotal={subtotal}/>
                 </div>
             </div>
         </div>

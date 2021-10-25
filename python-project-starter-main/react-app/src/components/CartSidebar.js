@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './../styles/cart-sidebar.css'
 
 
-function CartSidebar() {
-//   const { userId }  = useParams();
+function CartSidebar(totalInfo) {
+  const { subtotal }  = totalInfo;
 
     return (
         <div className='cart-sidebar-container flex-col-cont'>
@@ -26,7 +26,7 @@ function CartSidebar() {
                 <p><b>ORDER SUMMARY</b></p>
                 <div className='cart-mini-sec'>
                     <p className='sub-t'>Subtotal</p>
-                    <p className='sub-t'>$ xxxxxx</p>
+                    <p className='sub-t'>$ {subtotal}</p>
                 </div>
                 <div className='cart-mini-sec'>
                     <p>* Shipping Standard</p>
@@ -41,7 +41,7 @@ function CartSidebar() {
             <div className='cart-side-sec'>
                 <div className='cart-mini-sec'>
                     <p><b>ORDER TOTAL</b></p>
-                    <p><b>$ xxxxxx</b></p>
+                    <p><b>$ {subtotal}</b></p>
                 </div>
                 <p className='grey-label'>*Shipping and tax are always free here.</p>
             </div>
