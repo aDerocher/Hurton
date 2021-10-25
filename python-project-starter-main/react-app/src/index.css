@@ -169,3 +169,9 @@ button:hover{ cursor: pointer; }
     font-weight: bold;
     transition: 0.3s
 }
+.black-rectangle-btn{
+    background-color: var(--charcoal-grey);
+    color: white;
+    font-weight: bold;
+    padding: 20px 80px;
+}

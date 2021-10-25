@@ -37,6 +37,7 @@ const ItemForm = (item) => {
             item_id: curItem.id,
             item_name: item.name,
             item_color: item.color,
+            item_gender: item.gender,
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1

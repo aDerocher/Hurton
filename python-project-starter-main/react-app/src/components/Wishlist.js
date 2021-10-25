@@ -44,8 +44,10 @@ function Wishlist() {
             item_id: wl_item.item_id,
             item_name: wl_item.item_name,
             item_color: wl_item.item_color,
+            item_gender: wl_item.item_gender,
             item_size: wl_item.item_size,
             item_price: wl_item.item_price,
+            item_image: wl_item.item_image,
             quantity:1
         }
         alert ('Item added to cart :)')
@@ -55,21 +57,42 @@ function Wishlist() {
 
     return (
         <div className="profile-page-container">
-            <ProfileSidebar />
-            <div>
-                <h2>Wishlist</h2>
-                <ul>
-                    {userWishlist?.map((wl_item, i) => (
-                        <li key={i}>
-                            <p>{wl_item.item_name}</p>
-                            <button onClick={e=>removeFromWishlist(e, wl_item.id)}>X</button>
-                            <button onClick={e=>wishlistToCart(e, wl_item)}>Add to Cart</button>
-                            <div>
-                                <img src={wl_item.item_image} />
+            <div className="profile-page-sub-container content-width">
+                <ProfileSidebar />
+                <div className='profile-right flex-col-cont'>
+                <h4 className='profile-title'>Hi {sessionUser.firstName} {sessionUser.lastName}</h4>
+                    <div className='profile-sec'>
+                        <div className='profile-sec-topper'>
+                            <h4 className='profile-title pr-sub-title'>WISHLIST</h4>
+                        </div>
+
+                        {/* NOTE ============> : "pic" class is not 'picture', its Profile Item Card */}
+                        {userWishlist?.map((item, i) => (
+                            <div key={i} className='profile-item-card flex-row-cont'>
+                                <div className='pic-section flex-row-cont'>
+                                    <img className='pic-image' src={item.item_image} alt={item.name}/>
+                                    <div className='pic-section pic-text flex-col-cont'>
+                                        <p className='profile-title pr-sub-title'>{item.item_gender}'s Hurton {item.item_name}</p>
+                                        <p className='grey-label'>Color: {item.item_color}</p>
+                                        <p className='grey-label'>Size: {item.item_size}</p>
+                                        <p className='grey-label'><strong>$ {item.item_price}.00</strong></p>
+                                    </div>
+                                </div>
+                                
+                                <div className='pic-section pic-buttons'>
+                                    <button className="delete-btn-simple"
+                                        onClick={e=>e.stopPropagation(),e=>removeFromWishlist(e, item.id)}>
+                                        <i className="fas fa-times"></i>
+                                    </button>
+                                    <button className='black-rectangle-btn'
+                                        onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, item)}>
+                                        ADD TO CART
+                                    </button>
+                                </div>
                             </div>
-                        </li>
-                    ))}
-                </ul>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );

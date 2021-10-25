@@ -15,15 +15,7 @@ import './../../styles/item-details.css'
 const ItemDetails = () => {
     const { itemId } = useParams()
     const dispatch = useDispatch()
-    const item = useSelector(state => state.items[0])
-    const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session.user)
-    const usersWishlist = useSelector(state => state.wishlist)
-    const reviews = useSelector(state => state.reviews)
-    const orderHistory = useSelector(state => state.session.user?.order_history)
-    
-    const [ quantity, setQuantity ] = useState(1)
-    const [ userCanRev, setUserCanRev ] = useState(false)
     
     useEffect(() => {
         // dispatch(getOrderHistory(sessionUser?.id))
@@ -35,6 +27,14 @@ const ItemDetails = () => {
         }
     }, [dispatch])
     
+    const item = useSelector(state => state.items[0])
+    const usersCart = useSelector(state => state.cart)
+    const usersWishlist = useSelector(state => state.wishlist)
+    const reviews = useSelector(state => state.reviews)
+    const orderHistory = useSelector(state => state.session.user?.order_history)
+    
+    const [ quantity, setQuantity ] = useState(1)
+    const [ userCanRev, setUserCanRev ] = useState(false)
     
     // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e) => {
@@ -58,7 +58,6 @@ const ItemDetails = () => {
         }
         dispatch(addWishlistItem(formData))
     }
-    
     // handle adding an item to the users cart ===============
     const addItemToCart = (e, item) => {
         e.preventDefault()
@@ -88,7 +87,6 @@ const ItemDetails = () => {
         }
         addToLocalCart(formData)
     }
-
     // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {
         let cart = localStorage.getItem('cart');
@@ -127,9 +125,6 @@ const ItemDetails = () => {
         }
     }, [item, sessionUser, reviews, orderHistory])
     
-
-
-    const [ displayedImage, setDisplayedImage ] = useState(item?.image1)
     return (
         <div className="item-page-container content-width">
             <ItemForm item={item}/>

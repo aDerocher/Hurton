@@ -1,6 +1,83 @@
+/*========== Containers =========================*/
+div{ outline: 1px solid orange; }
+
 .profile-page-container{
-    display: flex;
+    background-color: var(--light-light-grey);
 }
-/* div{
-    border: 1px solid green;
-} */
+.profile-page-sub-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+/*============ left and right ==============================*/
+/*============ main (right) ==============================*/
+
+.profile-right > * {margin-bottom: 20px;}
+.profile-right{
+    width: 66%;
+}
+.profile-sec > *{
+    padding: 20px;
+    border: 1px solid var(--light-grey);
+    background-color: white;
+}
+.profile-sec-topper{
+    background-color: var(--light-grey);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.profile-sec-content > *{
+    margin-bottom: 10px;
+}
+.profile-sec-content:last-child{
+    margin-bottom: 0;
+}
+
+/*============ sidebar(left) ==============================*/
+.profile-sidebar{
+    width: 25%
+}
+.pr-nav-options > * { padding: 10px;}
+.pr-nav-options{
+    margin: 12px 0;
+    padding: 3px 0;
+    border-top: 1px solid var(--med-grey)
+}
+.pr-nav-btn{
+    font-weight: bold;
+    color: var(--link-green);
+}
+
+/*============ mini classes (both) ==============================*/
+.profile-title{
+    color: var(--med-grey);
+    font-weight: 100;
+    font-size: 18pt;
+}
+.pr-sub-title{font-size: 12pt;}
+.profile-option{font-size: 10pt;}
+
+
+/*============ Item Cards ==============================*/
+.profile-item-card{
+    justify-content: space-between;
+}
+.pic-section{
+    
+}
+.pic-image{
+    height: 120px;
+}
+.pic-text > *{ padding: 6px}
+.pic-text p:first-child{ padding-top: 0;}
+.pic-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.orderHist-buttons{
+    display: flex;
+    align-items: flex-end;
+}

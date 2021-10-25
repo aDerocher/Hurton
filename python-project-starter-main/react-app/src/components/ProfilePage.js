@@ -24,24 +24,43 @@ function ProfilePage() {
 
     return (
         <div className="profile-page-container">
-            <ProfileSidebar />
-            <div>
-                <ul>
-                    <li>
-                        <strong>User Id</strong> {userId}
-                    </li>
-                    <li>
-                        <strong>First Name</strong> {user.firstName}
-                    </li>
-                    <li>
-                        <strong>Last Name</strong> {user.lastName}
-                    </li>
-                    <li>
-                        <strong>Email</strong> {user.email}
-                    </li>
-                </ul>
-                <NavLink to={`/users/${userId}/wishlist`}><button>wishlist</button></NavLink>
-                <NavLink to={`/users/${userId}/edit-profile`}><button>edit profile</button></NavLink>
+            <div className="profile-page-sub-container content-width">
+                <ProfileSidebar />
+                <div className='profile-right flex-col-cont'>
+                    <h4 className='profile-title'>Hi {user.firstName} {user.lastName}</h4>
+                    <div className='profile-sec'>
+                        <div className='profile-sec-topper'>
+                            <h4 className='profile-title pr-sub-title'>INFO & PREFERENCES</h4>
+                            <p className='profile-title profile-option'>EDIT</p>
+                        </div>
+                        <div className='profile-sec-content'>
+                            <p>{user.firstName} {user.lastName}</p>
+                            <p>{user.email}</p>
+                            {user.dob && <p>{user.dob}</p>}
+                        </div>
+                    </div>
+
+                    <div className='profile-sec'>
+                        <div className='profile-sec-topper'>
+                            <h4 className='profile-title pr-sub-title'>SAVED ADDRESS</h4>
+                            <p className='profile-title profile-option'>ADD AN ADDRESS</p>
+                        </div>
+                        <div className='profile-sec-content'>
+                            {user.address &&
+                                <p>{user.address}</p>}
+                        </div>
+                    </div>
+
+                    <div className='profile-sec'>
+                        <div className='profile-sec-topper'><h4 className='profile-title pr-sub-title'>SAVED PAYMENT SETTINGS</h4></div>
+                        <div className='profile-sec-content'>
+                            {user.address &&
+                                <p>{user.address}</p>}
+                        </div>
+                    </div>
+
+                    {/* <NavLink to={`/users/${userId}/edit-profile`}><button>edit profile</button></NavLink> */}
+                </div>
             </div>
         </div>
     );

@@ -33,19 +33,19 @@ const CartPage = () => {
     }
     
     // get all the items and cart items into the state ==============
+    const [ subtotal, setSubtotal ] = useState(null)
     useEffect(() => {
         dispatch(getCartItems(sessionUser?.id))
         // dispatch(getAllItems())
     }, [dispatch])
-    
+
     // calculate the subtotal for the order
-    const [ subtotal, setSubtotal ] = useState(null)
     useEffect(() => {
         setSubtotal(0)
         cart?.forEach((i) => {
             setSubtotal(subtotal + (i.quantity * i.item_price))
         })
-    }, [dispatch, cart])
+    }, [cart])
     
     //handle the deletion of cart item ==============
     const removeFromCart = (e, item) => {
@@ -55,8 +55,8 @@ const CartPage = () => {
         } else {
             removeLSCartItem(`${item.item_id}_${item.item_color}_${item.item_size}`)
         }
-        let x = document.getElementById(`${item.id}`)
-        x.style.display = 'none';
+        let x = document.getElementById(`${item?.id}`)
+        if (x) {x.style.display = 'none';}
     }
     
     //handle the deletion of cart item from local storage ==============
@@ -93,10 +93,10 @@ const CartPage = () => {
                                     <img className="cart-img" src={cart_item.item_image} alt="cart item" />
                                 </div>
                                 <div className="cart-content-container">
-                                    <p className="title">{cart_item.item_gender}'s Hurton {cart_item.item_name}</p>
-                                    <p className="color">{cart_item.item_color}</p>
-                                    <p className="size">{cart_item.item_size}</p>
-                                    <p className="price grey-label">$ {cart_item.item_price}</p>
+                                    <p className="cart-card-title">{cart_item.item_gender}'s Hurton {cart_item.item_name}</p>
+                                    <p className="cart-card-color">Color: {cart_item.item_color}</p>
+                                    <p className="cart-card-size">Size: {cart_item.item_size}</p>
+                                    <p className="price grey-label"><strong>$ {cart_item.item_price}.00</strong></p>
                                     {/* <p className="amount-saved">$22(10%)</p> */}
                                 </div>
                                 <form action="" className="cart-quantity-sel">

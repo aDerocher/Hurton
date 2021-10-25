@@ -39,13 +39,14 @@ export const getUsersWishlist = (user_id) => async (dispatch) => {
 
 
 export const addWishlistItem = (data) => async (dispatch) => {
-    const {user_id, item_id, item_name, item_color, item_price, item_size, item_image } = data;
+    const {user_id, item_id, item_name, item_color, item_gender, item_price, item_size, item_image } = data;
     let formData = new FormData();
 
     formData.append("user_id", user_id);
     formData.append("item_id", item_id);
     formData.append("item_name", item_name);
     formData.append("item_color", item_color);
+    formData.append("item_gender", item_gender);
     formData.append("item_size", item_size);
     formData.append("item_price", item_price);
     formData.append("item_image", item_image);
