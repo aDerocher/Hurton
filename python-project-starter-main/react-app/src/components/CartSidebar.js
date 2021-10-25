@@ -1,25 +1,54 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import './../styles/cart-sidebar.css'
+
 
 function CartSidebar() {
 //   const { userId }  = useParams();
 
     return (
-        <div className='cart-sidebar'>
-            <p>Cart Sidebar</p>
-            <ul>
-                <li>
-                    <NavLink to={`/cart/checkout`}><button>Checkout</button></NavLink>
-                </li>
-                <li>
-                    {/* <NavLink to={`/users/${userId}/order-history`}><button>Order History</button></NavLink> */}
-                    <p>Option 2</p>
-                </li>
-                <li>
-                    {/* <NavLink to={`/users/${userId}/wishlist`}><button>wishlist</button></NavLink> */}
-                    <p>Option 3</p>
-                </li>
-            </ul>
+        <div className='cart-sidebar-container flex-col-cont'>
+            <div className='cart-side-sec to-checkout-btns-container flex-col-cont'>
+                <NavLink to={`/cart/checkout`} style={{ textDecoration: 'none' }}>
+                    <button className='grey-green-btn to-checkout-btn check-btn-main'>Checkout</button>
+                </NavLink>
+                <p className='grey-label'>OR</p>
+                <NavLink to={`/cart/checkout`} style={{ textDecoration: 'none' }}>
+                    <button className='to-checkout-btn paypal-btn'>PayPal</button>
+                </NavLink>
+                <p className='grey-label'>OR</p>
+                <NavLink to={`/cart/checkout`} style={{ textDecoration: 'none' }}>
+                    <button className='to-checkout-btn bitcoin-btn'>Pay with ₿itcoin</button>
+                </NavLink>
+            </div>
+
+            <div className='cart-side-sec'>
+                <p><b>ORDER SUMMARY</b></p>
+                <div className='cart-mini-sec'>
+                    <p className='sub-t'>Subtotal</p>
+                    <p className='sub-t'>$ xxxxxx</p>
+                </div>
+                <div className='cart-mini-sec'>
+                    <p>* Shipping Standard</p>
+                    <p className='shipping-red'>FREE</p>
+                </div>
+                <div className='cart-mini-sec'>
+                    <p>* Tax</p>
+                    <p>$ 0.00</p>
+                </div>
+            </div>
+
+            <div className='cart-side-sec'>
+                <div className='cart-mini-sec'>
+                    <p><b>ORDER TOTAL</b></p>
+                    <p><b>$ xxxxxx</b></p>
+                </div>
+                <p className='grey-label'>*Shipping and tax are always free here.</p>
+            </div>
+            <div className='cart-side-sec'>
+                <p className='ship-info'>Easy Returns</p>
+                <p className='ship-info'>Shipping Information</p>
+            </div>
         </div>
     );
 }

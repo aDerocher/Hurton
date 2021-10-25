@@ -5,11 +5,11 @@
     /* background-color: blueviolet; */
     border-top: 1px solid var(--med-grey);
     border-bottom: 1px solid var(--med-grey);
-    width: 62%
+    width: 65%
 }
 .cart-right{
     /* background-color: blueviolet; */
-    width: 34%
+    width: 28%
 }
 .cart-topper-container{
     padding-top: 2rem;

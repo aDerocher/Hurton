@@ -9,6 +9,7 @@
         --light-light-grey: #f5f5f5;
         --light-grey: #e5e5e5;
         --lightgrey1: rgb(155, 155, 155);
+        --med-light-grey: #757575;
 
         /* for large titles and paragraphs */
         --med-grey: #4e4c4b;
@@ -88,7 +89,14 @@ table {
 
 /* Universal style application */
 html, body{ font-family: Arial, Helvetica, sans-serif; }
-button{ outline: none; border: none; }
+button{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    outline: none;
+    border: none; 
+}
 button:hover{ cursor: pointer; }
 
 /* ===============================================================
@@ -123,6 +131,9 @@ button:hover{ cursor: pointer; }
 }
 
 /* Useful site wide classes */
+
+
+ /* ========= BUTTONS BUTTONS BUTTONS =========== */
 .btn-simple:hover{ background-color: var(--light-grey);}
 .btn-simple{
     background-color: white;
@@ -149,4 +160,12 @@ button:hover{ cursor: pointer; }
     height: 24px;
     width: 24px;
     border-radius: 11px;
+}
+
+.grey-green-btn:hover{ background-color: var(--med-light-grey);}
+.grey-green-btn{
+    background-color: var(--button-turq);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s
 }
