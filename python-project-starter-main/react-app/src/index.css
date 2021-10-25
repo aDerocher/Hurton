@@ -115,7 +115,7 @@ button:hover{ cursor: pointer; }
 .flex-col-cont{ display: flex; flex-direction: column}
 .flex-row-cont{ display: flex; flex-direction: row}
 .boldish{ font-weight: 800; }
-
+.dead-link{ text-decoration: line-through; color: var(--lightgrey1)}
 .hover-hand:hover{ cursor: pointer; }
 .remove-underline{text-decoration: none;}
 .content-width{

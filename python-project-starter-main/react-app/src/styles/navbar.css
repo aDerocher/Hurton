@@ -90,6 +90,7 @@
     padding: .5rem;
 }
 .nav-search-cont{
+    /* border: 1px solid purple; */
     outline: none;
     padding: 5px;
     display: flex;
@@ -100,6 +101,9 @@
     
 }
 .search-outline{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
     border: 1px solid lightgrey;
 }
 .nav-search{

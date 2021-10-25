@@ -1,0 +1,59 @@
+.item-page-container{
+
+}
+
+
+
+/* ==== DETAILS FORM ===================*/
+.item-details-selection{
+    justify-content: space-between;
+}
+.item-deets-imgs{
+    width: 10%
+}
+.item-deets-img{
+    width: 50%
+}
+.item-deets-form{
+    width: 30%
+}
+
+
+/* ==== INFO ===================*/
+.item-info-section{
+    justify-content: space-between;
+}
+.info-graphs{
+    width: 40%
+}
+.info-graph{
+    padding: 10px;
+
+}
+.info-graph-1{
+}
+.info-graph-2{
+    
+}
+.info-body{
+    width: 50%
+}
+
+
+
+
+
+
+
+/* ==== REVIEWS ===================*/
+
+
+
+
+
+
+
+
+
+
+
