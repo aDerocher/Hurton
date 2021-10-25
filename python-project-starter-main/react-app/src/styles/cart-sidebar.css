@@ -8,7 +8,6 @@
 .cart-side-sec{
     border-bottom: 1px solid var(--med-grey);
     padding: 1rem 0;
-    color: darkt;
 }
 .cart-side-sec:last-child{
     border-bottom: none;

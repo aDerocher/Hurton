@@ -8,6 +8,7 @@ import { getOrderHistory } from './../../store/session';
 import Reviews from '../Reviews';
 import NewReview from '../NewReview';
 import { getOneItem } from './../../store/items';
+import './../../styles/item-details.css'
 
 
 const Snowboard = () => {
@@ -24,7 +25,7 @@ const Snowboard = () => {
     const [ userCanRev, setUserCanRev ] = useState(false)
     
     useEffect(() => {
-        dispatch(getOrderHistory(sessionUser?.id))
+        // dispatch(getOrderHistory(sessionUser?.id))
         dispatch(getOneItem(itemId))
         dispatch(getItemReviews(itemId))
         if(sessionUser){
@@ -33,7 +34,7 @@ const Snowboard = () => {
         }
     }, [dispatch])
     
-
+    
     // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e) => {
         e.preventDefault()
@@ -125,35 +126,57 @@ const Snowboard = () => {
         }
     }, [item, sessionUser, reviews, orderHistory])
     
+
+
+    const [ displayedImage, setDisplayedImage ] = useState(item?.image1)
     return (
-        <div className="item-page-container">
-            <div>
-                <h1>This is one Item</h1>
-                <form>
-                    <input type='number'></input>
-                </form>
-                <p>{item?.name}</p>
-                <p>{item?.price}</p>
-                <p>{item?.color}</p>
-                <button onClick={e=>addItemToCart(e, item)}>Add to Cart</button>
-                <button onClick={e=>addItemToWishlist(e)}>Add to Wishlist</button>
-                <div>
-                    <img src={item?.image1} alt="ii" />
+        <div className="item-page-container content-width">
+            <div className='item-details-selection flex-row-cont'>
+                <div className='item-deets-imgs flex-col-cont'>
+                    lots of images vertically
                 </div>
-                <div>
-                    <img src={item?.image2} alt="ii" />
+                <div className='item-deets-img'>
+                    <img src={item?.image1} alt='sb' />
                 </div>
-                <div>
-                    <img src={item?.image3} alt="ii" />
+                <div className='item-deets-form'>
+                    <p className=''>{}</p>
+                    <p className=''>{item?.name}</p>
+                    <p className=''>{item?.price}</p>
+                    <p className=''>{item?.color}</p>
+                    <form>
+                    </form>
+                    <div>
+                        <div className='flex-row-cont'>
+                            <button className='grey-green-btn'
+                            onClick={e=>addItemToCart(e, item)}>
+                                ADD TO CART
+                            </button>
+                            <button onClick={e=>addItemToWishlist(e)}>
+                                &lt;3
+                            </button>
+                        </div>
+                        <button>Find My Size</button>
+                    </div>
                 </div>
-                {/* <button onClick={e=>showLocalCart(e)}>showLocalCart</button> */}
+                
             </div>
-            {userCanRev &&
-                <NewReview user={sessionUser} itemId={item?.id}/>
-            }
-            {reviews.map((review, i)=>(
-                <Reviews key={i}  user={sessionUser} review={review}/> 
-            ))}
+
+            <div className='item-info-section flex-row-cont'>
+                <div className='info-graphs flex-col-cont'>
+                    <div className='info-graph graph-1'>graph</div>
+                    <div className='info-graph graph-2'>graph</div>
+                </div>
+                <div className='info-body'>lots of words here</div>
+            </div>
+
+            <div className='item-details-reviews'>
+                {userCanRev &&
+                    <NewReview user={sessionUser} itemId={item?.id}/>
+                }
+                {reviews.map((review, i)=>(
+                    <Reviews key={i}  user={sessionUser} review={review}/> 
+                ))}
+            </div>
         </div>
     );
 }

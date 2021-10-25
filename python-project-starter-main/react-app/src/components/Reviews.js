@@ -1,6 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { getItemReviews } from '../store/items';
 import { editReview, deleteReview } from './../store/reviews'
 import './../styles/reviews.css'
 
@@ -16,7 +17,6 @@ const Reviews = (revData) => {
     const [revRating, setRevRating] = useState(review?.rating)
     const [revTitle, setRevTitle] = useState(review?.title)
     const [revContent, setRevContent] = useState(review?.content)
-
 
     const handleRevEdit = (e) => {
         e.preventDefault()

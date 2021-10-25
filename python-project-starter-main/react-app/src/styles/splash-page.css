@@ -13,7 +13,9 @@
 .ak-c {
     font-size: x-small;
 }
-
+div{
+    border: 1px solid orange;
+}
 
 /* =========== Main Section ============== */
 .splash-photo-container{
@@ -39,7 +41,8 @@
     line-height: 150%;
 }
 .splash-btns-cont{
-
+    display: flex;
+    flex-direction: row;
 }
 .splash-btn{
     background-color: var(--chargrey2);
