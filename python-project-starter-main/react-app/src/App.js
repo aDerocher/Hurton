@@ -51,7 +51,8 @@ function App() {
             <Footer />
         </Route>
         <Route path='/shop/snowboard/:itemId' exact={true}>
-            <Snowboard />
+            {/* <Snowboard /> */}
+            <ItemDetails />
         </Route>
         <Route path='/shop/jacket/:itemId' exact={true}>
             <ItemDetails />

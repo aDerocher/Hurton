@@ -16,13 +16,13 @@ const ItemForm = (item) => {
     
     const [ quantity, setQuantity ] = useState(1)
     
-    // useEffect(() => {
-
-    // }, [dispatch])
+    useEffect(() => {
+        
+    }, [ ])
     
     
     // handle adding the item to a users wishlist ================
-    const addItemToWishlist = (e) => {
+    const addItemToWishlist = (e, item) => {
         e.preventDefault()
         if(!sessionUser){
             alert("you must be logged in to add items to a wishlist!");
@@ -43,7 +43,6 @@ const ItemForm = (item) => {
         }
         dispatch(addWishlistItem(formData))
     }
-    
     // handle adding an item to the users cart ===============
     const addItemToCart = (e, item) => {
         e.preventDefault()
@@ -53,6 +52,7 @@ const ItemForm = (item) => {
             item_id: curItem.id,
             item_name: item.name,
             item_color: item.color,
+            item_gender: item.gender,
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1,
@@ -73,7 +73,6 @@ const ItemForm = (item) => {
         }
         addToLocalCart(formData)
     }
-
     // // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {
         let cart = localStorage.getItem('cart');
@@ -92,23 +91,35 @@ const ItemForm = (item) => {
         window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
-    // const [ displayedImage, setDisplayedImage ] = useState(item?.image1)
+    const changeDispImage = (e, img) => {
+        e.preventDefault()
+        setOrigImage(false)
+        setDispImage(img)
+    }
+    const [ origImage, setOrigImage ] = useState(true)
+    const [ dispImage, setDispImage ] = useState('')
 
 
     return (
         <div className="item-form-container content-width">
             <div className='item-details-selection flex-row-cont'>
                 <div className='item-deets-imgs flex-col-cont'>
-                    lots of images vertically
+                    <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />
+                    <img className='imageTile' src={curItem?.image2} onClick={e=>changeDispImage(e,curItem?.image2)}alt='sb' />
+                    <img className='imageTile' src={curItem?.image3} onClick={e=>changeDispImage(e,curItem?.image3)}alt='sb' />
                 </div>
                 <div className='item-deets-img'>
-                    <img src={curItem.image1} alt='sb' />
+                    { origImage &&
+                        <img src={curItem?.image1} alt='sb' />}
+                    { !origImage &&
+                        <img src={dispImage} alt='sb' />}
+                    
                 </div>
                 <div className='curItem-deets-form'>
                     <p className=''>{}</p>
-                    <p className=''>{curItem.name}</p>
-                    <p className=''>{curItem.price}</p>
-                    <p className=''>{curItem.color}</p>
+                    <p className=''>{curItem?.name}</p>
+                    <p className=''>{curItem?.price}</p>
+                    <p className=''>{curItem?.color}</p>
                     <form>
                     </form>
                     <div>
@@ -117,7 +128,7 @@ const ItemForm = (item) => {
                             onClick={e=>addItemToCart(e, curItem)}>
                                 ADD TO CART
                             </button>
-                            <button onClick={e=>addItemToWishlist(e)}>
+                            <button onClick={e=>addItemToWishlist(e, curItem)}>
                                 &lt;3
                             </button>
                         </div>

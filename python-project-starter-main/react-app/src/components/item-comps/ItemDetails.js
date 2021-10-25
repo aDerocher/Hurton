@@ -133,6 +133,7 @@ const ItemDetails = () => {
     return (
         <div className="item-page-container content-width">
             <ItemForm item={item}/>
+
             <div className='item-info-section flex-row-cont'>
                 <div className='info-graphs flex-col-cont'>
                     <div className='info-graph graph-1'>graph</div>
@@ -141,10 +142,10 @@ const ItemDetails = () => {
                 <div className='info-body'>lots of words here</div>
             </div>
 
+
             <div className='item-details-reviews'>
                 {userCanRev &&
-                    <NewReview user={sessionUser} itemId={item?.id}/>
-                }
+                    <NewReview user={sessionUser} itemId={item?.id}/>}
                 {reviews.map((review, i)=>(
                     <Reviews key={i}  user={sessionUser} review={review}/> 
                 ))}

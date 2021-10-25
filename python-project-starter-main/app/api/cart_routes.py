@@ -21,6 +21,7 @@ def add_to_cart():
             item_id=form.item_id.data,
             item_name=form.item_name.data,
             item_color=form.item_color.data,
+            item_gender=form.item_gender.data,
             item_size=form.item_size.data,
             item_price=form.item_price.data,
             item_image=form.item_image.data,

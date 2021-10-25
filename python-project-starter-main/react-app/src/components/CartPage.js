@@ -84,7 +84,7 @@ const CartPage = () => {
                         <div key={i} className="flex-col-cont cart-item-card">
                             <div className="cart-delete-item-cont">
                                 <button className="delete-btn-simple" onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>
-                                    <i class="fas fa-times"></i>
+                                    <i className="fas fa-times"></i>
                                 </button>
                             </div>
 
