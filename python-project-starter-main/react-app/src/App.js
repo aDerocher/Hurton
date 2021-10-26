@@ -74,7 +74,7 @@ function App() {
                     <CartPage />
                     <Footer />
                 </Route>
-                <Route path='/cart/checkout' exact={true} >
+                <Route path='/cart/checkout/:subtotal' exact={true} >
                     <NavBar />
                     <CheckoutPage />
                     <Footer />

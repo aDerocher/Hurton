@@ -14,8 +14,8 @@ class Item(db.Model):
     color2 = db.Column(db.String(255))
     color3 = db.Column(db.String(255))
     image1 = db.Column(db.String(2000), nullable=False)
-    image2 = db.Column(db.String(2000), nullable=False)
-    image3 = db.Column(db.String(2000), nullable=False)
+    image2 = db.Column(db.String(2000),)
+    image3 = db.Column(db.String(2000),)
 
     item_type = db.Column(db.Integer, db.ForeignKey("item_types.id"), nullable=False)
     # boards ===============================

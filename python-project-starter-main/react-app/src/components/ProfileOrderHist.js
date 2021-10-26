@@ -59,6 +59,12 @@ function ProfileOrderHist() {
                             <h4 className='profile-title pr-sub-title'>ORDER HISTORY</h4>
                         </div>
 
+                        { pastItems?.length === 0 &&
+                            <div className='flex-row-cont-apart empty-user-list'>
+                                <p>We have no order records for this account.</p>
+                            </div>
+                        }
+
                         {pastItems?.map((item, i) => (
                             <div key={i} className='profile-item-card flex-row-cont'>
                                 <div className='pic-section flex-row-cont'>

@@ -8,17 +8,30 @@ function CartSidebar(totalInfo) {
 
     return (
         <div className='cart-sidebar-container flex-col-cont'>
+
             <div className='cart-side-sec to-checkout-btns-container flex-col-cont'>
-                <NavLink to={`/cart/checkout`} style={{ textDecoration: 'none' }}>
-                    <button className='grey-green-btn to-checkout-btn check-btn-main'>Checkout</button>
+                <NavLink to={`/cart/checkout/${subtotal}`} style={{ textDecoration: 'none' }}>
+                    <button 
+                    className='grey-green-btn to-checkout-btn check-btn-main dis'
+                    disabled={subtotal === 0}>
+                        Checkout
+                    </button>
                 </NavLink>
                 <p className='grey-label'>OR</p>
-                <NavLink to={`/cart/checkout`} style={{ textDecoration: 'none' }}>
-                    <button className='to-checkout-btn paypal-btn'>PayPal</button>
+                <NavLink to={`/cart/checkout/${subtotal}`} style={{ textDecoration: 'none' }}>
+                    <button 
+                    className='to-checkout-btn paypal-btn dis'
+                    disabled={subtotal === 0}>
+                        PayPal
+                    </button>
                 </NavLink>
                 <p className='grey-label'>OR</p>
-                <NavLink to={`/cart/checkout`} style={{ textDecoration: 'none' }}>
-                    <button className='to-checkout-btn bitcoin-btn'>Pay with ₿itcoin</button>
+                <NavLink to={`/cart/checkout/${subtotal}`} style={{ textDecoration: 'none' }}>
+                    <button 
+                    className='to-checkout-btn bitcoin-btn dis'
+                    disabled={subtotal === 0}>
+                        Pay with ₿itcoin
+                    </button>
                 </NavLink>
             </div>
 
@@ -46,8 +59,8 @@ function CartSidebar(totalInfo) {
                 <p className='grey-label'>*Shipping and tax are always free here.</p>
             </div>
             <div className='cart-side-sec'>
-                <p className='ship-info'>Easy Returns</p>
-                <p className='ship-info'>Shipping Information</p>
+                <p className='ship-info dead-link'><strike>Easy Returns</strike></p>
+                <p className='ship-info dead-link'><strike>Shipping Information</strike></p>
             </div>
         </div>
     );
