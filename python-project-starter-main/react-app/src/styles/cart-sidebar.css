@@ -5,6 +5,17 @@
     padding: 30px;
 }
 /* ====== All Section attributes ======= */
+.disable-checkout{
+    position: absolute;
+    background-color: rgba(218, 69, 69, 0.5);
+    /* top:0;
+    bottom:0;
+    right:0; 
+    left:0;*/
+    width: fit-content;
+    height: fit-content;
+    z-index: 100;
+}
 .cart-side-sec{
     border-bottom: 1px solid var(--med-grey);
     padding: 1rem 0;
@@ -49,7 +60,7 @@
 
 /*===== little classes ===========*/
 .shipping-red{
-    color: rgb(78, 35, 35);
+    color: var(--maroon);
 }
 .sub-t{
     font-weight: bold;

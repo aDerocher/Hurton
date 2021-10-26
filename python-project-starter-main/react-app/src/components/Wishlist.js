@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { getUsersWishlist, deleteWishlistItem } from '../store/wishlist';
 import { addToCart } from '../store/cart';
 import ProfileSidebar from './ProfileSidebar';
@@ -65,6 +65,13 @@ function Wishlist() {
                         <div className='profile-sec-topper'>
                             <h4 className='profile-title pr-sub-title'>WISHLIST</h4>
                         </div>
+
+                        { userWishlist.length === 0 &&
+                            <div className='flex-row-cont-apart empty-user-list-wl'>
+                                <p>You don’t have any items in your wishlist yet.</p>
+                                <NavLink to='/shop'><button className='btn simple black-rectangle-btn'>SHOP NOW</button></NavLink>
+                            </div>
+                        }
 
                         {/* NOTE ============> : "pic" class is not 'picture', its Profile Item Card */}
                         {userWishlist?.map((item, i) => (

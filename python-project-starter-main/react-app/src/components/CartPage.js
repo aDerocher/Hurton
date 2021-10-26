@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import { useParams } from 'react-router';
 import {getCartItems, editCartItem, deleteCartItem} from '../store/cart'
 // import {getAllItems} from '../store/items'
@@ -86,6 +86,13 @@ const CartPage = () => {
 
             <div className="flex-row-cont card-page-cont">
                 <div className='cart-left'>
+
+                    {cart?.length === 0 &&
+                        <div className='empty-user-list-cart'>
+                            <h2 className="shopping-cart-title">Your Shopping Cart is Empty</h2>
+                            <NavLink to='/shop'><button className='grey-green-btn cart-shop-now-btn'>SHOP NOW</button></NavLink>
+                        </div>
+                    }
 
                     {cart?.map((cart_item, i) => (
                         <div key={i} className="flex-col-cont cart-item-card">

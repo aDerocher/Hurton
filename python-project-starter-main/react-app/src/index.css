@@ -25,6 +25,9 @@
         --button-turq:#3d7c7d;
         --accent-turq:#0e7387;
 
+    /* Accents -------------------- */
+        --gold: rgb(145, 111, 50);
+        --maroon: rgb(87, 29, 29);
 
 }
 :root{
@@ -81,6 +84,7 @@ q:before, q:after {
     content: '';
 	content: none;
 }
+a{ text-decoration: none }
 table {
     border-collapse: collapse;
 	border-spacing: 0;
@@ -116,6 +120,7 @@ input:focus {
 /* Useful site wide classes */
 .flex-col-cont{ display: flex; flex-direction: column}
 .flex-row-cont{ display: flex; flex-direction: row}
+.flex-row-cont-apart{ display: flex; flex-direction: row; justify-content: space-between; align-items: center}
 .boldish{ font-weight: 800; }
 .dead-link{ text-decoration: line-through; color: var(--lightgrey1)}
 .hover-hand:hover{ cursor: pointer; }
@@ -125,14 +130,25 @@ input:focus {
     margin: 0 2.5%;
 }
 
+/* =========== For Text Snippets ============= */
 .req-star{ color: red; }
 .grey-label{
     color: var(--med-grey);
     font-size: 10pt;
     font-weight: 500;
 }
-
-/* Useful site wide classes */
+.empty-user-list{
+    color: var(--dark-grey);
+    font-size: 12pt;
+}
+.empty-user-list-wl{
+    color: var(--gold);
+    font-size: 12pt;
+    font-weight: bold;
+}
+.empty-user-list-cart{
+    padding: 15px;
+}
 
 
  /* ========= BUTTONS BUTTONS BUTTONS =========== */

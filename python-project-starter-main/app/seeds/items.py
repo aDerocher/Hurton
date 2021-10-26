@@ -37,7 +37,7 @@ def seed_items():
     )
     snowboard3 = Item(
         size = '155',
-        name = 'Neck Breaker',
+        name = 'Tweaked',
         price = '1000',
         color = 'black',
         gender = 'Men',
@@ -51,7 +51,7 @@ def seed_items():
     )
     # ======== womens snowboards ===========
     snowboard4 = Item(
-        size = '145',
+        size = '134',
         name = 'Twisted Ankle',
         price = '375',
         color = 'purple',
@@ -65,7 +65,7 @@ def seed_items():
         personality = 4,
     )
     snowboard5 = Item(
-        size = '145',
+        size = '140',
         name = 'Lip Buster',
         price = 425,
         color = 'pink',
@@ -80,7 +80,7 @@ def seed_items():
     )
     snowboard6 = Item(
         size = '145',
-        name = 'Cracked Patella',
+        name = 'Snake Bite',
         price = 500,
         color = 'teal',
         gender = 'Men',
@@ -92,6 +92,136 @@ def seed_items():
         terrain = 9,
         personality = 6,
     )
+
+    snowboard10 = Item(
+        size = '148',
+        name = 'Snake Bite',
+        price = 480,
+        color = 'mediumpurple',
+        gender = 'Men',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb10-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb10-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb10-3.jpg',
+
+        terrain = 8,
+        personality = 5,
+    )
+    snowboard11 = Item(
+        size = '149',
+        name = 'Shiver',
+        price = 550,
+        color = 'white',
+        gender = 'Men',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb11-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb11-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb11-3.jpg',
+
+        terrain = 9,
+        personality = 6,
+    )
+    snowboard12 = Item(
+        size = '150',
+        name = 'Popper',
+        price = 300,
+        color = 'black',
+        gender = 'Men',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb12-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb12-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb12-3.jpg',
+
+        terrain = 5,
+        personality = 3,
+    )
+    snowboard13 = Item(
+        size = '144',
+        name = 'Chafe',
+        price = 350,
+        color = 'red',
+        gender = 'Men',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb13-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb13-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb13-3.jpg',
+
+        terrain = 3,
+        personality = 7,
+    )
+    snowboard14 = Item(
+        size = '146',
+        name = 'Impact',
+        price = 420,
+        color = 'salmon',
+        gender = 'Men',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb14-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb14-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb14-3.jpg',
+
+        terrain = 10,
+        personality = 6,
+    )
+    snowboard15 = Item(
+        size = '145',
+        name = 'G-Forces',
+        price = 520,
+        color = 'moccasin',
+        gender = 'Men',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb15-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb15-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb15-3.jpg',
+
+        terrain = 5,
+        personality = 2,
+    )
+    snowboard16 = Item(
+        size = '135',
+        name = 'Sticker',
+        price = 480,
+        color = 'moccasin',
+        gender = 'Women',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb16-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb16-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb16-3.jpg',
+
+        terrain = 4,
+        personality = 8,
+    )
+    snowboard17 = Item(
+        size = '138',
+        name = 'Smear',
+        price = 460,
+        color = 'palegoldenrod',
+        gender = 'Women',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb17-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb17-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb17-3.jpg',
+
+        terrain = 9,
+        personality = 3,
+    )
+    snowboard18 = Item(
+        size = '120',
+        name = 'Tripper',
+        price = 220,
+        color = 'mediumturquoise',
+        color2 = 'mediumvioletred',
+        gender = 'Kids',
+        item_type = 1,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb18-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/wsb18-2.jpg',
+
+        terrain = 5,
+        personality = 5,
+    )
+
+
+
 
 
     # ======== womens snowboards ===========
@@ -162,7 +292,7 @@ def seed_items():
     )
     jacket5 = Item(
         size = 'M',
-        name = 'Bad Itch',
+        name = 'So Itchy',
         price = 320,
         color = 'pink',
         color2 = 'black',
@@ -192,14 +322,16 @@ def seed_items():
     )
     jacket7 = Item(
         size = 'M',
-        name = 'Black Eye',
-        price = 360,
-        color = 'darkslategrey',
-        gender = 'Women',
+        name = 'Slimer',
+        price = 510,
+        color = 'olive',
+        color2 = 'dimgrey',
+        color3 = 'blanchedalmond',
+        gender = 'Men',
         item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack10_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack10_2.jpg',
-        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack10_3.jpg',
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack10-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack10-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack10-3.jpg',
 
         warmth = 6,
         waterproofing = 7,
@@ -207,29 +339,20 @@ def seed_items():
     jacket8 = Item(
         size = 'M',
         name = 'Black Eye',
-        price = 360,
-        color = 'darkslategrey',
-        gender = 'Women',
+        price = 340,
+        color = 'lightgrey',
+        color2 = 'forestgreen',
+        color3 = 'darkgrey',
+        gender = 'Men',
         item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack11_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack11_2.jpg',
-        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack11_3.jpg',
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack11-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack11-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack11-3.jpg',
 
         warmth = 6,
         waterproofing = 7,
     )
-    jacket9 = Item(
-        size = 'M',
-        name = 'Black Eye',
-        price = 360,
-        color = 'darkslategrey',
-        gender = 'Women',
-        item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/jack12_1.jpg',
 
-        warmth = 6,
-        waterproofing = 7,
-    )
 
     # ========== Boots and Bindings =============
     boots1 = Item(
@@ -240,7 +363,7 @@ def seed_items():
         color2 = 'black',
         color3 = 'blue',
         gender = 'Women',
-        item_type = 2,
+        item_type = 3,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot1_1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot1_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot1_3.jpg',
@@ -249,71 +372,69 @@ def seed_items():
     )
     boots2 = Item(
         size = 'M',
-        name = 'Broken Toe',
-        price = 275,
-        color = 'purple',
+        name = 'Bruiser',
+        price = 210,
+        color = 'tan',
         color2 = 'black',
-        color3 = 'blue',
-        gender = 'Women',
-        item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot10_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot10_2.jpg',
+        gender = 'Men',
+        item_type = 3,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot10-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot10-2.jpg',
 
-        lacing = 'quick-lace',
+        lacing = 'boa',
     )
     boots3 = Item(
         size = 'M',
-        name = 'Broken Toe',
-        price = 275,
-        color = 'purple',
-        color2 = 'black',
-        color3 = 'blue',
+        name = 'Scraper',
+        price = 255,
+        color = 'black',
+        color2 = 'lightgrey',
+        color3 = 'whitesmoke',
         gender = 'Women',
-        item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot11_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot11_2.jpg',
-        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot11_3.jpg',
+        item_type = 3,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot11-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot11-2.jpg',
+        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot11-3.jpg',
 
-        lacing = 'quick-lace',
+        lacing = 'boa',
     )
     boots4 = Item(
         size = 'M',
-        name = 'Broken Toe',
+        name = 'Toe Jam',
         price = 275,
-        color = 'purple',
-        color2 = 'black',
-        color3 = 'blue',
-        gender = 'Women',
-        item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot12_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot12_2.jpg',
+        color = 'black',
+        color2 = 'darkblue',
+        gender = 'Men',
+        item_type = 3,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot12-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot12-2.jpg',
 
-        lacing = 'quick-lace',
+        lacing = 'boa',
     )
     boots5 = Item(
         size = 'M',
-        name = 'Broken Toe',
+        name = 'Big Slam',
         price = 275,
-        color = 'purple',
+        color = 'grey',
         color2 = 'black',
-        color3 = 'blue',
-        gender = 'Women',
-        item_type = 2,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot13_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot13_2.jpg',
+        gender = 'Men',
+        item_type = 3,
+        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot13-1.jpg',
+        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/boot13-2.jpg',
 
         lacing = 'quick-lace',
     )
 
+    #  ============================================== Bindings ===============
     bindings1 = Item(
         size = 'M',
         name = 'Calf Sprain',
-        price = 275,
+        price = 320,
         color = 'grey',
         color2 = 'orange',
         color3 = 'purple',
         gender = 'Women',
-        item_type = 2,
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/binding1_1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/binding1_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/binding1_3.jpg',
@@ -323,115 +444,111 @@ def seed_items():
     )
     bindings2 = Item(
         size = 'M',
-        name = 'Scratch',
+        name = 'Crash',
         price = 240,
-        color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
+        color = 'whitesmoke',
         gender = 'Men',
-        item_type = 2,
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind10-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind10_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind10_3.jpg',
 
         response = 7,
-        stiffness = 7,
+        stiffness = 5,
     )
     bindings3 = Item(
         size = 'M',
-        name = 'Scratch',
-        price = 250,
-        color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
+        name = 'Big Slam',
+        price = 200,
+        color = 'white',
+        color2 = 'black',
         gender = 'Men',
         item_type = 2,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind11-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind11_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind11_3.jpg',
 
-        response = 7,
-        stiffness = 7,
+        response = 4,
+        stiffness = 5,
     )
     bindings4 = Item(
         size = 'M',
-        name = 'Scratch',
+        name = 'Crunchy',
         price = 220,
-        color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
+        color = 'midnightblue',
+        color2 = 'grey',
+        color3 = 'white',
         gender = 'Men',
-        item_type = 2,
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind12-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind12_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind12_3.jpg',
 
-        response = 7,
+        response = 6,
         stiffness = 7,
     )
     bindings5 = Item(
         size = 'M',
-        name = 'Scratch',
+        name = 'Shot Caller',
         price = 280,
-        color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
+        color = 'black',
+        color2 = 'white',
         gender = 'Men',
-        item_type = 2,
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind13-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind13_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind13_3.jpg',
 
-        response = 7,
-        stiffness = 7,
+        response = 8,
+        stiffness = 6,
     )
     bindings6 = Item(
         size = 'M',
-        name = 'Scratch',
-        price = 300,
+        name = 'Brawler',
+        price = 265,
         color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
-        gender = 'Men',
-        item_type = 2,
+        color2 = 'plum',
+        color3 = 'sandybrown',
+        gender = 'Women',
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind14-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind14_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind14_3.jpg',
 
         response = 7,
-        stiffness = 7,
+        stiffness = 5,
     )
     bindings7 = Item(
         size = 'M',
-        name = 'Scratch',
-        price = 300,
-        color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
-        gender = 'Men',
-        item_type = 2,
+        name = 'Rumble',
+        price = 240,
+        color = 'black',
+        color2 = 'white',
+        color3 = 'salmon',
+        gender = 'Women',
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind15-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind15_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind15_3.jpg',
 
-        response = 7,
-        stiffness = 7,
+        response = 5,
+        stiffness = 6,
     )
     bindings8 = Item(
         size = 'M',
-        name = 'Scratch',
-        price = 300,
-        color = 'grey',
-        color2 = 'orange',
-        color3 = 'purple',
+        name = 'Switch Hitter',
+        price = 270,
+        color = 'black',
+        color2 = 'white',
+        color3 = 'salmon',
         gender = 'Men',
-        item_type = 2,
+        item_type = 4,
         image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind16-1.jpg',
         image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind16_2.jpg',
         image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/bind16_3.jpg',
 
-        response = 7,
-        stiffness = 7,
+        response = 6,
+        stiffness = 8,
     )
 
 
@@ -441,6 +558,15 @@ def seed_items():
     db.session.add(snowboard4)
     db.session.add(snowboard5)
     db.session.add(snowboard6)
+    db.session.add(snowboard10)
+    db.session.add(snowboard11)
+    db.session.add(snowboard12)
+    db.session.add(snowboard13)
+    db.session.add(snowboard14)
+    db.session.add(snowboard15)
+    db.session.add(snowboard16)
+    db.session.add(snowboard17)
+    db.session.add(snowboard18)
     
     db.session.add(jacket1)
     db.session.add(jacket2)
@@ -448,6 +574,8 @@ def seed_items():
     db.session.add(jacket4)
     db.session.add(jacket5)
     db.session.add(jacket6)
+    db.session.add(jacket7)
+    db.session.add(jacket8)
 
     db.session.add(boots1)
     db.session.add(boots2)

@@ -29,6 +29,11 @@
 .checkout-brick > * {
     margin: 0 18px;
 }
+.checkout-brick-grey{
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+}
+
 
  /* Input box styling ========== */
 .checkout-all-inputs{
@@ -54,7 +59,13 @@
 .checkout-box-split > *{
     width: 48%;
 }
-
+.checkout-email{
+    background-color: var(--light-light-grey);
+    border: 1px solid var(--light-grey);
+}
+.checkout-email > *{
+    background-color: var(--light-light-grey);
+}
 
  /* Radio styling ========== */
 .shipping-radio > p{
@@ -75,4 +86,36 @@
     padding: 18px;
     font-size: 12pt;
     margin: 30px auto;
+}
+
+/* Contact Seciont Special Case ========== */
+.email-confirm{
+    margin-bottom: 0;
+}
+.email-confirm-text{
+    margin: 4px;
+    margin-bottom: 15px;
+}
+.check-signup{
+    margin-bottom: 15px;
+
+}
+
+/* RIGHT SIDE =========================== */
+
+.checkout-mini-sec{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--dark-grey);
+}
+
+.back-to-cart{
+    /* border: 1px solid orange; */
+    padding: 2rem .5rem;
+}
+.back-to-cart > *{
+    margin: 8px;
+    color: var(--link-green);
+    text-decoration: none;
 }
