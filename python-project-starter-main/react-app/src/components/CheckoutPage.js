@@ -40,6 +40,10 @@ const CheckoutPage = (subtotalParams) => {
     
     const handleCheckoutSubmit = (e) => {
         e.preventDefault()
+        if(errors.length > 0){
+            setHideErr(false)
+            return
+        }
         if(!sessionUser){
             localStorage.removeItem('cart')
         } else {
@@ -50,19 +54,11 @@ const CheckoutPage = (subtotalParams) => {
         }
         history.push(`/`)
     }
-    // made this autofill thing. Gotta find a better way though cause things rings errors
-    // let autofill = { id: "", firstName: "", lastName: "" }
-    //     if (sessionUser){
-    //     autofill.firstName = sessionUser.firstName
-    //     autofill.lastName = sessionUser.lastName
-    //     if (sessionUser.address){
-    //         autofill.address = sessionUser.address
-    //     }
-    // }
+
     const [ email, setEmail ] = useState(sessionUser?.email)
     const [ firstName, setFirstName ] = useState(sessionUser?.firstName)
     const [ lastName, setLastName ] = useState(sessionUser?.lastName)
-    const [ address, setAddress ] = useState('')
+    const [ address, setAddress ] = useState(sessionUser?.address)
     const [ card, setCard ] = useState('')
     const [ errors, setErrors ] = useState([])
     const [ hideErr, setHideErr ] = useState(true)
@@ -92,7 +88,7 @@ const CheckoutPage = (subtotalParams) => {
 
                     <div className='checkout-box email-confirm checkout-email'>
                         <span className='req-star' hidden={hideErr}>*</span>
-                        <input type='text'
+                        <input type='email'
                         value={email} onChange={e=>setEmail(e.target.value)}
                         placeholder='Email'
                         maxLength='255' />
@@ -107,11 +103,7 @@ const CheckoutPage = (subtotalParams) => {
                     <div className='checkout-brick'><p>Delivery</p></div>
                     <div hidden={hideErr} className='errors-block'>
                         {errors?.map((e, i) => (
-                            <div key={i}>
-                                <br />
-                                <p className='error'>• {e}</p>
-                                <br />
-                            </div>
+                            <p key={i}className='error'>• {e}</p>
                         ))}
                     </div>
                     <form>
@@ -155,7 +147,7 @@ const CheckoutPage = (subtotalParams) => {
 
                         <button
                             className='grey-green-btn sub-order-btn dis'
-                            disabled={errors.length > 0}
+                            disabled={!hideErr && errors.length > 0}
                             onClick={e=> handleCheckoutSubmit(e)}>Submit Order
                         </button>
                     </form>

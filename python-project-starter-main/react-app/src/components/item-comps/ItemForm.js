@@ -1,6 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import { NavLink, useParams } from 'react-router-dom';
+import { getOrderHistory } from './../../store/session';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem } from './../../store/wishlist';
 import './../../styles/item-form.css'
@@ -8,7 +9,7 @@ import './../../styles/item-form.css'
 
 const ItemForm = (item) => {
     const curItem  = item?.item
-    console.log(curItem)
+    // console.log(curItem)
     const dispatch = useDispatch()
     const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session.user)
@@ -17,8 +18,8 @@ const ItemForm = (item) => {
     const [ quantity, setQuantity ] = useState(1)
     
     useEffect(() => {
-        
-    }, [ ])
+        dispatch(getOrderHistory(sessionUser.id))
+    }, [ dispatch ])
     
     
     // handle adding the item to a users wishlist ================

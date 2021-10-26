@@ -8,7 +8,9 @@
 }
 .big-lock { font-size: 20pt; color: var(--dark-grey)}
 
-
+.errors-block > *{
+    padding: 6px;
+}
 
 /* ====== Left and Right Sections ===================== */
 .checkout-left{

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
+import { getOrderHistory } from '../store/session';
 import "./../styles/splash-page.css"
 
 function SplashPage() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+  const dispatch = useDispatch()
+
   useEffect(() => {
     if (!userId) {
       return;
@@ -14,6 +18,7 @@ function SplashPage() {
       const user = await response.json();
       setUser(user);
     })();
+    dispatch(getOrderHistory(userId))
   }, [userId]);
 
     return (

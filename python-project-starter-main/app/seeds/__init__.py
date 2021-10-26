@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .items import seed_items, undo_items
 from .reviews import seed_reviews, undo_reviews
 # from .carts import seed_carts, undo_carts
+from .order_history import seed_order_hist, undo_order_hist
 from .item_types import seed_itemtypes, undo_itemtypes
 
 # Creates a seed group to hold our commands
@@ -16,6 +17,7 @@ def seed():
     seed_users()
     seed_itemtypes()
     seed_items()
+    seed_order_hist()
     seed_reviews()
     # seed_carts()
     # Add other seed functions here
@@ -24,6 +26,7 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
+    seed_order_hist()
     undo_reviews()
     undo_users()
     undo_itemtypes()

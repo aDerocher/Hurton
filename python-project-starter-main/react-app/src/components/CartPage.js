@@ -79,7 +79,7 @@ const CartPage = () => {
             <div className="cart-topper-container flex-col-cont">
                 <h2 className="shopping-cart-title">Shopping Cart</h2>
                 <div className='cart-topper-right'>
-                    <p>Need Help? Call (800) IM-HURTN in Oregon, USA</p>
+                    <p>Need Help? Call (555) IM-HURTN in Oregon, USA</p>
                     <p className="grey-label">Monday - Friday: 9am - 6pm PST</p>
                 </div>
             </div>

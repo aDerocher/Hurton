@@ -30,6 +30,7 @@ const SignUpForm = () => {
         if(password !== repeatPassword) newErrors.push('Passwords must match')
         setErrors(newErrors)
     }, [firstName, lastName, email, password, repeatPassword])
+
     const onSignUp = async (e) => {
         e.preventDefault();
         setErrorsHidden(false)
@@ -80,8 +81,8 @@ const SignUpForm = () => {
                 item_price: itemObj.item_price,
                 quantity: itemObj.quantity,
             }
-            dispatch(addToCart(formData))
             localStorage.removeItem("cart");
+            dispatch(addToCart(formData))
         }
     }
 
@@ -128,20 +129,10 @@ const SignUpForm = () => {
             value={email}
             ></input>
         </fieldset>
-        {/* <fieldset>
-            <input
-            className='auth-field'
-            placeholder='DOB'
-            type='date'
-            name='dob'
-            onChange={setDOB}
-            value={dob}
-            ></input>
-        </fieldset> */}
         <fieldset>
             <input
-            placeholder='Password'
             className='auth-field'
+            placeholder='Password'
             type='password'
             name='password'
             onChange={updatePassword}
@@ -150,8 +141,8 @@ const SignUpForm = () => {
         </fieldset>
         <fieldset>
             <input
-            placeholder='Confirm Password'
             className='auth-field'
+            placeholder='Confirm Password'
             type='password'
             name='repeat_password'
             onChange={updateRepeatPassword}
@@ -159,7 +150,7 @@ const SignUpForm = () => {
             required={true}
             ></input>
         </fieldset>
-        <button className='grey-green-btn auth-btn dis' disabled={errors.length > 0} type='submit' >
+        <button className='grey-green-btn auth-btn dis' disabled={!errorsHidden && errors.length > 0} type='submit' >
             SIGN UP
         </button>
         <p>Already have an account? <a className='auth-link' href="/login">Sign in.</a></p>
