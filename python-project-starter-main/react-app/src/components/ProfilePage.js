@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
+import ProfileEdit from './ProfileEdit';
 import "./../styles/profile-page.css"
 
 function ProfilePage() {
-  const [user, setUser] = useState({});
+  const [ user, setUser ] = useState({});
+  const [ show, setShow ] = useState(false);
   const { userId }  = useParams();
 
   useEffect(() => {
@@ -31,13 +33,23 @@ function ProfilePage() {
                     <div className='profile-sec'>
                         <div className='profile-sec-topper'>
                             <h4 className='profile-title pr-sub-title'>INFO & PREFERENCES</h4>
-                            <p className='profile-title profile-option'>EDIT</p>
+                            <p className='profile-title profile-option' onClick={() => setShow(!show)}>EDIT</p>
                         </div>
+
+
+                        {/* <div hidden={show}> */}
+                            <ProfileEdit onClose={() => setShow(false)} show={show} hidden={show} />
+                        {/* </div> */}
+
+
                         <div className='profile-sec-content'>
                             <p>{user.firstName} {user.lastName}</p>
                             <p>{user.email}</p>
                             {user.dob && <p>{user.dob}</p>}
                         </div>
+
+
+
                     </div>
 
                     <div className='profile-sec'>

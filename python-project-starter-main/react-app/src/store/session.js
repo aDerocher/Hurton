@@ -50,7 +50,6 @@ export const login = (email, password) => async (dispatch) => {
     })
   });
   
-  
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
@@ -127,8 +126,8 @@ export const getOrderHistory = (user_id) => async (dispatch) => {
 }
 
 // export const editUser = (formData) => async (dispatch) => {
-//     const { firstName, lastName, email } = formData
-//   const response = await fetch('/api/auth/signup', {
+//     const { user_id, firstName, lastName, email, address } = formData
+//   const response = await fetch(`/api/auth/edit-user/${user_id}`, {
 //     method: 'PATCH',
 //     headers: {
 //       'Content-Type': 'application/json',
@@ -136,19 +135,15 @@ export const getOrderHistory = (user_id) => async (dispatch) => {
 //     body: JSON.stringify({
 //       firstName,
 //       lastName,
-//       email
+//       email,
+//       address
 //     }),
 //   });
   
 //   if (response.ok) {
 //     const data = await response.json();
-//     dispatch(setUser(data))
+//     dispatch(setUser(data));
 //     return null;
-//   } else if (response.status < 500) {
-//     const data = await response.json();
-//     if (data.errors) {
-//       return data.errors;
-//     }
 //   } else {
 //     return ['An error occurred. Please try again.']
 //   }

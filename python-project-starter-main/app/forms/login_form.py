@@ -27,3 +27,10 @@ class LoginForm(FlaskForm):
     email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[
                            DataRequired(), password_matches])
+
+
+class EditUserForm(FlaskForm):
+    firstName = StringField('firstName')
+    lastName = StringField('lastName')
+    email = StringField('email')
+    address = StringField('address')

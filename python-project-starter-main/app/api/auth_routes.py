@@ -1,7 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import User, db
-from app.forms import LoginForm
-from app.forms import SignUpForm
+from app.forms import LoginForm, SignUpForm, EditUserForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -73,6 +72,27 @@ def sign_up():
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+# @auth_routes.route('/edit-user/<int:user_id>', methods=['PATCH'])
+# def edit_user():
+#     """
+#     Edits the users details
+#     """
+#     user = User.query.get(user_id)
+#     form = EditUserForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if current_user and form.validate_on_submit():
+
+#         user.firstName=form.firstName.data['firstName'],
+#         user.lastName=form.lastName.data['lastName'],
+#         user.email=form.email.data['email'],
+#         user.address=form.address.data['password']
+        
+#         db.session.commit()
+#         login_user(user)
+#         return user.to_dict()
+#     # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @auth_routes.route('/unauthorized')
