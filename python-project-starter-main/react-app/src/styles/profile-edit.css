@@ -1,7 +1,7 @@
 .profile-edit-container{
-    position: absolute;
-    top: 0; bottom: 0;
-    left: 0; right: 0; 
+    /* position: absolute; */
+    /* top: 0; bottom: 0;
+    left: 0; right: 0;  */
     height: 100%;
     width: 100%;
     background-color: rgba(255,255,255, .75); 
@@ -9,8 +9,7 @@
 }
 .profile-edit{
     padding: 1.5rem;
-    margin: auto;
-    margin-top: 8rem;
+    margin: 3rem auto;
     height: fit-content;
     width: 400px;
     background-color: white;
@@ -20,4 +19,6 @@
 .prof-update-btn{
     font-size: 12pt;
     padding: 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: .3rem;
 }

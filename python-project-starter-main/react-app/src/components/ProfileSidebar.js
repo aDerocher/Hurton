@@ -31,7 +31,7 @@ function ProfileSidebar() {
                 <LogoutButton />
             </div>
 
-            <h4 className='profile-title pr-sub-title'>Need Help?</h4>
+            <h4 className='profile-title pr-sub-title dead-link'>Need Help?</h4>
             <div>
             </div>
         </div>

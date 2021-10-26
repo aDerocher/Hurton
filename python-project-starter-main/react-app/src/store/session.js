@@ -125,29 +125,28 @@ export const getOrderHistory = (user_id) => async (dispatch) => {
     }
 }
 
-// export const editUser = (formData) => async (dispatch) => {
-//     const { user_id, firstName, lastName, email, address } = formData
-//   const response = await fetch(`/api/auth/edit-user/${user_id}`, {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       firstName,
-//       lastName,
-//       email,
-//       address
-//     }),
-//   });
+export const editUser = (formData) => async (dispatch) => {
+    const { user_id, firstName, lastName, address } = formData
+  const response = await fetch(`/api/auth/edit-user/${user_id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstName,
+      lastName,
+      address
+    }),
+  });
   
-//   if (response.ok) {
-//     const data = await response.json();
-//     dispatch(setUser(data));
-//     return null;
-//   } else {
-//     return ['An error occurred. Please try again.']
-//   }
-// }
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setUser(data));
+    return null;
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {

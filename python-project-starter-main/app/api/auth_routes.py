@@ -64,7 +64,6 @@ def sign_up():
         user = User(
             firstName=form.data['firstName'],
             lastName=form.data['lastName'],
-            email=form.data['email'],
             password=form.data['password']
         )
         db.session.add(user)
@@ -74,25 +73,24 @@ def sign_up():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-# @auth_routes.route('/edit-user/<int:user_id>', methods=['PATCH'])
-# def edit_user():
-#     """
-#     Edits the users details
-#     """
-#     user = User.query.get(user_id)
-#     form = EditUserForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if current_user and form.validate_on_submit():
+@auth_routes.route('/edit-user/<int:user_id>', methods=['PATCH'])
+def edit_user(user_id):
+    """
+    Edits the users details
+    """
+    user = User.query.get(user_id)
+    form = EditUserForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if current_user and form.validate_on_submit():
 
-#         user.firstName=form.firstName.data['firstName'],
-#         user.lastName=form.lastName.data['lastName'],
-#         user.email=form.email.data['email'],
-#         user.address=form.address.data['password']
+        user.firstName=form.firstName.data,
+        user.lastName=form.lastName.data,
+        user.address=form.address.data
         
-#         db.session.commit()
-#         login_user(user)
-#         return user.to_dict()
-#     # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+        db.session.commit()
+        login_user(user)
+        return user.to_dict()
+    # return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @auth_routes.route('/unauthorized')

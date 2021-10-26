@@ -188,6 +188,13 @@ input:focus {
     font-weight: bold;
     transition: 0.3s
 }
+.grey-btn:hover{ background-color: var(--med-light-grey);}
+.grey-btn{
+    background-color: var(--lightgrey1);
+    color: var(--charcoal);
+    font-weight: bold;
+    transition: 0.3s
+}
 .dis:disabled,
 .dis[disabled]{
     background-color: var(--light-grey);

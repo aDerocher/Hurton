@@ -32,5 +32,4 @@ class LoginForm(FlaskForm):
 class EditUserForm(FlaskForm):
     firstName = StringField('firstName')
     lastName = StringField('lastName')
-    email = StringField('email')
     address = StringField('address')
