@@ -80,25 +80,29 @@ function App() {
                     <Footer />
                 </Route>
 
-                <ProtectedRoute path='/users' exact={true} >
+                {/* <ProtectedRoute path='/users' exact={true} >
                     <NavBar />
                     <UsersList/>
-                </ProtectedRoute>
+                </ProtectedRoute> */}
                 <ProtectedRoute path='/users/:userId' exact={true} >
                     <NavBar />
                     <ProfilePage />
+                    <Footer />
                 </ProtectedRoute>
                 <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
                     <NavBar />
                     <ProfileEdit />
+                    <Footer />
                 </ProtectedRoute>
                 <ProtectedRoute path='/users/:userId/order-history' exact={true} >
                     <NavBar />
                     <ProfileOrderHist />
+                    <Footer />
                 </ProtectedRoute>
                 <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
                     <NavBar />
                     <Wishlist />
+                    <Footer />
                 </ProtectedRoute>
 
             </Switch>

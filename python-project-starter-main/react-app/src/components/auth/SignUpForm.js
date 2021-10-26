@@ -159,7 +159,7 @@ const SignUpForm = () => {
             required={true}
             ></input>
         </fieldset>
-        <button className='grey-green-btn auth-btn' disabled={errors.length > 0} type='submit' >
+        <button className='grey-green-btn auth-btn dis' disabled={errors.length > 0} type='submit' >
             SIGN UP
         </button>
         <p>Already have an account? <a className='auth-link' href="/login">Sign in.</a></p>
