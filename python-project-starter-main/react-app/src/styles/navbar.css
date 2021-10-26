@@ -17,12 +17,15 @@
 }
 .meta-nav-section{
     /* background-color: blueviolet; */
-    /* width: fit-content; */
+    /* width: 40%; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
+/* .meta-nav-section:nth-child(2){
+    width: 20%
+} */
 .meta-nav-section > *{
     padding-right:1rem;
     font-size: 10pt;
