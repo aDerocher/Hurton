@@ -79,6 +79,8 @@ const SignUpForm = () => {
                 item_color: itemObj.item_color,
                 item_size: itemObj.item_size,
                 item_price: itemObj.item_price,
+                item_gender: itemObj.item_gender,
+                item_image: itemObj.item_image,
                 quantity: itemObj.quantity,
             }
             localStorage.removeItem("cart");

@@ -12,13 +12,13 @@ const ItemForm = (item) => {
     // console.log(curItem)
     const dispatch = useDispatch()
     const usersCart = useSelector(state => state.cart)
-    const sessionUser = useSelector(state => state.session.user)
+    const sessionUser = useSelector(state => state.session?.user)
     const usersWishlist = useSelector(state => state.wishlist)
     
     const [ quantity, setQuantity ] = useState(1)
     
     useEffect(() => {
-        dispatch(getOrderHistory(sessionUser.id))
+        dispatch(getOrderHistory(sessionUser?.id))
     }, [ dispatch ])
     
     
