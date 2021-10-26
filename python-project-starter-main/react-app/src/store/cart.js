@@ -149,13 +149,10 @@ export default function reducer(state = initialState, action) {
                 else { return [ ...newState, action.payload ] }
 
         case EDIT_CART:
-            newState.map((item) => {
-                console.log(item.id, action.payload)
-                if (item.id === action.payload.id){
-                    return action.payload
-                }
+            newState = newState.filter((item) => {
+                return item.id !== action.payload.id
             })
-            return [ ...newState]
+            return [ ...newState, action.payload]
 
         case DELETE_ONE_FROM_CART:
             // need to run a filter and remove the item that matches the payload

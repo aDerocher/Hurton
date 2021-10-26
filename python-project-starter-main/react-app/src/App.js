@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, useParams, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
+import NavBarSimple from './components/NavBarSimple';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import ProfilePage from './components/ProfilePage';
@@ -35,62 +36,78 @@ function App() {
     return null;
   }
 
-  return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-          
-        <Route path='/' exact={true}>
-            <SplashPage />
-            <Footer />
-        </Route>
 
-        <Route path='/shop' exact={true}>
-            <Shop />
-            <Footer />
-        </Route>
-        <Route path='/shop/snowboard/:itemId' exact={true}>
-            <ItemDetails />
-        </Route>
-        <Route path='/shop/jacket/:itemId' exact={true}>
-            <ItemDetails />
-        </Route>
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path='/' exact={true}>
+                    <NavBar />
+                    <SplashPage />
+                    <Footer />
+                </Route>
 
-        <Route path='/login' exact={true}>
-            <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-            <SignUpForm />
-        </Route>
+                <Route path='/shop' exact={true}>
+                    <NavBar />
+                    <Shop />
+                    <Footer />
+                </Route>
+                <Route path='/shop/snowboard/:itemId' exact={true}>
+                    <NavBar />
+                    <ItemDetails />
+                </Route>
+                <Route path='/shop/jacket/:itemId' exact={true}>
+                    <NavBar />
+                    <ItemDetails />
+                </Route>
 
-        <Route path='/cart' exact={true} >
-            <CartPage />
-            <Footer />
-        </Route>
-        <Route path='/cart/checkout' exact={true} >
-            <CheckoutPage />
-            <Footer />
-        </Route>
+                <Route path='/login' exact={true}>
+                    <NavBarSimple />
+                    <LoginForm />
+                </Route>
+                <Route path='/sign-up' exact={true}>
+                    <NavBarSimple />
+                    <SignUpForm />
+                </Route>
 
-        <ProtectedRoute path='/users' exact={true} >
-            <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-            <ProfilePage />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
-            <ProfileEdit />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/order-history' exact={true} >
-            <ProfileOrderHist />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
-            <Wishlist />
-        </ProtectedRoute>
+                <Route path='/cart' exact={true} >
+                    <NavBar />
+                    <CartPage />
+                    <Footer />
+                </Route>
+                <Route path='/cart/checkout' exact={true} >
+                    <NavBar />
+                    <CheckoutPage />
+                    <Footer />
+                </Route>
 
-      </Switch>
-    </BrowserRouter>
-  );
+                {/* <ProtectedRoute path='/users' exact={true} >
+                    <NavBar />
+                    <UsersList/>
+                </ProtectedRoute> */}
+                <ProtectedRoute path='/users/:userId' exact={true} >
+                    <NavBar />
+                    <ProfilePage />
+                    <Footer />
+                </ProtectedRoute>
+                <ProtectedRoute path='/users/:userId/edit-profile' exact={true} >
+                    <NavBar />
+                    <ProfileEdit />
+                    <Footer />
+                </ProtectedRoute>
+                <ProtectedRoute path='/users/:userId/order-history' exact={true} >
+                    <NavBar />
+                    <ProfileOrderHist />
+                    <Footer />
+                </ProtectedRoute>
+                <ProtectedRoute path='/users/:userId/wishlist' exact={true} >
+                    <NavBar />
+                    <Wishlist />
+                    <Footer />
+                </ProtectedRoute>
+
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;

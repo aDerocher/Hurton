@@ -97,6 +97,9 @@ button{
     border: none; 
 }
 button:hover{ cursor: pointer; }
+input:focus {
+    background-color: none;
+}
 
 /* ===============================================================
 +++++++++++++ TEMPORARY! REMOVE THIS APP LATER ++++++++++++++++
@@ -169,8 +172,8 @@ button:hover{ cursor: pointer; }
     font-weight: bold;
     transition: 0.3s
 }
-.grey-green-btn:disabled,
-.grey-green-btn[disabled]{
+.dis:disabled,
+.dis[disabled]{
     background-color: var(--light-grey);
     color: var(--lightgrey1);
     border: 1px solid var(--lightgrey1);

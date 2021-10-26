@@ -86,6 +86,10 @@
     outline: none;
     background-color: white;
 }
+.def-option{
+    background-color: var(--light-grey);
+    border-bottom: 2px solid var(--charcoal);
+}
 .cart-item-total{
     padding-top: 1rem;
 }

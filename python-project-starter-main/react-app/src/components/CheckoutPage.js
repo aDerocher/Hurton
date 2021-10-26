@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { getCartItems, editCartItem } from '../store/cart'
 // import {getAllItems} from '../store/items'
 // import CartSidebar from './CartSidebar';
-import './../styles/cart.css'
+import './../styles/checkout.css'
 
 
 const CheckoutPage = () => {
@@ -78,50 +78,88 @@ const CheckoutPage = () => {
     },0)
 
     return (
-        <div className="cart-page-container">
-            <div className='checkout-left'>
-                <h3>form for details</h3>
-                <div hidden={hideErr} className='errors-block'>
-                    {errors?.map((e, i) => (
-                        <div key={i}>
-                            <p>{e}</p>
-                        </div>
-                    ))}
-                </div>
-                
-                <form>
-                    <p>First Name</p>
-                    <span className='req-star'>*</span><input type='text' value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='input' maxLength='49'></input>
-                    <p>Last Name</p>
-                    <span className='req-star'>*</span><input type='text' value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='input' maxLength='49'></input>
-                    <p>Address</p>
-                    <span className='req-star'>*</span><input type='text' value={address} onChange={e=>setAddress(e.target.value)} placeholder='input' maxLength='49'></input>
-                    <p>Card</p>
-                    <span className='req-star'>*</span><input type='text' value={card} onChange={e=>setCard(e.target.value)} placeholder='input' maxLength='15'></input>
-                    <button disabled={errors.length > 0} onClick={e=> handleCheckoutSubmit(e)}>Submit Order</button>
-                </form>
-            </div>
-            <div className='checkout-right'>
-                <h3>Your Order</h3>
-                <div><p>Subtotal</p><p>$ {total}</p></div>
-                <div><p>Shipping</p><p>FREE</p></div>
-                <div><p>Oregon Tax</p><p>$ 0</p></div>
-                <div><p>{total}</p></div>
-                <ul>
-                    {cart?.map((cart_item, i) => (
-                        <li key={i} id={cart_item.id}>
-                            <p>{cart_item.item_name}</p>
-                            <p>{cart_item.item_color}</p>
-                            <p>{cart_item.item_price}</p>
-                            <p>{cart_item.quantity}</p>
-                            <div>
-                                <img src={cart_item.item_image} />
+        <div className="content-width">
+            <div className='checkout-top-title flex-row-cont'><h1>Secure Checkout</h1><i className="big-lock fas fa-lock"></i></div>
+            <div className='checkout-page-container flex-row-cont'>
+                <form className='checkout-left'>
+                    <div className='checkout-brick'><p>Contact</p></div>
+                    <p>More to be added here</p>
+                    <div hidden={hideErr} className='errors-block'>
+                        {errors?.map((e, i) => (
+                            <div key={i}>
+                                <p>{e}</p>
                             </div>
-                            {/* TODO: add dropdown for adjusting quantity */}
-                            {/* checking out should apply any changes made to the quantities. */}
-                        </li>
-                    ))}
-                </ul>
+                        ))}
+                    </div>
+                    <div className='checkout-brick'><p>Delivery</p></div>
+                    <form>
+                        <div className='checkout-all-inputs'>
+                            <div className='flex-row-cont checkout-box-split'>
+                                <div className='checkout-box'>
+                                    <span className='req-star' hidden={hideErr}>*</span>
+                                    <input type='text' value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='First Name' maxLength='49' />
+                                </div>
+                                <div className='checkout-box'>
+                                    <span className='req-star' hidden={hideErr}>*</span>
+                                    <input type='text' value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='Last Name' maxLength='49' />
+                                </div>
+                            </div>
+                            <div className='checkout-box'>
+                                <span className='req-star' hidden={hideErr}>*</span>
+                                <input type='text' value={address} onChange={e=>setAddress(e.target.value)} placeholder='Address' maxLength='49' />
+                            </div>
+                            <div className='checkout-box'>
+                                <span className='req-star' hidden={hideErr}>*</span>
+                                <input type='text' value={card} onChange={e=>setCard(e.target.value)} placeholder='Credit Card' maxLength='15' />
+                            </div>
+                        </div>
+                        
+                        <div className='shipping-radio flex-row-cont'>
+                            <input type='radio' name='shipping-radio' checked/>
+                            <p><b>FREE </b> : 1-2 Business Days (Hurton Special Delivery)</p>
+                        </div>
+                        <div className='shipping-radio flex-row-cont'>
+                            <input type='radio' name='shipping-radio'/>
+                            <p><b>$77.00 </b> : 3-5 Business Days (Standard Air)</p>
+                        </div>
+                        <div className='shipping-radio flex-row-cont'>
+                            <input type='radio' name='shipping-radio'/>
+                            <p><b>$100.00 </b> : 7-12 Business Days (Standard Ground)</p>
+                        </div>
+                        <div className='shipping-radio flex-row-cont'>
+                            <input type='radio' name='shipping-radio'/>
+                            <p><b>$97.00 </b> : 4-6 Weeks (No Rush)</p>
+                        </div>
+
+                        <button
+                            className='grey-green-btn sub-order-btn'
+                            disabled={errors.length > 0}
+                            onClick={e=> handleCheckoutSubmit(e)}>Submit Order
+                        </button>
+                    </form>
+                </form>
+                <div className='checkout-right'>
+                    <h3>Your Order</h3>
+                    <div><p>Subtotal</p><p>$ {total}</p></div>
+                    <div><p>Shipping</p><p>FREE</p></div>
+                    <div><p>Oregon Tax</p><p>$ 0</p></div>
+                    <div><p>{total}</p></div>
+                    <ul>
+                        {cart?.map((cart_item, i) => (
+                            <li key={i} id={cart_item.id}>
+                                <p>{cart_item.item_name}</p>
+                                <p>{cart_item.item_color}</p>
+                                <p>{cart_item.item_price}</p>
+                                <p>{cart_item.quantity}</p>
+                                <div>
+                                    <img src={cart_item.item_image} />
+                                </div>
+                                {/* TODO: add dropdown for adjusting quantity */}
+                                {/* checking out should apply any changes made to the quantities. */}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );

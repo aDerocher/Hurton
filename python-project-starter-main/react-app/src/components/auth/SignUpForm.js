@@ -6,6 +6,7 @@ import { addToCart } from '../../store/cart';
 
 const SignUpForm = () => {
     const [errors, setErrors] = useState([]);
+    const [errorsHidden, setErrorsHidden] = useState(true);
 
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
@@ -31,6 +32,7 @@ const SignUpForm = () => {
     }, [firstName, lastName, email, password, repeatPassword])
     const onSignUp = async (e) => {
         e.preventDefault();
+        setErrorsHidden(false)
         if (password === repeatPassword) {
             const data = await dispatch(signUp(firstName, lastName, email, password));
             if (data) {
@@ -89,7 +91,7 @@ const SignUpForm = () => {
             <h5 className='profile-title'>Create Your Account</h5>
             <i className="fas fa-lock"></i>
         </div>
-        <div>
+        <div hidden={errorsHidden}>
             {errors.map((error, ind) => (
                 <div key={ind}>
                     <p className='error'>• {error} </p>
@@ -157,7 +159,7 @@ const SignUpForm = () => {
             required={true}
             ></input>
         </fieldset>
-        <button className='grey-green-btn auth-btn' disabled={errors.length > 0} type='submit' >
+        <button className='grey-green-btn auth-btn dis' disabled={errors.length > 0} type='submit' >
             SIGN UP
         </button>
         <p>Already have an account? <a className='auth-link' href="/login">Sign in.</a></p>

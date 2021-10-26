@@ -1,11 +1,13 @@
 /*========== Containers =========================*/
 .profile-page-container{
     background-color: var(--light-light-grey);
+    padding-top: 50px;
+    padding-bottom: 80px;
 }
 .profile-page-sub-container{
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    height: 100%;
 }
 /*============ left and right ==============================*/
 /*============ main (right) ==============================*/
