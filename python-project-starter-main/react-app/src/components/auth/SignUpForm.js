@@ -19,6 +19,8 @@ const SignUpForm = () => {
 
     useEffect(() => {
         const newErrors = []
+        if(firstName.length < 2 ) newErrors.push('First Name nust be longer')
+        if(lastName.length < 2 ) newErrors.push('Last Name nust be longer')
         if(!email.includes('@') || !email.includes('.')) newErrors.push('Invalid email address')
         if(password.length < 8) {
             if(password.length === 0) {

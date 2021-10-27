@@ -18,7 +18,7 @@
 .splash-photo-container{
     /* background-color: aqua; */
     min-height: 400px;
-    height: 700px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     padding: 2% 7%;
@@ -34,13 +34,13 @@
     font-size: 36pt;
 }
 .splash-text{
-    
     /* background-color: rgb(103, 168, 59); */
     color: var(--chargrey2);
     font-weight: 700;
     padding: 19px 0;
     line-height: 150%;
 }
+
 .splash-btns-cont{
     display: flex;
     flex-direction: row;
@@ -105,13 +105,14 @@
 }
 .stepon-text{
     font-weight: 700;
-    color: var(--chargrey1);
+    color: whitesmoke;
     margin: 24px 0;
     line-height: 150%;
 }
 .stepon-title{
     font-weight: 700;
     font-size: 46pt;
+    color: white;
 }
 .stepon-r{
     font-size: 20pt;

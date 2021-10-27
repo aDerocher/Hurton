@@ -12,6 +12,7 @@ const CartPage = () => {
     const dispatch = useDispatch()
     // const items = useSelector(state => state.items)
     const sessionUser = useSelector(state => state.session.user)
+    // const itemTypes = useSelector(state => state.item_types)
     
     // make sure the cart in state is current to user(if user)
     // user? cart is state.cart : cart is localstorage
@@ -104,7 +105,9 @@ const CartPage = () => {
 
                             <div className="cart-card-content" >
                                 <div className="cart-img-container">
-                                    <img className="cart-img" src={cart_item.item_image} alt="cart item" />
+                                    {/* <NavLink to={`/`} > */}
+                                        <img className="cart-img" src={cart_item.item_image} alt="cart item" />
+                                    {/* </NavLink> */}
                                 </div>
                                 <div className="cart-content-container">
                                     <p className="cart-card-title">{cart_item.item_gender}'s Hurton {cart_item.item_name}</p>

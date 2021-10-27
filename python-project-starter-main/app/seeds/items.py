@@ -338,8 +338,8 @@ def seed_items():
     )
     jacket8 = Item(
         size = 'M',
-        name = 'Black Eye',
-        price = 340,
+        name = 'Abrasion',
+        price = 280,
         color = 'lightgrey',
         color2 = 'forestgreen',
         color3 = 'darkgrey',

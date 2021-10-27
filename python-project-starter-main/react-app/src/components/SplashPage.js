@@ -74,7 +74,7 @@ function SplashPage() {
             <div className='stepon-section-container content-width'>
                 <div>
                     <p className='stepon-text'>Coming Soon</p>
-                    <h2 className='stepon-title'>Custom Graphics<span className='stepon-r'>®</span></h2>
+                    <h2 className='stepon-title'>Custom Graphics<span className='stepon-r'> ®</span></h2>
                     <p className='stepon-text'>
                         Good news, everyone. The new Custom Hurt® graphic designs are almost here.
                         <br />
