@@ -35,7 +35,7 @@ function SplashPage() {
             {/* <!-- ================================================================= -->
             <!-- ========================= Main sections =========================  --> */}
 
-            <div className='splash-photo-container'>
+            <div className='splash-photo-container' backgroundImage={`./../images/group-snowboarding.jpg`}>
                 <h2 className='splash-title'>Which Boards Does<br /> the Team Ride?</h2>
                 <p className='splash-text'>Ever wonder what gear your favorite snowboarder uses? Head to <br />the Hurton Blog to find out which board 
                     each rider calls their tried and true, or check out <br />our round-up to explore their complete setups.</p>
@@ -74,7 +74,7 @@ function SplashPage() {
             <div className='stepon-section-container content-width'>
                 <div>
                     <p className='stepon-text'>Coming Soon</p>
-                    <h2 className='stepon-title'>Custom Graphics<span className='stepon-r'>®</span></h2>
+                    <h2 className='stepon-title'>Custom Graphics<span className='stepon-r'> ®</span></h2>
                     <p className='stepon-text'>
                         Good news, everyone. The new Custom Hurt® graphic designs are almost here.
                         <br />

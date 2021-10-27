@@ -16,12 +16,16 @@
 
 /* =========== Main Section ============== */
 .splash-photo-container{
-    background-color: aqua;
-    height: 500px;
+    /* background-color: aqua; */
+    min-height: 400px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     padding: 2% 7%;
     justify-content: center;
+    background-image: url('./../images/rooster-3.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .splash-title{
@@ -30,13 +34,13 @@
     font-size: 36pt;
 }
 .splash-text{
-    
     /* background-color: rgb(103, 168, 59); */
     color: var(--chargrey2);
     font-weight: 700;
     padding: 19px 0;
     line-height: 150%;
 }
+
 .splash-btns-cont{
     display: flex;
     flex-direction: row;
@@ -91,6 +95,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url('./../images/customgraphics.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .stepon-section-container > div{
@@ -98,13 +105,14 @@
 }
 .stepon-text{
     font-weight: 700;
-    color: var(--chargrey1);
+    color: whitesmoke;
     margin: 24px 0;
     line-height: 150%;
 }
 .stepon-title{
     font-weight: 700;
     font-size: 46pt;
+    color: white;
 }
 .stepon-r{
     font-size: 20pt;
