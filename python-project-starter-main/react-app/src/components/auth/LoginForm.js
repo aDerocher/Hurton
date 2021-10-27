@@ -34,8 +34,11 @@ const LoginForm = () => {
     }, [email, password])
 
     const onLogin = async (e) => {
-        setHideErrors(false)
         e.preventDefault();
+        setHideErrors(false)
+        if(errors.length > 0 ){
+            return
+        }
         const data = await dispatch(login(email, password));
         if (data) {
             setErrors(data);
@@ -80,7 +83,7 @@ const LoginForm = () => {
                     <h5 className='profile-title'>Sign In</h5>
                     <i className="fas fa-lock"></i>
                 </div>
-                <div hidden={true}>
+                <div hidden={hideErrors}>
                     {errors.map((error, ind) => (
                         <div key={ind}>
                             <p className='error'>• {error}</p>
@@ -122,7 +125,7 @@ const LoginForm = () => {
                         </div>
                     ))}
                 </div>
-                <button type='submit' className='auth-btn grey-green-btn'>SIGN IN</button>
+                <button type='submit' className='auth-btn grey-green-btn' disabled={!hideErrors && errors.length > 0}>SIGN IN</button>
                 <p>Don't have an account? <a className='auth-link' href="/sign-up">Create one now.</a></p>
             </form>
         </div>
