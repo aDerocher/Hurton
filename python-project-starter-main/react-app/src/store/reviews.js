@@ -51,7 +51,7 @@ export const addNewReview = (data) => async (dispatch) => {
     formData.append("rating", rating);
     formData.append("title", title);
     formData.append("content", content);
-
+    
     const response = await fetch(`/api/items/${item_id}/new-review`, {
         method: 'POST',
         body: formData
@@ -74,7 +74,8 @@ export const editReview = (data) => async (dispatch) => {
     formData.append("rating", rating);
     formData.append("title", title);
     formData.append("content", content);
-
+    // formData.append("updated_at", new Date());
+    
     const response = await fetch(`/api/items/${item_id}/reviews/${review_id}`, {
         method: 'PATCH',
         body: formData
