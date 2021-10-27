@@ -80,6 +80,20 @@
     display: flex;
     justify-self: flex-start;
 }
+
+ /* ========== Simple Text Navbar (on checkout) ============= */
+.hurton-nav-large-text-logo{
+    width: 125px;
+    padding: .5rem 0;
+}
+.meta-nav-container-text > p{ color: white; font-weight: bold; font-size: 10pt;}
+.meta-nav-container-text{
+    background-color:var(--dark-grey);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
 .nav-links{
     width: 39.5%;
     display: flex;
