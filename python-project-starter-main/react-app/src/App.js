@@ -55,10 +55,12 @@ function App() {
                 <Route path='/shop/snowboard/:itemId' exact={true}>
                     <NavBar />
                     <ItemDetails />
+                    <Footer />
                 </Route>
                 <Route path='/shop/jacket/:itemId' exact={true}>
                     <NavBar />
                     <ItemDetails />
+                    <Footer />
                 </Route>
 
                 <Route path='/login' exact={true}>
