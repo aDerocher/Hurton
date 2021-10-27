@@ -126,7 +126,7 @@ const ItemDetails = () => {
     }, [item, sessionUser, reviews, orderHistory])
     
     return (
-        <div className="item-page-container content-width">
+        <div className="item-page-container flex-col-cont content-width">
             <ItemForm item={item}/>
 
             {/* <div className='item-info-section flex-row-cont'>
@@ -141,8 +141,11 @@ const ItemDetails = () => {
             <div className='item-details-reviews'>
                 {userCanRev &&
                     <NewReview user={sessionUser} itemId={item?.id}/>}
-                {reviews.map((review, i)=>(
-                    <Reviews key={i}  user={sessionUser} review={review}/> 
+                {reviews?.map((review)=>(
+                    <div key={review.id.toString()}>
+                        <p>{review.id.toString()}</p>
+                        <Reviews key={review.id.toString()} keyid={review.id.toString()} user={sessionUser} review={review}/>
+                    </div>
                 ))}
             </div>
         </div>

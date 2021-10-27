@@ -13,6 +13,7 @@ const Reviews = (revData) => {
     const dispatch = useDispatch()
     const review = revData.review
     const user = revData.user
+    const keyid = revData.keyid
     const itemId = parseInt(params.itemId)
     const five = [1,2,3,4,5]
     
@@ -65,11 +66,9 @@ const Reviews = (revData) => {
         e.preventDefault()
         dispatch(deleteReview(review.id, itemId))
     }
-    let x = new Date('Tue, 26 Oct 2021 22:53:47 GMT')
-    console.log(format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM yyyy'))
-    // console.logt(format('Tue, 26 Oct 2021 22:53:47 GMT', 'mm yyyy'))
+    console.log(keyid, 98, 1,2)
     return (
-        <div className="review-container">
+        <div key={keyid} className="review-container">
             {review?.title && 
                 <div hidden={!editHidden}>
                     <div className='rev-info-cont flex-row-cont pad-1'>
@@ -79,12 +78,12 @@ const Reviews = (revData) => {
                             </div>
                             <div className='rev-name-stars'>
                                 <p>Users Fullname</p>
-                                {five.map((n) => (
+                                {five.map((n, i) => (
                                     <>
                                     {n <= review.rating &&
-                                        <i className="fas fa-star"></i>}
+                                        <i key={i} className="fas fa-star"></i>}
                                     {n > review.rating && 
-                                        <i className="far fa-star"></i>}
+                                        <i key={i} className="far fa-star"></i>}
                                     </>
                                 ))}
                             </div>

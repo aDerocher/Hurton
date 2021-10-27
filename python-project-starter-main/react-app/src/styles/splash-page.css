@@ -23,7 +23,8 @@
     flex-direction: column;
     padding: 2% 7%;
     justify-content: center;
-    background-image: url('./../images/rooster-3.jpg');
+    align-items: flex-end;
+    background-image: url('./../images/dan-jump.jpg');
     background-size: cover;
     background-position: center;
 }

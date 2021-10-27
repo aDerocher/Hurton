@@ -1,25 +1,19 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import { NavLink, useParams } from 'react-router-dom';
-import { getOrderHistory } from './../../store/session';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem } from './../../store/wishlist';
-import SBForm from './SBForm';
-import './../../styles/item-details.css';
+import './../../styles/item-form.css'
 
 
-const ItemForm = (item) => {
-    const curItem  = item?.item
+const ItemForm = () => {
     // console.log(curItem)
     const dispatch = useDispatch()
     const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session?.user)
     const usersWishlist = useSelector(state => state.wishlist)
+    const curItem = useSelector(state => state.items[0])
     
     
-    useEffect(() => {
-        dispatch(getOrderHistory(sessionUser?.id))
-    }, [ dispatch ])
     
     
     // handle adding the item to a users wishlist ================
@@ -94,63 +88,83 @@ const ItemForm = (item) => {
         window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
-    const changeDispImage = (e, img) => {
-        e.preventDefault()
-        setOrigImage(false)
-        setDispImage(img)
-    }
-    // for handling the photo viewer
-    const [ origImage, setOrigImage ] = useState(true)
-    const [ dispImage, setDispImage ] = useState('')
+    // for the form
 
+    
+    useEffect(() => {
+        let newSizesArr = []
+        if(curItem?.item_type === 1){
+            switch (curItem?.gender){
+                case ('Men'):
+                    newSizesArr = [ 148, 152, 155, 158, 161 ];
+                    break;
+                case ('Women'):
+                    newSizesArr = [ 139, 143, 146, 148, 150 ];
+                    break;
+                case ('Kids'):
+                    newSizesArr = [ 119, 122, 125, 130 ];
+                    break;
+                default:
+                    newSizesArr = [ 'error loading sizes' ];
+            }
+        } else {
+            newSizesArr = ['S', 'M', 'L', 'XL']
+        }
+        setSizesArr(newSizesArr)
+    }, [ dispatch, curItem ])
 
+    const [ sizesArr, setSizesArr ] = useState([])
     const [ quantity, setQuantity ] = useState(1)
-    const [ size, setSize ] = useState('M')
+    const [ size, setSize ] = useState(curItem?.size)
     const [ color, setColor ] = useState()
 
     return (
-        <div className="item-top-container">
-            <div className='item-details-selection flex-row-cont'>
-                <div className='item-deets-imgs flex-col-cont'>
-                    <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />
-                    <img className='imageTile' src={curItem?.image2} onClick={e=>changeDispImage(e,curItem?.image2)}alt='sb' />
-                    <img className='imageTile' src={curItem?.image3} onClick={e=>changeDispImage(e,curItem?.image3)}alt='sb' />
-                </div>
-
-                <div className='item-deets-img'>
-                    { origImage &&
-                        <img src={curItem?.image1} alt='sb' />}
-                    { !origImage &&
-                        <img src={dispImage} alt='sb' />}
-                </div>
-
-                <div className='curItem-deets-form'>
-                    {/* <p className=''>{}</p>
-                    <p className=''>{curItem?.gender}'s {curItem?.name} *item type*</p>
-                    <p className=''>{curItem?.price}</p>
-                    <p className=''>*review data*</p>
-                    <p className=''>{curItem?.color}</p> */}
-
-
-                <SBForm item={curItem} />
-
-
-                    {/* <div>
-                        <div className='flex-row-cont'>
-                            <button className='grey-green-btn'
-                            onClick={e=>addItemToCart(e, curItem)}>
-                                ADD TO CART
-                            </button>
-                            <button onClick={e=>addItemToWishlist(e, curItem)}>
-                                &lt;3
-                            </button>
-                        </div>
-                        <button>Find My Size</button>
-                    </div> */}
-                </div>
-                
+        <div className='item-form-container'>
+            <p className=''>{}</p>
+            <p className=''>{curItem?.gender}'s {curItem?.name} *item type*</p>
+            <p className=''>{curItem?.price}</p>
+            <p className=''>*review data*</p>
+            <p className=''>{curItem?.color}</p>
+            
+            <form>
+                <p>selected size: {size}</p>
+                {sizesArr?.map((s,i) => (
+                    <div key={i} className='size-box'>
+                        <label>{s}</label>
+                        <input type='radio'
+                            value={s}
+                            name='size-sel'
+                            onChange={e=>setSize(e.target.value)}
+                            className='size-box'
+                        />
+                    </div>
+                ))}
+                <select name="cart-quantity" onChange={e=>setQuantity(e.target.value)} className='' id="">
+                    <option className='def-option' disabled defaultValue='1'>1</option> 
+                    <option value='1'>1</option> 
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                </select>
+            </form>
+            
+            <div className='flex-row-cont'>
+                <button className='grey-green-btn'
+                onClick={e=>addItemToCart(e, curItem)}>
+                    ADD TO CART
+                </button>
+                <button onClick={e=>addItemToWishlist(e, curItem)}>
+                    &lt;3
+                </button>
             </div>
-        </div>
+            <button>Find My Size</button>
+    </div>
+
     );
 }
 
