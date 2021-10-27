@@ -27,6 +27,7 @@ fieldset{
     background-color: white;
     border: none;
     outline: none;
+    width: 100%;
 }
 .auth-topper{
     justify-content: space-between;
