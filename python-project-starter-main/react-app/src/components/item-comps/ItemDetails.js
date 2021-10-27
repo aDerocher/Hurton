@@ -141,10 +141,9 @@ const ItemDetails = () => {
             <div className='item-details-reviews'>
                 {userCanRev &&
                     <NewReview user={sessionUser} itemId={item?.id}/>}
-                {reviews?.map((review)=>(
-                    <div key={review.id.toString()}>
-                        <p>{review.id.toString()}</p>
-                        <Reviews key={review.id.toString()} keyid={review.id.toString()} user={sessionUser} review={review}/>
+                {reviews?.map((review, i)=>(
+                    <div key={`${i}`}>
+                        <Reviews user={sessionUser} review={review}/>
                     </div>
                 ))}
             </div>

@@ -1,9 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { getItemReviews } from '../store/items';
 import { editReview, deleteReview } from './../store/reviews'
-import revTemplate from './../images/review-template.PNG'
 import { format } from "date-fns";
 import './../styles/reviews.css'
 
@@ -13,7 +11,6 @@ const Reviews = (revData) => {
     const dispatch = useDispatch()
     const review = revData.review
     const user = revData.user
-    const keyid = revData.keyid
     const itemId = parseInt(params.itemId)
     const five = [1,2,3,4,5]
     
@@ -66,9 +63,9 @@ const Reviews = (revData) => {
         e.preventDefault()
         dispatch(deleteReview(review.id, itemId))
     }
-    console.log(keyid, 98, 1,2)
+    
     return (
-        <div key={keyid} className="review-container">
+        <div className="review-container">
             {review?.title && 
                 <div hidden={!editHidden}>
                     <div className='rev-info-cont flex-row-cont pad-1'>
@@ -78,14 +75,16 @@ const Reviews = (revData) => {
                             </div>
                             <div className='rev-name-stars'>
                                 <p>Users Fullname</p>
-                                {five.map((n, i) => (
-                                    <>
-                                    {n <= review.rating &&
-                                        <i key={i} className="fas fa-star"></i>}
-                                    {n > review.rating && 
-                                        <i key={i} className="far fa-star"></i>}
-                                    </>
-                                ))}
+                                <div className='stars-row flex-row-cont'>
+                                    {five.map((n, i) => (
+                                        <div key={i} className=''>
+                                            {n <= review.rating &&
+                                                <i className="fas fa-star"></i>}
+                                            {n > review.rating && 
+                                                <i className="far fa-star"></i>}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <p>{format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM/dd/yy')}</p>

@@ -16,7 +16,7 @@ function ProfileOrderHist() {
     }, [dispatch])
     const pastItems = useSelector(state => state.session.user.order_history)
     const sessionUser = useSelector(state => state.session.user)
-    const itemTypes = useSelector(state => state.item_types)
+    // const itemTypes = useSelector(state => state.item_types)
     const userCart = useSelector(state => state.cart)
 
     const wishlistToCart = (e, wl_item) => {
