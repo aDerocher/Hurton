@@ -48,7 +48,11 @@
 /* ==== REVIEWS ===================*/
 
 
-
+.item-details-reviews{
+    border-top: 1px solid var(--light-grey);
+    margin: 4rem 0;
+    padding: 1rem 0;
+}
 
 
 

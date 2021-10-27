@@ -129,13 +129,13 @@ const ItemDetails = () => {
         <div className="item-page-container content-width">
             <ItemForm item={item}/>
 
-            <div className='item-info-section flex-row-cont'>
+            {/* <div className='item-info-section flex-row-cont'>
                 <div className='info-graphs flex-col-cont'>
                     <div className='info-graph graph-1'>graph</div>
                     <div className='info-graph graph-2'>graph</div>
                 </div>
                 <div className='info-body'>lots of words here</div>
-            </div>
+            </div> */}
 
 
             <div className='item-details-reviews'>

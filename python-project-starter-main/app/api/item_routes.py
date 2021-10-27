@@ -29,7 +29,7 @@ def one_item(item_id):
 @item_routes.route('/<int:item_id>/reviews',methods=['GET'])
 def item_reviews(item_id):
     reviews = Review.query.filter(Review.item_id == item_id)
-    print(reviews, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+    # print(reviews, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
     return { 'reviews': [review.to_dict() for review in reviews] }
 
 # Leave a new review on a product
@@ -57,13 +57,14 @@ def new_review(item_id):
 @login_required
 def edit_review(item_id, review_id):
     review = Review.query.get(review_id)
-    print(review, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+    # print(review, '+++++++++++++++++++++++++++++==============================++++++++++++++++++++++++++++++++++++++++++++++++++++++')
     form = EditReviewForm()
     form["csrf_token"].data = request.cookies["csrf_token"]
     if current_user and form.validate_on_submit():
         review.rating= form.rating.data,
         review.title= form.title.data,
         review.content= form.content.data,
+        # review.updated_at=form.updated_at.data
         db.session.commit()
         return { 'review': review.to_dict() }
 
@@ -72,7 +73,7 @@ def edit_review(item_id, review_id):
 @login_required
 def delete_review(review_id, item_id):
     dead_review = Review.query.get(review_id)
-    print('=====================',current_user.get_id() == dead_review.user_id)
+    # print('=====================',current_user.get_id() == dead_review.user_id)
     # if (current_user.get_id() == dead_review.user_id)
     db.session.delete(dead_review)
     db.session.commit()

@@ -8,6 +8,7 @@ from datetime import datetime
 class NewReviewForm(FlaskForm):
     item_id = IntegerField('Item_id', validators=[DataRequired()])
     user_id = IntegerField('User_id', validators=[DataRequired()])
+    # user_name = StringField('User_name', validators=[DataRequired()])
     rating = IntegerField('Rating', validators=[DataRequired()])
     title = StringField('Title', validators=[DataRequired()])
     content = StringField('Content', validators=[DataRequired()])

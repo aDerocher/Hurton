@@ -5,8 +5,9 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import NavBarSimple from './components/NavBarSimple';
+import NavBarSimpleText from './components/NavBarSimpleText';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+// import UsersList from './components/UsersList';
 import ProfilePage from './components/ProfilePage';
 import ProfileEdit from './components/ProfileEdit';
 import ProfileOrderHist from './components/ProfileOrderHist';
@@ -54,10 +55,12 @@ function App() {
                 <Route path='/shop/snowboard/:itemId' exact={true}>
                     <NavBar />
                     <ItemDetails />
+                    <Footer />
                 </Route>
                 <Route path='/shop/jacket/:itemId' exact={true}>
                     <NavBar />
                     <ItemDetails />
+                    <Footer />
                 </Route>
 
                 <Route path='/login' exact={true}>
@@ -75,7 +78,7 @@ function App() {
                     <Footer />
                 </Route>
                 <Route path='/cart/checkout/:subtotal' exact={true} >
-                    <NavBar />
+                    <NavBarSimpleText />
                     <CheckoutPage />
                     <Footer />
                 </Route>

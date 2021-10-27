@@ -66,11 +66,11 @@ const CheckoutPage = (subtotalParams) => {
     useEffect(() => {
         if(firstName && lastName && email && card && address){setHideErr(false)}
         let newErrors = []
-        if( !email?.includes('@') || !email.includes('.') ) newErrors.push('Invalid Email Address')
+        if( !email?.includes('@') || !email.includes('.') ) newErrors.push("Invalid Email Address: must include '@' and '.'")
         if(firstName?.length < 2) newErrors.push('First name must be longer than 2 characters')
         if(lastName?.length < 2) newErrors.push('Last name must be longer than 2 characters')
-        if( parseInt(card) === NaN || parseInt(card).toString().length < 15 ) newErrors.push('Invalid Card Number')
-        if( card.length > 15 ) newErrors.push('Invalid Card Number')
+        if( parseInt(card) === NaN || parseInt(card).toString().length < 15 ) newErrors.push('Invalid Card Number: Invalid characters')
+        if( card.length > 15 ) newErrors.push('Invalid Card Number: Number not long enough')
         if(address?.length < 4 || address === null) newErrors.push('Invalid Address: Address is too short')
         setErrors(newErrors)
     }, [dispatch, firstName, lastName, address, email, card])
@@ -85,7 +85,8 @@ const CheckoutPage = (subtotalParams) => {
                 <form className='checkout-left'>
                     <div className='checkout-brick'><p>Contact</p></div>
 
-
+                    <br />
+                    <p className='grey-label' hidden={hideErr}><span className='req-star' >*</span> indicates required field</p>
                     <div className='checkout-box email-confirm checkout-email'>
                         <span className='req-star' hidden={hideErr}>*</span>
                         <input type='email'
