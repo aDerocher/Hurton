@@ -74,7 +74,7 @@ const Reviews = (revData) => {
                                 <p>{review.user_id}</p>
                             </div>
                             <div className='rev-name-stars'>
-                                <p>Users Fullname</p>
+                                <p>Anonymous Verified Buyer</p>
                                 <div className='stars-row flex-row-cont'>
                                     {five.map((n, i) => (
                                         <div key={i} className=''>
@@ -87,7 +87,7 @@ const Reviews = (revData) => {
                                 </div>
                             </div>
                         </div>
-                        <p>{format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM/dd/yy')}</p>
+                        {/* <p>{format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM/dd/yy')}</p> */}
                     </div>
                     <div className='pad-1'>
                         <p className='rev-title'>{review.title}</p>
