@@ -16,4 +16,5 @@ Items ended up being a very comprehensive model. Given the time constraints for 
 
 ### Frontend
 The frontend is build using a React app. one of the most interesting functions on the Hurton site is the ability for non-logged in users to shop. When an item is added to the cart, a check is done for an active user. If none is present, the item is translated to JSON and placed into local storage. This will work throughout their shopping experience, and all normal features are availble such as adjusting in-cart quantities. 
+![](PlanningDocs/ReadMePics/add-to-local.PNG)
 A Bonus was that if a user is mid-shopping experience, they can create a new account and their cart will be moved over into the state, and the local storage will be emptied. (If they log in, their cart will be lost and replaced with their user accounts cart).
