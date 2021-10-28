@@ -39,7 +39,11 @@
 .item-size-box-radio{
 
 }
-
+.color-sample-box{
+    height: 5px;
+    width: 100%;
+    /* border: 1px solid blue; */
+}
 
 /* === stars ================= */
 .form-stars-row{

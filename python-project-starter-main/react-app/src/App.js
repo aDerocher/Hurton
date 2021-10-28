@@ -53,12 +53,12 @@ function App() {
                     <Shop />
                     <Footer />
                 </Route>
-                <Route path='/shop/snowboard/:itemId' exact={true}>
+                <Route path='/shop/snowboards/:itemId' exact={true}>
                     <NavBar />
                     <ItemDetails />
                     <Footer />
                 </Route>
-                <Route path='/shop/jacket/:itemId' exact={true}>
+                <Route path='/shop/jackets/:itemId' exact={true}>
                     <NavBar />
                     <ItemDetails />
                     <Footer />

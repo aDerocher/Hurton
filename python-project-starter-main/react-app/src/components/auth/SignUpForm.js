@@ -19,9 +19,14 @@ const SignUpForm = () => {
 
     useEffect(() => {
         const newErrors = []
-        if(firstName.length < 2 ) newErrors.push('First Name nust be longer')
-        if(lastName.length < 2 ) newErrors.push('Last Name nust be longer')
+        if(firstName.length < 2 ) newErrors.push('First Name must be longer')
+        if(firstName.length < 2 ) newErrors.push('First Name must be longer')
+        if(lastName.length > 50 ) newErrors.push('Last Name cannot exceed 50 characters')
+        if(lastName.length > 50 ) newErrors.push('Last Name cannot exceed 50 characters')
+        if(email.length < 5 ) newErrors.push('Email must be longer')
+        if(email.length > 250 ) newErrors.push('Email cannot exceed 250 characters')
         if(!email.includes('@') || !email.includes('.')) newErrors.push('Invalid email address')
+        if(password.length > 24) newErrors.push('Password cannot exceed 25 characters')
         if(password.length < 8) {
             if(password.length === 0) {
                 newErrors.push('Password must be at least 8 characters')
@@ -112,6 +117,7 @@ const SignUpForm = () => {
             placeholder='First Name'
             type='text'
             name='firstName'
+            maxLength='50'
             onChange={updateFirstName}
             value={firstName}
             ></input>
@@ -122,6 +128,7 @@ const SignUpForm = () => {
             placeholder='Last Name'
             type='text'
             name='lastName'
+            maxLength='50'
             onChange={updateLastName}
             value={lastName}
             ></input>
@@ -132,6 +139,7 @@ const SignUpForm = () => {
             placeholder='Email'
             type='text'
             name='email'
+            maxLength='250'
             onChange={updateEmail}
             value={email}
             ></input>
@@ -142,6 +150,7 @@ const SignUpForm = () => {
             placeholder='Password'
             type='password'
             name='password'
+            maxLength='25'
             onChange={updatePassword}
             value={password}
             ></input>
@@ -151,6 +160,7 @@ const SignUpForm = () => {
             className='auth-field'
             placeholder='Confirm Password'
             type='password'
+            maxLength='25'
             name='repeat_password'
             onChange={updateRepeatPassword}
             value={repeatPassword}
