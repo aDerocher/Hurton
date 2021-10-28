@@ -20,7 +20,7 @@ function ProfileEdit(props) {
         let newErrors = []
         if (newFirstName.length < 2) newErrors.push("First Name must be longer");
         if (newLastName.length < 2) newErrors.push("Last Name must be longer");
-        if (newAddress.length < 4 && newAddress.length > 0) newErrors.push("Address must be longer");
+        if (newAddress?.length < 4 && newAddress.length > 0) newErrors.push("Address must be longer");
         setErrors(newErrors);
 
     }, [ newFirstName, newLastName, newAddress])
