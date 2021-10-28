@@ -19,6 +19,7 @@ import Shop from './components/Shop';
 import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
 import ItemDetails from './components/item-comps/ItemDetails';
+import About from './components/About';
 import { authenticate } from './store/session';
 import "./index.css";
 
@@ -93,10 +94,10 @@ function App() {
                     <Footer />
                 </Route>
 
-                {/* <ProtectedRoute path='/users' exact={true} >
-                    <NavBar />
-                    <UsersList/>
-                </ProtectedRoute> */}
+                <Route path='/about' exact={true} >
+                    <NavBarSimple />
+                    <About/>
+                </Route>
                 <ProtectedRoute path='/users/:userId' exact={true} >
                     <NavBar />
                     <ProfilePage />
