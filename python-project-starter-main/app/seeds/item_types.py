@@ -2,10 +2,10 @@ from app.models import db, ItemType
 
 
 def seed_itemtypes():
-    snowboard = ItemType(
+    snowboards = ItemType(
         item_type = 'snowboards'
     )
-    jacket = ItemType(
+    jackets = ItemType(
         item_type = 'jackets'
     )
     boots = ItemType(
@@ -15,8 +15,8 @@ def seed_itemtypes():
         item_type = 'bindings'
     )
 
-    db.session.add(snowboard)
-    db.session.add(jacket)
+    db.session.add(snowboards)
+    db.session.add(jackets)
     db.session.add(boots)
     db.session.add(bindings)
     db.session.commit()

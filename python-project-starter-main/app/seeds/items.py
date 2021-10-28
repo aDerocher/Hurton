@@ -19,22 +19,22 @@ def seed_items():
         terrain = 8,
         personality = 7,
     )
-    snowboard2 = Item(
-        size = '155',
-        name = 'Tooth Chip',
-        price = '450',
-        color = 'green',
-        color2 = 'yellow',
-        color3 = 'blue',
-        gender = 'Men',
-        item_type = 1,
-        image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_1.jpg',
-        image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_2.jpg',
-        image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_3.jpg',
+    # snowboard2 = Item(
+    #     size = '155',
+    #     name = 'Tooth Chip',
+    #     price = '450',
+    #     color = 'green',
+    #     color2 = 'yellow',
+    #     color3 = 'blue',
+    #     gender = 'Men',
+    #     item_type = 1,
+    #     image1 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_1.jpg',
+    #     image2 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_2.jpg',
+    #     image3 = 'https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/sb2_3.jpg',
 
-        terrain = 7,
-        personality = 2,
-    )
+    #     terrain = 7,
+    #     personality = 2,
+    # )
     snowboard3 = Item(
         size = '155',
         name = 'Tweaked',
@@ -553,7 +553,7 @@ def seed_items():
 
 
     db.session.add(snowboard1)
-    db.session.add(snowboard2)
+    # db.session.add(snowboard2)
     db.session.add(snowboard3)
     db.session.add(snowboard4)
     db.session.add(snowboard5)
