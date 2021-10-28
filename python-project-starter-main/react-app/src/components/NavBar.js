@@ -57,7 +57,7 @@ const NavBar = () => {
 
                     <p className='dead-link'>ANON</p>
                     <p className='small-text dead-link'>Blog</p>
-                    <p className='small-text dead-link'>Sustainability</p>
+                    <NavLink to='/about' style={{ color: `var(--link-green)`}}> <p className='small-text github-link'>About Hurton</p></NavLink>
                 </div>
 
                 <div className='meta-nav-section'>

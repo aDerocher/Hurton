@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useParams, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // import ProfileSidebar from './ProfileSidebar';
 import "./../styles/footer.css"
 
@@ -30,8 +30,9 @@ function Footer() {
                 <div className='footer-top-section'>
                     <h2 className="foot-title">About Us</h2>
                     <ul>
-                    <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li>
-                    <li className='dead-link'>About Hurton</li>
+                    {/* <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li> */}
+                    <li className='link-green'><NavLink to='/about' style={{ color: `var(--link-green)`}}> <p className='github-link'>About Hurton</p></NavLink></li>
+                    {/* <li className='dead-link'>About Hurton</li> */}
                     <li className='dead-link'>Careers</li>
                     <li className='dead-link'>Sustainability</li>
                     <li className='dead-link'>Hill Foundation</li>
@@ -69,8 +70,8 @@ function Footer() {
                     <h2 className="foot-title">Get Help</h2>
                     <ul>
                         <li className='dead-link'>Help and FAQS</li>
-                        <li><a href="mailto:info@andrewderocher.com" className="github-link"><i className="far fa-envelope"> </i> Email Me</a></li>
-                        <li>555-IM-HURTN</li>
+                        <li className='dead-link'>info@Hurton.com</li>
+                        <li className='dead-link'>555-IM-HURTN</li>
                     </ul>
                 </div>
             </div>
