@@ -13,7 +13,7 @@ function Wishlist() {
 
     useEffect(() => {
         dispatch(getUsersWishlist(userId))
-        console.log(userWishlist)
+        // console.log(userWishlist)
     }, [dispatch])
     
     const sessionUser = useSelector(state => state.session.user)

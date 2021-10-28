@@ -123,7 +123,7 @@ const ItemForm = () => {
             let newColorsArr = [curItem.color]
             if (curItem.color2 !== null) newColorsArr.push(curItem.color2)
             if (curItem.color3 !== null) newColorsArr.push(curItem.color3)
-            console.log(newColorsArr)
+            // console.log(newColorsArr)
             setColorsArr(newColorsArr)
         }
         setSizesArr(newSizesArr)

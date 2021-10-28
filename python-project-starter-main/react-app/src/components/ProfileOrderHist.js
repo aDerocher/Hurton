@@ -9,7 +9,7 @@ import { addToCart } from './../store/cart'
 function ProfileOrderHist() {
     const {userId} = useParams();
     const dispatch = useDispatch()
-    console.log(userId, 10)
+    // console.log(userId, 10)
 
     useEffect(() => {
         dispatch(getOrderHistory(userId))
