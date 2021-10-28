@@ -13,6 +13,7 @@ The backend is built using Flask and SQLAlchemy. There are many different compon
 
 Items ended up being a very comprehensive model. Given the time constraints for the project, all of an items unique attributes are represented on this one component. Snowboards have camber and are sized in cm, and jackets have waterproofing and warmth levels and are sized in s/m/l/xl/. The single Item modal was used to encompass all of this variability. 
 
+---
 
 ### Frontend
 The frontend is build using a React app. one of the most interesting functions on the Hurton site is the ability for non-logged in users to shop. When an item is added to the cart, a check is done for an active user. If none is present, the item is translated to JSON and placed into local storage. This will work throughout their shopping experience, and all normal features are availble such as adjusting in-cart quantities. 
