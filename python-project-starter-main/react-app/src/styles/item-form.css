@@ -1,14 +1,84 @@
 .item-form-container{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    background-color: var(--light-light-grey);
+    padding-top: 3.5rem;
 }
 
-.item-form-container > form {
+.item-form-container > * {
+    margin-bottom: 2rem;
+}
+
+.item-form-title{
+    color: var(--med-light-grey)
+}
+
+/* ==== actual form inputs =================== */
+.item-selection-form-inputs > * {
+    margin: 15px 8px;
+}
+
+
+.all-sizes-cont > * {margin-right: 10px;}
+.all-sizes-cont {
+    flex-wrap: wrap;
+}
+.item-size-box{
+    background-color: rgb(255, 255, 255);
+    padding: 4px;
+    border: 1px solid var(--light-grey);
+    outline: 2px solid rgb(255, 255, 255);
+    
+}
+.item-size-box:hover{
+    border: 1px solid var(--med-light-grey);
+    outline: 1px solid rgb(255, 255, 255);
+}
+.item-size-box-radio{
 
 }
 
 
+/* === stars ================= */
+.form-stars-row{
+    color: var(--med-grey);
+    align-items: center;
+}
+.reviews-counter{
+    margin-right: 10px;
+}
 
+
+
+/* === BUTTONS ================= */
+.item-form-buttons-cont > *{
+    margin: 5px;
+}
+/* .item-form-buttons-sub-cont > *{
+    margin: 5px;
+} */
+.item-form-submit-btn {
+    display: flex;
+    flex-grow: 1;
+    padding: 1rem 0;
+    margin-right: 10px;
+}
+.item-form-wl-btn:hover{
+    background-color: var(--light-grey)
+}
+.item-form-wl-btn{
+    background-color: var(--light-grey);
+    display: flex;
+    min-width: 25%;
+    max-width: 33%;
+}
+.find-my-size-btn {
+    flex-grow:1;
+    margin: 5px;
+    padding: 1rem 0;
+}
 
 
 

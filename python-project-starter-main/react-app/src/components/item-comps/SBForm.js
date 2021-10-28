@@ -12,6 +12,7 @@ const ItemForm = () => {
     const sessionUser = useSelector(state => state.session?.user)
     const usersWishlist = useSelector(state => state.wishlist)
     const curItem = useSelector(state => state.items[0])
+    const itemReviews = useSelector(state => state.reviews)
     
     
     
@@ -88,8 +89,15 @@ const ItemForm = () => {
         window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
-    // for the form
-
+    // ================= for the form ===================
+    useEffect(()=>{
+        let newScore = itemReviews.reduce((accum, i) => {
+            return accum + i.rating
+        }, 0)
+        newScore /= itemReviews.length
+        setScore(newScore)
+    }, [itemReviews, itemReviews])
+    const five = [1,2,3,4,5]
     
     useEffect(() => {
         let newSizesArr = []
@@ -111,34 +119,61 @@ const ItemForm = () => {
             newSizesArr = ['S', 'M', 'L', 'XL']
         }
         setSizesArr(newSizesArr)
+        if(!size){ setSize(sizesArr[0])}
+        if(!color){ setColor(curItem?.color)}
     }, [ dispatch, curItem ])
 
     const [ sizesArr, setSizesArr ] = useState([])
+    const [ score, setScore ] = useState(5)
     const [ quantity, setQuantity ] = useState(1)
-    const [ size, setSize ] = useState(curItem?.size)
-    const [ color, setColor ] = useState()
+    const [ size, setSize ] = useState(sizesArr[0])
+    const [ color, setColor ] = useState(curItem?.color)
 
     return (
         <div className='item-form-container'>
-            <p className=''>{}</p>
-            <p className=''>{curItem?.gender}'s {curItem?.name} *item type*</p>
-            <p className=''>{curItem?.price}</p>
-            <p className=''>*review data*</p>
-            <p className=''>{curItem?.color}</p>
+            <div className='item-form-p1'>
+                <p className=''>{}</p>
+                <h2 className='item-form-title'>{curItem?.gender}'s {curItem?.name} *item type*</h2>
+                <p className=''>$ {curItem?.price}</p>
+            </div>
             
-            <form>
-                <p>selected size: {size}</p>
-                {sizesArr?.map((s,i) => (
-                    <div key={i} className='size-box'>
-                        <label>{s}</label>
-                        <input type='radio'
-                            value={s}
-                            name='size-sel'
-                            onChange={e=>setSize(e.target.value)}
-                            className='size-box'
-                        />
+            
+            {/* <p className=''>{score}</p> */}
+            <div className='form-stars-row flex-row-cont'>
+                {five.map((n, i) => (
+                    <div key={i} className=''>
+                        {n <= score &&
+                            <i className="fas fa-star"></i>}
+                        {n > score && 
+                            <i className="far fa-star"></i>}
                     </div>
                 ))}
+                <p className='grey-label reviews-counter'> {itemReviews?.length} Reviews</p>
+            </div>
+            {curItem?.item_type !== 1 &&
+                <p className=''>{curItem?.color}</p>}
+            
+            
+            <form className='item-selection-form-inputs'>
+                <div className='flex-row-cont all-sizes-cont'>
+                    {sizesArr?.map((s,i) => (
+                        <div key={i} className='item-size-box'>
+                        {/* <div key={i} className='item-size-box' onClick={e=>setSize(`${s}`)}> */}
+                            <label>{s}</label>
+                            <input type='radio'
+                                value={s}
+                                name='size-sel'
+                                defaultChecked={i === 0}
+                                onChange={e=>setSize(e.target.value)}
+                                className='item-size-box-radio'
+                                selected={size===s}
+                            />
+                            {/* {console.log(`${s}`, size)} */}
+                        </div>
+                    ))}
+                    
+                </div>
+                <p className='grey-label'><strong>SIZE</strong> {size} </p>
                 <select name="cart-quantity" onChange={e=>setQuantity(e.target.value)} className='' id="">
                     <option className='def-option' disabled defaultValue='1'>1</option> 
                     <option value='1'>1</option> 
@@ -152,17 +187,20 @@ const ItemForm = () => {
                     <option value='9'>9</option>
                 </select>
             </form>
-            
-            <div className='flex-row-cont'>
-                <button className='grey-green-btn'
-                onClick={e=>addItemToCart(e, curItem)}>
-                    ADD TO CART
-                </button>
-                <button onClick={e=>addItemToWishlist(e, curItem)}>
-                    &lt;3
-                </button>
+
+            <div className='flex-col-cont item-form-buttons-cont'>
+                <div className='flex-row-cont item-form-buttons-subcont'>
+                    <button className='grey-green-btn item-form-submit-btn'
+                    onClick={e=>addItemToCart(e, curItem)}>
+                        ADD TO CART
+                    </button>
+                    <button className='item-form-wl-btn dis' disabled={!sessionUser} onClick={e=>addItemToWishlist(e, curItem)}>
+                        &lt;3
+                    </button>
+                </div>
+                <button className='find-my-size-btn dis' disabled={true}>Find My Size</button>
             </div>
-            <button>Find My Size</button>
+            
     </div>
 
     );

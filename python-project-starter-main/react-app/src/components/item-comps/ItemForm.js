@@ -109,48 +109,26 @@ const ItemForm = (item) => {
     const [ color, setColor ] = useState()
 
     return (
-        <div className="item-top-container">
-            <div className='item-details-selection flex-row-cont'>
-                <div className='item-deets-imgs flex-col-cont'>
-                    <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />
-                    <img className='imageTile' src={curItem?.image2} onClick={e=>changeDispImage(e,curItem?.image2)}alt='sb' />
-                    <img className='imageTile' src={curItem?.image3} onClick={e=>changeDispImage(e,curItem?.image3)}alt='sb' />
-                </div>
-
-                <div className='item-deets-img'>
-                    { origImage &&
-                        <img src={curItem?.image1} alt='sb' />}
-                    { !origImage &&
-                        <img src={dispImage} alt='sb' />}
-                </div>
-
-                <div className='curItem-deets-form'>
-                    {/* <p className=''>{}</p>
-                    <p className=''>{curItem?.gender}'s {curItem?.name} *item type*</p>
-                    <p className=''>{curItem?.price}</p>
-                    <p className=''>*review data*</p>
-                    <p className=''>{curItem?.color}</p> */}
-
-
-                <SBForm item={curItem} />
-
-
-                    {/* <div>
-                        <div className='flex-row-cont'>
-                            <button className='grey-green-btn'
-                            onClick={e=>addItemToCart(e, curItem)}>
-                                ADD TO CART
-                            </button>
-                            <button onClick={e=>addItemToWishlist(e, curItem)}>
-                                &lt;3
-                            </button>
-                        </div>
-                        <button>Find My Size</button>
-                    </div> */}
-                </div>
-                
+        <div className='item-details-selection flex-row-cont'>
+            <div className='item-deets-imgs flex-col-cont'>
+                <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />
+                <img className='imageTile' src={curItem?.image2} onClick={e=>changeDispImage(e,curItem?.image2)}alt='sb' />
+                <img className='imageTile' src={curItem?.image3} onClick={e=>changeDispImage(e,curItem?.image3)}alt='sb' />
             </div>
+
+            <div className='item-deets-img'>
+                { origImage &&
+                    <img src={curItem?.image1} alt='sb' />}
+                { !origImage &&
+                    <img src={dispImage} alt='sb' />}
+            </div>
+
+            <div className='curItem-deets-form'>
+                <SBForm item={curItem} />
+            </div>
+            
         </div>
+    
     );
 }
 
