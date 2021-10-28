@@ -20,7 +20,11 @@ const LoginForm = () => {
     useEffect(() => {
         const newErrorsE = []
         const newErrorsP = []
+        
+        if(email.length < 5 ) newErrorsE.push('Email must be longer')
+        if(email.length > 250 ) newErrorsE.push('Email cannot exceed 250 characters')
         if(!email.includes('@') || !email.includes('.')) newErrorsE.push('Invalid email address')
+        if(password.length > 24) newErrorsP.push('Password cannot exceed 25 characters')
         if(password.length < 8) {
             if(password.length === 0) {
                 newErrorsP.push('Password must be at least 8 characters')
@@ -96,6 +100,7 @@ const LoginForm = () => {
                     className='auth-field'
                     name='email'
                     type='text'
+                    maxLength='250'
                     value={email}
                     onChange={updateEmail}
                     />
@@ -112,6 +117,7 @@ const LoginForm = () => {
                     <legend>Password</legend>
                     <input
                         className='auth-field'
+                        maxLength='25'
                         name='password'
                         type='password'
                         value={password}
