@@ -13,6 +13,7 @@ const ItemForm = () => {
     const usersWishlist = useSelector(state => state.wishlist)
     const curItem = useSelector(state => state.items[0])
     const itemReviews = useSelector(state => state.reviews)
+    const itemTypes = useSelector(state => state.item_types)
     
     
     
@@ -142,7 +143,7 @@ const ItemForm = () => {
         <div className='item-form-container'>
             <div className='item-form-p1'>
                 <p className=''>{}</p>
-                <h2 className='item-form-title'>{curItem?.gender}'s {curItem?.name} *item type*</h2>
+                <h2 className='item-form-title'>{curItem?.gender}'s {curItem?.name}</h2>
                 <p className=''>$ {curItem?.price}</p>
             </div>
             
