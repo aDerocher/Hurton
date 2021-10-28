@@ -118,7 +118,7 @@ const CartPage = () => {
                                 </div>
                                 <form action="" className="cart-quantity-sel">
                                     <select name="cart-quantity" onChange={e=>handleQuantChange(e, cart_item.id, e.target.value)} className='cart-quantity' id="">
-                                        <option className='def-option' disabled defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
+                                        <option className='def-option' selected disabled defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
                                         <option value='1'>1</option> 
                                         <option value='2'>2</option>
                                         <option value='3'>3</option>

@@ -10,9 +10,9 @@ function ProfileEdit(props) {
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory();
 
-    const [ newFirstName, setNewFirstName ] = useState('')
-    const [ newLastName, setNewLastName ] = useState('')
-    const [ newAddress, setNewAddress ] = useState('')
+    const [ newFirstName, setNewFirstName ] = useState(sessionUser.firstName)
+    const [ newLastName, setNewLastName ] = useState(sessionUser.lastName)
+    const [ newAddress, setNewAddress ] = useState(sessionUser?.address)
     const [ showErrors, setShowErrors ] = useState(false)
     const [ errors, setErrors ] = useState([])
 
@@ -20,9 +20,10 @@ function ProfileEdit(props) {
         let newErrors = []
         if (newFirstName.length < 2) newErrors.push("First Name must be longer");
         if (newLastName.length < 2) newErrors.push("Last Name must be longer");
+        if (newAddress.length < 4 && newAddress.length > 0) newErrors.push("Address must be longer");
         setErrors(newErrors);
 
-    }, [ newFirstName, newLastName])
+    }, [ newFirstName, newLastName, newAddress])
 
 
     const checkViability = (attr, newAttr, formObj) => {
