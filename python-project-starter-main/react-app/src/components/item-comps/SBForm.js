@@ -49,9 +49,9 @@ const ItemForm = () => {
         const formData = {
             item_id: curItem.id,
             item_name: item.name,
-            item_color: item.color,
+            item_color: color,
             item_gender: item.gender,
-            item_size: item.size,
+            item_size: size,
             item_price: item.price,
             item_image: item.image1,
             quantity: quantity,
@@ -115,13 +115,23 @@ const ItemForm = () => {
                     newSizesArr = [ 'error loading sizes' ];
             }
         } else {
-            newSizesArr = ['S', 'M', 'L', 'XL']
+            newSizesArr = ['XS', 'S', 'M', 'L', 'XL']
+        }
+
+        
+        if(curItem && curItem?.item_type !== 1){
+            let newColorsArr = [curItem.color]
+            if (curItem.color2 !== null) newColorsArr.push(curItem.color2)
+            if (curItem.color3 !== null) newColorsArr.push(curItem.color3)
+            console.log(newColorsArr)
+            setColorsArr(newColorsArr)
         }
         setSizesArr(newSizesArr)
         if(!size){ setSize(sizesArr[0])}
-        if(!color){ setColor(curItem?.color)}
+        if(!color || curItem.item_type === 1){ setColor(curItem?.color)}
     }, [ dispatch, curItem ])
 
+    const [ colorsArr, setColorsArr ] = useState([])
     const [ sizesArr, setSizesArr ] = useState([])
     const [ score, setScore ] = useState(5)
     const [ quantity, setQuantity ] = useState(1)
@@ -149,11 +159,37 @@ const ItemForm = () => {
                 ))}
                 <p className='grey-label reviews-counter'> {itemReviews?.length} Reviews</p>
             </div>
-            {curItem?.item_type !== 1 &&
-                <p className=''>{curItem?.color}</p>}
+            {curItem?.item_type === 1 &&
+                <p className=''>{color}</p>}
             
             
             <form className='item-selection-form-inputs'>
+        {/* ========= COLOR OPTIONS =============== */}
+
+                {colorsArr.length > 1 &&
+                <>
+                    <div className='flex-row-cont all-sizes-cont'>
+                        { colorsArr.map((c,i) => (
+                            <div key={i} className='color-size-box' style={{backgroundColor: c}}>
+                                <label>{c}</label>
+                                <input type='radio'
+                                    value={c}
+                                    name='color-sel'
+                                    defaultChecked={i === 0}
+                                    onChange={e=>setColor(e.target.value)}
+                                    className='item-size-box-radio'
+                                    selected={color===c}
+                                />
+                            </div>
+                        ))}
+                    </div> 
+                    <p className='grey-label'><strong>COLOR</strong> {color} </p>
+                    <br />
+                </>
+                }
+                
+
+    {/* ========= SIZE OPTIONS =============== */}
                 <div className='flex-row-cont all-sizes-cont'>
                     {sizesArr?.map((s,i) => (
                         <div key={i} className='item-size-box'>
@@ -170,7 +206,6 @@ const ItemForm = () => {
                             {/* {console.log(`${s}`, size)} */}
                         </div>
                     ))}
-                    
                 </div>
                 <p className='grey-label'><strong>SIZE</strong> {size} </p>
                 <select name="cart-quantity" onChange={e=>setQuantity(e.target.value)} className='' id="">
