@@ -116,9 +116,9 @@ const CartPage = () => {
                                     <p className="price grey-label"><strong>$ {cart_item.item_price}.00</strong></p>
                                     {/* <p className="amount-saved">$22(10%)</p> */}
                                 </div>
-                                <form action="" className="cart-quantity-sel">
+                                <form className="cart-quantity-sel">
                                     <select name="cart-quantity" onChange={e=>handleQuantChange(e, cart_item.id, e.target.value)} className='cart-quantity' id="">
-                                        <option className='def-option' selected disabled defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
+                                        <option className='def-option' value={cart_item.quantity} defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
                                         <option value='1'>1</option> 
                                         <option value='2'>2</option>
                                         <option value='3'>3</option>
