@@ -163,23 +163,30 @@ const ItemForm = () => {
                 <p className=''>{color}</p>}
             
             
+
+        {/* ========================================== */}
+        {/* ========= FORM =========================== */}
             <form className='item-selection-form-inputs'>
         {/* ========= COLOR OPTIONS =============== */}
-
                 {colorsArr.length > 1 &&
                 <>
                     <div className='flex-row-cont all-sizes-cont'>
                         { colorsArr.map((c,i) => (
-                            <div key={i} className='color-size-box' style={{backgroundColor: c}}>
-                                <label>{c}</label>
-                                <input type='radio'
-                                    value={c}
-                                    name='color-sel'
-                                    defaultChecked={i === 0}
-                                    onChange={e=>setColor(e.target.value)}
-                                    className='item-size-box-radio'
-                                    selected={color===c}
-                                />
+                            <div key={i} className='color-size-box flex-col-cont'>
+                                <div className=''>
+                                    <label>{c}</label>
+                                    <input type='radio'
+                                        value={c}
+                                        name='color-sel'
+                                        defaultChecked={i === 0}
+                                        onChange={e=>setColor(e.target.value)}
+                                        className='item-size-box-radio'
+                                        selected={color===c}
+                                    />
+                                </div>
+                                <div className='color-sample-box' style={{backgroundColor: c}}>
+                                    
+                                </div>
                             </div>
                         ))}
                     </div> 

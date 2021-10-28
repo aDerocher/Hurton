@@ -19,8 +19,11 @@ function ProfileEdit(props) {
     useEffect(() => {
         let newErrors = []
         if (newFirstName.length < 2) newErrors.push("First Name must be longer");
+        if (newFirstName.length > 50) newErrors.push("First Name must be shorter");
         if (newLastName.length < 2) newErrors.push("Last Name must be longer");
+        if (newLastName.length > 50) newErrors.push("Last Name must be shorter");
         if (newAddress?.length < 4 && newAddress.length > 0) newErrors.push("Address must be longer");
+        if (newAddress?.length > 50) newErrors.push("Address cannot exceed 50 characters");
         setErrors(newErrors);
 
     }, [ newFirstName, newLastName, newAddress])
@@ -88,6 +91,7 @@ function ProfileEdit(props) {
                     placeholder={sessionUser.firstName}
                     type='text'
                     name='firstName'
+                    maxLength='50'
                     onChange={e=> setNewFirstName(e.target.value)}
                     value={newFirstName}
                     ></input>
@@ -98,6 +102,7 @@ function ProfileEdit(props) {
                     className='auth-field'
                     placeholder={sessionUser.lastName}
                     type='text'
+                    maxLength='50'
                     name='lastName'
                     onChange={e=> setNewLastName(e.target.value)}
                     value={newLastName}
@@ -109,6 +114,7 @@ function ProfileEdit(props) {
                     className='auth-field'
                     placeholder={sessionUser?.address}
                     type='text'
+                    maxLength='50'
                     name='address'
                     onChange={e=> setNewAddress(e.target.value)}
                     value={newAddress}

@@ -67,11 +67,17 @@ const CheckoutPage = (subtotalParams) => {
         if(firstName && lastName && email && card && address){setHideErr(false)}
         let newErrors = []
         if( !email?.includes('@') || !email.includes('.') ) newErrors.push("Invalid Email Address: must include '@' and '.'")
+        if( email?.length < 5 ) newErrors.push("Invalid Email Address: too short")
+        if( email?.length > 250 ) newErrors.push("Invalid Email Address: too long")
         if(firstName?.length < 2) newErrors.push('First name must be longer than 2 characters')
+        if(firstName?.length > 50) newErrors.push('First name must be less than 50 characters')
         if(lastName?.length < 2) newErrors.push('Last name must be longer than 2 characters')
+        if(lastName?.length > 50) newErrors.push('Last name must be less than 50 characters')
         if( parseInt(card) === NaN || parseInt(card).toString().length < 15 ) newErrors.push('Invalid Card Number: Invalid characters')
-        if( card.length > 15 ) newErrors.push('Invalid Card Number: Number not long enough')
+        if( card.length > 15 ) newErrors.push('Invalid Card Number: Number too long')
+        if( card.length < 15 ) newErrors.push('Invalid Card Number: Number not long enough')
         if(address?.length < 4 || address === null) newErrors.push('Invalid Address: Address is too short')
+        if(address?.length > 50 || address === null) newErrors.push('Invalid Address: Address is too long')
         setErrors(newErrors)
     }, [dispatch, firstName, lastName, address, email, card])
     const total = cart?.reduce((acc, item) => {
@@ -92,7 +98,7 @@ const CheckoutPage = (subtotalParams) => {
                         <input type='email'
                         value={email} onChange={e=>setEmail(e.target.value)}
                         placeholder='Email'
-                        maxLength='255' />
+                        maxLength='250' />
                     </div>
                     <p className='grey-label email-confirm-text'>To confirm your order.</p>
                     <div className='flex-row-cont check-signup'>
@@ -112,16 +118,16 @@ const CheckoutPage = (subtotalParams) => {
                             <div className='flex-row-cont checkout-box-split'>
                                 <div className='checkout-box'>
                                     <span className='req-star' hidden={hideErr}>*</span>
-                                    <input type='text' value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='First Name' maxLength='49' />
+                                    <input type='text' value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='First Name' maxLength='50' />
                                 </div>
                                 <div className='checkout-box'>
                                     <span className='req-star' hidden={hideErr}>*</span>
-                                    <input type='text' value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='Last Name' maxLength='49' />
+                                    <input type='text' value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='Last Name' maxLength='50' />
                                 </div>
                             </div>
                             <div className='checkout-box'>
                                 <span className='req-star' hidden={hideErr}>*</span>
-                                <input type='text' value={address} onChange={e=>setAddress(e.target.value)} placeholder='Address' maxLength='49' />
+                                <input type='text' value={address} onChange={e=>setAddress(e.target.value)} placeholder='Address' maxLength='50' />
                             </div>
                             <div className='checkout-box'>
                                 <span className='req-star' hidden={hideErr}>*</span>
