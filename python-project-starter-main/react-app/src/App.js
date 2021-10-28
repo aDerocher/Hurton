@@ -62,6 +62,16 @@ function App() {
                     <ItemDetails />
                     <Footer />
                 </Route>
+                <Route path='/shop/boots/:itemId' exact={true}>
+                    <NavBar />
+                    <ItemDetails />
+                    <Footer />
+                </Route>
+                <Route path='/shop/bindings/:itemId' exact={true}>
+                    <NavBar />
+                    <ItemDetails />
+                    <Footer />
+                </Route>
 
                 <Route path='/login' exact={true}>
                     <NavBarSimple />
