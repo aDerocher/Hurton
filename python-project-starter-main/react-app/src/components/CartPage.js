@@ -53,19 +53,25 @@ const CartPage = () => {
     const removeFromCart = (e, item) => {
         e.preventDefault()
         if (sessionUser){
+            console.log('dispatching removal')
             dispatch(deleteCartItem(item.id))
         } else {
-            removeLSCartItem(`${item.item_id}_${item.item_color}_${item.item_size}`)
+            console.log('dispatching local removal')
+            removeLSCartItem(item)
         }
         let x = document.getElementById(`${item?.id}`)
         if (x) {x.style.display = 'none';}
     }
     
     //handle the deletion of cart item from local storage ==============
-    const removeLSCartItem = (cart_item_key) => {
+    const removeLSCartItem = (cartItem) => {
         // get the cart in local storage (assume it exists)
         let ls_cart = localStorage.getItem('cart');
-        delete ls_cart[`${cart_item_key}`]
+        ls_cart = JSON.parse(ls_cart)
+        console.log(ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`])
+        ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`] = undefined;
+        window.localStorage.setItem('cart', JSON.stringify(ls_cart))
+        setSubtotal(0)
     }
     
     // handle the quantity change of a cart item =======================
