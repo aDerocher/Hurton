@@ -15,6 +15,7 @@ The Hurton project is a replica of a shopping website for snowboarders. It allow
 
 ### Using Hurton
 Hurton has a similar look and feel to many online shopping sites. You can browse the splash page to see new additions and upcoming releases, or get to shopping by clicking one of the navigation options. 
+![](PlanningDocs/ReadMePics/Store-Sample.png)
 Once in the store the items for sale are rendered as many tiles. Clicking one will bring you to that items detialed page. If you find something you like, the item can be added to your shopping cart, or if you are a logged in user, to your wishlist to save for later as a bookmark. The wishlist can later be accessed on your profile, where items from the saved list can be added straight to the cart again.
 Once you have some items you would like to purchase, the checkout page allows you to give one last look at the quantities you selected, make any alterations, and if you think you can affterd your subtotal you can move on to check out.
 Checking out will ask a user for their shipping details/preferences, and once the order is submitted the cart is cleared and items are added to a users order history.
