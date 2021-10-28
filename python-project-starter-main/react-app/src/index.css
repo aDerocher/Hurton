@@ -204,6 +204,14 @@ input:focus {
     font-weight: 700;
     cursor:default;
 }
+.dis-dark:disabled,
+.dis-dark[disabled]{
+    background-color: var(--charcoal-grey);
+    color: var(--med-light-grey);
+    border: 1px solid var(--med-light-grey);
+    font-weight: 700;
+    cursor:default;
+}
 .black-rectangle-btn{
     background-color: var(--charcoal-grey);
     color: white;
