@@ -3,10 +3,10 @@ from app.models import db, ItemType
 
 def seed_itemtypes():
     snowboard = ItemType(
-        item_type = 'snowboard'
+        item_type = 'snowboards'
     )
     jacket = ItemType(
-        item_type = 'jacket'
+        item_type = 'jackets'
     )
     boots = ItemType(
         item_type = 'boots'
