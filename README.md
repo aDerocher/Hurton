@@ -1,5 +1,5 @@
 # Hurton
-Clone of Burton.com by Andrew Derocher
+[Hurton](https://hurton.herokuapp.com/) is a clone of [Burton.com](https://burton.com) by Andrew Derocher
 Contents:
  1. Overview
  2. Backend Summary
