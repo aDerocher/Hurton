@@ -7,7 +7,7 @@ import "./../styles/profile-page.css"
 
 function ProfilePage() {
   const [ user, setUser ] = useState({});
-  const [ show, setShow ] = useState(false);
+//   const [ show, setShow ] = useState(false);
   const { userId }  = useParams();
 
   const sessionUser = useSelector(state => state.session.user)

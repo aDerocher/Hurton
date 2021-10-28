@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getOrderHistory } from './../../store/session';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem } from './../../store/wishlist';
-import './../../styles/item-form.css'
+import SBForm from './SBForm';
+import './../../styles/item-details.css';
 
 
 const ItemForm = (item) => {
@@ -15,7 +16,6 @@ const ItemForm = (item) => {
     const sessionUser = useSelector(state => state.session?.user)
     const usersWishlist = useSelector(state => state.wishlist)
     
-    const [ quantity, setQuantity ] = useState(1)
     
     useEffect(() => {
         dispatch(getOrderHistory(sessionUser?.id))
@@ -42,6 +42,7 @@ const ItemForm = (item) => {
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1
+
         }
         dispatch(addWishlistItem(formData))
     }
@@ -98,48 +99,36 @@ const ItemForm = (item) => {
         setOrigImage(false)
         setDispImage(img)
     }
+    // for handling the photo viewer
     const [ origImage, setOrigImage ] = useState(true)
     const [ dispImage, setDispImage ] = useState('')
 
 
+    const [ quantity, setQuantity ] = useState(1)
+    const [ size, setSize ] = useState('M')
+    const [ color, setColor ] = useState()
+
     return (
-        <div className="item-form-container">
-            <div className='item-details-selection flex-row-cont'>
-                <div className='item-deets-imgs flex-col-cont'>
-                    <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />
-                    <img className='imageTile' src={curItem?.image2} onClick={e=>changeDispImage(e,curItem?.image2)}alt='sb' />
-                    <img className='imageTile' src={curItem?.image3} onClick={e=>changeDispImage(e,curItem?.image3)}alt='sb' />
-                </div>
-                <div className='item-deets-img'>
-                    { origImage &&
-                        <img src={curItem?.image1} alt='sb' />}
-                    { !origImage &&
-                        <img src={dispImage} alt='sb' />}
-                    
-                </div>
-                <div className='curItem-deets-form'>
-                    <p className=''>{}</p>
-                    <p className=''>{curItem?.name}</p>
-                    <p className=''>{curItem?.price}</p>
-                    <p className=''>{curItem?.color}</p>
-                    <form>
-                    </form>
-                    <div>
-                        <div className='flex-row-cont'>
-                            <button className='grey-green-btn'
-                            onClick={e=>addItemToCart(e, curItem)}>
-                                ADD TO CART
-                            </button>
-                            <button onClick={e=>addItemToWishlist(e, curItem)}>
-                                &lt;3
-                            </button>
-                        </div>
-                        <button>Find My Size</button>
-                    </div>
-                </div>
-                
+        <div className='item-details-selection flex-row-cont'>
+            <div className='item-deets-imgs flex-col-cont'>
+                <img className='imageTile' src={curItem?.image1} onClick={e=>changeDispImage(e,curItem?.image1)}alt='sb' />
+                <img className='imageTile' src={curItem?.image2} onClick={e=>changeDispImage(e,curItem?.image2)}alt='sb' />
+                <img className='imageTile' src={curItem?.image3} onClick={e=>changeDispImage(e,curItem?.image3)}alt='sb' />
             </div>
+
+            <div className='item-deets-img'>
+                { origImage &&
+                    <img src={curItem?.image1} alt='sb' />}
+                { !origImage &&
+                    <img src={dispImage} alt='sb' />}
+            </div>
+
+            <div className='curItem-deets-form'>
+                <SBForm item={curItem} />
+            </div>
+            
         </div>
+    
     );
 }
 

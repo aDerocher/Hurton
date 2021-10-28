@@ -1,9 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { getItemReviews } from '../store/items';
 import { editReview, deleteReview } from './../store/reviews'
-import revTemplate from './../images/review-template.PNG'
 import { format } from "date-fns";
 import './../styles/reviews.css'
 
@@ -65,9 +63,7 @@ const Reviews = (revData) => {
         e.preventDefault()
         dispatch(deleteReview(review.id, itemId))
     }
-    let x = new Date('Tue, 26 Oct 2021 22:53:47 GMT')
-    console.log(format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM yyyy'))
-    // console.logt(format('Tue, 26 Oct 2021 22:53:47 GMT', 'mm yyyy'))
+    
     return (
         <div className="review-container">
             {review?.title && 
@@ -79,14 +75,16 @@ const Reviews = (revData) => {
                             </div>
                             <div className='rev-name-stars'>
                                 <p>Users Fullname</p>
-                                {five.map((n) => (
-                                    <>
-                                    {n <= review.rating &&
-                                        <i className="fas fa-star"></i>}
-                                    {n > review.rating && 
-                                        <i className="far fa-star"></i>}
-                                    </>
-                                ))}
+                                <div className='stars-row flex-row-cont'>
+                                    {five.map((n, i) => (
+                                        <div key={i} className=''>
+                                            {n <= review.rating &&
+                                                <i className="fas fa-star"></i>}
+                                            {n > review.rating && 
+                                                <i className="far fa-star"></i>}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                         <p>{format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM/dd/yy')}</p>
