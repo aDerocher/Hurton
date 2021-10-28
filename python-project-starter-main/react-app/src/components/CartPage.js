@@ -47,31 +47,50 @@ const CartPage = () => {
             x += i.quantity * i.item_price
         })
         setSubtotal(x)
-    }, [cart])
+    }, [cart, subtotal])
     
     //handle the deletion of cart item =================================
     const removeFromCart = (e, item) => {
         e.preventDefault()
         if (sessionUser){
+            console.log('dispatching removal')
             dispatch(deleteCartItem(item.id))
         } else {
-            removeLSCartItem(`${item.item_id}_${item.item_color}_${item.item_size}`)
+            console.log('dispatching local removal')
+            removeLSCartItem(item)
         }
         let x = document.getElementById(`${item?.id}`)
         if (x) {x.style.display = 'none';}
     }
     
     //handle the deletion of cart item from local storage ==============
-    const removeLSCartItem = (cart_item_key) => {
+    const removeLSCartItem = (cartItem) => {
         // get the cart in local storage (assume it exists)
-        let cart = localStorage.getItem('cart');
-        delete cart[`${cart_item_key}`]
+        let ls_cart = localStorage.getItem('cart');
+        ls_cart = JSON.parse(ls_cart)
+        console.log(ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`])
+        ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`] = undefined;
+        window.localStorage.setItem('cart', JSON.stringify(ls_cart))
+        setSubtotal(0)
     }
-
+    
     // handle the quantity change of a cart item =======================
-    const handleQuantChange = (e, cartItem_id, newQuant) => {
+    const handleQuantChange = (e, cartItem, newQuant) => {
         e.preventDefault()
-        dispatch(editCartItem(cartItem_id, newQuant))
+        if(sessionUser){
+            dispatch(editCartItem(cartItem.id, newQuant))
+        } else {
+            updateLSCartItem(cartItem, 'quantity', newQuant)
+            // dispatch()
+        }
+    }
+    
+    const updateLSCartItem = (cartItem, attr, newQuant) => {
+        let ls_cart = localStorage.getItem('cart');
+        ls_cart = JSON.parse(ls_cart)
+        ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`][`${attr}`] = newQuant
+        window.localStorage.setItem('cart', JSON.stringify(ls_cart))
+        setSubtotal(0)
     }
 
     return (
@@ -117,7 +136,7 @@ const CartPage = () => {
                                     {/* <p className="amount-saved">$22(10%)</p> */}
                                 </div>
                                 <form className="cart-quantity-sel">
-                                    <select name="cart-quantity" onChange={e=>handleQuantChange(e, cart_item.id, e.target.value)} className='cart-quantity' id="">
+                                    <select name="cart-quantity" onChange={e=>handleQuantChange(e, cart_item, e.target.value)} className='cart-quantity' id="">
                                         <option className='def-option' value={cart_item.quantity} defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
                                         <option value='1'>1</option> 
                                         <option value='2'>2</option>
