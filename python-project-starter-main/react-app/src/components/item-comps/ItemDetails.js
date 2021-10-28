@@ -95,7 +95,6 @@ const ItemDetails = () => {
             cartStorage.setItem('cart', JSON.stringify({}));
             cart = localStorage.getItem('cart');
         }
-        console.log(JSON.parse(cart))
         cart = JSON.parse(cart)
         if (cart[`${data.item_id}_${data.item_color}_${data.item_size}`]){
             cart[`${data.item_id}_${data.item_color}_${data.item_size}`].quantity += data.quantity
