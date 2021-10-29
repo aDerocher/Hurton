@@ -140,7 +140,7 @@ const ItemDetails = () => {
             </div> */}
 
     {/* ========= Renders Reviews Section of the Item details ======== */}
-            <div className='item-details-reviews'>
+            <div id='reviews_section' className='item-details-reviews'>
                 {userCanRev &&
                     <NewReview user={sessionUser} itemId={item?.id}/>}
                 {reviews?.map((review, i)=>(

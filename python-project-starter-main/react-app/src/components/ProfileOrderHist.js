@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"
 import { getOrderHistory } from './../store/session'
 import { addToCart } from './../store/cart'
+import { getItemTypes } from './../store/item_types'
 
 function ProfileOrderHist() {
     const {userId} = useParams();
     const dispatch = useDispatch()
     // console.log(userId, 10)
 
+
+
     useEffect(() => {
         dispatch(getOrderHistory(userId))
+        dispatch(getItemTypes())
     }, [dispatch])
     const pastItems = useSelector(state => state.session.user.order_history)
     const sessionUser = useSelector(state => state.session.user)
-    // const itemTypes = useSelector(state => state.item_types)
+    const itemTypes = useSelector(state => state.item_types)
     const userCart = useSelector(state => state.cart)
 
     const wishlistToCart = (e, wl_item) => {
@@ -65,21 +69,28 @@ function ProfileOrderHist() {
                             </div>
                         }
 
-                        {pastItems?.map((item, i) => (
+                        {pastItems?.map((pitem, i) => (
                             <div key={i} className='profile-item-card flex-row-cont'>
                                 <div className='pic-section flex-row-cont'>
-                                    <img className='pic-image' src={item.item_image} alt={item.name}/>
+                                    <img className='pic-image' src={pitem.item_image} alt={pitem.name}/>
                                     <div className='pic-section pic-text flex-col-cont'>
-                                        <p className='profile-title pr-sub-title'>{item.item_gender}'s Hurton {item.item_name}</p>
-                                        <p className='grey-label'>Color: {item.item_color}</p>
-                                        <p className='grey-label'>Size: {item.item_size}</p>
-                                        <p className='grey-label'><strong>$ {item.item_price}.00</strong></p>
+                                        <p className='profile-title pr-sub-title'>{pitem.item_gender}'s Hurton {pitem.item_name}</p>
+                                        <p className='grey-label'>Color: {pitem.item_color}</p>
+                                        <p className='grey-label'>Size: {pitem.item_size}</p>
+                                        <p className='grey-label'><strong>$ {pitem.item_price}.00</strong></p>
                                     </div>
                                 </div>
-                                
+
+                                {/* <div> */}
+                                    {/* <NavLink to={`/shop/${itemTypes[pitem.item_type].item_type}#reviews_section`}> */}
+                                        {/* Leave a Review */}
+                                        {console.log(pitem)}
+                                    {/* </NavLink> */}
+                                {/* </div> */}
+
                                 <div className='orderHist-buttons'>
                                     <button className='black-rectangle-btn'
-                                        onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, item)}>
+                                        onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, pitem)}>
                                         BUY IT AGAIN
                                     </button>
                                 </div>
