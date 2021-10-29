@@ -111,7 +111,6 @@
 }
 
 .wishlist-cart-btn:active:after {
-    /* padding: 10px; */
     background-color: var(--button-turq);
     height: 70px;
     width: 200px;
