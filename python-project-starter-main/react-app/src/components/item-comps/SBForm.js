@@ -17,7 +17,7 @@ const ItemForm = () => {
     const itemTypes = useSelector(state => state.item_types)
     
     useEffect(()=>{
-        dispatch(getUsersWishlist(sessionUser.id))
+        dispatch(getUsersWishlist(sessionUser?.id))
     },[ dispatch])
     
     // handle adding the item to a users wishlist ================
