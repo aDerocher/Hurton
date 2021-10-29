@@ -17,7 +17,7 @@ const ItemForm = () => {
     const itemTypes = useSelector(state => state.item_types)
     
     useEffect(()=>{
-        dispatch(getUsersWishlist(sessionUser.id))
+        dispatch(getUsersWishlist(sessionUser?.id))
     },[ dispatch])
     
     // handle adding the item to a users wishlist ================
@@ -69,7 +69,7 @@ const ItemForm = () => {
             item_name: item.name,
             item_color: color,
             item_gender: item.gender,
-            item_size: size,
+            item_size: size.toString(),
             item_price: item.price,
             item_image: item.image1,
             quantity: quantity,
@@ -77,20 +77,25 @@ const ItemForm = () => {
         setConfirmItem(formData)
         if (uid) {
             const existingCartItem = usersCart.filter((item)=>{
+                console.log(item.item_id ,formData.item_id )
+                console.log(item.item_size, formData.item_size) 
+                console.log(item.item_color ,formData.item_color)
+
                 if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color)
                 return true
             })
             if (existingCartItem.length > 0) {
                 existingCartItem[0].quantity +=1
                 dispatch(editCartItem(existingCartItem[0].id, existingCartItem[0].quantity))
+                setShowCCModal(true)
                 return
             }
-            setShowCCModal(true)
             dispatch(addToCart(formData))
+            setShowCCModal(true)
             return
         }
-        setShowCCModal(true)
         addToLocalCart(formData)
+        setShowCCModal(true)
     }
     // // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {
