@@ -112,6 +112,14 @@
 }
 
 
+.item-form-wl-btn2{
+    background-color: var(--light-grey);
+    color: var(--charcoal-grey);
+    font-size: 28px;
+    position: relative;
+    width: 35%;
+}
+
 
 
 
