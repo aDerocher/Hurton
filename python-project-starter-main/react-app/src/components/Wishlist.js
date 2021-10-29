@@ -32,12 +32,6 @@ function Wishlist() {
     // handle moving items from the wishlist to the cart
     const wishlistToCart = (e, wl_item) => {
         e.preventDefault();
-        //check if cart item exists
-        // if (itemExistsInCart(userCart, wl_item)){
-        //     alert ('Item already in cart :)')
-        //     return
-        // }
-        // if not, add to cart and alert user
         const formData = {
             item_id: wl_item.item_id,
             item_name: wl_item.item_name,
@@ -54,10 +48,10 @@ function Wishlist() {
     }
 
     const itemExistsInCart=(itemArr, wl_item) => {
-        let inCart = itemArr.filter((item) => {
-            return ((wl_item.item_id === item.item_id &&
-                wl_item.item_color === item.item_color) &&
-                wl_item.item_size === item.item_size)
+        let inCart = itemArr.filter((i) => {
+            return ((wl_item.item_id === i.item_id &&
+                wl_item.item_color === i.item_color) &&
+                wl_item.item_size === i.item_size)
         })
         return inCart.length > 0
     }

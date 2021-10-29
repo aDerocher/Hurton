@@ -26,10 +26,8 @@ const ItemForm = () => {
             alert("you must be logged in to add items to a wishlist!");
             return
         }
-        let wl_exists = usersWishlist?.filter((i) => {
-            return i.item_id === curItem.id
-        })
-        if(wl_exists.length > 0){return}
+        if(itemExistsInWishlist(usersWishlist, item)){return}
+        // if(wl_exists.length > 0){return}
         const formData = {
             user_id: sessionUser.id,
             item_id: curItem.id,
@@ -42,6 +40,16 @@ const ItemForm = () => {
 
         }
         dispatch(addWishlistItem(formData))
+    }
+
+    const itemExistsInWishlist=(itemArr, wl_item) => {
+        let inCart = itemArr?.filter((i) => {
+            console.log('--------------------------------', i)
+            return ((wl_item.item_id === i?.item_id &&
+                wl_item.item_color === i?.item_color) &&
+                wl_item.item_size === i?.item_size)
+        })
+        return inCart?.length > 0
     }
     // handle adding an item to the users cart ===============
     const addItemToCart = (e, item) => {
@@ -93,7 +101,11 @@ const ItemForm = () => {
         window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
+
     // ================= for the form ===================
+    useEffect(() => {
+
+    }, [usersWishlist])
     useEffect(()=>{
         let newScore = itemReviews.reduce((accum, i) => {
             return accum + i.rating
@@ -253,14 +265,17 @@ const ItemForm = () => {
                     onClick={e=>addItemToCart(e, curItem)}>
                         ADD TO CART
                     </button>
+                    <p>{itemExistsInWishlist(usersWishlist, curItem)}</p>
                     <button className='item-form-wl-btn dis'
-                    disabled={!sessionUser}
-                    onClick={e=>addItemToWishlist(e, curItem)}
+                    disabled={!sessionUser || itemExistsInWishlist(usersWishlist, curItem)}
+                    onClick={e=>e.stopPropagation(), e=>addItemToWishlist(e, curItem)}
                     >
+                        {/* {console.log(itemExistsInWishlist(usersWishlist, curItem))} */}
+                        {/* {console.log(usersWishlist[0], curItem)} */}
                         <i className="far fa-heart"></i>
                     </button>
                 </div>
-                <button className='find-my-size-btn dis' disabled={true}>Find My Size</button>
+                {/* <button className='find-my-size-btn dis' disabled={true}>Find My Size</button> */}
             </div>
             
     </div>
