@@ -1,0 +1,80 @@
+
+/* ======= Modal Universals ================ */
+
+.modal-container{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    background-color: rgba(255, 255, 255,0.8)
+}
+
+.atcc-container{
+    max-width: 500px;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 10rem;
+    background-color: rgb(255, 255, 255);
+    padding: 4rem 1rem;
+    box-shadow: 0 0 14px rgb(0,0,0,.2);
+}
+.atcc-container > * {
+    padding: 1rem
+}
+
+/* ===== Left/Right Sections ============ */
+.itemConf-sec-cont{
+    /* border: 1px solid red; */
+    justify-content: space-around;
+    align-items: center;
+}
+.itemConf-sec-cont > *{
+    /* border: 1px solid red; */
+}
+.itemConf-left{
+    padding: 1rem;
+    width: 33%; 
+    overflow:hidden;
+}
+.itemConf-left > img {
+    width: 100%;
+    
+}
+.itemConf-right{
+    width: 65%;
+    padding: 3px;
+    justify-content: center;
+}
+.itemConf-right > p{
+    padding: 3px;
+}
+/* ===== Texts ============ */
+.grey-label{
+    font-size: 12pt;
+}
+.conf-title{
+    color: var(--dark-grey);
+
+}
+
+/* ===== BUTTONS ============ */
+
+.item-conf-checkout-link{
+    display: flex;
+    width: 50%;
+}
+.item-conf-checkout-btn:hover{
+    background-color: var(--lightgrey1)
+}
+.item-conf-checkout-btn{
+    background-color: red;
+    background-color: var(--light-grey);
+    width: 100%;
+    height: 100%;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+
+

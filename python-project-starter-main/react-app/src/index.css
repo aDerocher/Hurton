@@ -23,6 +23,7 @@
         --link-green: #4d6e60;
         /*accents, button backgrdounds*/
         --button-turq:#3d7c7d;
+        --button-turq-dark:#2c5455;
         --accent-turq:#0e7387;
 
     /* Accents -------------------- */
@@ -182,7 +183,7 @@ input:focus {
     border-radius: 11px;
 }
 
-.grey-green-btn:hover{ background-color: var(--med-light-grey);}
+.grey-green-btn:hover{ background-color: var(--button-turq-dark);}
 .grey-green-btn{
     background-color: var(--button-turq);
     color: white;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem } from './../../store/wishlist';
 import './../../styles/item-form.css'
+import AddToCartModal from './AddToCartModal';
 
 
 const ItemForm = () => {
@@ -57,6 +58,7 @@ const ItemForm = () => {
             item_image: item.image1,
             quantity: quantity,
         }
+        setConfirmItem(formData)
         if (uid) {
             const existingCartItem = usersCart.filter((item)=>{
                 if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color)
@@ -71,6 +73,7 @@ const ItemForm = () => {
             return
         }
         addToLocalCart(formData)
+        setShowCCModal(true)
     }
     // // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {
@@ -132,15 +135,29 @@ const ItemForm = () => {
         if(!color || curItem.item_type === 1){ setColor(curItem?.color)}
     }, [ dispatch, curItem ])
 
+    // for the item
     const [ colorsArr, setColorsArr ] = useState([])
     const [ sizesArr, setSizesArr ] = useState([])
-    const [ score, setScore ] = useState(5)
     const [ quantity, setQuantity ] = useState(1)
     const [ size, setSize ] = useState(sizesArr[0])
     const [ color, setColor ] = useState(curItem?.color)
+    // for reviews
+    const [ score, setScore ] = useState(5)
+    // for the modal
+    const [ showCCModal, setShowCCModal ] = useState(false)
+    const [ confirmItem, setConfirmItem ] = useState({})
 
     return (
         <div className='item-form-container'>
+
+            <button onClick={() => setShowCCModal(true) }>TEST BUTTON</button>
+            <AddToCartModal onClose={() => setShowCCModal(false)} 
+                hidden={showCCModal} 
+                confirmItem={confirmItem} 
+                show={showCCModal}
+                quantity={quantity} />
+
+
             <div className='item-form-p1'>
                 <p className=''>{}</p>
                 <h2 className='item-form-title'>{curItem?.gender}'s {curItem?.name}</h2>
