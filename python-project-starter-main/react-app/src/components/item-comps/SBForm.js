@@ -254,8 +254,11 @@ const ItemForm = () => {
                     onClick={e=>addItemToCart(e, curItem)}>
                         ADD TO CART
                     </button>
-                    <button className='item-form-wl-btn dis' disabled={!sessionUser} onClick={e=>addItemToWishlist(e, curItem)}>
-                        &lt;3
+                    <button className='item-form-wl-btn dis'
+                    disabled={!sessionUser}
+                    onClick={e=>addItemToWishlist(e, curItem)}
+                    >
+                        <i className="far fa-heart"></i>
                     </button>
                 </div>
                 <button className='find-my-size-btn dis' disabled={true}>Find My Size</button>
