@@ -94,7 +94,7 @@ function App() {
                     <CheckoutPage />
                     <Footer />
                 </Route>
-                <Route path='/cart/checkout/thankyou' exact={true} >
+                <Route path='/thankyou' exact={true} >
                     <NavBarSimpleText />
                     <CheckoutThankYou />
                     <Footer />

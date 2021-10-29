@@ -1,24 +1,32 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import "./../styles/thankyou.css"
 
 function CheckoutThankYou() {
+
+    const sessionUser = useSelector(state => state.session.user)
 
     return (
         <div className="splash-page-container">
 
             <div className='splash-photo-container-thankyou'>
                 <h2 className='splash-title'>Thanks for your Order!</h2>
-                <p className='splash-text'>Have a great season shredding!</p>
+                <p className='splash-text'>Have a great season!</p>
                 <div className='splash-btns-cont'>
-                    <a href="https://github.com/aDerocher" target="_blank" className="github-link">
-                        <button className='splash-btn'><i className="fab fa-github"></i> <p className='thankyou-btn'> Github</p></button>
-                    </a>
-                    <a href="https://www.linkedin.com/in/andrew-derocher-54003789/" target="_blank" className="github-link">
-                        <button className='splash-btn'><i className="fab fa-linkedin"></i> <p className='thankyou-btn'>Linkedin</p></button>
-                    </a>
-                    <a href="mailto:am.derocher@gmail.com" className="github-link">
-                        <button className='splash-btn'><i className="far fa-envelope"></i> <p className='thankyou-btn'>Email</p></button>
-                    </a>
+                    <NavLink to="/" className="github-link">
+                        <button className='splash-btn'><p className='thankyou-btn'>Hurton Home</p></button>
+                    </NavLink>
+                    {!sessionUser && 
+                    <NavLink to="/sign-up" className="github-link">
+                        <button className='splash-btn'><p className='thankyou-btn'>Create An Account</p></button>
+                    </NavLink>
+                    }
+                    {sessionUser && 
+                    <NavLink to={`/users/${sessionUser.id}/order-history`} className="github-link">
+                        <button className='splash-btn'><p className='thankyou-btn'>My Order History</p></button>
+                    </NavLink>
+                    }
                 </div>
             </div>
 

@@ -92,7 +92,7 @@
 
 /* =========== Step-on Advert ============== */
 .stepon-section-container{
-    background-color: brown;
+    /* background-color: brown; */
     height: 650px;
     display: flex;
     flex-direction: column;
