@@ -1,0 +1,20 @@
+
+
+.splash-photo-container-thankyou{
+    /* background-color: aqua; */
+    min-height: 400px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 7%;
+    justify-content: center;
+    align-items: flex-start;
+    background-image: url('https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/dusk-thankyou.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+.thankyou-btn{
+    margin-left: 6px;
+}

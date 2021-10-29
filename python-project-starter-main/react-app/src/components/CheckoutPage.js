@@ -52,7 +52,7 @@ const CheckoutPage = (subtotalParams) => {
                 dispatch(editCartItem(item.id, item.quantity, true))
             })
         }
-        history.push(`/`)
+        history.push(`/cart/checkout/thankyou`)
     }
 
     const [ email, setEmail ] = useState(sessionUser?.email)

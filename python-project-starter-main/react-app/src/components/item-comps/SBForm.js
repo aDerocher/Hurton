@@ -38,7 +38,6 @@ const ItemForm = () => {
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1
-
         }
         dispatch(addWishlistItem(formData))
     }
