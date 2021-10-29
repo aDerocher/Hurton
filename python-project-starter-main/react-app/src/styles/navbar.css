@@ -106,6 +106,8 @@
 .nav-links > *{
     padding: .5rem;
 }
+
+/* ===== SEARCH =================== */
 .nav-search-cont{
     /* border: 1px solid purple; */
     outline: none;
@@ -118,10 +120,21 @@
     
 }
 .search-outline{
-    /* border: 1px solid red; */
+    align-items: center;
+    border: 1px solid lightgrey;
+}
+.temp-search-outline{
+    align-items: center;
     display: flex;
     flex-direction: row;
     border: 1px solid lightgrey;
+    height: 24px;
+    padding: 12px;
+    width: 175px;
+    font-size: 12pt;
+    color: var(--light-grey);
+    text-decoration: line-through;
+    font-style:italic;
 }
 .nav-search{
     border: none;

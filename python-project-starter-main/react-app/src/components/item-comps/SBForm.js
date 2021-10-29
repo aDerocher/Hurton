@@ -69,11 +69,12 @@ const ItemForm = () => {
                 dispatch(editCartItem(existingCartItem[0].id, existingCartItem[0].quantity))
                 return
             }
+            setShowCCModal(true)
             dispatch(addToCart(formData))
             return
         }
-        addToLocalCart(formData)
         setShowCCModal(true)
+        addToLocalCart(formData)
     }
     // // handle adding an item to the cart that is in local storage (if no session user)
     const addToLocalCart = (data) => {

@@ -3,6 +3,7 @@ const GET_CART = 'session/GET_CART';
 const ADD_TO_CART = 'session/ADD_TO_CART';
 const EDIT_CART = 'session/EDIT_CART';
 const DELETE_ONE_FROM_CART = 'session/DELETE_ONE_FROM_CART';
+const GET_EMPTY_CART = 'session/GET_EMPTY_CART';
 // const DELETE_ALL_FROM_CART = 'session/DELETE_ALL_FROM_CART';
 
 
@@ -25,9 +26,10 @@ const editCart = (cart_item) => ({
     type: EDIT_CART,
     payload: cart_item
 })
-// const removeAllFromCart = () => ({
-//   type: DELETE_ALL_FROM_CART,
-// })
+
+const getAnEmptyCart = (cart) => ({
+  type: GET_EMPTY_CART,
+})
 
 
 
@@ -125,6 +127,10 @@ export const deleteCartItem = (cartItem_id) => async (dispatch) => {
     }
 }
 
+export const getEmptyCart = () => async (dispatch) => {
+    const empty_cart = []   
+    dispatch(getAnEmptyCart(empty_cart));
+}
 
 // =========== Reduce ========================
 const initialState = [];
@@ -160,6 +166,9 @@ export default function reducer(state = initialState, action) {
                 return item.id !== action.payload.id
             })
             return [ ...newState]
+
+        case GET_EMPTY_CART:
+            return []
             
         // case DELETE_ALL_FROM_CART:
         //     return [ ...action.payload]

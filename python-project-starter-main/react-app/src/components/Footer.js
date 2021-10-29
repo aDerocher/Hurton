@@ -10,13 +10,15 @@ function Footer() {
 
             <div className='footer-search-container content-width'>
                 <div className='foot-s-sec fss-one'>
-                    <p>Sign up for news, promotions, and more</p>
+                    <p className='dead-link'>Sign up for news, promotions, and more</p>
                 </div>
 
                 <div className='foot-s-sec fss-two'>
-                    <div className='faux-search'>
-                        <input className='f-search-inp' type="text" />
-                        <p>📧</p>
+                    {/* <div className='faux-search'> */}
+                    <div className='temp-faux-search'>
+                        <p className='dead-link'>Not a Searchbar</p>
+                        {/* <input className='f-search-inp' type="text" />
+                        <p>📧</p> */}
                     </div>
                 </div>
 
@@ -28,7 +30,7 @@ function Footer() {
 
             <div className='footer-top content-width'>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title">About Us</h2>
+                    <h2 className="foot-title dead-link">About Us</h2>
                     <ul>
                     {/* <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li> */}
                     <li className='link-green'><NavLink to='/about' style={{ color: `var(--link-green)`}}> <p className='github-link'>About Hurton</p></NavLink></li>
@@ -43,7 +45,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title">Discover</h2>
+                    <h2 className="foot-title dead-link">Discover</h2>
                     <ul>
                         <li className='dead-link'>Learn To Ride</li>
                         <li className='dead-link'>Riglet Snowboarding</li>
@@ -54,7 +56,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title">Self Service</h2>
+                    <h2 className="foot-title dead-link">Self Service</h2>
                     <ul>
                         <li className='dead-link'>Explore Our Services</li>
                         <li className='dead-link'>Track Your Order</li>
@@ -67,7 +69,7 @@ function Footer() {
                     </ul>
                 </div>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title">Get Help</h2>
+                    <h2 className="foot-title dead-link">Get Help</h2>
                     <ul>
                         <li className='dead-link'>Help and FAQS</li>
                         <li className='dead-link'>info@Hurton.com</li>
@@ -78,8 +80,8 @@ function Footer() {
 
             <div className='footer-bottom content-width'>
                 <div className='footer-bottom-section fbs-1'>
-                    <p>⚐ US/EN</p>
-                    <p>©2021 Hurton Snowboards</p><p>·</p>
+                    <p className='dead-link'>⚐ US/EN</p>
+                    <p className='dead-link'>©2021 Hurton Snowboards</p><p>·</p>
                 </div>
 
                 <div className='footer-bottom-section f-emojis fbs-3'>

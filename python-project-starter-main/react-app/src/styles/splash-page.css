@@ -84,7 +84,8 @@
 .shop-section-label{
     font-size: 19pt;
     font-weight: 600;
-    color: var(--chargrey1);
+    /* color: var(--chargrey1); */
+    color: var(--lightgrey1);
     padding: 24px 0;
 
 }
