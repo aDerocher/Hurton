@@ -151,7 +151,6 @@ const ItemForm = () => {
     return (
         <div className='item-form-container'>
 
-            <button onClick={() => setShowCCModal(true) }>TEST BUTTON</button>
             <AddToCartModal onClose={() => setShowCCModal(false)} 
                 hidden={showCCModal} 
                 confirmItem={confirmItem} 

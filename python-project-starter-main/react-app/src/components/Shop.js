@@ -66,8 +66,8 @@ const Shop = () => {
                                 <p className='sale-text'>$ {item.price}.00</p>
                             </div>
                             <div className='sale-compare-section'>
-                                <input disabled={true} type='checkbox' name="itemId" value="itemId" />
-                                <label className="dead-link"><i>Compare</i></label>
+                                {/* <input disabled={true} type='checkbox' name="itemId" value="itemId" /> */}
+                                {/* <label className="dead-link"><i>Compare</i></label> */}
                             </div>
                         </div>
                     ))}

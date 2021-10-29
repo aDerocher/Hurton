@@ -57,13 +57,13 @@ const NavBar = () => {
                         <p className='boldish'>HURTON</p>
                     </NavLink>
 
-                    <p className='dead-link'>ANON</p>
-                    <p className='small-text dead-link'>Blog</p>
+                    {/* <p className='dead-link'>ANON</p> */}
+                    {/* <p className='small-text dead-link'>Blog</p> */}
                     <NavLink to='/about' style={{ color: `var(--link-green)`}}> <p className='small-text github-link'>About Hurton</p></NavLink>
                 </div>
 
                 <div className='meta-nav-section'>
-                    <p className='green-shipping'>FREE SHIPPING ON ALL ORDERS</p>
+                    {/* <p className='green-shipping'>FREE SHIPPING ON ALL ORDERS</p> */}
                 </div>
 
                 <div className='meta-nav-section'>
@@ -72,7 +72,7 @@ const NavBar = () => {
                             <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i><span> </span> Wishlist</button>
                         </NavLink>
                     }
-                    <p className='dead-link'>Stores</p>
+                    {/* <p className='dead-link'>Stores</p> */}
                     {!sessionUser &&
                         <>
                         <NavLink to={`/login`} exact={true} activeClassName='active' style={{ textDecoration: 'none', color: `var(--link-green)` }}>
@@ -121,6 +121,9 @@ const NavBar = () => {
                 </div>
                 <div className="nav-section nav-links">
                         <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
+                            <h3 className='green-link'>Shop</h3>
+                        </NavLink>
+                        {/* <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: `var(--link-green)`}}>
                             <p>Snowboarding</p>
                         </NavLink>
                         <p className='dead-link'>Women</p>
@@ -128,7 +131,7 @@ const NavBar = () => {
                         <p className='dead-link'>Kids</p>
                         <p className='dead-link'>Accessories & Bags</p>
                         <p className='dead-link'>Sale</p>
-                        <p className='dead-link'>MINE77</p>
+                        <p className='dead-link'>MINE77</p> */}
                 </div>
                 <div className='nav-section nav-search-cont'>
                     <div className='temp-search-outline flex-row-cont'>

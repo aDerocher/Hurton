@@ -40,7 +40,7 @@ function SplashPage() {
                 <p className='splash-text'>Ever wonder what gear your favorite snowboarder uses? Head to <br />the Hurton Blog to find out which board 
                     each rider calls their tried and true, or check out <br />our round-up to explore their complete setups.</p>
                 <div className='splash-btns-cont'>
-                    <button className='splash-btn dead-link dis-dark' disabled={true}>READ MORE</button>
+                    {/* <button className='splash-btn dead-link dis-dark' disabled={true}>READ MORE</button> */}
                     <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: 'white'}}>
                             <button className='splash-btn'>SHOP SETUPS</button>
                     </NavLink>
@@ -56,19 +56,19 @@ function SplashPage() {
             <div className='content-width shop-sections-container'>
                 <div className='shop-section'>
                     <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-jackets.jpg" alt="shop" className='shop-section-img' />
-                    <h3 className="shop-section-label dead-link">Shop Jackets</h3>
+                    {/* <h3 className="shop-section-label dead-link">Shop Jackets</h3> */}
                 </div>
                 <div className='shop-section'>
                     <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-bibs-pants.jpg" alt="shop" className='shop-section-img' />
-                    <h3 className="shop-section-label dead-link">Pants & Bibs</h3>
+                    {/* <h3 className="shop-section-label dead-link">Pants & Bibs</h3> */}
                 </div>
                 <div className='shop-section'>
                     <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-fleece.jpg" alt="shop" className='shop-section-img' />
-                    <h3 className="shop-section-label dead-link">Shop Fleece</h3>
+                    {/* <h3 className="shop-section-label dead-link">Shop Fleece</h3> */}
                 </div>
                 <div className='shop-section'>
                     <img src="https://hurton.s3.us-west-2.amazonaws.com/Hurton-downloadedImages/splash-kids.jpg" alt="shop" className='shop-section-img' />
-                    <h3 className="shop-section-label dead-link">Shop Kids</h3>
+                    {/* <h3 className="shop-section-label dead-link">Shop Kids</h3> */}
                 </div>
             </div>
 
@@ -83,7 +83,7 @@ function SplashPage() {
                         <br />
                         Get right to riding on 10/18 with fresh colors and styles.
                     </p>
-                    <button className='stepon-btn dead-link dis' disabled={true}>STAY IN THE KNOW</button>
+                    {/* <button className='stepon-btn dead-link dis' disabled={true}>STAY IN THE KNOW</button> */}
                 </div>
             </div>
     

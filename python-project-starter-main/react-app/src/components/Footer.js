@@ -23,29 +23,29 @@ function Footer() {
                 </div>
 
                 <div className='foot-s-sec fss-thr'>
-                    <p className='dead-link'>FIND A STORE</p>
-                    <p className='dead-link'>TAKE A TEST RIDE</p>
+                    {/* <p className='dead-link'>FIND A STORE</p>
+                    <p className='dead-link'>TAKE A TEST RIDE</p> */}
                 </div>
             </div>
 
             <div className='footer-top content-width'>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title dead-link">About Us</h2>
+                    {/* <h2 className="foot-title dead-link">About Us</h2> */}
                     <ul>
                     {/* <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li> */}
                     <li className='link-green'><NavLink to='/about' style={{ color: `var(--link-green)`}}> <p className='github-link'>About Hurton</p></NavLink></li>
                     {/* <li className='dead-link'>About Hurton</li> */}
-                    <li className='dead-link'>Careers</li>
+                    {/* <li className='dead-link'>Careers</li>
                     <li className='dead-link'>Sustainability</li>
                     <li className='dead-link'>Hill Foundation</li>
                     <li className='dead-link'>Accessability</li>
                     <li className='dead-link'>Affiliate</li>
                     <li className='dead-link'>Performer Program</li>
-                    <li className='dead-link'>Discount Programs</li>
+                    <li className='dead-link'>Discount Programs</li> */}
                     </ul>
                 </div>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title dead-link">Discover</h2>
+                    {/* <h2 className="foot-title dead-link">Discover</h2>
                     <ul>
                         <li className='dead-link'>Learn To Ride</li>
                         <li className='dead-link'>Riglet Snowboarding</li>
@@ -53,10 +53,10 @@ function Footer() {
                         <li className='dead-link'>The Hurton Blog</li>
                         <li className='dead-link'>#Hurton Team</li>
                         <li className='dead-link'>Events</li>
-                    </ul>
+                    </ul> */}
                 </div>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title dead-link">Self Service</h2>
+                    {/* <h2 className="foot-title dead-link">Self Service</h2>
                     <ul>
                         <li className='dead-link'>Explore Our Services</li>
                         <li className='dead-link'>Track Your Order</li>
@@ -66,15 +66,15 @@ function Footer() {
                         <li className='dead-link'>Spare Parts</li>
                         <li className='dead-link'>Size Charts</li>
                         <li className='dead-link'>Customer Reviews</li>
-                    </ul>
+                    </ul> */}
                 </div>
                 <div className='footer-top-section'>
-                    <h2 className="foot-title dead-link">Get Help</h2>
+                    {/* <h2 className="foot-title dead-link">Get Help</h2>
                     <ul>
                         <li className='dead-link'>Help and FAQS</li>
                         <li className='dead-link'>info@Hurton.com</li>
                         <li className='dead-link'>555-IM-HURTN</li>
-                    </ul>
+                    </ul> */}
                 </div>
             </div>
 
@@ -93,10 +93,10 @@ function Footer() {
                 </div>
 
                 <div className='footer-bottom-section fbs-2'>
-                    <p className='f-settings dead-link'>Terms & Conditions</p>
+                    {/* <p className='f-settings dead-link'>Terms & Conditions</p>
                     <p className='f-settings dead-link'>Privacy</p>
                     <p className='f-settings dead-link'>User Content Terms</p>
-                    <p className='f-settings dead-link'>Site Map</p>
+                    <p className='f-settings dead-link'>Site Map</p> */}
                 </div>
             </div>
 
