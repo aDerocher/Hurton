@@ -69,14 +69,73 @@
     padding: 1rem 0;
     margin-right: 10px;
 }
-.item-form-wl-btn:hover{
-    background-color: var(--light-grey)
+
+
+/* .item-form-wl-btn:hover{
+    background-color: var(--lightgrey1)
 }
 .item-form-wl-btn{
     background-color: var(--light-grey);
     display: flex;
     min-width: 25%;
     max-width: 33%;
+}
+.item-form-wl-btn:after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "+ Added to Cart";
+    background: #6110a3;
+    position: absolute;
+    opacity: 0;
+    transition: 1.5s;
+    transition-delay: .7s;
+}
+.witem-form-wl-btn:active:after {
+    padding: 10px;
+    background: #10a35e;
+    background-color: var(--button-turq);
+    opacity: 1;
+    transition: 0s
+} */
+
+.item-form-wl-btn {
+    background-color: var(--light-grey);
+    color: var(--charcoal-grey);
+    font-size: 28px;
+    position: relative;
+    width: 35%;
+    transition-duration: 0.7s;
+}
+
+.item-form-wl-btn:after {
+    content: "+ Added to wishlist";
+    background-color: var(--button-turq);
+    font-size: 14px;
+    color: var(--light-grey);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* margin-left: -20px;
+    margin-top: -50%; */
+    opacity: 0;
+    transition: .8s;
+    transition-delay: .8s;
+}
+
+.item-form-wl-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.item-form-wl-btn > * {
+    font-size: 20pt;
 }
 .find-my-size-btn {
     flex-grow:1;
