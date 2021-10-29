@@ -14,15 +14,16 @@ function Wishlist() {
     useEffect(() => {
         dispatch(getUsersWishlist(userId))
         // console.log(userWishlist)
+        dispatch(getCartItems(sessionUser.id))
     }, [dispatch])
     
     const sessionUser = useSelector(state => state.session.user)
     const userWishlist = useSelector(state => state.wishlist)
     const userCart = useSelector(state => state.cart)
 
-    useEffect(() => {
-        dispatch(getCartItems(sessionUser.id))
-    }, [userCart])
+    // useEffect(() => {
+        
+    // }, [userCart])
 
     const removeFromWishlist = (e, id) => {
         e.preventDefault();
