@@ -1,5 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem, getUsersWishlist } from './../../store/wishlist';
 import './../../styles/item-form.css'
@@ -8,6 +9,7 @@ import AddToCartModal from './AddToCartModal';
 
 const ItemForm = () => {
     // console.log(curItem)
+    const history = useHistory()
     const dispatch = useDispatch()
     const usersCart = useSelector(state => state.cart)
     const sessionUser = useSelector(state => state.session?.user)
@@ -38,26 +40,17 @@ const ItemForm = () => {
             item_size: item.size,
             item_price: item.price,
             item_image: item.image1
-
         }
         dispatch(addWishlistItem(formData))
     }
 
     const itemExistsInWishlist=(itemArr, itemObj) => {
-        
         let inWL =itemArr?.filter((i) => {
-            // console.log('--------------------------------', itemObj)
-            // console.log(itemObj.id, i.item_id)
-            // console.log(itemObj.color, i.item_color)
-            // console.log(itemObj.size, i.item_size)
 
             return ((itemObj.id === i.item_id &&
                 itemObj.color === i.item_color) &&
                 itemObj.size === i.item_size)
         })
-        // console.log(itemArr, '====OG==========')
-        // console.log(inWL, '==== filtered =====')
-        // console.log(inWL.length > 0)
         return inWL.length > 0
     }
     // handle adding an item to the users cart ===============
@@ -277,7 +270,7 @@ const ItemForm = () => {
                     onClick={e=>addItemToCart(e, curItem)}>
                         ADD TO CART
                     </button>
-                    {curItem &&
+                    {(curItem && sessionUser) &&
                         <button className='item-form-wl-btn dis'
                         disabled={itemExistsInWishlist(usersWishlist, curItem) || !sessionUser}
                         onClick={e=>e.stopPropagation(), e=>addItemToWishlist(e, curItem)}
@@ -286,6 +279,11 @@ const ItemForm = () => {
                         {/* {console.log(usersWishlist[0], curItem)} */}
                         <i className="far fa-heart"></i>
                     </button>
+                    }
+                    {!sessionUser &&
+                        <button className='item-form-wl-btn2 dis' onClick={e=>history.push('/login')}>
+                            <i className="far fa-heart"></i>
+                        </button>
                     }
                 </div>
                 {/* <button className='find-my-size-btn dis' disabled={true}>Find My Size</button> */}

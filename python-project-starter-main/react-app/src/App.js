@@ -20,6 +20,7 @@ import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
 import ItemDetails from './components/item-comps/ItemDetails';
 import About from './components/About';
+import CheckoutThankYou from './components/CheckoutThankYou';
 import { authenticate } from './store/session';
 import "./index.css";
 
@@ -91,6 +92,11 @@ function App() {
                 <Route path='/cart/checkout/:subtotal' exact={true} >
                     <NavBarSimpleText />
                     <CheckoutPage />
+                    <Footer />
+                </Route>
+                <Route path='/thankyou' exact={true} >
+                    <NavBarSimpleText />
+                    <CheckoutThankYou />
                     <Footer />
                 </Route>
 

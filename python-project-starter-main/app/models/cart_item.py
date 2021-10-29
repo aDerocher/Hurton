@@ -14,6 +14,7 @@ class CartItem(db.Model):
     item_size = db.Column(db.String(255))
     item_price = db.Column(db.String(2000), nullable=False)
     item_image = db.Column(db.String(2000), nullable=False)
+    item_type = db.Column(db.Integer)
     quantity = db.Column(db.Integer, default=1)
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
     is_history = db.Column(db.Boolean, default=False)
@@ -33,5 +34,6 @@ class CartItem(db.Model):
             'item_image' : self.item_image,
             'quantity' : self.quantity,
             'is_history' : self.is_history,
+            'item_type' : self.item_type,
             # 'updated_at': self.updated_at,
         }
