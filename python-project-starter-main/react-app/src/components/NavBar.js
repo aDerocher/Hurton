@@ -67,14 +67,14 @@ const NavBar = () => {
                 <div className='meta-nav-section'>
                     {sessionUser &&
                         <NavLink to={`/users/${sessionUser?.id}/wishlist`} exact={true} activeClassName='active' style={{ textDecoration: 'none', color: `var(--link-green)`}}>
-                            <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i></button>
+                            <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i><span> </span> Wishlist</button>
                         </NavLink>
                     }
                     <p className='dead-link'>Stores</p>
                     {!sessionUser &&
                         <>
-                        <NavLink to={`/login`} exact={true} activeClassName='active' style={{ textDecoration: 'none' }}>
-                            <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i></button>
+                        <NavLink to={`/login`} exact={true} activeClassName='active' style={{ textDecoration: 'none', color: `var(--link-green)` }}>
+                            <button className='btn-simple heart-btn-simple'><i className="far fa-heart"></i><span> </span> Wishlist</button>
                         </NavLink>
                         <div>
                             <button disabled={sessionUser} className='demo-btn' onClick={loginDemo}>Demo</button>

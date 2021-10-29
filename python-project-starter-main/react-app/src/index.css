@@ -179,7 +179,7 @@ input:focus {
     font-weight: bold;
     font-size: 10pt;
     height: 24px;
-    width: 24px;
+    /* width: 24px; */
     border-radius: 11px;
 }
 
@@ -218,4 +218,8 @@ input:focus {
     color: white;
     font-weight: bold;
     padding: 20px 80px;
+}
+
+.hidden{
+    display:none;
 }
