@@ -54,13 +54,14 @@ const Shop = () => {
                             <div className="sale-photo-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
                                 <img src={item.image1} className='sale-image' alt={item.name} />
                             </div>
-                            <div className='item-colors-section'>
+                            
+                            {/* <div className='item-colors-section'>
                                 <div className="sale-swatch" style={{backgroundColor: `${item.color}`}}></div>
                                 {item.color2 !== null && 
                                     <div className="sale-swatch" style={{backgroundColor: `${item.color2}`}}></div>}
                                 {item.color3 !== null && 
                                     <div className="sale-swatch" style={{backgroundColor: `${item.color3}`}}></div>}
-                            </div>
+                            </div> */}
                             <div className="sale-content-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
                                 <p className='sale-text'>{item.name}</p>
                                 <p className='sale-text'>$ {item.price}.00</p>
