@@ -1,7 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, editCartItem } from './../../store/cart';
-import { addWishlistItem } from './../../store/wishlist';
+import { addWishlistItem, getUsersWishlist } from './../../store/wishlist';
 import './../../styles/item-form.css'
 import AddToCartModal from './AddToCartModal';
 
@@ -16,8 +16,9 @@ const ItemForm = () => {
     const itemReviews = useSelector(state => state.reviews)
     const itemTypes = useSelector(state => state.item_types)
     
-    
-    
+    useEffect(()=>{
+        dispatch(getUsersWishlist(sessionUser.id))
+    },[ dispatch])
     
     // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e, item) => {
@@ -26,10 +27,8 @@ const ItemForm = () => {
             alert("you must be logged in to add items to a wishlist!");
             return
         }
-        let wl_exists = usersWishlist?.filter((i) => {
-            return i.item_id === curItem.id
-        })
-        if(wl_exists.length > 0){return}
+        if(itemExistsInWishlist(usersWishlist, item)){return}
+        // if(wl_exists.length > 0){return}
         const formData = {
             user_id: sessionUser.id,
             item_id: curItem.id,
@@ -42,6 +41,24 @@ const ItemForm = () => {
 
         }
         dispatch(addWishlistItem(formData))
+    }
+
+    const itemExistsInWishlist=(itemArr, itemObj) => {
+        
+        let inWL =itemArr?.filter((i) => {
+            // console.log('--------------------------------', itemObj)
+            // console.log(itemObj.id, i.item_id)
+            // console.log(itemObj.color, i.item_color)
+            // console.log(itemObj.size, i.item_size)
+
+            return ((itemObj.id === i.item_id &&
+                itemObj.color === i.item_color) &&
+                itemObj.size === i.item_size)
+        })
+        // console.log(itemArr, '====OG==========')
+        // console.log(inWL, '==== filtered =====')
+        // console.log(inWL.length > 0)
+        return inWL.length > 0
     }
     // handle adding an item to the users cart ===============
     const addItemToCart = (e, item) => {
@@ -93,7 +110,9 @@ const ItemForm = () => {
         window.localStorage.setItem('cart', JSON.stringify(cart))
     }
 
+
     // ================= for the form ===================
+ 
     useEffect(()=>{
         let newScore = itemReviews.reduce((accum, i) => {
             return accum + i.rating
@@ -253,14 +272,18 @@ const ItemForm = () => {
                     onClick={e=>addItemToCart(e, curItem)}>
                         ADD TO CART
                     </button>
-                    <button className='item-form-wl-btn dis'
-                    disabled={!sessionUser}
-                    onClick={e=>addItemToWishlist(e, curItem)}
-                    >
+                    {curItem &&
+                        <button className='item-form-wl-btn dis'
+                        disabled={itemExistsInWishlist(usersWishlist, curItem) || !sessionUser}
+                        onClick={e=>e.stopPropagation(), e=>addItemToWishlist(e, curItem)}
+                        >
+                        {/* {console.log(itemExistsInWishlist(usersWishlist, curItem))} */}
+                        {/* {console.log(usersWishlist[0], curItem)} */}
                         <i className="far fa-heart"></i>
                     </button>
+                    }
                 </div>
-                <button className='find-my-size-btn dis' disabled={true}>Find My Size</button>
+                {/* <button className='find-my-size-btn dis' disabled={true}>Find My Size</button> */}
             </div>
             
     </div>
