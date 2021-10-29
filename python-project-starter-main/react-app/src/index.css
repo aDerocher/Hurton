@@ -124,7 +124,7 @@ input:focus {
 .flex-row-cont-apart{ display: flex; flex-direction: row; justify-content: space-between; align-items: center}
 .bold-accent{ font-weight: 800; color: var(--accent-turq); }
 .boldish{ font-weight: 800; }
-.dead-link{ text-decoration: line-through; color: var(--lightgrey1)}
+.dead-link{ text-decoration: line-through; font-style:italic; color: var(--lightgrey1)}
 .hover-hand:hover{ cursor: pointer; }
 .remove-underline{text-decoration: none;}
 .content-width{

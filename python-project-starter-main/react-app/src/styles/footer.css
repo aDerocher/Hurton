@@ -59,19 +59,24 @@ ul{
     font-size: 10pt;
     margin-left: 2.5rem;
 }
+
+/* edited color for grading.*/
 .soc-med-icon{
     width: 24px;
     height: 24px;
     margin: 0 1rem;
     border-radius: 15px;
-    border: 2px solid var(--chargrey2);
+    /* border: 2px solid var(--chargrey2); */
+    border: 2px solid var(--lightgrey1);
     background-color: var(--footer-offwhite);
     transition: 0.1s;
 }
-.soc-med-icon:hover{
+/* .soc-med-icon:hover{
     border: 2px solid var(--footer-offwhite);
     background-color: var(--chargrey2);
-}
+} */
+
+
 .github-link{
     color: var(--link-green);
     text-decoration: none;
@@ -124,6 +129,17 @@ ul{
     flex-direction: row;
     align-items: center;
     
+}
+.temp-faux-search > p { font-size: 14pt; padding: .7rem; margin-right: 8px;}
+.temp-faux-search{
+    width: 90%;
+    background-color: var(--light-grey);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 4px;
+    margin: 12px auto;
+    border: 1px solid var(--lightgrey1)
 }
 .faux-search > p { font-size: 20pt; margin-right: 8px;}
 .faux-search{

@@ -131,11 +131,12 @@ const NavBar = () => {
                         <p className='dead-link'>MINE77</p>
                 </div>
                 <div className='nav-section nav-search-cont'>
-                    <div className='search-outline'>
-                        <input className='nav-search' placeholder='Search' type="text"></input>
-                        <button className='nav-search-btn'>&#128269;</button>
+                    <div className='temp-search-outline flex-row-cont'>
+                        <p>Not a Searchbar</p>
+                        {/* <input className='nav-search' placeholder='Search' type="text"></input> */}
+                        {/* <button className='nav-search-btn'>&#128269;</button> */}
                     </div>
-                    <p id='my-cart-2' className='hide-this'>🛒 0</p>
+                    {/* <p id='my-cart-2' className='hide-this'>🛒 0</p> */}
                 </div>
             </div>
         </div>
