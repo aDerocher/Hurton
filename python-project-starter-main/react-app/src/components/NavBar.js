@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { login } from './../store/session'
 import './../styles/navbar.css'
+import { getCartItems } from '../store/cart';
 
 const NavBar = () => {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ const NavBar = () => {
     
     const loginDemo = () => {
         dispatch(login('demo@hurton.com','password'));
+        dispatch(getCartItems(1))
         localStorage.removeItem("cart");
     }
 

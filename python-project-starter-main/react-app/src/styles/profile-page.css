@@ -81,3 +81,40 @@
     display: flex;
     align-items: flex-end;
 }
+/* ======= button animation ================ */
+
+.wishlist-cart-btn {
+    position: relative;
+    background-color: var(--dark-grey);
+    border: none;
+    font-size: 16px;
+    height: 70px;
+    width: 200px;
+    color: #FFFFFF;
+    transition-delay: .7s;
+    transition-duration: .7s;
+}
+
+.wishlist-cart-btn:after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "+ Added to Cart";
+    text-align: center;
+    background: #eeeeee;
+    height: 70px;
+    width: 200px;
+    position: absolute;
+    opacity: 0;
+    transition: 1.5s;
+    transition-delay: .7s;
+}
+
+.wishlist-cart-btn:active:after {
+    /* padding: 10px; */
+    background-color: var(--button-turq);
+    height: 70px;
+    width: 200px;
+    opacity: 1;
+    transition: 0s
+}

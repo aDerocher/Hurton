@@ -36,17 +36,17 @@ const Shop = () => {
         <div className="shop-page-cont">
 
             <div className="flex-col-cont content-width shop-page-topper">
-                <p className='grey-label'>Snowboarding / Snowboards / Shop all Snowboards</p>
-                <h1>Snowboards</h1>
+                <p className='grey-label'>Snowboarding / Shop All Snowboard Gear</p>
+                <h1>Shop</h1>
                 <p>Since day one, Hurton has been built on boards. Explore the 
                     industry's most diverse snowboard lineup for park, 
                     all-mountain, powder, splitboarding, and the backcountry.</p>
             </div>
 
             <div className='flex-row-cont content-width'>
-                <div className='filters-side-container'>
+                {/* <div className='filters-side-container'>
                     <ShopFilters />
-                </div>
+                </div> */}
 
                 <div className='sale-cards-container'>
                     {items?.map((item, i) => (

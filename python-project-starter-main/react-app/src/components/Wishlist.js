@@ -2,7 +2,7 @@ import React, { useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getUsersWishlist, deleteWishlistItem } from '../store/wishlist';
-import { addToCart } from '../store/cart';
+import { addToCart, getCartItems } from '../store/cart';
 import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"
 
@@ -20,6 +20,10 @@ function Wishlist() {
     const userWishlist = useSelector(state => state.wishlist)
     const userCart = useSelector(state => state.cart)
 
+    useEffect(() => {
+        dispatch(getCartItems(sessionUser.id))
+    }, [userCart])
+
     const removeFromWishlist = (e, id) => {
         e.preventDefault();
         dispatch(deleteWishlistItem(id))
@@ -29,16 +33,10 @@ function Wishlist() {
     const wishlistToCart = (e, wl_item) => {
         e.preventDefault();
         //check if cart item exists
-        let exists = userCart.filter((item) => {
-            return ((wl_item.item_id === item.item_id &&
-                wl_item.item_color === item.item_color) &&
-                wl_item.item_size === item.item_size)
-        })
-        // if so, notify user its already there
-        if (exists.length > 0){
-            alert ('Item already in cart :)')
-            return
-        }
+        // if (itemExistsInCart(userCart, wl_item)){
+        //     alert ('Item already in cart :)')
+        //     return
+        // }
         // if not, add to cart and alert user
         const formData = {
             item_id: wl_item.item_id,
@@ -50,9 +48,18 @@ function Wishlist() {
             item_image: wl_item.item_image,
             quantity:1
         }
-        alert ('Item added to cart :)')
+        // alert ('Item added to cart :)')
         dispatch(addToCart(formData))
         return
+    }
+
+    const itemExistsInCart=(itemArr, wl_item) => {
+        let inCart = itemArr.filter((item) => {
+            return ((wl_item.item_id === item.item_id &&
+                wl_item.item_color === item.item_color) &&
+                wl_item.item_size === item.item_size)
+        })
+        return inCart.length > 0
     }
 
     return (
@@ -91,7 +98,9 @@ function Wishlist() {
                                         onClick={e=>e.stopPropagation(),e=>removeFromWishlist(e, item.id)}>
                                         <i className="fas fa-times"></i>
                                     </button>
-                                    <button className='black-rectangle-btn'
+                                    {/* <button className='black-rectangle-btn wishlist-cart-btn' */}
+                                    <button className='wishlist-cart-btn dis'
+                                        disabled={itemExistsInCart(userCart, item)}
                                         onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, item)}>
                                         ADD TO CART
                                     </button>
