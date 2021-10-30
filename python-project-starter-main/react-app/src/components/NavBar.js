@@ -9,7 +9,7 @@ import { getCartItems } from '../store/cart';
 const NavBar = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
-    const cart = useSelector(state => state.cart)
+    // const cart = useSelector(state => state.cart)
     
     // const [ navHide, setNavHide ] = useState()
     // const [ navWiden, setWiden ] = useState()
@@ -23,10 +23,10 @@ const NavBar = () => {
     // useEffect(() => {
         
     // }, [])
-    window.addEventListener('scroll', (e)=> {
-        e.preventDefault();
+    // window.addEventListener('scroll', (e)=> {
+    //     e.preventDefault();
         // viable possible solution 1 ===============================
-        let rect = document.body.getBoundingClientRect()
+        // let rect = document.body.getBoundingClientRect()
         // console.log(rect.y)
         // viable possible solution 2 ===============================
         // if (window.scrollY > 0){
@@ -46,7 +46,7 @@ const NavBar = () => {
         // cart1.classList.toggle('hide-this', window.scrollY > 0);
         // cart2.classList.toggle('hide-this', window.scrollY === 0);
 
-    })
+    // })
 
   return (
     <nav>

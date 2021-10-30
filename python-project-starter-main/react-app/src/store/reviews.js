@@ -122,7 +122,6 @@ export default function reducer(state = initialState, action) {
                 return review.id !== action.payload.id
             })
             return [ ...editedState, action.payload ]
-            return [...newState]
         case REMOVE_REVIEW:
             let deletedState = newState.filter((review) => {
                 return review.id !== action.payload.id

@@ -19,7 +19,7 @@ function SplashPage() {
       setUser(user);
     })();
     dispatch(getOrderHistory(userId))
-  }, [userId]);
+  }, [dispatch, userId]);
 
     return (
         <div className="splash-page-container">

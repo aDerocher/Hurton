@@ -2,8 +2,8 @@ import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getItemReviews } from './../../store/items';
-import { getCartItems, addToCart, editCartItem } from './../../store/cart';
-import { getUsersWishlist, addWishlistItem } from './../../store/wishlist';
+import { getCartItems } from './../../store/cart';
+import { getUsersWishlist } from './../../store/wishlist';
 // import { getOrderHistory } from './../../store/session';
 import Reviews from '../Reviews';
 import NewReview from '../NewReview';
@@ -25,15 +25,15 @@ const ItemDetails = () => {
             dispatch(getUsersWishlist(sessionUser?.id))
             dispatch(getCartItems(sessionUser?.id))
         }
-    }, [dispatch])
+    }, [dispatch, itemId, sessionUser])
     
     const item = useSelector(state => state.items[0])
-    const usersCart = useSelector(state => state.cart)
-    const usersWishlist = useSelector(state => state.wishlist)
+    // const usersCart = useSelector(state => state.cart)
+    // const usersWishlist = useSelector(state => state.wishlist)
     const reviews = useSelector(state => state.reviews)
     const orderHistory = useSelector(state => state.session.user?.order_history)
     
-    const [ quantity, setQuantity ] = useState(1)
+    // const [ quantity, setQuantity ] = useState(1)
     const [ userCanRev, setUserCanRev ] = useState(false)
     
     // // handle adding the item to a users wishlist ================

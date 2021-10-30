@@ -1,8 +1,4 @@
-import React, { useEffect }from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
-// import { useParams } from 'react-router';
-// import { getAllItems } from '../store/items';
+import React from 'react';
 import './../styles/shop-filters.css'
 
 

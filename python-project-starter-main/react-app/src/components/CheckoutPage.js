@@ -17,7 +17,7 @@ const CheckoutPage = (subtotalParams) => {
     // make sure the cart in state is current to user(if user)
     useEffect(() => {
         dispatch(getCartItems(sessionUser?.id))
-    }, [dispatch])
+    }, [dispatch, sessionUser?.id])
 
     // if user: cart is state.cart | otherwise cart is localstorage
     let cart = useSelector(state => state.cart)
@@ -80,9 +80,9 @@ const CheckoutPage = (subtotalParams) => {
         if(address?.length > 50 || address === null) newErrors.push('Invalid Address: Address is too long')
         setErrors(newErrors)
     }, [dispatch, firstName, lastName, address, email, card])
-    const total = cart?.reduce((acc, item) => {
-        return acc + item.item_price
-    },0)
+    // const total = cart?.reduce((acc, item) => {
+    //     return acc + item.item_price
+    // },0)
 
     return (
         <div className="content-width">

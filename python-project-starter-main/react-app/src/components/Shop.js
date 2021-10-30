@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { getAllItems } from '../store/items';
 import { getItemTypes } from '../store/item_types';
 import './../styles/shop.css'
-import ShopFilters from './ShopFilters';
+// import ShopFilters from './ShopFilters';
 
 
 const Shop = () => {
@@ -29,6 +29,8 @@ const Shop = () => {
     const runFilter = (item) => {
         if (colorFilter.includes(item.color)){
             return true;
+        } else {
+            setColorFilter([])
         }
     }
 
