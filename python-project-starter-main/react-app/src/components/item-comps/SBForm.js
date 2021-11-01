@@ -246,7 +246,6 @@ const ItemForm = () => {
                                 className='item-size-box-radio'
                                 selected={size===s}
                             />
-                            {/* {console.log(`${s}`, size)} */}
                         </div>
                     ))}
                 </div>
@@ -276,8 +275,6 @@ const ItemForm = () => {
                         disabled={itemExistsInWishlist(usersWishlist, curItem) || !sessionUser}
                         onClick={e=>{e.stopPropagation(); addItemToWishlist(e, curItem)}}
                         >
-                        {/* {console.log(itemExistsInWishlist(usersWishlist, curItem))} */}
-                        {/* {console.log(usersWishlist[0], curItem)} */}
                         <i className="far fa-heart"></i>
                     </button>
                     }

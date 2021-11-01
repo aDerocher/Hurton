@@ -83,7 +83,6 @@ function ProfileOrderHist() {
                                 {/* <div> */}
                                     {/* <NavLink to={`/shop/${itemTypes[pitem.item_type].item_type}#reviews_section`}> */}
                                         {/* Leave a Review */}
-                                        {console.log(pitem)}
                                     {/* </NavLink> */}
                                 {/* </div> */}
 

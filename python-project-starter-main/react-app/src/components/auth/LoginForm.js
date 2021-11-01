@@ -55,7 +55,6 @@ const LoginForm = () => {
     //     let cart = localStorage.getItem('cart');
     //     if(!cart){ return }
 
-    //     console.log(JSON.parse(cart))
     //     cart = JSON.parse(cart)
 
     //     // run a for...in loop

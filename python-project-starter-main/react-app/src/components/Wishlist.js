@@ -13,7 +13,6 @@ function Wishlist() {
 
     useEffect(() => {
         dispatch(getUsersWishlist(userId))
-        // console.log(userWishlist)
         dispatch(getCartItems(userId))
     }, [dispatch, userId])
     

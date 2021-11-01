@@ -52,10 +52,8 @@ const CartPage = () => {
     const removeFromCart = (e, item) => {
         e.preventDefault()
         if (sessionUser){
-            console.log('dispatching removal')
             dispatch(deleteCartItem(item.id))
         } else {
-            console.log('dispatching local removal')
             removeLSCartItem(item)
         }
         let x = document.getElementById(`${item?.id}`)
@@ -67,7 +65,6 @@ const CartPage = () => {
         // get the cart in local storage (assume it exists)
         let ls_cart = localStorage.getItem('cart');
         ls_cart = JSON.parse(ls_cart)
-        console.log(ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`])
         ls_cart[`${cartItem.item_id}_${cartItem.item_color}_${cartItem.item_size}`] = undefined;
         window.localStorage.setItem('cart', JSON.stringify(ls_cart))
         setSubtotal(0)

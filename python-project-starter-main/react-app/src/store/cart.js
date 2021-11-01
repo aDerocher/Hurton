@@ -122,7 +122,6 @@ export const deleteCartItem = (cartItem_id) => async (dispatch) => {
             return `Error deleting CartItem with id #${cartItem_id}`;
         }
         const cart_item = data.cart_item
-        // console.log('heres cart_item: ', cart_item, '=======================================================================now dispatch')
         dispatch(deleteOneFromCart(cart_item));
     }
 }

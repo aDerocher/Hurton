@@ -28,7 +28,6 @@ export const getItemTypes = () => async (dispatch) => {
             return `Error fetching all item types`;
         }
         const item_types = data.item_types
-        // console.log(item_types, '-----------------')
         dispatch(allItemTypes(item_types));
         return response;
     }
