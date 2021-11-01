@@ -21,7 +21,7 @@ const ItemForm = () => {
         if ( sessionUser ){
             dispatch(getUsersWishlist(sessionUser?.id))
         }
-    },[ dispatch, sessionUser?.id])
+    },[ dispatch, sessionUser])
     
     // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e, item) => {

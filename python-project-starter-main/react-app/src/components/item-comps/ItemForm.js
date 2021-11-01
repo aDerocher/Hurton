@@ -15,7 +15,7 @@ const ItemForm = (item) => {
         if(sessionUser){
             dispatch(getOrderHistory(sessionUser?.id))
         }
-    }, [ dispatch, sessionUser?.id ])
+    }, [ dispatch, sessionUser ])
     
 
     const changeDispImage = (e, img) => {
