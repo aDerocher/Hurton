@@ -159,6 +159,7 @@ export default function reducer(state = initialState, action) {
                 if(item.id === action.payload.id){
                     item.quantity = action.payload.quantity
                 }
+                
             })
             return [ ...newState]
 

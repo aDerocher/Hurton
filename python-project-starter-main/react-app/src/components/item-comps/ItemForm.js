@@ -12,7 +12,9 @@ const ItemForm = (item) => {
     
     
     useEffect(() => {
-        dispatch(getOrderHistory(sessionUser?.id))
+        if(sessionUser){
+            dispatch(getOrderHistory(sessionUser?.id))
+        }
     }, [ dispatch, sessionUser?.id ])
     
 

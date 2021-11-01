@@ -89,7 +89,7 @@ function ProfileOrderHist() {
 
                                 <div className='orderHist-buttons'>
                                     <button className='black-rectangle-btn'
-                                        onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, pitem)}>
+                                        onClick={e=>{e.stopPropagation(); wishlistToCart(e, pitem)}}>
                                         BUY IT AGAIN
                                     </button>
                                 </div>

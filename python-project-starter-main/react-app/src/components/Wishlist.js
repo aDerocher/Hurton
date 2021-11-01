@@ -90,13 +90,13 @@ function Wishlist() {
                                 
                                 <div className='pic-section pic-buttons'>
                                     <button className="delete-btn-simple"
-                                        onClick={e=>e.stopPropagation(),e=>removeFromWishlist(e, item.id)}>
+                                        onClick={e=> {e.stopPropagation(); removeFromWishlist(e, item.id)}}>
                                         <i className="fas fa-times"></i>
                                     </button>
                                     {/* <button className='black-rectangle-btn wishlist-cart-btn' */}
                                     <button className='wishlist-cart-btn dis'
                                         disabled={itemExistsInCart(userCart, item)}
-                                        onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, item)}>
+                                        onClick={e=>{e.stopPropagation(); wishlistToCart(e, item)}}>
                                         ADD TO CART
                                     </button>
                                 </div>

@@ -18,7 +18,9 @@ const ItemForm = () => {
     // const itemTypes = useSelector(state => state.item_types)
     
     useEffect(()=>{
-        dispatch(getUsersWishlist(sessionUser?.id))
+        if ( sessionUser ){
+            dispatch(getUsersWishlist(sessionUser?.id))
+        }
     },[ dispatch, sessionUser?.id])
     
     // handle adding the item to a users wishlist ================
@@ -161,7 +163,7 @@ const ItemForm = () => {
         setSizesArr(newSizesArr)
         if(!size){ setSize(sizesArr[0])}
         if(!color || curItem.item_type === 1){ setColor(curItem?.color)}
-    }, [ dispatch, curItem, color, size, sizesArr ])
+    }, [ dispatch, curItem, color, size ])
 
     
 
@@ -272,7 +274,7 @@ const ItemForm = () => {
                     {(curItem && sessionUser) &&
                         <button className='item-form-wl-btn dis'
                         disabled={itemExistsInWishlist(usersWishlist, curItem) || !sessionUser}
-                        onClick={e=>e.stopPropagation(), e=>addItemToWishlist(e, curItem)}
+                        onClick={e=>{e.stopPropagation(); addItemToWishlist(e, curItem)}}
                         >
                         {/* {console.log(itemExistsInWishlist(usersWishlist, curItem))} */}
                         {/* {console.log(usersWishlist[0], curItem)} */}

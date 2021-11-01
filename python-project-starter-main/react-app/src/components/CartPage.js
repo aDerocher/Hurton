@@ -116,7 +116,7 @@ const CartPage = () => {
                     {cart?.map((cart_item, i) => (
                         <div key={i} className="flex-col-cont cart-item-card">
                             <div className="cart-delete-item-cont">
-                                <button className="delete-btn-simple" onClick={e=>e.stopPropagation(), e=>removeFromCart(e, cart_item)}>
+                                <button className="delete-btn-simple" onClick={e=>{e.stopPropagation(); removeFromCart(e, cart_item)}}>
                                     <i className="fas fa-times"></i>
                                 </button>
                             </div>
