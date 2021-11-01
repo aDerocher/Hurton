@@ -18,8 +18,10 @@ const CheckoutPage = (subtotalParams) => {
 
     // make sure the cart in state is current to user(if user)
     useEffect(() => {
-        dispatch(getCartItems(sessionUser?.id))
-    }, [dispatch, sessionUser?.id])
+        if(sessionUser){
+            dispatch(getCartItems(sessionUser?.id))
+        }
+    }, [dispatch, sessionUser])
 
     // if user: cart is state.cart | otherwise cart is localstorage
     let cart = useSelector(state => state.cart)

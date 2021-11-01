@@ -35,9 +35,11 @@ const CartPage = () => {
     // get all the items and cart items into the state ==============
     const [ subtotal, setSubtotal ] = useState(0)
     useEffect(() => {
-        dispatch(getCartItems(sessionUser?.id))
+        if(sessionUser){
+            dispatch(getCartItems(sessionUser?.id))
+        }
         // dispatch(getAllItems())
-    }, [dispatch, sessionUser?.id])
+    }, [dispatch, sessionUser])
 
     // calculate the subtotal for the order
     useEffect(() => {
