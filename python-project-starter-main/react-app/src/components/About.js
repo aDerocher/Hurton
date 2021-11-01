@@ -11,10 +11,10 @@ function About() {
                 <p className='splash-text'><br />Andrew Derocher is fluent in many popular languages and <br />frameworks
                     including javascript, python, node, and react.<br /> Connect using the links below!</p>
                 <div className='splash-btns-cont'>
-                    <a href="https://github.com/aDerocher" target="_blank" className="github-link">
+                    <a href="https://github.com/aDerocher" target="_blank" rel="noreferrer" className="github-link">
                         <button className='splash-btn'><i className="fab fa-github"></i> <p className='about-btn'> Github</p></button>
                     </a>
-                    <a href="https://www.linkedin.com/in/andrew-derocher-54003789/" target="_blank" className="github-link">
+                    <a href="https://www.linkedin.com/in/andrew-derocher-54003789/" target="_blank" rel="noreferrer" className="github-link">
                         <button className='splash-btn'><i className="fab fa-linkedin"></i> <p className='about-btn'>Linkedin</p></button>
                     </a>
                     <a href="mailto:am.derocher@gmail.com" className="github-link">

@@ -1,11 +1,11 @@
-import React, { useEffect, useState }from 'react';
+import React, { useEffect }from 'react';
 import { useSelector, useDispatch  } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 // import { useParams } from 'react-router';
 import { getAllItems } from '../store/items';
 import { getItemTypes } from '../store/item_types';
 import './../styles/shop.css'
-import ShopFilters from './ShopFilters';
+// import ShopFilters from './ShopFilters';
 
 
 const Shop = () => {
@@ -15,7 +15,7 @@ const Shop = () => {
     const items = useSelector(state => state.items)
     const item_types = useSelector(state => state.item_types)
 
-    const [colorFilter, setColorFilter] = useState([])
+    // const [colorFilter, setColorFilter] = useState([])
     
     useEffect(() => {
         dispatch(getAllItems())
@@ -26,11 +26,13 @@ const Shop = () => {
         e.preventDefault()
         history.push(`/shop/${item_types[`${item_type}`].item_type}/${item_id}`)
     }
-    const runFilter = (item) => {
-        if (colorFilter.includes(item.color)){
-            return true;
-        }
-    }
+    // const runFilter = (item) => {
+    //     if (colorFilter.includes(item.color)){
+    //         return true;
+    //     } else {
+    //         setColorFilter([])
+    //     }
+    // }
 
     return (
         <div className="shop-page-cont">
@@ -50,7 +52,7 @@ const Shop = () => {
 
                 <div className='sale-cards-container'>
                     {items?.map((item, i) => (
-                        <div className="sale-card" hidden={runFilter(item)} key={i}>
+                        <div className="sale-card" key={i}>
                             <div className="sale-photo-section hover-hand" onClick={e=>goToItem(e, item.id, item.item_type)}>
                                 <img src={item.image1} className='sale-image' alt={item.name} />
                             </div>

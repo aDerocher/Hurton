@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import React from 'react';
 
 import './../../styles/modal-cart-add.css'
 
 
 const AddToCartModal = (props) => {
-    // const history = useHistory()
     const item = props.confirmItem
-    // useEffect(() => {
-    // }, [email, password])
+    
     if (!props.show) {
         return null;
-      }
+    }
     
     return (
         <div className='modal-container' onClick={props.onClose}>

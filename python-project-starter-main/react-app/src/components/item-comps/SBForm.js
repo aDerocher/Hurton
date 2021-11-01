@@ -1,6 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { addToCart, editCartItem } from './../../store/cart';
 import { addWishlistItem, getUsersWishlist } from './../../store/wishlist';
 import './../../styles/item-form.css'
@@ -8,7 +8,6 @@ import AddToCartModal from './AddToCartModal';
 
 
 const ItemForm = () => {
-    // console.log(curItem)
     const history = useHistory()
     const dispatch = useDispatch()
     const usersCart = useSelector(state => state.cart)
@@ -16,11 +15,13 @@ const ItemForm = () => {
     const usersWishlist = useSelector(state => state.wishlist)
     const curItem = useSelector(state => state.items[0])
     const itemReviews = useSelector(state => state.reviews)
-    const itemTypes = useSelector(state => state.item_types)
+    // const itemTypes = useSelector(state => state.item_types)
     
     useEffect(()=>{
-        dispatch(getUsersWishlist(sessionUser?.id))
-    },[ dispatch])
+        if ( sessionUser ){
+            dispatch(getUsersWishlist(sessionUser?.id))
+        }
+    },[ dispatch, sessionUser?.id])
     
     // handle adding the item to a users wishlist ================
     const addItemToWishlist = (e, item) => {
@@ -71,12 +72,12 @@ const ItemForm = () => {
         setConfirmItem(formData)
         if (uid) {
             const existingCartItem = usersCart.filter((item)=>{
-                console.log(item.item_id ,formData.item_id )
-                console.log(item.item_size, formData.item_size) 
-                console.log(item.item_color ,formData.item_color)
-
-                if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color)
-                return true
+                if((item.item_id === formData.item_id && item.item_size === formData.item_size) && item.item_color === formData.item_color) {
+                    return true
+                } else {
+                    return false
+                }
+                
             })
             if (existingCartItem.length > 0) {
                 existingCartItem[0].quantity +=1
@@ -111,13 +112,25 @@ const ItemForm = () => {
 
     // ================= for the form ===================
  
+    // for the item
+    const [ colorsArr, setColorsArr ] = useState([])
+    const [ sizesArr, setSizesArr ] = useState([])
+    const [ quantity, setQuantity ] = useState(1)
+    const [ size, setSize ] = useState(sizesArr[0])
+    const [ color, setColor ] = useState(curItem?.color)
+    // for reviews
+    const [ score, setScore ] = useState(5)
+    // for the modal
+    const [ showCCModal, setShowCCModal ] = useState(false)
+    const [ confirmItem, setConfirmItem ] = useState({})
+
     useEffect(()=>{
         let newScore = itemReviews.reduce((accum, i) => {
             return accum + i.rating
         }, 0)
         newScore /= itemReviews.length
         setScore(newScore)
-    }, [itemReviews, itemReviews])
+    }, [itemReviews])
     const five = [1,2,3,4,5]
     
     useEffect(() => {
@@ -145,25 +158,14 @@ const ItemForm = () => {
             let newColorsArr = [curItem.color]
             if (curItem.color2 !== null) newColorsArr.push(curItem.color2)
             if (curItem.color3 !== null) newColorsArr.push(curItem.color3)
-            // console.log(newColorsArr)
             setColorsArr(newColorsArr)
         }
         setSizesArr(newSizesArr)
         if(!size){ setSize(sizesArr[0])}
         if(!color || curItem.item_type === 1){ setColor(curItem?.color)}
-    }, [ dispatch, curItem ])
+    }, [ dispatch, curItem, color, size ])
 
-    // for the item
-    const [ colorsArr, setColorsArr ] = useState([])
-    const [ sizesArr, setSizesArr ] = useState([])
-    const [ quantity, setQuantity ] = useState(1)
-    const [ size, setSize ] = useState(sizesArr[0])
-    const [ color, setColor ] = useState(curItem?.color)
-    // for reviews
-    const [ score, setScore ] = useState(5)
-    // for the modal
-    const [ showCCModal, setShowCCModal ] = useState(false)
-    const [ confirmItem, setConfirmItem ] = useState({})
+    
 
     return (
         <div className='item-form-container'>
@@ -182,7 +184,6 @@ const ItemForm = () => {
             </div>
             
             
-            {/* <p className=''>{score}</p> */}
             <div className='form-stars-row flex-row-cont'>
                 {five.map((n, i) => (
                     <div key={i} className=''>
@@ -273,7 +274,7 @@ const ItemForm = () => {
                     {(curItem && sessionUser) &&
                         <button className='item-form-wl-btn dis'
                         disabled={itemExistsInWishlist(usersWishlist, curItem) || !sessionUser}
-                        onClick={e=>e.stopPropagation(), e=>addItemToWishlist(e, curItem)}
+                        onClick={e=>{e.stopPropagation(); addItemToWishlist(e, curItem)}}
                         >
                         {/* {console.log(itemExistsInWishlist(usersWishlist, curItem))} */}
                         {/* {console.log(usersWishlist[0], curItem)} */}

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"
 import { getOrderHistory } from './../store/session'
@@ -10,17 +10,16 @@ import { getItemTypes } from './../store/item_types'
 function ProfileOrderHist() {
     const {userId} = useParams();
     const dispatch = useDispatch()
-    // console.log(userId, 10)
 
 
 
     useEffect(() => {
         dispatch(getOrderHistory(userId))
         dispatch(getItemTypes())
-    }, [dispatch])
+    }, [dispatch, userId])
     const pastItems = useSelector(state => state.session.user.order_history)
     const sessionUser = useSelector(state => state.session.user)
-    const itemTypes = useSelector(state => state.item_types)
+    // const itemTypes = useSelector(state => state.item_types)
     const userCart = useSelector(state => state.cart)
 
     const wishlistToCart = (e, wl_item) => {
@@ -90,7 +89,7 @@ function ProfileOrderHist() {
 
                                 <div className='orderHist-buttons'>
                                     <button className='black-rectangle-btn'
-                                        onClick={e=>e.stopPropagation(),e=>wishlistToCart(e, pitem)}>
+                                        onClick={e=>{e.stopPropagation(); wishlistToCart(e, pitem)}}>
                                         BUY IT AGAIN
                                     </button>
                                 </div>

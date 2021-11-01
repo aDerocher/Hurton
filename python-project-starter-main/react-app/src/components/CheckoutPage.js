@@ -13,11 +13,13 @@ const CheckoutPage = (subtotalParams) => {
     const history = useHistory()
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
+    let starterAddress = ''
+    if (sessionUser?.address) starterAddress = sessionUser.address;
 
     // make sure the cart in state is current to user(if user)
     useEffect(() => {
         dispatch(getCartItems(sessionUser?.id))
-    }, [dispatch])
+    }, [dispatch, sessionUser?.id])
 
     // if user: cart is state.cart | otherwise cart is localstorage
     let cart = useSelector(state => state.cart)
@@ -58,7 +60,7 @@ const CheckoutPage = (subtotalParams) => {
     const [ email, setEmail ] = useState(sessionUser?.email)
     const [ firstName, setFirstName ] = useState(sessionUser?.firstName)
     const [ lastName, setLastName ] = useState(sessionUser?.lastName)
-    const [ address, setAddress ] = useState(sessionUser?.address)
+    const [ address, setAddress ] = useState(starterAddress)
     const [ card, setCard ] = useState('')
     const [ errors, setErrors ] = useState([])
     const [ hideErr, setHideErr ] = useState(true)
@@ -73,16 +75,16 @@ const CheckoutPage = (subtotalParams) => {
         if(firstName?.length > 50) newErrors.push('First name must be less than 50 characters')
         if(lastName?.length < 2) newErrors.push('Last name must be longer than 2 characters')
         if(lastName?.length > 50) newErrors.push('Last name must be less than 50 characters')
-        if( parseInt(card) === NaN || parseInt(card).toString().length < 15 ) newErrors.push('Invalid Card Number: Invalid characters')
+        if( !parseInt(card) || parseInt(card).toString().length < 15 ) newErrors.push('Invalid Card Number: Invalid characters')
         if( card.length > 15 ) newErrors.push('Invalid Card Number: Number too long')
         if( card.length < 15 ) newErrors.push('Invalid Card Number: Number not long enough')
         if(address?.length < 4 || address === null) newErrors.push('Invalid Address: Address is too short')
         if(address?.length > 50 || address === null) newErrors.push('Invalid Address: Address is too long')
         setErrors(newErrors)
     }, [dispatch, firstName, lastName, address, email, card])
-    const total = cart?.reduce((acc, item) => {
-        return acc + item.item_price
-    },0)
+    // const total = cart?.reduce((acc, item) => {
+    //     return acc + item.item_price
+    // },0)
 
     return (
         <div className="content-width">
@@ -113,51 +115,49 @@ const CheckoutPage = (subtotalParams) => {
                             <p key={i}className='error'>• {e}</p>
                         ))}
                     </div>
-                    <form>
-                        <div className='checkout-all-inputs'>
-                            <div className='flex-row-cont checkout-box-split'>
-                                <div className='checkout-box'>
-                                    <span className='req-star' hidden={hideErr}>*</span>
-                                    <input type='text' value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='First Name' maxLength='50' />
-                                </div>
-                                <div className='checkout-box'>
-                                    <span className='req-star' hidden={hideErr}>*</span>
-                                    <input type='text' value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='Last Name' maxLength='50' />
-                                </div>
+                    <div className='checkout-all-inputs'>
+                        <div className='flex-row-cont checkout-box-split'>
+                            <div className='checkout-box'>
+                                <span className='req-star' hidden={hideErr}>*</span>
+                                <input type='text' value={firstName} onChange={e=>setFirstName(e.target.value)} placeholder='First Name' maxLength='50' />
                             </div>
                             <div className='checkout-box'>
                                 <span className='req-star' hidden={hideErr}>*</span>
-                                <input type='text' value={address} onChange={e=>setAddress(e.target.value)} placeholder='Address' maxLength='50' />
-                            </div>
-                            <div className='checkout-box'>
-                                <span className='req-star' hidden={hideErr}>*</span>
-                                <input type='text' value={card} onChange={e=>setCard(e.target.value)} placeholder='Credit Card' maxLength='15' />
+                                <input type='text' value={lastName} onChange={e=>setLastName(e.target.value)} placeholder='Last Name' maxLength='50' />
                             </div>
                         </div>
-                        
-                        <div className='shipping-radio flex-row-cont'>
-                            <input type='radio' name='shipping-radio' defaultChecked/>
-                            <p><b>FREE </b> : 1-2 Business Days (Hurton Special Delivery)</p>
+                        <div className='checkout-box'>
+                            <span className='req-star' hidden={hideErr}>*</span>
+                            <input type='text' value={address} onChange={e=>setAddress(e.target.value)} placeholder='Address' maxLength='50' />
                         </div>
-                        <div className='shipping-radio flex-row-cont'>
-                            <input type='radio' name='shipping-radio'/>
-                            <p><b>$77.00 </b> : 3-5 Business Days (Standard Air)</p>
+                        <div className='checkout-box'>
+                            <span className='req-star' hidden={hideErr}>*</span>
+                            <input type='text' value={card} onChange={e=>setCard(e.target.value)} placeholder='Credit Card' maxLength='15' />
                         </div>
-                        <div className='shipping-radio flex-row-cont'>
-                            <input type='radio' name='shipping-radio'/>
-                            <p><b>$100.00 </b> : 7-12 Business Days (Standard Ground)</p>
-                        </div>
-                        <div className='shipping-radio flex-row-cont'>
-                            <input type='radio' name='shipping-radio'/>
-                            <p><b>$97.00 </b> : 4-6 Weeks (No Rush)</p>
-                        </div>
+                    </div>
+                    
+                    <div className='shipping-radio flex-row-cont'>
+                        <input type='radio' name='shipping-radio' value='0'  defaultChecked/>
+                        <p><b>FREE </b> : 1-2 Business Days (Hurton Special Delivery)</p>
+                    </div>
+                    <div className='shipping-radio flex-row-cont'>
+                        <input type='radio' name='shipping-radio' value='77' />
+                        <p><b>$77.00 </b> : 3-5 Business Days (Standard Air)</p>
+                    </div>
+                    <div className='shipping-radio flex-row-cont'>
+                        <input type='radio' name='shipping-radio' value='100' />
+                        <p><b>$100.00 </b> : 7-12 Business Days (Standard Ground)</p>
+                    </div>
+                    <div className='shipping-radio flex-row-cont'>
+                        <input type='radio' name='shipping-radio' value='97' />
+                        <p><b>$97.00 </b> : 4-6 Weeks (No Rush)</p>
+                    </div>
 
-                        <button
-                            className='grey-green-btn sub-order-btn dis'
-                            disabled={!hideErr && errors.length > 0}
-                            onClick={e=> handleCheckoutSubmit(e)}>Submit Order
-                        </button>
-                    </form>
+                    <button
+                        className='grey-green-btn sub-order-btn dis'
+                        disabled={!hideErr && errors.length > 0}
+                        onClick={e=> handleCheckoutSubmit(e)}>Submit Order
+                    </button>
                 </form>
                 <div className='checkout-right'>
                     <div className='checkout-brick checkout-brick-grey'><p>Your Order</p></div>
@@ -182,23 +182,21 @@ const CheckoutPage = (subtotalParams) => {
                         <p><b>$ {subtotal}</b></p>
                     </div>
                 </div>
+                <br />
+                <br />
                 {cart?.map((item, i) => (
-                    < >
-                        <br />
-                        <br />
-                        <div key={i} className='profile-item-card flex-row-cont'>
-                            <div className='pic-section flex-row-cont'>
-                                <img className='pic-image' src={item.item_image} alt={item.name}/>
-                                <div className='pic-section pic-text flex-col-cont'>
-                                    <p className='profile-title pr-sub-title'>{item.item_gender}'s Hurton {item.item_name}</p>
-                                    <p className='grey-label'>Color: {item.item_color}</p>
-                                    {/* <p className='grey-label'><div className="sale-swatch" style={{backgroundColor: `${item.item_color}`}}></div></p> */}
-                                    <p className='grey-label'>Size: {item.item_size}</p>
-                                    <p className='grey-label'><strong>$ {item.item_price}.00</strong></p>
-                                </div>
+                    <div key={i} className='profile-item-card flex-row-cont'>
+                        <div className='pic-section flex-row-cont'>
+                            <img className='pic-image' src={item.item_image} alt={item.name}/>
+                            <div className='pic-section pic-text flex-col-cont'>
+                                <p className='profile-title pr-sub-title'>{item.item_gender}'s Hurton {item.item_name}</p>
+                                <p className='grey-label'>Color: {item.item_color}</p>
+                                {/* <p className='grey-label'><div className="sale-swatch" style={{backgroundColor: `${item.item_color}`}}></div></p> */}
+                                <p className='grey-label'>Size: {item.item_size}</p>
+                                <p className='grey-label'><strong>$ {item.item_price}.00</strong></p>
                             </div>
                         </div>
-                    </>
+                    </div>
                 ))}
                 <div className='back-to-cart'>
                     <NavLink to='/cart'>BACK TO CART</NavLink>

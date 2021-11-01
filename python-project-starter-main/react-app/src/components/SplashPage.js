@@ -14,12 +14,13 @@ function SplashPage() {
       return;
     }
     (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
+        const response = await fetch(`/api/users/${userId}`);
+        const user = await response.json();
+        setUser(user);
     })();
     dispatch(getOrderHistory(userId))
-  }, [userId]);
+    if(false) console.log(user)
+  }, [dispatch, user, userId]);
 
     return (
         <div className="splash-page-container">

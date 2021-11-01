@@ -19,7 +19,6 @@ const CartPage = () => {
     let cart = useSelector(state => state.cart)
     if (cart?.length === 0){
         // look at local storage
-        let cartStorage = window.localStorage;
         let ls_cart = localStorage.getItem('cart');
         // is there a cart with items in it...?
         if (ls_cart !== null && ls_cart !== {}){
@@ -38,7 +37,7 @@ const CartPage = () => {
     useEffect(() => {
         dispatch(getCartItems(sessionUser?.id))
         // dispatch(getAllItems())
-    }, [dispatch])
+    }, [dispatch, sessionUser?.id])
 
     // calculate the subtotal for the order
     useEffect(() => {
@@ -117,7 +116,7 @@ const CartPage = () => {
                     {cart?.map((cart_item, i) => (
                         <div key={i} className="flex-col-cont cart-item-card">
                             <div className="cart-delete-item-cont">
-                                <button className="delete-btn-simple" onClick={e=>e.stopPropagation(),e=>removeFromCart(e, cart_item)}>
+                                <button className="delete-btn-simple" onClick={e=>{e.stopPropagation(); removeFromCart(e, cart_item)}}>
                                     <i className="fas fa-times"></i>
                                 </button>
                             </div>
