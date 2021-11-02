@@ -31,6 +31,7 @@
 }
 .rev-content{
     padding: 3px;
+    overflow-wrap: break-word;
 }
 .rev-user-circle{ color: white; font-weight: bold; font-size: 14pt}
 .rev-user-circle{

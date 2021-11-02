@@ -149,41 +149,6 @@ const Reviews = (revData) => {
                         <button onClick={e=> handleCancel(e)}>Cancel</button>
                     </div>
                 </div>
-
-                {/* The OG */}
-                {/* <div hidden={editHidden} >
-                    <form action={`/items/${itemId}/new-review`} method='patch'>
-                        <h5> - leave a review - </h5>
-                        <div>
-                            <span className='req-star'>*</span><label className='grey-label'>Score</label>
-                            <input type='number'
-                            value={revRating}
-                            onChange={e=> setRevRating(e.target.value)}
-                            min='1' max='5'
-                            ></input>
-                        </div>
-                        <div>
-                            <span className='req-star'>*</span><label className='grey-label'>Title</label>
-                            <input type='text'
-                                value={revTitle}
-                                onChange={e=> setRevTitle(e.target.value)}
-                                maxLength='49'
-                            ></input> 
-                        </div>
-                        <div>
-                            <span className='req-star'>*</span><label className='grey-label'>Review</label>
-                            <textarea type='text'
-                                value={revContent}
-                                onChange={e=> setRevContent(e.target.value)}
-                                maxLength='399'
-                                rows="7" cols="65"
-                            ></textarea>
-                        </div>
-                        <button onClick={e=>handleRevEdit(e)}>Submit</button>
-                
-                    </form>
-                    <button onClick={e=> setEditHidden(!editHidden)}>Cancel</button>
-                </div> */}
         </div>
     );
 }
