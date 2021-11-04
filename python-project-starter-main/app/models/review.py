@@ -13,6 +13,9 @@ class Review(db.Model):
     content = db.Column(db.String(400), nullable=False) 
     created_at = db.Column(db.DateTime(), default=datetime.utcnow)
     updated_at = db.Column(db.DateTime(), default=datetime.utcnow)
+    # created_at = db.Column(db.DateTime(), nullable=False)
+    # updated_at = db.Column(db.DateTime(), nullable=False)
+    # edit submissions to include created/updated on post/patch reqs
 
 
     def to_dict(self):
