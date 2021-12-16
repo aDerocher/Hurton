@@ -87,7 +87,7 @@ const Reviews = (revData) => {
                                 </div>
                             </div>
                         </div>
-                        {/* <p>{format((new Date('Tue, 26 Oct 2021 22:53:47 GMT')), 'MM/dd/yy')}</p> */}
+                        {/* <p>{format((new Date()), 'hh:MM a yyyy')}</p> */}
                     </div>
                     <div className='pad-1'>
                         <p className='rev-title'>{review.title}</p>
