@@ -4,11 +4,11 @@ import { useParams } from 'react-router-dom';
 import { getItemReviews } from './../../store/items';
 import { getCartItems } from './../../store/cart';
 import { getUsersWishlist } from './../../store/wishlist';
-// import { getOrderHistory } from './../../store/session';
+import { getOneItem } from './../../store/items';
 import Reviews from '../Reviews';
 import NewReview from '../NewReview';
 import ItemForm from './ItemForm';
-import { getOneItem } from './../../store/items';
+import ItemGraphs from './ItemGraphs';
 import './../../styles/item-details.css'
 
 
@@ -18,7 +18,6 @@ const ItemDetails = () => {
     const sessionUser = useSelector(state => state.session.user)
     
     useEffect(() => {
-        // dispatch(getOrderHistory(sessionUser?.id))
         dispatch(getOneItem(itemId))
         dispatch(getItemReviews(itemId))
         if(sessionUser){
@@ -139,7 +138,17 @@ const ItemDetails = () => {
                 <div className='info-body'>lots of words here</div>
             </div> */}
 
-    {/* ========= Renders Reviews Section of the Item details ======== */}
+    {/* ========= Renders Graphs Section  ======== */}
+            <div id='reviews_section' className='item-details-reviews'>
+                {/* {userCanRev &&
+                    <NewReview user={sessionUser} itemId={item?.id}/>}
+                {reviews?.map((review, i)=>(
+                    <div key={`${i}`}> */}
+                        <ItemGraphs item={item} />
+                    {/* </div>
+                ))} */}
+            </div>
+    {/* ========= Renders Reviews Section  ======== */}
             <div id='reviews_section' className='item-details-reviews'>
                 {userCanRev &&
                     <NewReview user={sessionUser} itemId={item?.id}/>}
