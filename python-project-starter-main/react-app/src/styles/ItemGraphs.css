@@ -1,11 +1,16 @@
 .graphs-container{
-    border: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid rgb(0, 0, 0); */
     width: 38%;
     overflow: hidden;
     margin: 40px 5%;
-    
 }
 
+/* ============ Graph Topper ===================== */
+.graphs-topper{
+    margin: 0 5%;
+    margin-top: 20px;
+    
+}
 /* ============ Img Container ===================== */
 .item-graph{
     /* border: 1px solid greenyellow; */
@@ -25,11 +30,14 @@
     /* border: 2px solid rgb(173, 151, 27) */
 }
 .graphs-descriptor{
-    border: 1px solid blue;
+    margin: 40px 5%;
+    /* border: 1px solid blue; */
     width: 48%;
+    color: var(--med-grey);
+    line-height: 24px;
+    font-size: 16px;
 }
 /* ============ Graph Labels ===================== */
-
 .graph-label{
     color: grey;
     font-style: italic;
@@ -40,5 +48,6 @@
     justify-content: space-between;
     padding: 5px 10%;
 }
+
 
 
