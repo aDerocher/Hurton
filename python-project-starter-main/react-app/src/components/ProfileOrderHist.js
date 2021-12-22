@@ -16,11 +16,22 @@ function ProfileOrderHist() {
     useEffect(() => {
         dispatch(getOrderHistory(userId))
         dispatch(getItemTypes())
+        // get users reviews <=============================================
     }, [dispatch, userId])
     const pastItems = useSelector(state => state.session.user.order_history)
     const sessionUser = useSelector(state => state.session.user)
     // const itemTypes = useSelector(state => state.item_types)
+    // users reviews <=============================================
     const userCart = useSelector(state => state.cart)
+
+    // function compare users reviews to pastItems
+        // edit each 'pastItem' with an attribute of 'can review'
+        // in the return html conditionally render the link to the items page
+    
+    // function handleLinkToReview 
+        // checks the item type against the 4 item type words
+        // links to proper item
+        // set link to the #id of the reviews section so that the user is likned to exactly where they need to be
 
     const wishlistToCart = (e, wl_item) => {
         e.preventDefault();
@@ -80,11 +91,11 @@ function ProfileOrderHist() {
                                     </div>
                                 </div>
 
-                                {/* <div> */}
+                                <div>
                                     {/* <NavLink to={`/shop/${itemTypes[pitem.item_type].item_type}#reviews_section`}> */}
-                                        {/* Leave a Review */}
+                                        Leave a Review
                                     {/* </NavLink> */}
-                                {/* </div> */}
+                                </div>
 
                                 <div className='orderHist-buttons'>
                                     <button className='black-rectangle-btn'
