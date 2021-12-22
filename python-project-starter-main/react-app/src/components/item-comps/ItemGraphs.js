@@ -37,8 +37,6 @@ const ItemGraphs = (item) => {
             label4 = `Ultimate`
             break;
         case 3: // boot - lacing system
-            // attr1 = curItem.lacing;
-            // console.log(curItem.lacing)
             if(curItem.lacing === 'boa') {
                 attr1 = 1
                 console.log(attr1)
@@ -50,7 +48,7 @@ const ItemGraphs = (item) => {
             label2 = `Quick Lace`
             break;
         case 4: // binding
-            attr1 = curItem.response;
+            attr1 = curItem.response+1;
             attr2 = curItem.stiffness;
             label1 = `Lower`
             label2 = `Higher`
