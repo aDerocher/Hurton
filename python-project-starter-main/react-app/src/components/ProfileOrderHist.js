@@ -1,37 +1,40 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
 import "./../styles/profile-page.css"
 import { getOrderHistory } from './../store/session'
-import { addToCart } from './../store/cart'
-import { getItemTypes } from './../store/item_types'
+import { getUserReviews } from './../store/reviews'
+import { getItemTypes } from './../store/item_types';
+import { addToCart } from './../store/cart';
 
 function ProfileOrderHist() {
+    const history = useHistory()
     const {userId} = useParams();
-    const dispatch = useDispatch()
-
-
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getOrderHistory(userId))
         dispatch(getItemTypes())
-        // get users reviews <=============================================
+        dispatch(getUserReviews(userId))
     }, [dispatch, userId])
     const pastItems = useSelector(state => state.session.user.order_history)
     const sessionUser = useSelector(state => state.session.user)
     // const itemTypes = useSelector(state => state.item_types)
-    // users reviews <=============================================
     const userCart = useSelector(state => state.cart)
+    const usersReviews = useSelector(state => state.reviews.map(r => r.item_id));
+    const itemTypeLinks = {1:'snowboards', 2:'jackets', 3:'boots',4:'bindings'};
+    console.log(usersReviews)
 
-    // function compare users reviews to pastItems
-        // edit each 'pastItem' with an attribute of 'can review'
-        // in the return html conditionally render the link to the items page
-    
-    // function handleLinkToReview 
+    const handleLinkToReview = (e, item) => {
+        e.preventDefault()
+        let itype = itemTypeLinks[`${item.item_type}`];
+        console.log(item)
+        history.push(`/shop/${itype}/${item.id}`)
         // checks the item type against the 4 item type words
         // links to proper item
         // set link to the #id of the reviews section so that the user is likned to exactly where they need to be
+    }
 
     const wishlistToCart = (e, wl_item) => {
         e.preventDefault();
@@ -91,11 +94,8 @@ function ProfileOrderHist() {
                                     </div>
                                 </div>
 
-                                <div>
-                                    {/* <NavLink to={`/shop/${itemTypes[pitem.item_type].item_type}#reviews_section`}> */}
-                                        Leave a Review
-                                    {/* </NavLink> */}
-                                </div>
+                            {!usersReviews.includes(pitem.id) &&
+                                <div onClick={e=>handleLinkToReview(e, pitem)}>Leave a Review</div>}
 
                                 <div className='orderHist-buttons'>
                                     <button className='black-rectangle-btn'

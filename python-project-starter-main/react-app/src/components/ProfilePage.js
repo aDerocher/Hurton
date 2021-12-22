@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import ProfileSidebar from './ProfileSidebar';
 // import ProfileEdit from './ProfileEdit';
 import "./../styles/profile-page.css"
 
 function ProfilePage() {
+    // const dispatch = useDispatch()
   const [ user, setUser ] = useState({});
 //   const [ show, setShow ] = useState(false);
   const { userId }  = useParams();
@@ -21,6 +22,7 @@ function ProfilePage() {
       const user = await response.json();
       setUser(user);
     })();
+    // dispatch(getUserReviews(userId))
   }, [userId, sessionUser]);
 
   if (!user) {

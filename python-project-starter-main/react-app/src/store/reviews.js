@@ -42,6 +42,23 @@ export const getItemReviews = (item_id) => async (dispatch) => {
     }
 }
 
+export const getUserReviews = (user_id) => async (dispatch) => {
+    const response = await fetch(`/api/users/${user_id}/reviews`, {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.ok) {
+      const data = await response.json();
+      if (data.errors) {
+        return `Error fetching reviews for user ${user_id}`;
+      }
+      const reviews = data.reviews
+      dispatch(setItemsReviews(reviews));
+    }
+}
+
 // create a new review ===========================================
 export const addNewReview = (data) => async (dispatch) => {
     const {user_id, item_id, rating, content, title } = data;
