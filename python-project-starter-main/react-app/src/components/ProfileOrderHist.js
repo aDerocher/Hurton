@@ -29,7 +29,7 @@ function ProfileOrderHist() {
     const handleLinkToReview = (e, item) => {
         e.preventDefault()
         let itype = itemTypeLinks[`${item.item_type}`];
-        console.log(item)
+        console.log(item) // - uh oh Cart items (which is where this item data is from) do not have item_type
         history.push(`/shop/${itype}/${item.id}`)
         // checks the item type against the 4 item type words
         // links to proper item
