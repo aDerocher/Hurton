@@ -4,16 +4,13 @@ import LogoutButton from './auth/LogoutButton';
 import "./../styles/profile-page.css"
 
 function ProfileSidebar() {
-//   const [user, setUser] = useState({});
+
   const { userId }  = useParams();
 
   useEffect(() => {
 
   }, []);
 
-//   if (!user) {
-//     return null;
-//   }
 
     return (
         <div className='profile-sidebar'>

@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import './../styles/navbar.css'
 
 const NavBarSimple = () => {
-    
-     
+  // Another version of the simplified Navbar
+  // This one built for a more natural feel resembling the regular searchbar.
+  
   return (
     <nav>
         <div className='meta-nav-container'>
-           
+
         </div>
         <div id='nav-container'>
             <div className='nav content-width'>

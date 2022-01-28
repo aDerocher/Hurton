@@ -10,12 +10,12 @@ function ProfileEdit(props) {
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory();
 
+    // All Error handling states and management
     const [ newFirstName, setNewFirstName ] = useState(sessionUser.firstName)
     const [ newLastName, setNewLastName ] = useState(sessionUser.lastName)
     const [ newAddress, setNewAddress ] = useState(sessionUser?.address)
     const [ showErrors, setShowErrors ] = useState(false)
     const [ errors, setErrors ] = useState([])
-
     useEffect(() => {
         let newErrors = []
         if (newFirstName.length < 2) newErrors.push("First Name must be longer");
@@ -25,10 +25,10 @@ function ProfileEdit(props) {
         if (newAddress?.length < 4 && newAddress.length > 0) newErrors.push("Address must be longer");
         if (newAddress?.length > 50) newErrors.push("Address cannot exceed 50 characters");
         setErrors(newErrors);
-
     }, [ newFirstName, newLastName, newAddress])
 
-
+    // If the user doesn't enter anything in a field, make sure attr stays the same
+    // TODO: refactoring. this could probably be handled on the backend more effectively
     const checkViability = (attr, newAttr, formObj) => {
         if(newAttr !== null && newAttr !== undefined){
             formObj[attr] = newAttr;
@@ -36,6 +36,7 @@ function ProfileEdit(props) {
             formObj[attr] = sessionUser[`${attr}`]
         }
     }
+    // TODO: Refactoring. See above
     const updateUser = (e) => {
         e.preventDefault()
         setShowErrors(true)
@@ -69,9 +70,7 @@ function ProfileEdit(props) {
         history.push(`/users/${sessionUser.id}`);
     }
 
-    // if (!props.show) {
-    //     return null;
-    // }
+
     return (
         // <div className="profile-edit-container" onClick={props.onClose}>
             //{/* <form className='profile-edit flex-col-cont' onClick={e=> e.stopPropagation()}> */}

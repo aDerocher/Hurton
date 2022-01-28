@@ -4,7 +4,12 @@ import './../styles/shop-filters.css'
 
 const ShopFilters = () => {
 
-    
+    // =====================================
+    // This component is not yet used
+    // =====================================
+    // Will be implimented on the shopFilter Branch
+
+
     return (
         <div className='filters-container'>
 

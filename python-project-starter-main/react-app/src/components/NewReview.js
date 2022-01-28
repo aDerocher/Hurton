@@ -1,7 +1,6 @@
 import React, { useEffect, useState }from 'react';
 import { useDispatch } from 'react-redux';
 import { addNewReview } from '../store/reviews';
-
 import './../styles/reviews.css'
 
 
@@ -28,7 +27,7 @@ const NewReview = (data) => {
 
     const handleReviewSubmit = (e) => {
         e.preventDefault()
-        
+
         if(revErrors.length <= 0){
             const formData = {
                 item_id: itemId,
@@ -67,7 +66,7 @@ const NewReview = (data) => {
                         value={revTitle}
                         onChange={e=> setRevTitle(e.target.value)}
                         maxLength='49'
-                    ></input> 
+                    ></input>
                 </div>
                 <div className='flex-col-cont'>
                     <label className='grey-label'><span hidden={hideRevErrors} className='req-star'> *</span> Review</label>
@@ -80,7 +79,7 @@ const NewReview = (data) => {
                     ></textarea>
                 </div>
                 <div className='review-option-buttons flex-row-cont'>
-                    <button 
+                    <button
                     className='grey-green-btn'
                     onClick={e=>handleReviewSubmit(e)}>
                     Submit

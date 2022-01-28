@@ -10,6 +10,7 @@ function About() {
                 <h2 className='splash-title'>Hurton' for a new <br />full stack developer? </h2>
                 <p className='splash-text'><br />Andrew Derocher is fluent in many popular languages and <br />frameworks
                     including javascript, python, node, and react.<br /> Connect using the links below!</p>
+
                 <div className='splash-btns-cont'>
                     <a href="https://github.com/aDerocher" target="_blank" rel="noreferrer" className="github-link">
                         <button className='splash-btn'><i className="fab fa-github"></i> <p className='about-btn'> Github</p></button>
@@ -23,7 +24,6 @@ function About() {
                 </div>
             </div>
 
-    
         </div>
     );
 }

@@ -22,6 +22,7 @@ function ProfileOrderHist() {
     // const itemTypes = useSelector(state => state.item_types)
     const userCart = useSelector(state => state.cart)
 
+    // Add item to cart (from wishlist)
     const wishlistToCart = (e, wl_item) => {
         e.preventDefault();
         //check if cart item exists
@@ -99,7 +100,7 @@ function ProfileOrderHist() {
                 </div>
                 {/* <h2>Order History Page</h2>
                 <ul>
-                    
+
                 </ul> */}
             </div>
         </div>
