@@ -19,7 +19,7 @@ function SplashPage() {
         setUser(user);
     })();
     dispatch(getOrderHistory(userId))
-    if(false) console.log(user)
+
   }, [dispatch, user, userId]);
 
     return (
@@ -38,20 +38,16 @@ function SplashPage() {
 
             <div className='splash-photo-container'>
                 <h2 className='splash-title'>Which Boards Does<br /> the Team Ride?</h2>
-                <p className='splash-text'>Ever wonder what gear your favorite snowboarder uses? Head to <br />the Hurton Blog to find out which board 
+                <p className='splash-text'>Ever wonder what gear your favorite snowboarder uses? Head to <br />the Hurton Blog to find out which board
                     each rider calls their tried and true, or check out <br />our round-up to explore their complete setups.</p>
                 <div className='splash-btns-cont'>
                     {/* <button className='splash-btn dead-link dis-dark' disabled={true}>READ MORE</button> */}
                     <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: 'white'}}>
                             <button className='splash-btn'>SHOP SETUPS</button>
                     </NavLink>
-                    
+
                 </div>
             </div>
-
-
-            {/* ========================= Main sections ========================= */}
-            {/* ================================================================= */}
 
             {/* ========================= Shopping Links ======================== */}
             <div className='content-width shop-sections-container'>
@@ -73,7 +69,6 @@ function SplashPage() {
                 </div>
             </div>
 
-
             {/* ========================= Step-ons Advert ========================= */}
             <div className='stepon-section-container content-width'>
                 <div>
@@ -87,7 +82,7 @@ function SplashPage() {
                     {/* <button className='stepon-btn dead-link dis' disabled={true}>STAY IN THE KNOW</button> */}
                 </div>
             </div>
-    
+
         </div>
     );
 }

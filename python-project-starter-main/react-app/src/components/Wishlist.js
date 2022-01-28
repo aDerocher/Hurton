@@ -8,21 +8,16 @@ import "./../styles/profile-page.css"
 
 function Wishlist() {
     const dispatch = useDispatch()
-//   const [user, setUser] = useState({});
     const { userId }  = useParams();
 
     useEffect(() => {
         dispatch(getUsersWishlist(userId))
         dispatch(getCartItems(userId))
     }, [dispatch, userId])
-    
+
     const sessionUser = useSelector(state => state.session.user)
     const userWishlist = useSelector(state => state.wishlist)
     const userCart = useSelector(state => state.cart)
-
-    // useEffect(() => {
-        
-    // }, [userCart])
 
     const removeFromWishlist = (e, id) => {
         e.preventDefault();
@@ -42,7 +37,6 @@ function Wishlist() {
             item_image: wl_item.item_image,
             quantity:1
         }
-        // alert ('Item added to cart :)')
         dispatch(addToCart(formData))
         return
     }
@@ -74,7 +68,7 @@ function Wishlist() {
                             </div>
                         }
 
-                        {/* NOTE ============> : "pic" class is not 'picture', its Profile Item Card */}
+                        {/* NOTE ============> : "pic-" class is not 'picture', its "Profile Item Card" */}
                         {userWishlist?.map((item, i) => (
                             <div key={i} className='profile-item-card flex-row-cont'>
                                 <div className='pic-section flex-row-cont'>
@@ -86,7 +80,7 @@ function Wishlist() {
                                         <p className='grey-label'><strong>$ {item.item_price}.00</strong></p>
                                     </div>
                                 </div>
-                                
+
                                 <div className='pic-section pic-buttons'>
                                     <button className="delete-btn-simple"
                                         onClick={e=> {e.stopPropagation(); removeFromWishlist(e, item.id)}}>
