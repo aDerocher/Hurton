@@ -12,7 +12,8 @@ The Hurton project is a replica of a shopping website for snowboarders. It allow
 
 ![](PlanningDocs/ReadMePics/ReadMeCover.png)
 
-#### Technologies: Javascript, Python, React, Redux, Flask, CSS, HTML, PostgreSQL, SQLAlchemy
+### Technologies:
+Javascript | Python | React | Redux | Flask | CSS | HTML | PostgreSQL | SQLAlchemy | Docker
 
 ### Using Hurton
 Hurton has a similar look and feel to many online shopping sites. You can browse the splash page to see new additions and upcoming releases, or get to shopping by clicking one of the navigation options. 
