@@ -9,33 +9,39 @@ function Footer() {
         <div className="footer-container main-container ">
 
             <div className='footer-search-container content-width'>
-                <div className='foot-s-sec fss-one'>
+                {/* <div className='foot-s-sec fss-one'>
                     <p className='dead-link'>Sign up for news, promotions, and more</p>
-                </div>
+                </div> */}
 
                 <div className='foot-s-sec fss-two'>
-                    {/* <div className='faux-search'> */}
+                    {/* <div className='faux-search'>
                     <div className='temp-faux-search'>
-                        <p className='dead-link'>Not a Searchbar</p>
+                        {/* <p className='dead-link'>Not a Searchbar</p>
                         {/* <input className='f-search-inp' type="text" />
-                        <p>📧</p> */}
-                    </div>
+                        <p>📧</p>
+                    </div>*/}
                 </div>
 
                 <div className='foot-s-sec fss-thr'>
                     {/* <p className='dead-link'>FIND A STORE</p>
                     <p className='dead-link'>TAKE A TEST RIDE</p> */}
                 </div>
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
 
             <div className='footer-top content-width'>
                 <div className='footer-top-section'>
                     {/* <h2 className="foot-title dead-link">About Us</h2> */}
                     <ul>
-                    {/* <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li> */}
                     <li className='link-green'><NavLink to='/about' style={{ color: `var(--link-green)`}}> <p className='github-link'>About Hurton</p></NavLink></li>
-                    {/* <li className='dead-link'>About Hurton</li> */}
-                    {/* <li className='dead-link'>Careers</li>
+                    <li><a href="https://github.com/aDerocher" target="_blank" className="github-link"><i className="fab fa-github"> </i> Creators Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/andrew-derocher-54003789/" target="_blank" className="github-link"><i className="fab fa-linkedin"> </i> Creators Linkedin</a></li>
+                    <li><a href="https://angel.co/u/andrew-derocher" target="_blank" className="github-link"><i className="fab fa-angellist"> </i> Creators AngelList</a></li>
+                    {/* <li className='dead-link'>About Hurton</li>
+                    <li className='dead-link'>Careers</li>
                     <li className='dead-link'>Sustainability</li>
                     <li className='dead-link'>Hill Foundation</li>
                     <li className='dead-link'>Accessability</li>
@@ -80,8 +86,8 @@ function Footer() {
 
             <div className='footer-bottom content-width'>
                 <div className='footer-bottom-section fbs-1'>
-                    <p className='dead-link'>⚐ US/EN</p>
-                    <p className='dead-link'>©2021 Hurton Snowboards</p><p>·</p>
+                    <p className='grey-label'>⚐ US/EN</p>
+                    <p className='grey-label'>©2021 Hurton Snowboards</p><p>·</p>
                 </div>
 
                 <div className='footer-bottom-section f-emojis fbs-3'>
