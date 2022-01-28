@@ -7,7 +7,7 @@ import "./../styles/profile-page.css"
 
 function ProfilePage() {
   const [ user, setUser ] = useState({});
-//   const [ show, setShow ] = useState(false);
+//  const [ show, setShow ] = useState(false);
   const { userId }  = useParams();
 
   const sessionUser = useSelector(state => state.session.user)
@@ -42,7 +42,7 @@ function ProfilePage() {
                             </NavLink>
                         </div>
                         {/* <ProfileEdit onClose={() => setShow(false)} show={show} hidden={show} /> */}
-                        
+
                         <div className='profile-sec-content'>
                             <p>{user.firstName} {user.lastName}</p>
                             <p>{user.email}</p>

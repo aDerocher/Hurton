@@ -3,25 +3,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { login } from './../store/session'
-import './../styles/navbar.css'
 import { getCartItems } from '../store/cart';
+import './../styles/navbar.css'
 
 const NavBar = () => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user)
     // const cart = useSelector(state => state.cart)
-    
+
     // const [ navHide, setNavHide ] = useState()
     // const [ navWiden, setWiden ] = useState()
-    
+
     const loginDemo = () => {
         dispatch(login('demo@hurton.com','password'));
         dispatch(getCartItems(1))
         localStorage.removeItem("cart");
     }
 
+    // ======= KEEP! ==================
+    // This will be used on implimentation of a dynamic searchbar.
+    // Burton.com's searchbar shrinks and then sits fixed on scroll.
+    // this is the start of that implimentation. Still experimental.
+
     // useEffect(() => {
-        
     // }, [])
     // window.addEventListener('scroll', (e)=> {
     //     e.preventDefault();

@@ -1,47 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-// import { useParams } from 'react-router';
-import {getCartItems, editCartItem, deleteCartItem} from '../store/cart'
-// import {getAllItems} from '../store/items'
+import { getCartItems, editCartItem, deleteCartItem } from '../store/cart'
 import CartSidebar from './CartSidebar';
 import './../styles/cart.css'
 
 
 const CartPage = () => {
     const dispatch = useDispatch()
-    // const items = useSelector(state => state.items)
     const sessionUser = useSelector(state => state.session.user)
-    // const itemTypes = useSelector(state => state.item_types)
-    
-    // make sure the cart in state is current to user(if user)
-    // user? cart is state.cart : cart is localstorage
+
+    // Set the cart to whats in state
     let cart = useSelector(state => state.cart)
+    // However, if the cart is empty => check local storage for a cart
     if (cart?.length === 0){
-        // look at local storage
         let ls_cart = localStorage.getItem('cart');
-        // is there a cart with items in it...?
         if (ls_cart !== null && ls_cart !== {}){
-            // put those in an array, and return as cart
+            // if cart is in localstorage, set cart to array of these items
             ls_cart = JSON.parse(ls_cart)
             let newCart = []
             for (const key in ls_cart) {
                 newCart.push(ls_cart[key])
-            }              
+            }
             cart = newCart
         }
     }
-    
-    // get all the items and cart items into the state ==============
+
+    // get all cart items into the state ==============
     const [ subtotal, setSubtotal ] = useState(0)
     useEffect(() => {
         if(sessionUser){
             dispatch(getCartItems(sessionUser?.id))
         }
-        // dispatch(getAllItems())
     }, [dispatch, sessionUser])
 
-    // calculate the subtotal for the order
+    // maintain calculating subtotal and updating it on changes ===========
     useEffect(() => {
         let x = 0
         cart?.forEach((i) => {
@@ -49,8 +42,8 @@ const CartPage = () => {
         })
         setSubtotal(x)
     }, [cart, subtotal])
-    
-    //handle the deletion of cart item =================================
+
+    // handle the deletion of cart item =================================
     const removeFromCart = (e, item) => {
         e.preventDefault()
         if (sessionUser){
@@ -61,8 +54,8 @@ const CartPage = () => {
         let x = document.getElementById(`${item?.id}`)
         if (x) {x.style.display = 'none';}
     }
-    
-    //handle the deletion of cart item from local storage ==============
+
+    // handle the deletion of cart item from local storage ==============
     const removeLSCartItem = (cartItem) => {
         // get the cart in local storage (assume it exists)
         let ls_cart = localStorage.getItem('cart');
@@ -71,7 +64,7 @@ const CartPage = () => {
         window.localStorage.setItem('cart', JSON.stringify(ls_cart))
         setSubtotal(0)
     }
-    
+
     // handle the quantity change of a cart item =======================
     const handleQuantChange = (e, cartItem, newQuant) => {
         e.preventDefault()
@@ -82,7 +75,8 @@ const CartPage = () => {
             // dispatch()
         }
     }
-    
+
+    // handle the quantity change of a cart item in local storage =======================
     const updateLSCartItem = (cartItem, attr, newQuant) => {
         let ls_cart = localStorage.getItem('cart');
         ls_cart = JSON.parse(ls_cart)
@@ -135,8 +129,8 @@ const CartPage = () => {
                                 </div>
                                 <form className="cart-quantity-sel">
                                     <select name="cart-quantity" onChange={e=>handleQuantChange(e, cart_item, e.target.value)} className='cart-quantity' id="">
-                                        <option className='def-option' value={cart_item.quantity} defaultValue={cart_item.quantity}>{cart_item.quantity}</option> 
-                                        <option value='1'>1</option> 
+                                        <option className='def-option' value={cart_item.quantity} defaultValue={cart_item.quantity}>{cart_item.quantity}</option>
+                                        <option value='1'>1</option>
                                         <option value='2'>2</option>
                                         <option value='3'>3</option>
                                         <option value='4'>4</option>

@@ -3,7 +3,9 @@ import { NavLink } from 'react-router-dom';
 import './../styles/navbar.css'
 
 const NavBarSimple = () => {
-
+    // The navbar on checkout should be very simple.
+    // This is so the user stays focused on checking out and finalizing a purchase.
+    
   return (
     <nav>
         <div className='meta-nav-container-text'>

@@ -8,10 +8,10 @@ function CartSidebar(totalInfo) {
 
     return (
         <div className='cart-sidebar-container flex-col-cont'>
-
+            {/* ============= Payment option buttons (all go to same place) ============= */}
             <div className='cart-side-sec to-checkout-btns-container flex-col-cont'>
                 <NavLink to={`/cart/checkout/${subtotal}`} style={{ textDecoration: 'none' }}>
-                    <button 
+                    <button
                     className='grey-green-btn to-checkout-btn check-btn-main dis'
                     disabled={subtotal === 0}>
                         Checkout
@@ -19,7 +19,7 @@ function CartSidebar(totalInfo) {
                 </NavLink>
                 <p className='grey-label'>OR</p>
                 <NavLink to={`/cart/checkout/${subtotal}`} style={{ textDecoration: 'none' }}>
-                    <button 
+                    <button
                     className='to-checkout-btn paypal-btn dis'
                     disabled={subtotal === 0}>
                         PayPal
@@ -27,7 +27,7 @@ function CartSidebar(totalInfo) {
                 </NavLink>
                 <p className='grey-label'>OR</p>
                 <NavLink to={`/cart/checkout/${subtotal}`} style={{ textDecoration: 'none' }}>
-                    <button 
+                    <button
                     className='to-checkout-btn bitcoin-btn dis'
                     disabled={subtotal === 0}>
                         Pay with ₿itcoin

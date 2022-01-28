@@ -36,12 +36,12 @@ const CheckoutPage = (subtotalParams) => {
             let newCart = []
             for (const key in ls_cart) {
                 newCart.push(ls_cart[key])
-            }              
+            }
             cart = newCart
         }
     }
 
-    
+
     const handleCheckoutSubmit = (e) => {
         e.preventDefault()
         if(errors.length > 0){
@@ -59,6 +59,7 @@ const CheckoutPage = (subtotalParams) => {
         history.push(`/thankyou`)
     }
 
+    // Error handling states ====================================
     const [ email, setEmail ] = useState(sessionUser?.email)
     const [ firstName, setFirstName ] = useState(sessionUser?.firstName)
     const [ lastName, setLastName ] = useState(sessionUser?.lastName)
@@ -66,7 +67,7 @@ const CheckoutPage = (subtotalParams) => {
     const [ card, setCard ] = useState('')
     const [ errors, setErrors ] = useState([])
     const [ hideErr, setHideErr ] = useState(true)
-
+    // Check for errors ====================================
     useEffect(() => {
         if(firstName && lastName && email && card && address){setHideErr(false)}
         let newErrors = []
@@ -84,9 +85,7 @@ const CheckoutPage = (subtotalParams) => {
         if(address?.length > 50 || address === null) newErrors.push('Invalid Address: Address is too long')
         setErrors(newErrors)
     }, [dispatch, firstName, lastName, address, email, card])
-    // const total = cart?.reduce((acc, item) => {
-    //     return acc + item.item_price
-    // },0)
+
 
     return (
         <div className="content-width">
@@ -137,7 +136,7 @@ const CheckoutPage = (subtotalParams) => {
                             <input type='text' value={card} onChange={e=>setCard(e.target.value)} placeholder='Credit Card' maxLength='15' />
                         </div>
                     </div>
-                    
+
                     <div className='shipping-radio flex-row-cont'>
                         <input type='radio' name='shipping-radio' value='0'  defaultChecked/>
                         <p><b>FREE </b> : 1-2 Business Days (Hurton Special Delivery)</p>
