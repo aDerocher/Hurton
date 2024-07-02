@@ -1,13 +1,10 @@
-import React, { useEffect, useState }from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
 import './../../styles/ItemGraphs.css'
 import tripleTriangles from './../../images/green-triangles.png'
 import oneTriangle from './../../images/green-triangle.png'
 
 const ItemGraphs = (item) => {
     const curItem = item.item;
-    const dispatch = useDispatch()
-    const sessionUser = useSelector(state => state.session.user)
 
     useEffect(() => {
 
@@ -70,7 +67,7 @@ const ItemGraphs = (item) => {
             <div className='graphs-container'>
                 {/* =========== Top Graph =========== */}
                 <div id='graph-1'className='item-graph' style={{marginLeft: `${attr1*10-30}%`}}>
-                    <img src={oneTriangle} className='triangles-img' />
+                    <img src={oneTriangle} alt="triangle" className='triangles-img' />
                 </div>
                 <div className='graph-labels-top flex-row-cont'>
                     <p className='graph-label'>{label1}</p>
@@ -81,7 +78,7 @@ const ItemGraphs = (item) => {
             {curItem?.item_type !== 3 && 
                 <>
                 <div id='graph-2'className='item-graph'  style={{marginLeft: `${attr2*10-30}%`}}>
-                    <img src={tripleTriangles} className='triangles-img' />
+                    <img src={tripleTriangles} alt="triangle" className='triangles-img' />
                 </div>
                 <div className='graph-labels-top flex-row-cont'>
                     <p className='graph-label'>{label3}</p>
