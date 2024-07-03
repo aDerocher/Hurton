@@ -20,6 +20,10 @@ This is the starter for the Flask React project.
    development environment
 4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
+   CREATE USER hurton_user WITH CREATEDB PASSWORD 'rideordie';
+
+   CREATE DATABASE hurton_db WITH OWNER hurton_user;
+
 5. Get into your pipenv, migrate your database, seed your database, and run your flask app
 
    ```bash
@@ -63,7 +67,9 @@ Python packages since your last deployment, but if you aren't sure, it won't
 hurt to run it again.
 
    ```bash
-   pipenv lock -r > requirements.txt
+   # pipenv lock -r > requirements.txt <======= (DEPRICIATED use below:)
+   pipenv requirements > requirements.txt
+
    ```
 
 2. Create a new project on Heroku

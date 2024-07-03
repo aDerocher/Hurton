@@ -149,6 +149,7 @@ export default function reducer(state = initialState, action) {
                     item.quantity += action.payload.quantity
                     addedToExisting = true;
                 }
+                return item;
             })
             if(addedToExisting) {return [ ...newState] }
                 else { return [ ...newState, action.payload ] }
@@ -158,7 +159,7 @@ export default function reducer(state = initialState, action) {
                 if(item.id === action.payload.id){
                     item.quantity = action.payload.quantity
                 }
-                
+                return item;
             })
             return [ ...newState]
 
