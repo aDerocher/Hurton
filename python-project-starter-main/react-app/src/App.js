@@ -18,7 +18,7 @@ import CheckoutPage from './components/CheckoutPage';
 import Shop from './components/Shop';
 import SplashPage from './components/SplashPage';
 import Footer from './components/Footer';
-import ItemDetails from './components/item-comps/ItemDetails';
+import ItemDetails from './components/Item-Sub-Components/ItemDetails';
 import About from './components/About';
 import CheckoutThankYou from './components/CheckoutThankYou';
 import { authenticate } from './store/session';
