@@ -1,7 +1,7 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getOrderHistory } from './../../store/session';
-import SBForm from './SBForm';
+import { getOrderHistory } from '../../store/session';
+import SBForm from './../Forms/SBForm';
 import './../../styles/item-details.css';
 
 

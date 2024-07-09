@@ -1,10 +1,10 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addToCart, editCartItem } from './../../store/cart';
-import { addWishlistItem, getUsersWishlist } from './../../store/wishlist';
+import { addToCart, editCartItem } from '../../store/cart';
+import { addWishlistItem, getUsersWishlist } from '../../store/wishlist';
 import './../../styles/item-form.css'
-import AddToCartModal from './AddToCartModal';
+import AddToCartModal from './../Modals/AddToCartModal';
 
 
 const ItemForm = () => {
