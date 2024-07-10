@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+// This component for Testing only
 function UsersList() {
-
-  // ===========================================
-  //     This component for Testing only
-  // ===========================================
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -17,18 +14,17 @@ function UsersList() {
     fetchData();
   }, []);
 
-  const userComponents = users.map((user) => {
-    return (
-      <li key={user.id}>
-        <NavLink to={`/users/${user.id}`}>{user.email}</NavLink>
-      </li>
-    );
-  });
 
   return (
     <>
       <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <NavLink to={`/users/${user.id}`}>{user.email}</NavLink>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }

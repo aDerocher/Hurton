@@ -3,16 +3,13 @@ import './../styles/shop-filters.css'
 
 
 const ShopFilters = () => {
-
     // =====================================
     // This component is not yet used
     // =====================================
     // Will be implimented on the shopFilter Branch
 
-
     return (
         <div className='filters-container'>
-
             <div className="filter-section">
                 <div className="filter-topper">
                     <p className='topper-title'>Color</p>
@@ -35,7 +32,6 @@ const ShopFilters = () => {
                     <p className='topper-title'>Gender</p>
                     <p className='filter-exp'>+</p>
                 </div>
-
                 <div className="filter-input">
                     <label>Men</label>
                     <div className="faux-check"></div>
@@ -53,7 +49,6 @@ const ShopFilters = () => {
                     <p className='topper-title'>Bend</p>
                     <p className='filter-exp'>+</p>
                 </div>
-
                 <div className="filter-input">
                     <label >Camber</label>
                     <div className="faux-check"></div>

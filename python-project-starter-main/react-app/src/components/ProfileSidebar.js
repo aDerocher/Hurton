@@ -8,7 +8,6 @@ function ProfileSidebar() {
   const { userId }  = useParams();
 
   useEffect(() => {
-
   }, []);
 
 

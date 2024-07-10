@@ -249,7 +249,7 @@ const ItemForm = () => {
                         </div>
                     ))}
                 </div>
-                <p className='grey-label'><strong>SIZE</strong> {size} </p>
+                {/* <p className='grey-label'><strong>SIZE</strong> {size} </p> */}
                 <select name="cart-quantity" onChange={e=>setQuantity(e.target.value)} className='' id="">
                     <option className='def-option' disabled defaultValue='1'>1</option> 
                     <option value='1'>1</option> 
