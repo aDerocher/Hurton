@@ -1,13 +1,13 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getItemReviews } from './../../store/items';
-import { getCartItems } from './../../store/cart';
-import { getUsersWishlist } from './../../store/wishlist';
-import { getOneItem } from './../../store/items';
+import { getItemReviews } from '../../store/items';
+import { getCartItems } from '../../store/cart';
+import { getUsersWishlist } from '../../store/wishlist';
+import { getOneItem } from '../../store/items';
 import Reviews from '../Reviews';
 import NewReview from '../NewReview';
-import ItemForm from './ItemForm';
+import ItemForm from '../Forms/ItemForm';
 import ItemGraphs from './ItemGraphs';
 import './../../styles/item-details.css'
 

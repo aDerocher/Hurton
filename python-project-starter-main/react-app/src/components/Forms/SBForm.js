@@ -1,10 +1,10 @@
 import React, { useEffect, useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addToCart, editCartItem } from './../../store/cart';
-import { addWishlistItem, getUsersWishlist } from './../../store/wishlist';
+import { addToCart, editCartItem } from '../../store/cart';
+import { addWishlistItem, getUsersWishlist } from '../../store/wishlist';
 import './../../styles/item-form.css'
-import AddToCartModal from './AddToCartModal';
+import AddToCartModal from './../Modals/AddToCartModal';
 
 
 const ItemForm = () => {
@@ -249,7 +249,7 @@ const ItemForm = () => {
                         </div>
                     ))}
                 </div>
-                <p className='grey-label'><strong>SIZE</strong> {size} </p>
+                {/* <p className='grey-label'><strong>SIZE</strong> {size} </p> */}
                 <select name="cart-quantity" onChange={e=>setQuantity(e.target.value)} className='' id="">
                     <option className='def-option' disabled defaultValue='1'>1</option> 
                     <option value='1'>1</option> 

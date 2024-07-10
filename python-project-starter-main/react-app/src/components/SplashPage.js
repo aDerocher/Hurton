@@ -10,9 +10,7 @@ function SplashPage() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!userId) {
-      return;
-    }
+    if (!userId) return
     (async () => {
         const response = await fetch(`/api/users/${userId}`);
         const user = await response.json();
@@ -43,9 +41,8 @@ function SplashPage() {
                 <div className='splash-btns-cont'>
                     {/* <button className='splash-btn dead-link dis-dark' disabled={true}>READ MORE</button> */}
                     <NavLink to={`/shop`} exact={true} activeClassName='active' style={{ textDecoration: 'underline', color: 'white'}}>
-                            <button className='splash-btn'>SHOP SETUPS</button>
+                        <button className='splash-btn'>SHOP SETUPS</button>
                     </NavLink>
-
                 </div>
             </div>
 
