@@ -2,12 +2,8 @@ import React from 'react';
 import './../styles/shop-filters.css'
 
 
+// This component not in use, under development
 const ShopFilters = () => {
-    // =====================================
-    // This component is not yet used
-    // =====================================
-    // Will be implimented on the shopFilter Branch
-
     return (
         <div className='filters-container'>
             <div className="filter-section">
