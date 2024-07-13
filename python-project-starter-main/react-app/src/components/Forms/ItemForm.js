@@ -11,26 +11,23 @@ const ItemForm = (item) => {
 	const dispatch = useDispatch()
 	const sessionUser = useSelector(state => state.session?.user)
 	
-    
   useEffect(() => {
 		if(sessionUser){
 			dispatch(getOrderHistory(sessionUser?.id))
 		}
 	}, [ dispatch, sessionUser ])
-    
+	
+	const [ origImage, setOrigImage ] = useState(true)
+	const [ displayImage, setDisplayImage ] = useState('')	
 
 	const changeDisplayImage = (e, img) => {
 		e.preventDefault()
 		setOrigImage(false)
 		setDisplayImage(img)
 	}
-	// for handling the photo viewer
-	const [ origImage, setOrigImage ] = useState(true)
-	const [ displayImage, setDisplayImage ] = useState('')
-
 
 	return (
-		<div className='item-details-selection flex-row-cont'>
+		<div className='item-details-selection flex-row-cont' style={{border: "3px solid green;"}} >
 			<div className='item-deets-imgs flex-col-cont'>
 				{images.map((image) => (
 					<>
