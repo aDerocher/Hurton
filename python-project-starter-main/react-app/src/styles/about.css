@@ -1,15 +1,6 @@
 .splash-photo-container-about {
-  /* background-color: aqua; */
-  min-height: 400px;
-  height: 550px;
-  display: flex;
-  flex-direction: column;
-  padding: 2% 7%;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; 
   background-image: url("./../images/a-crash.PNG");
-  background-size: cover;
-  background-position: center;
 }
 
 .about-btn {
