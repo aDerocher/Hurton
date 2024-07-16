@@ -1,128 +1,125 @@
 /* =========== Top Advert ============== */
-.ak-advert{
-    background-color:var(--chargrey2);
-    color: white;
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.ak-advert {
+  background-color: var(--chargrey2);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 .ak-link {
-    color:white;
+  color: white;
 }
 .ak-c {
-    font-size: x-small;
+  font-size: x-small;
 }
 
 /* =========== Main Section ============== */
-.splash-photo-container{
-    /* background-color: aqua; */
-    min-height: 400px;
-    height: 550px;
-    display: flex;
-    flex-direction: column;
-    padding: 2% 7%;
-    justify-content: center;
-    align-items: flex-end;
-    background-image: url('./../images/dan-jump.jpg');
-    background-size: cover;
-    background-position: center;
+.splash-photo-container {
+  /* background-color: aqua; */
+  min-height: 400px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  padding: 2% 7%;
+  justify-content: center;
+  align-items: flex-end;
+  background-image: url("./../images/dan-jump.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.splash-title{
-    /* background-color: rgb(15, 95, 95); */
-    font-weight: 800;
-    font-size: 36pt;
+.splash-title {
+  /* background-color: rgb(15, 95, 95); */
+  font-weight: 800;
+  font-size: 36pt;
 }
-.splash-text{
-    /* background-color: rgb(103, 168, 59); */
-    color: var(--chargrey2);
-    font-weight: 700;
-    padding: 19px 0;
-    line-height: 150%;
+.splash-text {
+  /* background-color: rgb(103, 168, 59); */
+  color: var(--chargrey2);
+  font-weight: 700;
+  padding: 19px 0;
+  line-height: 150%;
 }
 
-.splash-btns-cont{
-    display: flex;
-    flex-direction: row;
+.splash-btns-cont {
+  display: flex;
+  flex-direction: row;
 }
-.splash-btn{
-    background-color: var(--chargrey2);
-    color: white;
-    padding: 20px 44px;
-    margin-right: 20px;
-    outline: none;
-    border: none;
-    font-size: 10pt;
-    font-weight: 700;
+.splash-btn {
+  background-color: var(--chargrey2);
+  color: white;
+  padding: 20px 44px;
+  margin-right: 20px;
+  outline: none;
+  border: none;
+  font-size: 10pt;
+  font-weight: 700;
 }
 
 /* =========== Shopping Section ============== */
-.shop-sections-container{
-    /* background-color: rgb(159, 59, 168); */
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1.5rem auto;
-
+.shop-sections-container {
+  /* background-color: rgb(159, 59, 168); */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1.5rem auto;
 }
 
-.shop-section{
-    /* background-color: rgb(103, 168, 59); */
-    display: flex;
-    flex-direction: column;
-    width: 23.5%
-
+.shop-section {
+  /* background-color: rgb(103, 168, 59); */
+  display: flex;
+  flex-direction: column;
+  width: 23.5%;
 }
 
-.shop-section-img{
-    /* background-color: rgb(50, 85, 27); */
-    /* height: 250px; */
-    width: 100%
+.shop-section-img {
+  /* background-color: rgb(50, 85, 27); */
+  /* height: 250px; */
+  width: 100%;
 }
 
-.shop-section-label{
-    font-size: 19pt;
-    font-weight: 600;
-    /* color: var(--chargrey1); */
-    color: var(--lightgrey1);
-    padding: 24px 0;
-
+.shop-section-label {
+  font-size: 19pt;
+  font-weight: 600;
+  /* color: var(--chargrey1); */
+  color: var(--lightgrey1);
+  padding: 24px 0;
 }
 
 /* =========== Step-on Advert ============== */
-.stepon-section-container{
-    /* background-color: brown; */
-    height: 650px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-image: url('./../images/customgraphics.jpg');
-    background-size: cover;
-    background-position: center;
+.stepon-section-container {
+  /* background-color: brown; */
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("./../images/customgraphics.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.stepon-section-container > div{
-    padding: 0 3%;
+.stepon-section-container > div {
+  padding: 0 3%;
 }
-.stepon-text{
-    font-weight: 700;
-    color: whitesmoke;
-    margin: 24px 0;
-    line-height: 150%;
+.stepon-text {
+  font-weight: 700;
+  color: whitesmoke;
+  margin: 24px 0;
+  line-height: 150%;
 }
-.stepon-title{
-    font-weight: 700;
-    font-size: 46pt;
-    color: white;
+.stepon-title {
+  font-weight: 700;
+  font-size: 46pt;
+  color: white;
 }
-.stepon-r{
-    font-size: 20pt;
+.stepon-r {
+  font-size: 20pt;
 }
-.stepon-btn{
-    outline: none;
-    border: none;
-    padding: 16px;
-    width: 200px;
-    font-weight: 900;
+.stepon-btn {
+  outline: none;
+  border: none;
+  padding: 16px;
+  width: 200px;
+  font-weight: 900;
 }

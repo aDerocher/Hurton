@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 // This component for Testing only
 function UsersList() {
@@ -7,13 +7,12 @@ function UsersList() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('/api/users/');
+      const response = await fetch("/api/users/");
       const responseData = await response.json();
       setUsers(responseData.users);
     }
     fetchData();
   }, []);
-
 
   return (
     <>

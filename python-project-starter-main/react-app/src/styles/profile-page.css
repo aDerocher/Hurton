@@ -1,119 +1,129 @@
 /*========== Containers =========================*/
-.profile-page-container{
-    background-color: var(--light-light-grey);
-    padding-top: 50px;
-    padding-bottom: 80px;
+.profile-page-container {
+  background-color: var(--light-light-grey);
+  padding-top: 50px;
+  padding-bottom: 80px;
 }
-.profile-page-sub-container{
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
+.profile-page-sub-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
 }
 /*============ left and right ==============================*/
 /*============ main (right) ==============================*/
 
-.profile-right > * {margin-bottom: 20px;}
-.profile-right{
-    width: 66%;
+.profile-right > * {
+  margin-bottom: 20px;
 }
-.profile-sec > *{
-    padding: 20px;
-    border: 1px solid var(--light-grey);
-    background-color: white;
+.profile-right {
+  width: 66%;
 }
-.profile-sec-topper{
-    background-color: var(--light-grey);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
+.profile-sec > * {
+  padding: 20px;
+  border: 1px solid var(--light-grey);
+  background-color: white;
 }
-.profile-sec-content > *{
-    margin-bottom: 10px;
+.profile-sec-topper {
+  background-color: var(--light-grey);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
-.profile-sec-content:last-child{
-    margin-bottom: 0;
+.profile-sec-content > * {
+  margin-bottom: 10px;
+}
+.profile-sec-content:last-child {
+  margin-bottom: 0;
 }
 
 /*============ sidebar(left) ==============================*/
-.profile-sidebar{
-    width: 25%
+.profile-sidebar {
+  width: 25%;
 }
-.pr-nav-options > * { padding: 10px;}
-.pr-nav-options{
-    margin: 12px 0;
-    padding: 3px 0;
-    border-top: 1px solid var(--med-grey)
+.pr-nav-options > * {
+  padding: 10px;
 }
-.pr-nav-btn{
-    font-weight: bold;
-    color: var(--link-green);
+.pr-nav-options {
+  margin: 12px 0;
+  padding: 3px 0;
+  border-top: 1px solid var(--med-grey);
+}
+.pr-nav-btn {
+  font-weight: bold;
+  color: var(--link-green);
 }
 
 /*============ mini classes (both) ==============================*/
-.profile-title{
-    color: var(--med-grey);
-    font-weight: 100;
-    font-size: 18pt;
+.profile-title {
+  color: var(--med-grey);
+  font-weight: 100;
+  font-size: 18pt;
 }
-.pr-sub-title{font-size: 12pt;}
-.profile-option{font-size: 10pt;}
-
+.pr-sub-title {
+  font-size: 12pt;
+}
+.profile-option {
+  font-size: 10pt;
+}
 
 /*============ Item Cards ==============================*/
-.profile-item-card{
-    justify-content: space-between;
+.profile-item-card {
+  justify-content: space-between;
 }
-.pic-section{
-    
+.pic-section {
 }
-.pic-image{
-    height: 120px;
+.pic-image {
+  height: 120px;
 }
-.pic-text > *{ padding: 6px}
-.pic-text p:first-child{ padding-top: 0;}
-.pic-buttons{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
+.pic-text > * {
+  padding: 6px;
 }
-.orderHist-buttons{
-    display: flex;
-    align-items: flex-end;
+.pic-text p:first-child {
+  padding-top: 0;
+}
+.pic-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.orderHist-buttons {
+  display: flex;
+  align-items: flex-end;
 }
 /* ======= button animation ================ */
 
 .wishlist-cart-btn {
-    position: relative;
-    background-color: var(--dark-grey);
-    border: none;
-    font-size: 16px;
-    height: 70px;
-    width: 200px;
-    color: #FFFFFF;
-    transition-delay: .7s;
-    transition-duration: .7s;
+  position: relative;
+  background-color: var(--dark-grey);
+  border: none;
+  font-size: 16px;
+  height: 70px;
+  width: 200px;
+  color: #ffffff;
+  transition-delay: 0.7s;
+  transition-duration: 0.7s;
 }
 
 .wishlist-cart-btn:after {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    content: "+ Added to Cart";
-    text-align: center;
-    background: #eeeeee;
-    height: 70px;
-    width: 200px;
-    position: absolute;
-    opacity: 0;
-    transition: 1.5s;
-    transition-delay: .7s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "+ Added to Cart";
+  text-align: center;
+  background: #eeeeee;
+  height: 70px;
+  width: 200px;
+  position: absolute;
+  opacity: 0;
+  transition: 1.5s;
+  transition-delay: 0.7s;
 }
 
 .wishlist-cart-btn:active:after {
-    background-color: var(--button-turq);
-    height: 70px;
-    width: 200px;
-    opacity: 1;
-    transition: 0s
+  background-color: var(--button-turq);
+  height: 70px;
+  width: 200px;
+  opacity: 1;
+  transition: 0s;
 }

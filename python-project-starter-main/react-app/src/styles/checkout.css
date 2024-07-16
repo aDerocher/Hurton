@@ -1,123 +1,124 @@
 /* div{border: 1px solid orange} */
-.checkout-page-container{
-    justify-content: space-between;
+.checkout-page-container {
+  justify-content: space-between;
 }
-.checkout-top-title{
-    justify-content: space-between;
-    padding: 16px 0;
+.checkout-top-title {
+  justify-content: space-between;
+  padding: 16px 0;
 }
-.big-lock { font-size: 20pt; color: var(--dark-grey)}
+.big-lock {
+  font-size: 20pt;
+  color: var(--dark-grey);
+}
 
-.errors-block > *{
-    padding: 6px;
+.errors-block > * {
+  padding: 6px;
 }
 
 /* ====== Left and Right Sections ===================== */
-.checkout-left{
-    width: 50%;
+.checkout-left {
+  width: 50%;
 }
-.checkout-right{
-    width: 40%;
-
+.checkout-right {
+  width: 40%;
 }
-.checkout-brick{
-    background-color: var(--dark-grey);
-    color: white;
-    font-weight: bold;
-    width: 100%;
-    padding: 16px 0;
-    font-size: 18pt;
+.checkout-brick {
+  background-color: var(--dark-grey);
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 16px 0;
+  font-size: 18pt;
 }
 .checkout-brick > * {
-    margin: 0 18px;
+  margin: 0 18px;
 }
-.checkout-brick-grey{
-    background-color: var(--light-grey);
-    color: var(--dark-grey);
-}
-
-
- /* Input box styling ========== */
-.checkout-all-inputs{
-    margin: 20px 0;
-    margin-bottom: 30px;   
-}
-.checkout-box > input{
-    width: 90%;
-    margin: 8px;
-    border: none;
-    outline: none;
-    font-size: 14pt;
-    color: var(--charcoal-grey);
-}
-.checkout-box{
-    border: 1px solid var(--light-grey);
-    border-radius: 6px;
-    margin: 16px 0;
-    padding: 8px 0;
-    width: 100%;
-}
-.checkout-box-split{justify-content: space-between;}
-.checkout-box-split > *{
-    width: 48%;
-}
-.checkout-email{
-    background-color: var(--light-light-grey);
-    border: 1px solid var(--light-grey);
-}
-.checkout-email > *{
-    background-color: var(--light-light-grey);
+.checkout-brick-grey {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
 }
 
- /* Radio styling ========== */
-.shipping-radio > p{
-    padding: 0 14px;
-    font-size: 12pt;
-
+/* Input box styling ========== */
+.checkout-all-inputs {
+  margin: 20px 0;
+  margin-bottom: 30px;
 }
-.shipping-radio{
-    align-items: center;
-    padding: 18px 10px;
-    border: 1px solid var(--light-grey);
-    background-color: var(--light-light-grey);
-    align-items: center;
+.checkout-box > input {
+  width: 90%;
+  margin: 8px;
+  border: none;
+  outline: none;
+  font-size: 14pt;
+  color: var(--charcoal-grey);
+}
+.checkout-box {
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  margin: 16px 0;
+  padding: 8px 0;
+  width: 100%;
+}
+.checkout-box-split {
+  justify-content: space-between;
+}
+.checkout-box-split > * {
+  width: 48%;
+}
+.checkout-email {
+  background-color: var(--light-light-grey);
+  border: 1px solid var(--light-grey);
+}
+.checkout-email > * {
+  background-color: var(--light-light-grey);
+}
+
+/* Radio styling ========== */
+.shipping-radio > p {
+  padding: 0 14px;
+  font-size: 12pt;
+}
+.shipping-radio {
+  align-items: center;
+  padding: 18px 10px;
+  border: 1px solid var(--light-grey);
+  background-color: var(--light-light-grey);
+  align-items: center;
 }
 /* ==== button =============== */
-.sub-order-btn{
-    width: 100%;
-    padding: 18px;
-    font-size: 12pt;
-    margin: 30px auto;
+.sub-order-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 12pt;
+  margin: 30px auto;
 }
 
 /* Contact Seciont Special Case ========== */
-.email-confirm{
-    margin-bottom: 0;
+.email-confirm {
+  margin-bottom: 0;
 }
-.email-confirm-text{
-    margin: 4px;
-    margin-bottom: 15px;
+.email-confirm-text {
+  margin: 4px;
+  margin-bottom: 15px;
 }
-.check-signup{
-    margin-bottom: 15px;
-
+.check-signup {
+  margin-bottom: 15px;
 }
 
 /* RIGHT SIDE =========================== */
 
-.checkout-mini-sec{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: var(--dark-grey);
+.checkout-mini-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: var(--dark-grey);
 }
 
-.back-to-cart{
-    /* border: 1px solid orange; */
-    padding: 2rem .5rem;
+.back-to-cart {
+  /* border: 1px solid orange; */
+  padding: 2rem 0.5rem;
 }
-.back-to-cart > *{
-    margin: 8px;
-    color: var(--link-green);
-    text-decoration: none;
+.back-to-cart > * {
+  margin: 8px;
+  color: var(--link-green);
+  text-decoration: none;
 }

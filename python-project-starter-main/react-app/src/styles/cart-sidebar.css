@@ -1,73 +1,72 @@
-
-.cart-sidebar-container{
-    background-color: var(--light-grey);
-    color: var(--dark-grey);
-    padding: 30px;
+.cart-sidebar-container {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  padding: 30px;
 }
 /* ====== All Section attributes ======= */
-.disable-checkout{
-    position: absolute;
-    background-color: rgba(218, 69, 69, 0.5);
-    /* top:0;
+.disable-checkout {
+  position: absolute;
+  background-color: rgba(218, 69, 69, 0.5);
+  /* top:0;
     bottom:0;
     right:0; 
     left:0;*/
-    width: fit-content;
-    height: fit-content;
-    z-index: 100;
+  width: fit-content;
+  height: fit-content;
+  z-index: 100;
 }
-.cart-side-sec{
-    border-bottom: 1px solid var(--med-grey);
-    padding: 1rem 0;
+.cart-side-sec {
+  border-bottom: 1px solid var(--med-grey);
+  padding: 1rem 0;
 }
-.cart-side-sec:last-child{
-    border-bottom: none;
+.cart-side-sec:last-child {
+  border-bottom: none;
 }
 .cart-mini-sec > * {
-    margin: 10px 0;
-}    
-.cart-mini-sec{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  margin: 10px 0;
+}
+.cart-mini-sec {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
- /* ====== Top section - Buttons ======= */
-.to-checkout-btns-container{
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 10px;
+/* ====== Top section - Buttons ======= */
+.to-checkout-btns-container {
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
 }
-.to-checkout-btn{
-    margin: 10px 0;
-    padding: 10px 45px;
-    font-weight: bold;
+.to-checkout-btn {
+  margin: 10px 0;
+  padding: 10px 45px;
+  font-weight: bold;
 }
-.check-btn-main{
-    padding: 16px 100px;
-    font-size: 13pt;
+.check-btn-main {
+  padding: 16px 100px;
+  font-size: 13pt;
 }
-.paypal-btn{
-    background-color: white;
-    border: 1px solid black;
-    color: blue;
+.paypal-btn {
+  background-color: white;
+  border: 1px solid black;
+  color: blue;
 }
-.bitcoin-btn{
-    background-color: rgb(235, 190, 66);
-    border-radius: 6px;
-    color: rgb(85, 65, 0);
+.bitcoin-btn {
+  background-color: rgb(235, 190, 66);
+  border-radius: 6px;
+  color: rgb(85, 65, 0);
 }
 
 /*===== little classes ===========*/
-.shipping-red{
-    color: var(--maroon);
+.shipping-red {
+  color: var(--maroon);
 }
-.sub-t{
-    font-weight: bold;
-    font-size: 10pt;
+.sub-t {
+  font-weight: bold;
+  font-size: 10pt;
 }
-.ship-info{
-    margin-bottom: 8px;
-    text-decoration: underline;
-    font-size: 11pt;
+.ship-info {
+  margin-bottom: 8px;
+  text-decoration: underline;
+  font-size: 11pt;
 }
