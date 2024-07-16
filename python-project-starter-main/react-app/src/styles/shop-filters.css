@@ -1,86 +1,83 @@
 /* =========== MAIN ATTRIBUTES ================== */
-.filters-container{
-    /* background-color: rgb(200, 248, 200); */
-    border: 1px solid lightgray;
-    width: 300px;
-    height: 800px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid lightgray;
-    border-bottom: none;
+.filters-container {
+  /* background-color: rgb(200, 248, 200); */
+  border: 1px solid lightgray;
+  width: 300px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-bottom: none;
 }
 
-.filter-section{
-    /* background-color: lightseagreen; */
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid lightgray;
+.filter-section {
+  /* background-color: lightseagreen; */
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid lightgray;
 }
-.filter-topper:hover{
-    background-color: lightgrey;
+.filter-topper:hover {
+  background-color: lightgrey;
 }
-.filter-topper{
-    /* background-color: maroon; */
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+.filter-topper {
+  /* background-color: maroon; */
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 .filter-topper > * {
-    margin: 18px;
+  margin: 18px;
 }
-.filter-body{
-
+.filter-body {
 }
 
-.filter-exp{
-
+.filter-exp {
 }
 /* ========== SUBSECTION ATTR ============== */
 
-.filter-input{
-    /* background-color: lawngreen; */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transition: 0.2s;
+.filter-input {
+  /* background-color: lawngreen; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.2s;
 }
 
 .filter-input > * {
-    /* background-color: lemonchiffon; */
-    margin: 15px 10%; 
+  /* background-color: lemonchiffon; */
+  margin: 15px 10%;
 }
-.filter-input:hover{
-    background-color: lightgrey;
+.filter-input:hover {
+  background-color: lightgrey;
 }
-.faux-check{
-    background-color: transparent;
-    border: 1px solid rgb(0, 0, 0);
-    height: 18px;
-    width: 18px;
+.faux-check {
+  background-color: transparent;
+  border: 1px solid rgb(0, 0, 0);
+  height: 18px;
+  width: 18px;
 }
-.faux-check:hover{
-    box-shadow: 1px 1px 1px black;
+.faux-check:hover {
+  box-shadow: 1px 1px 1px black;
 }
 
 /* ============= COLORS =============== */
-.color{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 20px;    
+.color {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
 }
-.swatch{
-    border: 2px solid lightseagreen;
-    background-color:lightseagreen;
-    height: 40px;
-    width: 40px;
-    margin: 4px;
+.swatch {
+  border: 2px solid lightseagreen;
+  background-color: lightseagreen;
+  height: 40px;
+  width: 40px;
+  margin: 4px;
 }
-.swatch:hover{
-    box-shadow: inset 0px 0px 0 2px rgb(243, 243, 243);
+.swatch:hover {
+  box-shadow: inset 0px 0px 0 2px rgb(243, 243, 243);
 }
 /* ============= Gender =============== */
-.gender{
-
+.gender {
 }

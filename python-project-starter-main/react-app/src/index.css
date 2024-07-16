@@ -1,226 +1,340 @@
 /* TODO combine root variable colors! */
-:root{
+:root {
+  /* ======== COLORS ======== */
+  /* Greys -------------------- */
+  --off-white: white;
 
-    /* ======== COLORS ======== */
-    /* Greys -------------------- */
-        --off-white: white;
+  /* for some soft grey backgrounds */
+  --light-light-grey: #f5f5f5;
+  --light-grey: #e5e5e5;
+  --lightgrey1: rgb(155, 155, 155);
+  --med-light-grey: #757575;
 
-        /* for some soft grey backgrounds */
-        --light-light-grey: #f5f5f5;
-        --light-grey: #e5e5e5;
-        --lightgrey1: rgb(155, 155, 155);
-        --med-light-grey: #757575;
+  /* for large titles and paragraphs */
+  --med-grey: #4e4c4b;
 
-        /* for large titles and paragraphs */
-        --med-grey: #4e4c4b;
+  --dark-grey: #333333;
+  /* for small text and button backgrounds */
+  --charcoal-grey: #1a1a1a;
 
-        --dark-grey: #333333;
-        /* for small text and button backgrounds */
-        --charcoal-grey: #1a1a1a;
-    
-    /* Greens -------------------- */
-        /*Free shipping/sale*/
-        --link-green: #4d6e60;
-        /*accents, button backgrdounds*/
-        --button-turq:#3d7c7d;
-        --button-turq-dark:#2c5455;
-        --accent-turq:#0e7387;
-        --graph-turq: #4796a8;
+  /* Greens -------------------- */
+  /*Free shipping/sale*/
+  --link-green: #4d6e60;
+  /*accents, button backgrdounds*/
+  --button-turq: #3d7c7d;
+  --button-turq-dark: #2c5455;
+  --accent-turq: #0e7387;
+  --graph-turq: #4796a8;
 
-    /* Accents -------------------- */
-        --gold: rgb(145, 111, 50);
-        --maroon: rgb(87, 29, 29);
-
+  /* Accents -------------------- */
+  --gold: rgb(145, 111, 50);
+  --maroon: rgb(87, 29, 29);
 }
-:root{
-    
-    --chargrey1: rgb(51, 51, 51);
-    --chargrey2: rgb(11, 11, 11);
+:root {
+  --chargrey1: rgb(51, 51, 51);
+  --chargrey2: rgb(11, 11, 11);
 
-    --footer-offwhite: rgb(239, 239, 239);
+  --footer-offwhite: rgb(239, 239, 239);
 }
 
 /* ======== Clear off default styling ==============================*/
-h1, h2, h3, h4, h5, h6{
-    margin: 0;
-	padding: 0;
-	border: 0;
-	vertical-align: baseline;
-    color: var(--charcoal-grey)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: var(--charcoal-grey);
 }
 /* b, u, i,strike, strong,em, */
-html, body, div, span, applet, object, iframe,
- p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, img, ins, kbd, q, s, samp,
-small,  sub, sup, tt, var, center,
-dl, dt, dd, ol, ul, li, form, label,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+sub,
+sup,
+tt,
+var,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
-a{ text-decoration: none }
+a {
+  text-decoration: none;
+}
 table {
-    border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Universal style application */
-html, body{ font-family: Arial, Helvetica, sans-serif; }
-button{ 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    outline: none;
-    border: none; 
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
-button:hover{ cursor: pointer; }
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  outline: none;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+}
 input:focus {
-    background-color: none;
+  background-color: none;
 }
 
 /* ===============================================================
 +++++++++++++ TEMPORARY! REMOVE THIS APP LATER ++++++++++++++++
 =============================================================== */
-                                /* img {
+/* img {
                                     max-height: 100px;
                                     max-width: 100px;
                                 } */
 /* ===============================================================
 =============================================================== 
-=============================================================== */ 
-
+=============================================================== */
 
 /* Useful site wide classes */
-.flex-col-cont{ display: flex; flex-direction: column}
-.flex-row-cont{ display: flex; flex-direction: row}
-.flex-row-cont-apart{ display: flex; flex-direction: row; justify-content: space-between; align-items: center}
-.bold-accent{ font-weight: 800; color: var(--accent-turq); }
-.boldish{ font-weight: 800; }
-.dead-link{ text-decoration: line-through; font-style:italic; color: var(--lightgrey1)}
-.hover-hand:hover{ cursor: pointer; }
-.remove-underline{text-decoration: none;}
-.content-width{
-    width: 95%;
-    margin: 0 2.5%;
+.flex-col-cont {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row-cont {
+  display: flex;
+  flex-direction: row;
+}
+.flex-row-cont-apart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.bold-accent {
+  font-weight: 800;
+  color: var(--accent-turq);
+}
+.boldish {
+  font-weight: 800;
+}
+.dead-link {
+  text-decoration: line-through;
+  font-style: italic;
+  color: var(--lightgrey1);
+}
+.hover-hand:hover {
+  cursor: pointer;
+}
+.remove-underline {
+  text-decoration: none;
+}
+.content-width {
+  width: 95%;
+  margin: 0 2.5%;
 }
 
 /* =========== For Text Snippets ============= */
-.req-star{ color: red; }
-.grey-label{
-    color: var(--med-grey);
-    font-size: 10pt;
-    font-weight: 500;
+.req-star {
+  color: red;
 }
-.empty-user-list{
-    color: var(--dark-grey);
-    font-size: 12pt;
+.grey-label {
+  color: var(--med-grey);
+  font-size: 10pt;
+  font-weight: 500;
 }
-.empty-user-list-wl{
-    color: var(--gold);
-    font-size: 12pt;
-    font-weight: bold;
+.empty-user-list {
+  color: var(--dark-grey);
+  font-size: 12pt;
 }
-.empty-user-list-cart{
-    padding: 15px;
+.empty-user-list-wl {
+  color: var(--gold);
+  font-size: 12pt;
+  font-weight: bold;
 }
-
-
- /* ========= BUTTONS BUTTONS BUTTONS =========== */
-.btn-simple:hover{ background-color: var(--light-grey);}
-.btn-simple{
-    background-color: white;
-    color: var(--med-grey);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
+.empty-user-list-cart {
+  padding: 15px;
 }
 
-.delete-btn-simple:hover{ background-color: var(--light-grey);}
-.delete-btn-simple{
-    font-size: 18pt;
-    font-weight: 400;
-    height: 30px;
-    width: 30px;
-    border-radius: 15px;
+/* ========= BUTTONS BUTTONS BUTTONS =========== */
+.btn-simple:hover {
+  background-color: var(--light-grey);
 }
-.heart-btn-simple:hover{ background-color: var(--light-grey);}
-.heart-btn-simple > *{text-decoration: none;}
-.heart-btn-simple{
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 10pt;
-    height: 24px;
-    /* width: 24px; */
-    border-radius: 11px;
+.btn-simple {
+  background-color: white;
+  color: var(--med-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
 }
 
-.grey-green-btn:hover{ background-color: var(--button-turq-dark);}
-.grey-green-btn{
-    background-color: var(--button-turq);
-    color: white;
-    font-weight: bold;
-    transition: 0.3s
+.delete-btn-simple:hover {
+  background-color: var(--light-grey);
 }
-.grey-btn:hover{ background-color: var(--med-light-grey);}
-.grey-btn{
-    background-color: var(--lightgrey1);
-    color: var(--charcoal);
-    font-weight: bold;
-    transition: 0.3s
+.delete-btn-simple {
+  font-size: 18pt;
+  font-weight: 400;
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+}
+.heart-btn-simple:hover {
+  background-color: var(--light-grey);
+}
+.heart-btn-simple > * {
+  text-decoration: none;
+}
+.heart-btn-simple {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 10pt;
+  height: 24px;
+  /* width: 24px; */
+  border-radius: 11px;
+}
+
+.grey-green-btn:hover {
+  background-color: var(--button-turq-dark);
+}
+.grey-green-btn {
+  background-color: var(--button-turq);
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.grey-btn:hover {
+  background-color: var(--med-light-grey);
+}
+.grey-btn {
+  background-color: var(--lightgrey1);
+  color: var(--charcoal);
+  font-weight: bold;
+  transition: 0.3s;
 }
 .dis:disabled,
-.dis[disabled]{
-    background-color: var(--light-grey);
-    color: var(--lightgrey1);
-    border: 1px solid var(--lightgrey1);
-    font-weight: 700;
-    cursor:default;
+.dis[disabled] {
+  background-color: var(--light-grey);
+  color: var(--lightgrey1);
+  border: 1px solid var(--lightgrey1);
+  font-weight: 700;
+  cursor: default;
 }
 .dis-dark:disabled,
-.dis-dark[disabled]{
-    background-color: var(--charcoal-grey);
-    color: var(--med-light-grey);
-    border: 1px solid var(--med-light-grey);
-    font-weight: 700;
-    cursor:default;
+.dis-dark[disabled] {
+  background-color: var(--charcoal-grey);
+  color: var(--med-light-grey);
+  border: 1px solid var(--med-light-grey);
+  font-weight: 700;
+  cursor: default;
 }
-.black-rectangle-btn{
-    background-color: var(--charcoal-grey);
-    color: white;
-    font-weight: bold;
-    padding: 20px 80px;
+.black-rectangle-btn {
+  background-color: var(--charcoal-grey);
+  color: white;
+  font-weight: bold;
+  padding: 20px 80px;
 }
 
-.hidden{
-    display:none;
+.hidden {
+  display: none;
 }

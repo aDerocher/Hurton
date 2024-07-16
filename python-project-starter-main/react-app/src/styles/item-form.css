@@ -1,127 +1,117 @@
-.item-form-container{
-    /* border: 1px solid blue; */
-    width: 100%;
-    height: 100%;
-    padding: 1.5rem;
-    background-color: var(--light-light-grey);
-    padding-top: 3.5rem;
+.item-form-container {
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--light-light-grey);
+  padding-top: 3.5rem;
 }
 
 .item-form-container > * {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
-.item-form-title{
-    color: var(--med-light-grey)
+.item-form-title {
+  color: var(--med-light-grey);
 }
 
 /* ==== actual form inputs =================== */
 .item-selection-form-inputs > * {
-    margin: 15px 8px;
+  margin: 15px 8px;
 }
 
-
-.all-sizes-cont > * {margin-right: 10px;}
+.all-sizes-cont > * {
+  margin-right: 10px;
+}
 .all-sizes-cont {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-.item-size-box{
-    background-color: rgb(255, 255, 255);
-    padding: 4px;
-    border: 1px solid var(--light-grey);
-    outline: 2px solid rgb(255, 255, 255);
-    
+.item-size-box {
+  background-color: rgb(255, 255, 255);
+  padding: 4px;
+  border: 1px solid var(--light-grey);
+  outline: 2px solid rgb(255, 255, 255);
 }
-.item-size-box:hover{
-    border: 1px solid var(--med-light-grey);
-    outline: 1px solid rgb(255, 255, 255);
+.item-size-box:hover {
+  border: 1px solid var(--med-light-grey);
+  outline: 1px solid rgb(255, 255, 255);
 }
-.item-size-box-radio{
-
+.item-size-box-radio {
 }
-.color-sample-box{
-    height: 5px;
-    width: 100%;
-    /* border: 1px solid blue; */
+.color-sample-box {
+  height: 5px;
+  width: 100%;
+  /* border: 1px solid blue; */
 }
 
 /* === stars ================= */
-.form-stars-row{
-    color: var(--med-grey);
-    align-items: center;
+.form-stars-row {
+  color: var(--med-grey);
+  align-items: center;
 }
-.reviews-counter{
-    margin-right: 10px;
+.reviews-counter {
+  margin-right: 10px;
 }
-
-
 
 /* === BUTTONS ================= */
-.item-form-buttons-cont > *{
-    margin: 5px;
+.item-form-buttons-cont > * {
+  margin: 5px;
 }
 /* .item-form-buttons-sub-cont > *{
     margin: 5px;
 } */
 .item-form-submit-btn {
-    display: flex;
-    flex-grow: 1;
-    padding: 1rem 0;
-    margin-right: 10px;
+  display: flex;
+  flex-grow: 1;
+  padding: 1rem 0;
+  margin-right: 10px;
 }
 
 .item-form-wl-btn {
-    background-color: var(--light-grey);
-    color: var(--charcoal-grey);
-    font-size: 28px;
-    position: relative;
-    width: 35%;
-    transition-duration: 0.7s;
+  background-color: var(--light-grey);
+  color: var(--charcoal-grey);
+  font-size: 28px;
+  position: relative;
+  width: 35%;
+  transition-duration: 0.7s;
 }
 .item-form-wl-btn:after {
-    content: "+ Added to wishlist";
-    background-color: var(--button-turq);
-    font-size: 14px;
-    color: var(--light-grey);
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /* margin-left: -20px;
+  content: "+ Added to wishlist";
+  background-color: var(--button-turq);
+  font-size: 14px;
+  color: var(--light-grey);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* margin-left: -20px;
     margin-top: -50%; */
-    opacity: 0;
-    transition: .8s;
-    transition-delay: .8s;
+  opacity: 0;
+  transition: 0.8s;
+  transition-delay: 0.8s;
 }
 
 .item-form-wl-btn:active:after {
-    opacity: 1;
-    transition: 0s
+  opacity: 1;
+  transition: 0s;
 }
 
 .item-form-wl-btn > * {
-    font-size: 20pt;
+  font-size: 20pt;
 }
 .find-my-size-btn {
-    flex-grow:1;
-    margin: 5px;
-    padding: 1rem 0;
+  flex-grow: 1;
+  margin: 5px;
+  padding: 1rem 0;
 }
 
-
-.item-form-wl-btn2{
-    background-color: var(--light-grey);
-    color: var(--charcoal-grey);
-    font-size: 28px;
-    position: relative;
-    width: 35%;
+.item-form-wl-btn2 {
+  background-color: var(--light-grey);
+  color: var(--charcoal-grey);
+  font-size: 28px;
+  position: relative;
+  width: 35%;
 }
-
-
-
-
-
-

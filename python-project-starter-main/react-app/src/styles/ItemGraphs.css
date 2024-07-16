@@ -1,53 +1,49 @@
-.graphs-container{
-    /* border: 1px solid rgb(0, 0, 0); */
-    width: 38%;
-    overflow: hidden;
-    margin: 40px 5%;
+.graphs-container {
+  /* border: 1px solid rgb(0, 0, 0); */
+  width: 38%;
+  overflow: hidden;
+  margin: 40px 5%;
 }
 
 /* ============ Graph Topper ===================== */
-.graphs-topper{
-    margin: 0 5%;
-    margin-top: 20px;
-    
+.graphs-topper {
+  margin: 0 5%;
+  margin-top: 20px;
 }
 /* ============ Img Container ===================== */
-.item-graph{
-    /* border: 1px solid greenyellow; */
-    margin-top: 10px;
-    height: 80px;
-    display: flex;
-    align-items: flex-end;
+.item-graph {
+  /* border: 1px solid greenyellow; */
+  margin-top: 10px;
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
 }
-#graph-1{
+#graph-1 {
 }
-#graph-2{
-    margin-top: 15px;
+#graph-2 {
+  margin-top: 15px;
 }
 /* ============ Img attr ===================== */
-.triangles-img{
-    height: 100%;
-    /* border: 2px solid rgb(173, 151, 27) */
+.triangles-img {
+  height: 100%;
+  /* border: 2px solid rgb(173, 151, 27) */
 }
-.graphs-descriptor{
-    margin: 40px 5%;
-    /* border: 1px solid blue; */
-    width: 48%;
-    color: var(--med-grey);
-    line-height: 24px;
-    font-size: 16px;
+.graphs-descriptor {
+  margin: 40px 5%;
+  /* border: 1px solid blue; */
+  width: 48%;
+  color: var(--med-grey);
+  line-height: 24px;
+  font-size: 16px;
 }
 /* ============ Graph Labels ===================== */
-.graph-label{
-    color: grey;
-    font-style: italic;
-    font-size: 10pt;
+.graph-label {
+  color: grey;
+  font-style: italic;
+  font-size: 10pt;
 }
-.graph-labels-top{
-    border-top: 1px solid var(--graph-turq);
-    justify-content: space-between;
-    padding: 5px 10%;
+.graph-labels-top {
+  border-top: 1px solid var(--graph-turq);
+  justify-content: space-between;
+  padding: 5px 10%;
 }
-
-
-

@@ -1,72 +1,73 @@
 /* boxes and general layout*/
-.all-reviews-container{
-    border: 1px solid blue;
-    margin-bottom: 3rem;
+.all-reviews-container {
+  border: 1px solid blue;
+  margin-bottom: 3rem;
 }
-.review-container{
-    /* border: 1px solid blue; */
-    width: 70%;
-    margin: auto;
-    padding: 1.5rem 0;
-    color: var(--med-light-grey);
-    border-bottom: 1px solid var(--light-grey);
+.review-container {
+  /* border: 1px solid blue; */
+  width: 70%;
+  margin: auto;
+  padding: 1.5rem 0;
+  color: var(--med-light-grey);
+  border-bottom: 1px solid var(--light-grey);
 }
-.pad-1{
-    padding: 1rem;
+.pad-1 {
+  padding: 1rem;
 }
-.rev-info-cont{
-    justify-content: space-between;
+.rev-info-cont {
+  justify-content: space-between;
 }
-.rev-name-stars{
-    padding: 6px;
+.rev-name-stars {
+  padding: 6px;
 }
 
 /* text items*/
-.rev-title{
-    font-weight: bold;
-    padding: 3px;
+.rev-title {
+  font-weight: bold;
+  padding: 3px;
 }
 .new-rev-title {
-    margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-.rev-content{
-    padding: 3px;
-    overflow-wrap: break-word;
+.rev-content {
+  padding: 3px;
+  overflow-wrap: break-word;
 }
-.rev-user-circle{ color: white; font-weight: bold; font-size: 14pt}
-.rev-user-circle{
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    background-color: var(--dark-grey);
-    justify-content: center;
-    align-items: center;
+.rev-user-circle {
+  color: white;
+  font-weight: bold;
+  font-size: 14pt;
+}
+.rev-user-circle {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color: var(--dark-grey);
+  justify-content: center;
+  align-items: center;
 }
 
 /* ===== New Review Form ====================== */
-.rev-input{
-    padding: 12px;
-    outline: none;
-    border: 2px solid var(--lightgrey1);
-    border-radius: 3px;
-    margin: 6px;
-    max-width: 60%;
-    font-family: Arial, Helvetica, sans-serif;
+.rev-input {
+  padding: 12px;
+  outline: none;
+  border: 2px solid var(--lightgrey1);
+  border-radius: 3px;
+  margin: 6px;
+  max-width: 60%;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.rev-rating-num{
-    max-width: 10%;
+.rev-rating-num {
+  max-width: 10%;
 }
 /* ===== Buttons =============== */
-.review-option-buttons{
-    padding: 3px .5rem;
+.review-option-buttons {
+  padding: 3px 0.5rem;
 }
 .review-option-buttons > button {
-    margin-right: 1rem;
-    padding: 4px 20px;
+  margin-right: 1rem;
+  padding: 4px 20px;
 }
-.stars-row{
-    padding-top: 5px;
+.stars-row {
+  padding-top: 5px;
 }
-
-
-
