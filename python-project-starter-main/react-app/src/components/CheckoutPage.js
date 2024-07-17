@@ -29,7 +29,7 @@ const CheckoutPage = (subtotalParams) => {
     let cartStorage = window.localStorage;
     let ls_cart = cartStorage.getItem("cart");
     // is there a cart with items in it...?
-    if (ls_cart !== null && ls_cart !== {}) {
+    if (ls_cart !== null) {
       // put those in an array, and return as cart
       ls_cart = JSON.parse(ls_cart);
       let newCart = [];

@@ -1,10 +1,11 @@
 import React from "react";
 import "./../styles/about.css";
+import "./../styles/splash-page.css";
 
 function About() {
   return (
     <div className="splash-page-container">
-      <div className="splash-photo-container-about">
+      <div className="splash-photo-container splash-photo-container-about">
         <h2 className="splash-title">
           Hurton' for a new <br />
           full stack developer?{" "}

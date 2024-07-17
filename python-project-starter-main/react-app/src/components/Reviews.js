@@ -11,7 +11,6 @@ const Reviews = (revData) => {
   const review = revData.review;
   const user = revData.user;
   const itemId = parseInt(params.itemId);
-  const five = [1, 2, 3, 4, 5];
 
   const [editHidden, setEditHidden] = useState(true);
   const [hideRevEditErrors, setHideRevEditErrors] = useState(true);
@@ -80,7 +79,7 @@ const Reviews = (revData) => {
               <div className="rev-name-stars">
                 <p>Anonymous Verified Buyer</p>
                 <div className="stars-row flex-row-cont">
-                  {five.map((n, i) => (
+                  {[1, 2, 3, 4, 5].map((n, i) => (
                     <div key={i} className="">
                       {n <= review.rating && <i className="fas fa-star"></i>}
                       {n > review.rating && <i className="far fa-star"></i>}

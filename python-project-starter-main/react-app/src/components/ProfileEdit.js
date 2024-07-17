@@ -16,7 +16,12 @@ function ProfileEdit(props) {
   const [newAddress, setNewAddress] = useState(sessionUser?.address);
   const [showErrors, setShowErrors] = useState(false);
   const [errors, setErrors] = useState([]);
+
   useEffect(() => {
+    setErrors(formErrors());
+  }, [newFirstName, newLastName, newAddress]);
+
+  const formErrors = () => {
     let newErrors = [];
     if (newFirstName.length < 2) newErrors.push("First Name must be longer");
     if (newFirstName.length > 50) newErrors.push("First Name must be shorter");
@@ -26,8 +31,8 @@ function ProfileEdit(props) {
       newErrors.push("Address must be longer");
     if (newAddress?.length > 50)
       newErrors.push("Address cannot exceed 50 characters");
-    setErrors(newErrors);
-  }, [newFirstName, newLastName, newAddress]);
+    return newErrors;
+  }
 
   // If the user doesn't enter anything in a field, make sure attr stays the same
   // TODO: refactoring. this could probably be handled on the backend more effectively
@@ -42,9 +47,7 @@ function ProfileEdit(props) {
   const updateUser = (e) => {
     e.preventDefault();
     setShowErrors(true);
-    if (errors.length > 0) {
-      return;
-    }
+    if (errors.length > 0) return
     if (
       newFirstName === sessionUser.firstName &&
       newLastName === sessionUser.lastName &&

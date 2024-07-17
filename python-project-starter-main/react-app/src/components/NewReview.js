@@ -15,6 +15,10 @@ const NewReview = (data) => {
   const [revRating, setRevRating] = useState(5);
 
   useEffect(() => {
+    setRevErrors(formErrors());
+  }, [dispatch, revRating, revTitle, revContent]);
+
+  const formErrors = () => {
     let newErrors = [];
     if (revRating > 5 || revRating < 1)
       newErrors.push("Rating must be between 1 and 5");
@@ -26,8 +30,8 @@ const NewReview = (data) => {
       newErrors.push("Review title must be at least 2 characters");
     if (revContent.length > 400)
       newErrors.push("Review title can not exceed 400 characters");
-    setRevErrors(newErrors);
-  }, [dispatch, revRating, revTitle, revContent]);
+    return newErrors;
+  }
 
   const handleReviewSubmit = (e) => {
     e.preventDefault();

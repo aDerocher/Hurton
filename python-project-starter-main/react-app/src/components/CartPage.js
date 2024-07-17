@@ -14,7 +14,7 @@ const CartPage = () => {
   // However, if the cart is empty => check local storage for a cart
   if (cart?.length === 0) {
     let ls_cart = localStorage.getItem("cart");
-    if (ls_cart !== null && ls_cart !== {}) {
+    if (ls_cart !== null) {
       // if cart is in localstorage, set cart to array of these items
       ls_cart = JSON.parse(ls_cart);
       let newCart = [];
@@ -27,6 +27,7 @@ const CartPage = () => {
 
   // get all cart items into the state ==============
   const [subtotal, setSubtotal] = useState(0);
+
   useEffect(() => {
     if (sessionUser) {
       dispatch(getCartItems(sessionUser?.id));
@@ -71,12 +72,9 @@ const CartPage = () => {
   // handle the quantity change of a cart item =======================
   const handleQuantChange = (e, cartItem, newQuant) => {
     e.preventDefault();
-    if (sessionUser) {
-      dispatch(editCartItem(cartItem.id, newQuant));
-    } else {
-      updateLSCartItem(cartItem, "quantity", newQuant);
-      // dispatch()
-    }
+    sessionUser ? dispatch(editCartItem(cartItem.id, newQuant)) 
+      : updateLSCartItem(cartItem, "quantity", newQuant);
+    
   };
 
   // handle the quantity change of a cart item in local storage =======================
