@@ -23,16 +23,14 @@ function ProfileOrderHist() {
   // Add item to cart (from wishlist)
   const wishlistToCart = (e, wl_item) => {
     e.preventDefault();
-    //check if cart item exists
-    let exists = userCart.filter((item) => {
+    // if cart item already exists, notify user
+    if (userCart.filter((item) => {
       return (
         wl_item.item_id === item.item_id &&
         wl_item.item_color === item.item_color &&
         wl_item.item_size === item.item_size
       );
-    });
-    // if so, notify user its already there
-    if (exists.length > 0) {
+    }).length > 0) {
       alert("Item already in cart :)");
       return;
     }
